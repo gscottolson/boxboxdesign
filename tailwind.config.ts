@@ -18,6 +18,9 @@ const config: Config = {
           title: "#32545B",
         },
         copy: "#32545B",
+        dialog: {
+          backdrop: "rgb(214 221 223 / 0.8)",
+        }
       },
     },
     keyframes: {
