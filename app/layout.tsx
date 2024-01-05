@@ -10,7 +10,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${outfit.className} antialiased bg-page`}>{children}</body>
+      <body className={`${outfit.className} antialiased bg-page min-h-dvh`} id="site-body">
+        {children}
+        <div id="modal-root"/>
+      </body>
     </html>
   );
 }
