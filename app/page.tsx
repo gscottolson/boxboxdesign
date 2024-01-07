@@ -6,10 +6,9 @@ import Logo from './ui/logo';
 
 export default function Page() {
   return (
-    <main className="flex min-h-screen flex-col p-6 bg-page">
-      <div className="roundedLg flex h-full shrink-0 grow content-center justify-center p-4">
+    <main className="flex h-vh w-vw flex-col p-6 bg-white200">
         <Logo width={200} height="auto" />
-      </div>
+        <Link href="/iracing/2024s1/road/">Road</Link>
     </main>
   );
 }

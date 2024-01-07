@@ -1,2 +1,2 @@
 import {Outfit} from 'next/font/google';
-export const outfit = Outfit({ subsets: ['latin'], weight: ['300', '600']});
+export const outfit = Outfit({ subsets: ['latin'], weight: 'variable'});

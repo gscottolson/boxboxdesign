@@ -1,9 +1,8 @@
 
-import {OfficialSeries, getRoadSeries} from '../../schedule-list'
+import {OfficialSeries, getRoadSeriesById} from '@/app/iracing/schedule-list'
 
 export default function Page({params}: {params: {id: string}}) {
-    const series: OfficialSeries | null = getRoadSeries(params.id)
-    console.log(series)
+    const series: OfficialSeries | null = getRoadSeriesById(params.id)
     return (
          <div className="h-dvh w-full">
             {series !== null && series.seriesId}
