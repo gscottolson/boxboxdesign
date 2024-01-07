@@ -21,7 +21,7 @@ export function Nav({active}: {active: string}) {
   );
 }
 
-export function Grid2({ seriesArray }: { seriesArray: OfficialSeries[] }) {
+export function Grid({ seriesArray }: { seriesArray: OfficialSeries[] }) {
     return (
         <div className="grid gap-2 grid-cols-2 sm:grid-cols-3 xl:grid-cols-4">
             {seriesArray.map((series, index) => (
