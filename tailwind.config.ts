@@ -8,19 +8,14 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      gridTemplateColumns: {
-        '13': 'repeat(13, minmax(0, 1fr))',
-      },
       colors: {
-        page: {
-          DEFAULT: "#EBEBEB",
-          bg: "#D6DDDF",
-          title: "#32545B",
-        },
-        copy: "#32545B",
-        dialog: {
-          backdrop: "rgb(214 221 223 / 0.8)",
-        }
+        white100: "#F5F5F5",
+        white200: "#EBEBEB",
+        white300: "#D6DDDF",
+        gray700: "#5D6C6F",
+        teal800: "#32545B",
+        blue800: "2B3C59",
+        backdrop: "rgb(214 221 223 / 0.8)",
       },
     },
     keyframes: {

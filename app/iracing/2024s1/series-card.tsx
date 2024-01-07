@@ -6,25 +6,27 @@ import Link from 'next/link';
 interface SeriesCardProps {
   series: OfficialSeries
   priority: boolean
-  onClick?: () => void
 }
 
 export function SeriesCard(props: SeriesCardProps) {
-  let color = "";
-
-  switch(props.series.licenseClass) {
-    case 'Rookie': color = "border-[#92342E]"; break;
-    case 'D': color = "border-[#F98406]"; break;
-    case 'C': color = "border-[#D3A400]"; break;
-    case 'B': color = "border-[#3C6D56]"; break;
-    default: color = "border-[#315187]";
+  const borderColor = {
+    Rookie: 'border-[#92342E]',
+    D: "border-[#F98406]",
+    C: "border-[#D3A400]",
+    B: "border-[#3C6D56]",
+    A: "border-[#315187]",
   }
 
   return (
-      <Link href={`/iracing/series/${props.series.seriesId}`} passHref scroll={false}>
-        <div className="text-copy bg-white" onClick={props.onClick}>
-          {props.series.url || props.series.src ? <PosterImage series={props.series} priority={props.priority} /> : <PosterPlaceholder />}
-          <div className={`border-t-4 ${color} min-h-[92px] flex flex-col place-content-center`}>
+      <Link href={props.series.seriesId ? `/iracing/series/${props.series.seriesId}` : ''} passHref scroll={false}>
+        <div className="teal800 bg-white" style={{opacity: props.series.pdf?.endsWith('pdf') ? 1 : 0.2}}>
+          {props.series.src ? 
+            <PosterImage series={props.series} priority={props.priority} /> :
+            <div className="bg-white300 text-[#999] shadow-inner w-full flex align-middle justify-center leading-loose p-4">
+              Coming soon
+            </div>
+          }
+          <div className={`border-t-4 ${borderColor[props.series.licenseClass]} min-h-[92px] flex flex-col place-content-center`}>
             <h2 className="p-2 leading-5 text-center basis-full">
               <Balancer>{props.series.name}</Balancer>
             </h2>
@@ -46,13 +48,5 @@ function PosterImage(props: {series: OfficialSeries, priority: boolean}) {
           priority={props.priority}
         />
       </div>
-  )
-}
-
-function PosterPlaceholder() {
-  return (
-    <div className="bg-page text-[#999] overflow-hidden shadow-inner shado w-full flex align-middle justify-center leading-loose p-4">
-      Coming soon
-    </div>
   )
 }

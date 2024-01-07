@@ -10,9 +10,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${outfit.className} antialiased bg-page min-h-dvh`} id="site-body">
+      <body className={`${outfit.className} antialiased bg-white300 h-dvh w-dvw relative`} id="site-body">
         {children}
-        <div id="modal-root"/>
+        <div id="modal-root" />
       </body>
     </html>
   );
