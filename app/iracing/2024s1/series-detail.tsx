@@ -51,7 +51,7 @@ export function SeriesDetail(props: { seriesId: string }) {
 
   return (
       <div className="flex h-full w-full">
-        <div className="flex shrink-0 basis-[480px] flex-col place-content-center bg-white100 text-center">
+        <div className="flex h-[640px] w-[480px] basis-[480px] shrink-0 grow-0 place-content-center bg-white100 text-center">
           {!isError && (
             <div style={{ opacity: documentState === 'loading' ? 0.01 : 1 }}>
               <Document
@@ -70,7 +70,7 @@ export function SeriesDetail(props: { seriesId: string }) {
           )}
 
           {isError && (
-            <div>
+            <div className="flex flex-col h-full justify-center">
               <p className="text-2xl mb-4 font-semibold antialiased">“Box this lap!”</p>
               <p className="text-sm uppercase tracking-widest">PDF failed to load</p>
             </div>
@@ -104,7 +104,7 @@ export function SeriesDetail(props: { seriesId: string }) {
                 <span className="font-medium uppercase text-white100 pr-4">Download PDF</span> <Download />
               </a>
             </span>
-            <div className="basis-full bg-white200 self-stretch">
+            <div className="basis-[272px] w-[256px] bg-white200 self-stretch">
               <svg ref={inputRef} className="barcode block" />
             </div>
           </div>

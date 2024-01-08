@@ -3,9 +3,9 @@ import { Back } from '../../2024s1/icons';
 import { SeriesDetail } from '../../2024s1/series-detail';
 import { LogoHorizontal } from '@/app/ui/logo';
 import { getRoadSeriesById } from '../../schedule-list';
-import { Router } from 'next/router';
+import { Metadata } from 'next';
 
-export function generateMetadata({ params }: { params: { id: string } }) {
+export function generateMetadata({ params }: { params: { id: string } }): Metadata {
   const series = getRoadSeriesById(params.id);
   return {
     title: series.name,

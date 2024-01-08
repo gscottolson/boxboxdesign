@@ -1,3 +1,12 @@
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: {
+    template: '%s | iRacing 2024 S1 Schedule Posters',
+    default: 'iRacing 2024 S1 Schedule Posters', // a default is required when creating a template
+  },
+}
+
 export default function Layout(props: {
   children: React.ReactNode
   modal: React.ReactNode
