@@ -1,16 +1,14 @@
 export function LogoHorizontal({
   width,
-  height = 'auto',
   filled = false,
 }: {
   width: number;
-  height?: number | 'auto';
   filled?: boolean;
 }): React.ReactNode {
   return (
     <svg
       width={width}
-      height={height}
+      height={width * 270 / 999}
       viewBox="0 0 999 270"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

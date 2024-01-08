@@ -1,6 +1,6 @@
 'use client';
 
-import { getRoadSeriesById } from '@/app/iracing/schedule-list';
+import { getSeriesById } from '@/app/iracing/schedule-list';
 import { Document, Page as PDFPage, Thumbnail } from 'react-pdf';
 import { pdfjs } from 'react-pdf';
 import React, { useCallback, useState } from 'react';
@@ -20,7 +20,7 @@ pdfjs.GlobalWorkerOptions.workerSrc = new URL(
 ).toString();
 
 export function SeriesDetail(props: { seriesId: string }) {
-  const series = getRoadSeriesById(props.seriesId);
+  const [series] = getSeriesById(props.seriesId);
   const [documentState, setDocumentState] = useState<DocumentState>('loading');
 
   const { inputRef } = useBarcode<HTMLImageElement>({value: ` ${series.seriesId} ` || '',options: barCodeOptions});
@@ -70,9 +70,9 @@ export function SeriesDetail(props: { seriesId: string }) {
           )}
 
           {isError && (
-            <div className="flex flex-col h-full justify-center">
+            <div className="flex flex-col h-full justify-center text-gray700">
               <p className="text-2xl mb-4 font-semibold antialiased">“Box this lap!”</p>
-              <p className="text-sm uppercase tracking-widest">PDF failed to load</p>
+              <p className="text-sm uppercase tracking-widest">Site error: PDF failed to load</p>
             </div>
           )}
         </div>
@@ -92,14 +92,14 @@ export function SeriesDetail(props: { seriesId: string }) {
 
           <div className="flex flex-col items-start">
             <span
-              className="mb-8 inline-block drop-shadow-md"
+              className="mb-8 inline-block rounded-lg shadow-lg overflow-hidden active:scale-95"
               style={isError ? disabledDownload : enabledDownload}
             >
               <a
                 href={series.pdf}
                 target="__blank"
                 rel="noopener"
-                className={`inline-flex place-content-center px-6 py-3 ${downloadClass} rounded-lg text-center focus:ring-2  focus:ring-black  focus:ring-offset-4  focus:ring-offset-[#D6DDDF]`}
+                className={`inline-flex place-content-center px-6 py-3 ${downloadClass} text-center focus:ring-2  focus:ring-black  focus:ring-offset-4  focus:ring-offset-[#D6DDDF]`}
               >
                 <span className="font-medium uppercase text-white100 pr-4">Download PDF</span> <Download />
               </a>
@@ -117,14 +117,12 @@ const disabledDownload: React.CSSProperties = {
   pointerEvents: 'none',
   filter: 'grayscale(90%)',
   opacity: 0.3,
-  transition: 'opacity 200ms ease-out, filter 200ms ease-out',
 };
 
 const enabledDownload: React.CSSProperties = {
   pointerEvents: 'auto',
   filter: 'none',
   opacity: 1,
-  transition: 'opacity 200ms ease-out, filter 200ms ease-out',
 };
 
 const barCodeOptions = {

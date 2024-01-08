@@ -2,18 +2,18 @@ import Link from 'next/link';
 import { Back } from '../../2024s1/icons';
 import { SeriesDetail } from '../../2024s1/series-detail';
 import { LogoHorizontal } from '@/app/ui/logo';
-import { getRoadSeriesById } from '../../schedule-list';
+import { getSeriesById } from '../../schedule-list';
 import { Metadata } from 'next';
 
 export function generateMetadata({ params }: { params: { id: string } }): Metadata {
-  const series = getRoadSeriesById(params.id);
+  const [series] = getSeriesById(params.id);
   return {
     title: series.name,
   };
 }
 
 export default function Page({ params }: { params: { id: string } }) {
-  const series = getRoadSeriesById(params.id);
+  const [series] = getSeriesById(params.id);
   if (series.isEmpty) {
     return <p>404</p>;
   }
@@ -42,7 +42,7 @@ function Credits(): React.ReactNode {
     <div className="flex place-content-center gap-4 uppercase tracking-[.3em] text-gray700">
       <span>Brought to you by </span>
       <Link href="/" target="_blank">
-        <LogoHorizontal width={200} height="auto" />
+        <LogoHorizontal width={200} />
       </Link>
       <span>Established 2023</span>
     </div>
