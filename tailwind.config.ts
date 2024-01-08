@@ -15,7 +15,7 @@ const config: Config = {
         gray700: '#5D6C6F',
         teal800: '#32545B',
         blue800: '#2B3C59',
-        backdrop: 'rgb(94 118 159 / 0.7)',
+        backdrop: 'rgb(215 221 223 / 0.8)',
       },
       height: {
         pdf: '640px',
