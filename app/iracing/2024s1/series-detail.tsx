@@ -43,7 +43,7 @@ export function SeriesDetail(props: { seriesId: string }) {
   }
 
   return (
-      <div className="flex h-full w-full">
+      <div className="flex h-full w-full box-content border-[.5px] border-[rgba(90,90,90,0.15)]">
         <div className="flex h-pdf w-pdf shrink-0 grow-0 place-content-center bg-white100 text-center">
             <Document
               file={series.pdf}
