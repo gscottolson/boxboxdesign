@@ -4,9 +4,10 @@ export interface OfficialSeries {
     licenseClass: "Rookie" | "D" | "C" | "B" | "A"
     pdf?: string
     src?: string
+    isEmpty?: boolean
 }
 
-const EMPTY: OfficialSeries = {seriesId: '', name: 'NOT FOUND', licenseClass: 'Rookie', pdf: '', src: ''}
+const EMPTY: OfficialSeries = {seriesId: '', name: 'NOT FOUND', licenseClass: 'Rookie', pdf: '', src: '', isEmpty: true}
 
 export function getRoadSeriesById(id: string): OfficialSeries {
     return iRacing2024S1RoadSeries.find((seriesObj) =>seriesObj.seriesId == id) || EMPTY
