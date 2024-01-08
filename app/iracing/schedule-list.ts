@@ -125,7 +125,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
   },
   {
     seriesId: '4575',
-    name: 'Global Fanatec Challenge',
+    name: 'Global Fanatec Challenge Fixed',
     src: '/iracing/png/2024s1/GlobalFanatec.png',
     licenseClass: 'D',
     pdf: '/iracing/pdf/2024s1-road/FanatecFixed.pdf',
@@ -140,9 +140,9 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
   {
     seriesId: '4562',
     name: 'Clio Cup Fixed',
-    src: '/iracing/png/2024s1/ClioCup.png',
+    src: '/iracing/png/2024s1/ClioCupFixed.png',
     licenseClass: 'D',
-    pdf: '/iracing/pdf/2024s1-road/ClioCup.pdf',
+    pdf: '/iracing/pdf/2024s1-road/ClioCupFixed.pdf',
   },
   {
     seriesId: '4567',
@@ -237,14 +237,14 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
   },
   {
     seriesId: '4608',
-    name: 'iRacing Porsche Cup Fixed',
+    name: 'iRacing Porsche Cup by Coach Dave Delta Fixed',
     src: '/iracing/png/2024s1/PorscheCupFixed.png',
     licenseClass: 'C',
     pdf: '/iracing/pdf/2024s1-road/iRacingPorscheCupFixed.pdf',
   },
   {
     seriesId: '4607',
-    name: 'iRacing Porsche Cup',
+    name: 'iRacing Porsche Cup by Coach Dave Delta',
     src: '/iracing/png/2024s1/PorscheCup.png',
     licenseClass: 'C',
     pdf: '/iracing/pdf/2024s1-road/iRacingPorscheCup.pdf',
@@ -272,7 +272,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
   },
   {
     seriesId: '4589',
-    name: 'IMSA Michelin Pilot Challenge Series',
+    name: 'IMSA Michelin Pilot Challenge',
     src: '/iracing/png/2024s1/IMSAPilot.png',
     licenseClass: 'C',
     pdf: '/iracing/pdf/2024s1-road/IMSAPilot.pdf',
@@ -301,7 +301,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
   {
     seriesId: '4617',
     name: 'Classic Lotus Grand Prix',
-    src: '/iracing/png/2024s1/ClassicLotus.png',
+    src: '/iracing/png/2024s1/LotusGP.png',
     licenseClass: 'C',
     pdf: '/iracing/pdf/2024s1-road/LotusGP.pdf',
   },
@@ -586,14 +586,14 @@ export const iRacing2024S1OvalSeries: OfficialSeries[] = [
 
   {
     seriesId: '4611',
-    name: 'NASCAR Class B Fixed',
+    name: 'NASCAR Class B Series Fixed',
     src: '/iracing/png/2024s1/NascarBFixed.png',
     licenseClass: 'B',
     pdf: '/iracing/pdf/2024s1-oval/NASCARBFixed.pdf',
   },
   {
     seriesId: '4672',
-    name: 'NASCAR iRacing Class B',
+    name: 'NASCAR iRacing Class B Series',
     src: '/iracing/png/2024s1/NascarB.png',
     licenseClass: 'B',
     pdf: '/iracing/pdf/2024s1-oval/NASCARB.pdf',
@@ -601,7 +601,7 @@ export const iRacing2024S1OvalSeries: OfficialSeries[] = [
   {
     seriesId: '4597',
     name: 'NASCAR Legends Series',
-    src: '/iracing/png/2024s1/NascarLegends.png',
+    src: '/iracing/png/2024s1/NascarLegendsFixed.png',
     licenseClass: 'B',
     pdf: '/iracing/pdf/2024s1-oval/NASCARLegendsFixed.pdf',
   },
@@ -622,14 +622,14 @@ export const iRacing2024S1OvalSeries: OfficialSeries[] = [
 
   {
     seriesId: '4628',
-    name: 'NASCAR Class A Fixed',
+    name: 'NASCAR Class A Series Fixed',
     src: '/iracing/png/2024s1/NascarAFixed.png',
     licenseClass: 'A',
     pdf: '/iracing/pdf/2024s1-oval/NASCARAFixed.pdf',
   },
   {
     seriesId: '4627',
-    name: 'NASCAR Class A',
+    name: 'NASCAR Class A Series',
     src: '/iracing/png/2024s1/NascarA.png',
     licenseClass: 'A',
     pdf: '/iracing/pdf/2024s1-oval/NASCARA.pdf',
