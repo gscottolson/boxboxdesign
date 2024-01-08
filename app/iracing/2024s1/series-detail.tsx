@@ -21,8 +21,6 @@ pdfjs.GlobalWorkerOptions.workerSrc = new URL(
 
 export function SeriesDetail(props: { seriesId: string }) {
   const [series] = getSeriesById(props.seriesId);
-  const [documentState, setDocumentState] = useState<DocumentState>('loading');
-
   const { inputRef } = useBarcode<HTMLImageElement>({value: ` ${series.seriesId} ` || '',options: barCodeOptions});
 
   let downloadClass = '';
@@ -44,42 +42,27 @@ export function SeriesDetail(props: { seriesId: string }) {
       downloadClass = 'bg-[#315187]';
   }
 
-  const handleError = useCallback(() => setDocumentState('error'), []);
-  const handleSuccess = useCallback(() => setDocumentState('success'), []);
-
-  const isError = documentState === 'error';
-
   return (
       <div className="flex h-full w-full">
-        <div className="flex h-[640px] w-[480px] basis-[480px] shrink-0 grow-0 place-content-center bg-white100 text-center">
-          {!isError && (
-            <div style={{ opacity: documentState === 'loading' ? 0.01 : 1 }}>
-              <Document
-                file={series.pdf}
-                // className="h-[640px] w-[480px]"
-                onLoadError={handleError}
-                onLoadSuccess={handleSuccess}
-              >
-                <Thumbnail
-                  pageNumber={1}
-                  height={pdfHeight}
-                  className="block"
-                />
-              </Document>
-            </div>
-          )}
-
-          {isError && (
-            <div className="flex flex-col h-full justify-center text-gray700">
-              <p className="text-2xl mb-4 font-semibold antialiased">“Box this lap!”</p>
-              <p className="text-sm uppercase tracking-widest">Site error: PDF failed to load</p>
-            </div>
-          )}
+        <div className="flex h-pdf w-pdf shrink-0 grow-0 place-content-center bg-white100 text-center">
+            <Document
+              file={series.pdf}
+              className="h-pdf w-pdf"
+              loading={<PDFLoading />}
+              noData={<PDFError />}
+              error={<PDFError />}
+            >
+              <Thumbnail
+                pageNumber={1}
+                height={pdfHeight}
+                width={pdfWidth}
+              />
+            </Document>
         </div>
 
         <div className="flex basis-full flex-col justify-between px-6 text-teal800 antialiased">
           <header className="pt-16">
-            <h3 className="font-semilight teal800 mb-2 text-3xl tracking-tight">
+            <h3 className="font-semilight teal800 mb-2 pr-2 text-3xl tracking-tight">
               <Balancer>{series.name}</Balancer>
             </h3>
             <h4 className="text-l mb-1 font-medium uppercase leading-tight tracking-widest text-gray700">
@@ -93,7 +76,7 @@ export function SeriesDetail(props: { seriesId: string }) {
           <div className="flex flex-col items-start">
             <span
               className="mb-8 inline-block rounded-lg shadow-lg overflow-hidden active:scale-95"
-              style={isError ? disabledDownload : enabledDownload}
+              // style={isError ? disabledDownload : enabledDownload}
             >
               <a
                 href={series.pdf}
@@ -136,4 +119,21 @@ const barCodeOptions = {
     marginLeft: 27,
     marginRight: 27,
     marginBottom: 32,
+}
+
+function PDFError(): React.ReactNode {
+  return (
+    <div className="flex flex-col h-pdf w-pdf justify-center text-gray700 bg-cover bg-[url('/iracing/poster-loading.png')]">
+      <p className="text-2xl mb-4 font-semibold antialiased">“Box this lap!”</p>
+      <p className="text-sm uppercase tracking-widest">Site error: PDF failed to load</p>
+    </div>
+  )
+}
+
+function PDFLoading(): React.ReactNode {
+  return (
+    <div className="flex flex-col h-pdf w-pdf justify-center text-gray700 bg-cover bg-[url('/iracing/poster-loading.png')]">
+      <p className="text-sm uppercase tracking-widest">PDF loading...</p>
+    </div>
+  )
 }

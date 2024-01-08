@@ -9,13 +9,19 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        white100: "#F5F5F5",
-        white200: "#EBEBEB",
-        white300: "#D6DDDF",
-        gray700: "#5D6C6F",
-        teal800: "#32545B",
-        blue800: "#2B3C59",
-        backdrop: "rgb(94 118 159 / 0.7)",
+        white100: '#F5F5F5',
+        white200: '#EBEBEB',
+        white300: '#D6DDDF',
+        gray700: '#5D6C6F',
+        teal800: '#32545B',
+        blue800: '#2B3C59',
+        backdrop: 'rgb(94 118 159 / 0.7)',
+      },
+      height: {
+        pdf: '640px',
+      },
+      width: {
+        pdf: '480px',
       },
     },
     keyframes: {
