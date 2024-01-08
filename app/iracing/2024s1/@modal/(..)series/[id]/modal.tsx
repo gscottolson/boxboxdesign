@@ -5,6 +5,7 @@ import { useLayoutEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import useLockBodyScroll from '@/app/useLockBodyScroll';
 import { createPortal } from 'react-dom';
+import { Close } from '../../../icons';
 
 export function Modal({ children }: { children: React.ReactNode }) {
   const router = useRouter();
@@ -33,10 +34,8 @@ export function Modal({ children }: { children: React.ReactNode }) {
         className="flex w-full md:w-[800px] h-[640px] relative shadow-2xl backdrop:bg-backdrop bg-white300"
       >
         {children}
-        <button onClick={onDismiss} className="absolute top-0 right-0 size-[64px] p-[16px] text-center">
-          <svg className="inline-block" width="20" height="20" viewBox="0 0 57 57" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M52.7598 4.69434L4.75977 52.6943M4.75977 4.69434L52.7598 52.6943" stroke="#32545B" strokeWidth="8" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
+        <button onClick={onDismiss} className="absolute top-3 right-3 rounded-md p-2 text-center focus:ring-2 focus:ring-black focus:ring-offset-4 focus:ring-offset-[#D6DDDF]">
+          <Close />
         </button>
       </dialog>
     </div>,
