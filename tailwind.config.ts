@@ -14,7 +14,7 @@ const config: Config = {
         white300: "#D6DDDF",
         gray700: "#5D6C6F",
         teal800: "#32545B",
-        blue800: "2B3C59",
+        blue800: "#2B3C59",
         backdrop: "rgb(214 221 223 / 0.8)",
       },
     },
