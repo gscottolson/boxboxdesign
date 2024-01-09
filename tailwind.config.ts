@@ -17,6 +17,11 @@ const config: Config = {
         teal800: '#32545B',
         blue800: '#2B3C59',
         backdrop: 'rgb(215 221 223 / 0.8)',
+        rookie: '#92342E',
+        classD: '#F98406',
+        classC: '#D3A400',
+        classB: '#3C6D56',
+        classA: '#315187',
       },
       height: {
         pdf: '640px',
@@ -25,6 +30,9 @@ const config: Config = {
       width: {
         pdf: '480px',
         card: '240px',
+      },
+      scale: {
+        card: '0.992',
       },
     },
     keyframes: {
