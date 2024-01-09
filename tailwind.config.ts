@@ -12,6 +12,7 @@ const config: Config = {
         white100: '#F5F5F5',
         white200: '#EBEBEB',
         white300: '#D6DDDF',
+        white400: '#C9D2D5',
         gray700: '#5D6C6F',
         teal800: '#32545B',
         blue800: '#2B3C59',
