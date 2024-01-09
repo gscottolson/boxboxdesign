@@ -25,7 +25,7 @@ export default function Page({ params }: { params: { id: string } }) {
         <SeriesDetail seriesId={params.id} />
       </div>
 
-      <div className="flex justify-between pt-8 px-4 text-blue800">
+      <div className="flex justify-between pt-8 px-4 text-blue800 subpixel-antialiased">
         <BackLink />
         <Credits />
       </div>
@@ -36,7 +36,7 @@ export default function Page({ params }: { params: { id: string } }) {
 
 function Credits(): React.ReactNode {
   return (
-    <div className="text-sm opacity-50 hover:opacity-100 transition-opacity">
+    <div className="text-sm opacity-50 hover:scale-105 hover:opacity-100 origin-right transition-all ease-in">
       <Link className="flex items-center gap-2" href="/" target="_blank">
         <span className="uppercase tracking-wide text-gray700">Brought to you by</span>
         <LogoHorizontal width={200} />
@@ -47,7 +47,7 @@ function Credits(): React.ReactNode {
 
 function BackLink(): React.ReactNode {
     return (
-        <Link href="/iracing/2024s1/road/" className="flex items-center opacity-50 hover:opacity-100 transition-opacity">
+        <Link href="/iracing/2024s1/road/" className="flex items-center opacity-50 hover:scale-105 hover:opacity-100 origin-left transition-all ease-in">
             <Back />
             <span className="ml-2 opacity-50">Back to&nbsp;</span>iRacing 2024S1 Schedule Posters
         </Link>
