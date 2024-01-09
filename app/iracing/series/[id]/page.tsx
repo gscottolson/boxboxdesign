@@ -24,11 +24,11 @@ export default function Page({ params }: { params: { id: string } }) {
 
   return (
     <div className="m-auto flex h-full max-w-[800px] flex-col place-content-center">
-      <div className="max-h-[640px] shadow-2xl">
+      <div className="mt-20 max-h-[640px] shadow-2xl">
         <SeriesDetail series={series} />
       </div>
 
-      <div className="flex justify-between px-4 pt-8 text-blue800 subpixel-antialiased">
+      <div className="flex justify-between px-4 pt-6 text-blue800 subpixel-antialiased">
         <BackLink href={getDisciplineURL(series.discipline)} />
         <Credits />
       </div>
@@ -56,8 +56,8 @@ function BackLink(props: { href: string }): React.ReactNode {
       className="flex origin-left items-center opacity-50 transition-all ease-in hover:scale-105 hover:opacity-100"
     >
       <Back />
-      <span className="ml-2 opacity-50">Back to&nbsp;</span>iRacing 2024S1
-      Schedule Posters
+      <span className="ml-2 opacity-50">Back to&nbsp;</span>iRacing Schedule
+      Posters
     </Link>
   );
 }
