@@ -12,7 +12,7 @@ export default function Layout(props: {
   modal: React.ReactNode;
 }) {
   return (
-    <div className="relative lg:px-24 lg:py-16">
+    <div className="relative lg:px-12 lg:py-16">
       <div className="m-auto max-w-7xl flex-grow drop-shadow-2xl">
         <header className="text-center tracking-tighter text-gray700">
           <h1 className="pt-12 text-4xl font-light antialiased">
