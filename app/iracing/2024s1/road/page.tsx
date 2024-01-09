@@ -11,7 +11,7 @@ export default function Page() {
   const series = useMemo(() => getAllRoad(), []);
   return (
     <>
-      <Nav active="road" />
+      <Nav active="Road" />
       <Grid seriesArray={series} />
     </>
   );

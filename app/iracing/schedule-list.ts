@@ -1,4 +1,4 @@
-type Discipline = 'Road' | 'Oval' | 'Dirt Oval' | 'Dirt Road' | null;
+export type Discipline = 'Road' | 'Oval' | 'Dirt Oval' | 'Dirt Road' | null;
 type License = 'A' | 'B' | 'C' | 'D' | 'Rookie' | null;
 type Season = '2024s1';
 

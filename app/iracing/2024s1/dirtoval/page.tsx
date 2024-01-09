@@ -12,7 +12,7 @@ export default function Page() {
 
   return (
     <>
-      <Nav active="dirtoval" />
+      <Nav active="Dirt Oval" />
       <Grid seriesArray={series} />
     </>
   );
