@@ -1,32 +1,40 @@
 import Link from 'next/link';
 import { SeriesCard } from './series-card';
-import { OfficialSeries } from '../schedule-list';
+import { Discipline, OfficialSeries, getDisciplineURL } from '../schedule-list';
 
-export function Nav({active}: {active: string}) {
+export function Nav({ active }: { active: Discipline }) {
+  const isRoad = active === 'Road';
+  const isOval = active === 'Oval';
+  const isDirtOval = active === 'Dirt Oval';
+  const isDirtRoad = active === 'Dirt Road';
+
   return (
-        <ul className="flex w-full justify-center align-middle pt-4 pb-12 gap-8 text-gray700">
-            <li key="road" className="teal800" style={{textDecoration: active === 'road' ? 'underline' : 'none'}}>
-                <Link href="/iracing/2024s1/road">Road</Link>
-            </li>
-            <li key="oval" className="teal800" style={{textDecoration: active === 'oval' ? 'underline' : 'none'}}>
-                <Link href="/iracing/2024s1/oval">Oval</Link>
-            </li>
-            <li key="dirtoval" className="teal800" style={{textDecoration: active === 'dirtoval' ? 'underline' : 'none'}}>
-                <Link href="/iracing/2024s1/dirtoval" className="">Dirt Oval</Link>
-            </li>
-            <li key="dirtroad" className="teal800" style={{textDecoration: active === 'dirtroad' ? 'underline' : 'none'}}>
-                <Link href="/iracing/2024s1/dirtroad">Dirt Road</Link>
-            </li>
-        </ul>
+    <ul className="flex w-full justify-center gap-8 pb-12 pt-4 align-middle text-gray700">
+      <li key="a" style={{ textDecoration: isRoad ? 'underline' : 'none' }}>
+        <Link href={getDisciplineURL('Road')}>Road</Link>
+      </li>
+
+      <li key="b" style={{ textDecoration: isOval ? 'underline' : 'none' }}>
+        <Link href={getDisciplineURL('Oval')}>Oval</Link>
+      </li>
+
+      <li key="c" style={{ textDecoration: isDirtOval ? 'underline' : 'none' }}>
+        <Link href={getDisciplineURL('Dirt Oval')}>Dirt Oval</Link>
+      </li>
+
+      <li key="d" style={{ textDecoration: isDirtRoad ? 'underline' : 'none' }}>
+        <Link href={getDisciplineURL('Dirt Road')}>Dirt Road</Link>
+      </li>
+    </ul>
   );
 }
 
 export function Grid({ seriesArray }: { seriesArray: OfficialSeries[] }) {
-    return (
-        <div className="grid gap-2 grid-cols-2 sm:grid-cols-3 xl:grid-cols-4">
-            {seriesArray.map((series, index) => (
-                <SeriesCard key={series.name} series={series} priority={index < 8} />
-            ))}
-        </div>
-    );
-  }
+  return (
+    <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 xl:grid-cols-4">
+      {seriesArray.map((series, index) => (
+        <SeriesCard key={series.name} series={series} priority={index < 8} />
+      ))}
+    </div>
+  );
+}

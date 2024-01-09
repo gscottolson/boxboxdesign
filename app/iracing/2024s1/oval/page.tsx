@@ -12,7 +12,7 @@ export default function Page() {
 
   return (
     <>
-      <Nav active="oval" />
+      <Nav active="Oval" />
       <Grid seriesArray={series} />
     </>
   );
