@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { OfficialSeries } from '../schedule-list';
+import { OfficialSeries, getSeriesURL } from '../schedule-list';
 import Balancer from 'react-wrap-balancer';
 import Link from 'next/link';
 
@@ -18,29 +18,18 @@ export function SeriesCard({ series, priority }: SeriesCardProps) {
     none: 'border-transparent',
   };
 
+  const seriesBorder = borderColor[series.licenseClass || 'none'];
+
   return (
-    <Link
-      href={series.seriesId ? `/iracing/series/${series.seriesId}` : ''}
-      passHref
-      scroll={false}
-    >
+    <Link href={getSeriesURL(series.seriesId)} passHref scroll={false}>
       <div
-        className="teal800 bg-white"
+        className="text-teal800"
         style={{ opacity: series.pdf?.endsWith('pdf') ? 1 : 0.7 }}
       >
-        {series.src ? (
-          <PosterImage series={series} priority={priority} />
-        ) : (
-          <div className="flex h-36 w-full items-center justify-center bg-white300 p-4 align-middle leading-loose text-[#999] shadow-inner sm:h-48 lg:h-60">
-            Coming soon
-          </div>
-        )}
-        <div
-          className={`border-t-4 ${
-            borderColor[series.licenseClass || 'none']
-          } flex min-h-[92px] flex-col place-content-center`}
-        >
-          <h2 className="basis-full p-6 text-center leading-5">
+        <PosterImage series={series} priority={priority} />
+
+        <div className={`border-t-4 ${seriesBorder} flex min-h-4 flex-col`}>
+          <h2 className="basis-full px-6 py-2 text-center leading-5">
             <Balancer>{series.name}</Balancer>
           </h2>
         </div>
@@ -50,7 +39,11 @@ export function SeriesCard({ series, priority }: SeriesCardProps) {
 }
 
 function PosterImage(props: { series: OfficialSeries; priority: boolean }) {
-  return (
+  return !props.series.src ? (
+    <div className="flex h-36 items-center justify-center bg-white300 p-4 align-middle leading-loose text-[#999] shadow-inner sm:h-48 lg:h-60">
+      Coming soon
+    </div>
+  ) : (
     <div className="relative h-36 overflow-hidden transition-all sm:h-48 lg:h-60">
       <Image
         className="relative left-[25%] top-[25%] w-[384px] translate-x-[-25%] translate-y-[-25%]"
