@@ -13,7 +13,7 @@ export default function Layout(props: {
 }) {
   return (
     <div className="relative lg:px-12 lg:py-16">
-      <div className="m-auto max-w-7xl flex-grow drop-shadow-2xl">
+      <div className="m-auto max-w-7xl flex-grow">
         <header className="text-center tracking-tighter text-gray700">
           <h1 className="pt-12 text-4xl font-light antialiased">
             Official Series Schedule Posters
