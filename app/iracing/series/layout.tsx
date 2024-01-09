@@ -9,6 +9,6 @@ export const metadata: Metadata = {
 
 export default function Layout(props: { children: React.ReactNode }) {
   return (
-    <div className="h-dvh bg-white300">{props.children}</div>
+    <div className="h-dvh">{props.children}</div>
   );
 }
