@@ -19,7 +19,7 @@ export function SeriesCard(props: SeriesCardProps) {
 
   return (
       <Link href={props.series.seriesId ? `/iracing/series/${props.series.seriesId}` : ''} passHref scroll={false}>
-        <div className="teal800 bg-white" style={{opacity: props.series.pdf?.endsWith('pdf') ? 1 : 0.2}}>
+        <div className="teal800 bg-white" style={{opacity: props.series.pdf?.endsWith('pdf') ? 1 : 0.7}}>
           {props.series.src ? 
             <PosterImage series={props.series} priority={props.priority} /> :
             <div className="bg-white300 text-[#999] shadow-inner w-full flex align-middle justify-center leading-loose p-4">
@@ -27,7 +27,7 @@ export function SeriesCard(props: SeriesCardProps) {
             </div>
           }
           <div className={`border-t-4 ${borderColor[props.series.licenseClass]} min-h-[92px] flex flex-col place-content-center`}>
-            <h2 className="p-2 leading-5 text-center basis-full">
+            <h2 className="p-6 leading-5 text-center basis-full">
               <Balancer>{props.series.name}</Balancer>
             </h2>
           </div>
