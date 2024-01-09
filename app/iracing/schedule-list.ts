@@ -28,6 +28,10 @@ export type SeriesIndex = {
 
 export type SeriesResult = [OfficialSeries, SeriesIndex];
 
+export function getSeriesURL(seriesId?: string) {
+  return seriesId ? `/iracing/series/${seriesId}` : '/iracing/series/notfound';
+}
+
 export function getDisciplineURL(discipline: Discipline, season?: Season) {
   const seasonSlug: Season = season || '2024s1';
   switch (discipline) {
