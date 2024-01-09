@@ -24,7 +24,7 @@ export default function Page({ params }: { params: { id: string } }) {
 
   return (
     <div className="m-auto flex h-full max-w-[800px] flex-col place-content-center">
-      <div className="mt-20 max-h-[640px] shadow-2xl">
+      <div className="bg-white400/50 mt-20 max-h-[640px] shadow-2xl">
         <SeriesDetail series={series} />
       </div>
 
