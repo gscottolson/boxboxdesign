@@ -1,6 +1,6 @@
 'use client';
 
-import { getSeriesById } from '@/app/iracing/schedule-list';
+import { OfficialSeries } from '@/app/iracing/schedule-list';
 import { Document, Page as PDFPage, Thumbnail } from 'react-pdf';
 import { pdfjs } from 'react-pdf';
 import React, { useCallback, useState } from 'react';
@@ -17,8 +17,7 @@ pdfjs.GlobalWorkerOptions.workerSrc = new URL(
   import.meta.url,
 ).toString();
 
-export function SeriesDetail(props: { seriesId: string }) {
-  const [series] = getSeriesById(props.seriesId);
+export function SeriesDetail({ series }: { series: OfficialSeries }) {
   const { inputRef } = useBarcode<HTMLImageElement>({
     value: ` ${series.seriesId} ` || '',
     options: barCodeOptions,

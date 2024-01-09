@@ -10,7 +10,7 @@ export default function Page({ params }: { params: { id: string } }) {
 
   return (
     <Modal title={title} next={resultIndex.next} prev={resultIndex.prev}>
-      <SeriesDetail seriesId={params.id} />
+      <SeriesDetail series={series} />
     </Modal>
   );
 }
