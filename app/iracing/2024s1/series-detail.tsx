@@ -52,7 +52,12 @@ export function SeriesDetail({ series }: { series: OfficialSeries }) {
           noData={<PDFError />}
           error={<PDFError />}
         >
-          <Thumbnail pageNumber={1} height={pdfHeight} width={pdfWidth} />
+          <Thumbnail
+            pageNumber={1}
+            height={pdfHeight}
+            width={pdfWidth}
+            className="pointer-events-none cursor-default"
+          />
         </Document>
       </div>
 
