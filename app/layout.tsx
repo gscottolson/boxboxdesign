@@ -1,7 +1,7 @@
 import '@/app/ui/global.css';
-import localFont from 'next/font/local'
+import localFont from 'next/font/local';
 
-const outfit = localFont({ src: '../public/Outfit-VariableFont_wght.ttf' })
+const outfit = localFont({ src: '../public/Outfit-VariableFont_wght.ttf' });
 
 export default function RootLayout({
   children,
@@ -10,7 +10,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${outfit.className} antialiased h-dvh relative`} id="site-body">
+      <body
+        className={`${outfit.className} relative h-dvh w-full antialiased`}
+        id="site-body"
+      >
         {children}
         <div id="modal-root" />
       </body>
