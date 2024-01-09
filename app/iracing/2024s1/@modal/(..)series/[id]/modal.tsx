@@ -11,8 +11,8 @@ import { SeriesResult } from '@/app/iracing/schedule-list';
 export function Modal({
   children,
   title,
-  next = [{name: '', licenseClass: 'A'}, {index: 0}],
-  prev = [{name: '', licenseClass: 'A'}, {index: 0}],
+  next = [{ name: '', licenseClass: null, discipline: null }, { index: 0 }],
+  prev = [{ name: '', licenseClass: null, discipline: null }, { index: 0 }],
 }: {
   children: React.ReactNode;
   title: string;
