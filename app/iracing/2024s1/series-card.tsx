@@ -19,40 +19,33 @@ export function SeriesCard({ series, priority }: SeriesCardProps) {
   };
 
   const seriesBorder = borderColor[series.licenseClass || 'none'];
+  const size = 240;
 
   return (
     <Link href={getSeriesURL(series.seriesId)} passHref scroll={false}>
-      <div
-        className="text-teal800"
-        style={{ opacity: series.pdf?.endsWith('pdf') ? 1 : 0.7 }}
-      >
-        <PosterImage series={series} priority={priority} />
+      <div className="w-card text-teal800">
+        {!series.src ? (
+          <div className="h-card flex items-center justify-center bg-white300 p-4 align-middle leading-loose text-gray700">
+            Coming soon
+          </div>
+        ) : (
+          <Image
+            alt={`styled image of a schedule poster for ${series.name}`}
+            src={series.src}
+            width={size}
+            height={size}
+            priority={priority}
+          />
+        )}
 
-        <div className={`border-t-4 ${seriesBorder} flex min-h-4 flex-col`}>
-          <h2 className="basis-full px-6 py-2 text-center leading-5">
+        <div
+          className={`border-t-4 ${seriesBorder} flex min-h-4 flex-col px-6 `}
+        >
+          <h2 className="basis-full pt-2 text-center leading-5">
             <Balancer>{series.name}</Balancer>
           </h2>
         </div>
       </div>
     </Link>
-  );
-}
-
-function PosterImage(props: { series: OfficialSeries; priority: boolean }) {
-  return !props.series.src ? (
-    <div className="flex h-36 items-center justify-center bg-white300 p-4 align-middle leading-loose text-[#999] shadow-inner sm:h-48 lg:h-60">
-      Coming soon
-    </div>
-  ) : (
-    <div className="relative h-36 overflow-hidden transition-all sm:h-48 lg:h-60">
-      <Image
-        className="relative left-[25%] top-[25%] w-[384px] translate-x-[-25%] translate-y-[-25%]"
-        alt={`styled image of a schedule poster for ${props.series.name}`}
-        src={props.series.src || ''}
-        width={384}
-        height={384}
-        priority={props.priority}
-      />
-    </div>
   );
 }
