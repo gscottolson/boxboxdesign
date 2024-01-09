@@ -1,16 +1,18 @@
 import { Grid, Nav } from '../ui';
-import { iRacing2024S1RoadSeries } from '../../schedule-list';
+import { getAllRoad } from '../../schedule-list';
 import { Metadata } from 'next';
+import { useMemo } from 'react';
 
 export const metadata: Metadata = {
   title: 'Road',
-}
+};
 
 export default function Page() {
+  const series = useMemo(() => getAllRoad(), []);
   return (
     <>
       <Nav active="road" />
-      <Grid seriesArray={iRacing2024S1RoadSeries} />
+      <Grid seriesArray={series} />
     </>
   );
 }
