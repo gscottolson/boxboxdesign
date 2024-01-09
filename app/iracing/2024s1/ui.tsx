@@ -31,7 +31,7 @@ export function Nav({ active }: { active: Discipline }) {
 
 export function Grid({ seriesArray }: { seriesArray: OfficialSeries[] }) {
   return (
-    <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 xl:grid-cols-4">
+    <div className="flex flex-wrap justify-center gap-4">
       {seriesArray.map((series, index) => (
         <SeriesCard key={series.name} series={series} priority={index < 8} />
       ))}
