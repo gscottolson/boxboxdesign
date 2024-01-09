@@ -3,12 +3,13 @@ import { ArrowRightIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import Image from 'next/image';
 import Logo from './ui/logo';
+import { getDisciplineURL } from './iracing/schedule-list';
 
 export default function Page() {
   return (
-    <main className="flex h-vh w-vw flex-col p-6 bg-white200">
-        <Logo width={200} height="auto" />
-        <Link href="/iracing/2024s1/road/">Road</Link>
+    <main className="h-vh w-vw flex flex-col bg-white200 p-6">
+      <Logo width={200} height="auto" />
+      <Link href={getDisciplineURL('Road')}>Road</Link>
     </main>
   );
 }
