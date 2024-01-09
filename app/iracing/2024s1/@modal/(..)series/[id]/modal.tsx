@@ -6,7 +6,7 @@ import useLockBodyScroll from '@/app/useLockBodyScroll';
 import { createPortal } from 'react-dom';
 import { Back, Close, Next } from '../../../icons';
 import Link from 'next/link';
-import { SeriesResult } from '@/app/iracing/schedule-list';
+import { SeriesResult, getSeriesURL } from '@/app/iracing/schedule-list';
 
 export function Modal({
   children,
@@ -39,10 +39,7 @@ export function Modal({
   }, [router]);
 
   const [nextSeries]: SeriesResult = next;
-  const nextHref = `/iracing/series/${nextSeries.seriesId}`;
-
   const [prevSeries]: SeriesResult = prev;
-  const prevHref = `/iracing/series/${prevSeries.seriesId}`;
 
   return createPortal(
     <div>
@@ -61,7 +58,7 @@ export function Modal({
         </button>
 
         <Link
-          href={prevHref}
+          href={getSeriesURL(prevSeries.seriesId)}
           replace
           scroll={false}
           className="absolute -left-3 top-1/2 mt-[-26px] rounded-md bg-white200 p-4 shadow-sm active:scale-95"
@@ -70,7 +67,7 @@ export function Modal({
         </Link>
 
         <Link
-          href={nextHref}
+          href={getSeriesURL(nextSeries.seriesId)}
           replace
           scroll={false}
           className="absolute -right-3 top-1/2 mt-[-26px] rounded-md bg-white200 p-4 shadow-sm active:scale-95"
