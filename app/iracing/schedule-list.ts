@@ -1,6 +1,6 @@
 export type Discipline = 'Road' | 'Oval' | 'Dirt Oval' | 'Dirt Road' | null;
-type License = 'A' | 'B' | 'C' | 'D' | 'Rookie' | null;
-type Season = '2024s1';
+export type License = 'A' | 'B' | 'C' | 'D' | 'Rookie' | null;
+export type Season = '2024s1';
 
 export interface OfficialSeries {
   seriesId?: string;
