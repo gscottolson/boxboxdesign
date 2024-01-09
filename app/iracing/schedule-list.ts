@@ -76,7 +76,9 @@ export function getSeriesById(
 }
 
 export function getAllByDiscipline(discipline: Discipline): OfficialSeries[] {
-  return iRacing2024S1.filter((series) => series.discipline === discipline);
+  return iRacing2024S1.filter(
+    (series) => series.discipline === discipline && series.seriesId !== '',
+  );
 }
 
 export function getAllRoad() {
@@ -84,6 +86,9 @@ export function getAllRoad() {
 }
 export function getAllOval() {
   return getAllByDiscipline('Oval');
+}
+export function getAllDirtoval() {
+  return getAllByDiscipline('Dirt Oval');
 }
 
 export const iRacing2024S1RoadSeries: OfficialSeries[] = [
@@ -762,11 +767,20 @@ export const iRacing2024S1OvalSeries: OfficialSeries[] = [
 
 export const iRacing2024S1DirtOvalSeries: OfficialSeries[] = [
   {
-    seriesId: '',
+    seriesId: '4634',
     discipline: 'Dirt Oval',
     name: 'Rookie DIRTcar Street Stock Series Fixed',
     licenseClass: 'Rookie',
-    src: '',
+    src: '/iracing/png/2024s1/DIRTcarStreetStockFixed.png',
+    pdf: '/iracing/pdf/2024s1-dirtoval/DIRTcarStreetStockFixed.pdf',
+  },
+  {
+    seriesId: '4636',
+    discipline: 'Dirt Oval',
+    name: 'DIRTcar 305 Sprint Car Fanatec Series',
+    licenseClass: 'D',
+    src: '/iracing/png/2024s1/DIRTcar305SprintFixed.png',
+    pdf: '/iracing/pdf/2024s1-dirtoval/DIRTcar305SprintFixed.pdf',
   },
   {
     seriesId: '4635',
@@ -775,131 +789,123 @@ export const iRacing2024S1DirtOvalSeries: OfficialSeries[] = [
     licenseClass: 'Rookie',
     src: '',
   },
-
   {
-    seriesId: '',
-    discipline: 'Dirt Oval',
-    name: 'DIRTcar 305 Sprint Car Fanatec Series',
-    licenseClass: 'D',
-  },
-  {
-    seriesId: '',
+    seriesId: '4637',
     discipline: 'Dirt Oval',
     name: 'DIRTcar Limited Late Model Series',
     licenseClass: 'D',
   },
   {
-    seriesId: '',
+    seriesId: '4638',
     discipline: 'Dirt Oval',
     name: 'DIRTcar 358 Modified Engine Ice Series',
     licenseClass: 'D',
   },
 
   {
-    seriesId: '',
+    seriesId: '4646',
     discipline: 'Dirt Oval',
     name: 'DIRTcar Pro Late Model Series Fixed',
     licenseClass: 'C',
   },
   {
-    seriesId: '',
+    seriesId: '4645',
     discipline: 'Dirt Oval',
     name: 'DIRTcar Pro Late Model Series',
     licenseClass: 'C',
   },
   {
-    seriesId: '',
+    seriesId: '4649',
     discipline: 'Dirt Oval',
     name: 'SUPER DIRTcar Big Block Modified Series Fixed',
     licenseClass: 'C',
   },
   {
-    seriesId: '',
+    seriesId: '4648',
     discipline: 'Dirt Oval',
     name: 'SUPER DIRTcar Big Block Modified Series',
     licenseClass: 'C',
   },
   {
-    seriesId: '',
+    seriesId: '4640',
     discipline: 'Dirt Oval',
     name: 'DIRTcar 360 Sprint Car Carquest Series Fixed',
     licenseClass: 'C',
   },
   {
-    seriesId: '',
+    seriesId: '4639',
     discipline: 'Dirt Oval',
     name: 'DIRTcar 360 Sprint Car Carquest Series',
     licenseClass: 'C',
   },
   {
-    seriesId: '',
+    seriesId: '4644',
     discipline: 'Dirt Oval',
     name: 'Dirt Midget Cup Fixed',
     licenseClass: 'C',
   },
   {
-    seriesId: '',
+    seriesId: '4643',
     discipline: 'Dirt Oval',
     name: 'Dirt Midget Cup',
     licenseClass: 'C',
   },
   {
-    seriesId: '',
+    seriesId: '4642',
     discipline: 'Dirt Oval',
     name: 'DIRTcar Class C Street Stock Series Fixed',
     licenseClass: 'C',
   },
   {
-    seriesId: '',
+    seriesId: '4656',
     discipline: 'Dirt Oval',
     name: 'Dirt Super Late Model Tour Fixed',
     licenseClass: 'C',
   },
   {
-    seriesId: '',
+    seriesId: '4641',
     discipline: 'Dirt Oval',
     name: 'USAC 360 Sprint Car Series',
     licenseClass: 'C',
   },
   {
-    seriesId: '',
+    seriesId: '4652',
     discipline: 'Dirt Oval',
     name: 'Dirt 410 Sprint Car Tour Fixed',
     licenseClass: 'C',
   },
-
   {
-    seriesId: '',
+    seriesId: '4655',
     discipline: 'Dirt Oval',
     name: 'World of Outlaws Late Model Series Fixed',
     licenseClass: 'B',
   },
   {
-    seriesId: '',
+    seriesId: '4654',
     discipline: 'Dirt Oval',
     name: 'World of Outlaws Late Model Series',
     licenseClass: 'B',
   },
   {
-    seriesId: '',
+    seriesId: '4651',
     discipline: 'Dirt Oval',
     name: 'World of Outlaws Sprint Car Series Fixed',
     licenseClass: 'B',
   },
   {
-    seriesId: '',
+    seriesId: '4650',
     discipline: 'Dirt Oval',
     name: 'World of Outlaws Sprint Car Series',
     licenseClass: 'B',
   },
   {
-    seriesId: '',
+    seriesId: '4647',
     discipline: 'Dirt Oval',
     name: 'DIRTcar UMP Modified Series Fixed',
     licenseClass: 'B',
   },
   {
-    seriesId: '',
+    seriesId: '4653',
     discipline: 'Dirt Oval',
     name: 'AMSOIL USAC Sprint Car Fixed',
     licenseClass: 'B',

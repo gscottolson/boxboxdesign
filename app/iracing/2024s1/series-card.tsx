@@ -4,49 +4,62 @@ import Balancer from 'react-wrap-balancer';
 import Link from 'next/link';
 
 interface SeriesCardProps {
-  series: OfficialSeries
-  priority: boolean
+  series: OfficialSeries;
+  priority: boolean;
 }
 
-export function SeriesCard(props: SeriesCardProps) {
+export function SeriesCard({ series, priority }: SeriesCardProps) {
   const borderColor = {
     Rookie: 'border-[#92342E]',
-    D: "border-[#F98406]",
-    C: "border-[#D3A400]",
-    B: "border-[#3C6D56]",
-    A: "border-[#315187]",
-  }
+    D: 'border-[#F98406]',
+    C: 'border-[#D3A400]',
+    B: 'border-[#3C6D56]',
+    A: 'border-[#315187]',
+    none: 'border-transparent',
+  };
 
   return (
-      <Link href={props.series.seriesId ? `/iracing/series/${props.series.seriesId}` : ''} passHref scroll={false}>
-        <div className="teal800 bg-white" style={{opacity: props.series.pdf?.endsWith('pdf') ? 1 : 0.7}}>
-          {props.series.src ? 
-            <PosterImage series={props.series} priority={props.priority} /> :
-            <div className="bg-white300 text-[#999] shadow-inner w-full flex align-middle justify-center leading-loose p-4">
-              Coming soon
-            </div>
-          }
-          <div className={`border-t-4 ${borderColor[props.series.licenseClass]} min-h-[92px] flex flex-col place-content-center`}>
-            <h2 className="p-6 leading-5 text-center basis-full">
-              <Balancer>{props.series.name}</Balancer>
-            </h2>
+    <Link
+      href={series.seriesId ? `/iracing/series/${series.seriesId}` : ''}
+      passHref
+      scroll={false}
+    >
+      <div
+        className="teal800 bg-white"
+        style={{ opacity: series.pdf?.endsWith('pdf') ? 1 : 0.7 }}
+      >
+        {series.src ? (
+          <PosterImage series={series} priority={priority} />
+        ) : (
+          <div className="flex h-36 w-full items-center justify-center bg-white300 p-4 align-middle leading-loose text-[#999] shadow-inner sm:h-48 lg:h-60">
+            Coming soon
           </div>
+        )}
+        <div
+          className={`border-t-4 ${
+            borderColor[series.licenseClass || 'none']
+          } flex min-h-[92px] flex-col place-content-center`}
+        >
+          <h2 className="basis-full p-6 text-center leading-5">
+            <Balancer>{series.name}</Balancer>
+          </h2>
         </div>
-      </Link>  
+      </div>
+    </Link>
   );
 }
 
-function PosterImage(props: {series: OfficialSeries, priority: boolean}) {
+function PosterImage(props: { series: OfficialSeries; priority: boolean }) {
   return (
-      <div className="h-36 overflow-hidden sm:h-48 lg:h-60 relative" style={{transition: 'height 300ms ease-in-out'}}>
-        <Image
-          className="w-[384px] relative left-[25%] top-[25%] translate-x-[-25%] translate-y-[-25%]"
-          alt={`styled image of a schedule poster for ${props.series.name}`}
-          src={props.series.src || ''}
-          width={384}
-          height={384}
-          priority={props.priority}
-        />
-      </div>
-  )
+    <div className="relative h-36 overflow-hidden transition-all sm:h-48 lg:h-60">
+      <Image
+        className="relative left-[25%] top-[25%] w-[384px] translate-x-[-25%] translate-y-[-25%]"
+        alt={`styled image of a schedule poster for ${props.series.name}`}
+        src={props.series.src || ''}
+        width={384}
+        height={384}
+        priority={props.priority}
+      />
+    </div>
+  );
 }
