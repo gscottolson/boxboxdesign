@@ -1,16 +1,19 @@
 import { Grid, Nav } from '../ui';
-import { iRacing2024S1OvalSeries } from '../../schedule-list';
+import { getAllOval } from '../../schedule-list';
 import { Metadata } from 'next';
+import { useMemo } from 'react';
 
 export const metadata: Metadata = {
   title: 'Oval',
-}
+};
 
 export default function Page() {
+  const series = useMemo(() => getAllOval(), []);
+
   return (
     <>
       <Nav active="oval" />
-      <Grid seriesArray={iRacing2024S1OvalSeries} />
+      <Grid seriesArray={series} />
     </>
   );
 }
