@@ -20,9 +20,11 @@ const config: Config = {
       },
       height: {
         pdf: '640px',
+        card: '240px',
       },
       width: {
         pdf: '480px',
+        card: '240px',
       },
     },
     keyframes: {
