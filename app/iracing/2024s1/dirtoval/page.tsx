@@ -1,16 +1,19 @@
 import { Grid, Nav } from '../ui';
-import { iRacing2024S1DirtOvalSeries } from '../../schedule-list';
+import { getAllDirtoval } from '../../schedule-list';
 import { Metadata } from 'next';
+import { useMemo } from 'react';
 
 export const metadata: Metadata = {
   title: 'Dirt Oval',
-}
+};
 
 export default function Page() {
+  const series = useMemo(() => getAllDirtoval(), []);
+
   return (
     <>
       <Nav active="dirtoval" />
-      <Grid seriesArray={iRacing2024S1DirtOvalSeries} />
+      <Grid seriesArray={series} />
     </>
   );
 }
