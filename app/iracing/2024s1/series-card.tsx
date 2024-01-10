@@ -8,31 +8,27 @@ interface SeriesCardProps {
   priority: boolean;
 }
 
-function getLicenseBorder(licenseClass: License) {
-  if (licenseClass === 'Rookie') return 'border-rookie';
-  if (licenseClass === 'D') return 'border-classD';
-  if (licenseClass === 'C') return 'border-classC';
-  if (licenseClass === 'B') return 'border-classB';
-  if (licenseClass === 'A') return 'border-classA';
-  return 'border-transparent';
+function getClassCard(licenseClass: License) {
+  if (licenseClass === 'Rookie') return 'border-rookie border-b-2 shadow-xl';
+  if (licenseClass === 'D') return 'border-classD border-b-2 shadow-xl';
+  if (licenseClass === 'C') return 'border-classC border-b-2 shadow-xl';
+  if (licenseClass === 'B') return 'border-classB border-b-2 shadow-xl';
+  if (licenseClass === 'A') return 'border-classA border-b-2 shadow-xl';
+  return 'shadow-inner';
 }
 
 export function SeriesCard({ series, priority }: SeriesCardProps) {
   const size = 240;
-  const borderColor = getLicenseBorder(series.licenseClass);
+  const cardStyles = getClassCard(series.pdf ? series.licenseClass : null);
+
   return (
-    <Link
-      href={getSeriesURL(series.seriesId)}
-      passHref
-      scroll={false}
-      className="group"
-    >
+    <CardWrap series={series}>
       <div className="w-card text-teal800">
         <div
-          className={`border-b-2 ${borderColor} group-active:scale-card flex min-h-4 scale-100 flex-col shadow-xl`}
+          className={`${cardStyles} group-active:scale-card flex scale-100 flex-col overflow-hidden rounded-sm`}
         >
           {!series.src ? (
-            <div className="h-card bg-white400 flex items-center justify-center p-4 align-middle leading-loose text-gray700">
+            <div className="h-card flex select-none items-center justify-center bg-gray700/20 p-4 align-middle leading-loose text-gray700">
               Coming soon
             </div>
           ) : (
@@ -50,6 +46,28 @@ export function SeriesCard({ series, priority }: SeriesCardProps) {
           <Balancer>{series.name}</Balancer>
         </h2>
       </div>
-    </Link>
+    </CardWrap>
   );
+}
+
+function CardWrap({
+  series,
+  children,
+}: {
+  series: OfficialSeries;
+  children: React.ReactNode;
+}) {
+  if (series.seriesId && series.pdf) {
+    return (
+      <Link
+        href={getSeriesURL(series.seriesId)}
+        passHref
+        scroll={false}
+        className="group" //required to use group-active on nested children
+      >
+        {children}
+      </Link>
+    );
+  }
+  return <div>{children}</div>;
 }
