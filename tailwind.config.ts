@@ -8,6 +8,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        siteGradient: 'url(/iracing/bg-gradient.png)',
+      },
       colors: {
         white100: '#F5F5F5',
         white200: '#EBEBEB',
