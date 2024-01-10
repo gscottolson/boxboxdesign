@@ -30,13 +30,13 @@ export function Modal({
       setLocked(true);
       document.title = title;
     }
-  }, []);
+  }, [setLocked, title]);
 
   const onDismiss = React.useCallback(() => {
     router.back();
     setLocked(false);
     document.title = originalTitle;
-  }, [router]);
+  }, [router, originalTitle, setLocked]);
 
   const [nextSeries]: SeriesResult = next;
   const [prevSeries]: SeriesResult = prev;
