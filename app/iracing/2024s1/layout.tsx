@@ -19,7 +19,7 @@ export default function Layout(props: {
           <h1 className="pt-12 text-4xl font-light antialiased">
             {getSiteTitle()}
           </h1>
-          <h2 className="p-4 pt-0 text-xl font-medium tracking-wide">
+          <h2 className="p-4 pt-0 text-2xl font-medium tracking-wide">
             2024 Season 1
           </h2>
         </header>
