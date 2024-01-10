@@ -8,9 +8,7 @@ import Balancer from 'react-wrap-balancer';
 import { useBarcode } from 'next-barcode';
 import { Download } from './icons';
 
-const ratio = 4 / 3;
-const pdfWidth = 480;
-const pdfHeight = pdfWidth * ratio + 1; // add one to fix rounding error
+const pdfHeight = 640;
 
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
   'pdfjs-dist/build/pdf.worker.min.js',
@@ -44,7 +42,7 @@ export function SeriesDetail({ series }: { series: OfficialSeries }) {
 
   return (
     <div className="box-content flex h-full w-full border-[.5px] border-[rgba(90,90,90,0.15)]">
-      <div className="h-pdf w-pdf flex shrink-0 grow-0 place-content-center bg-white100 text-center">
+      <div className="h-pdf w-pdf flex shrink-0 grow-0 place-content-center overflow-hidden bg-white100 text-center">
         <Document
           file={series.pdf}
           className="h-pdf w-pdf"
@@ -55,7 +53,6 @@ export function SeriesDetail({ series }: { series: OfficialSeries }) {
           <Thumbnail
             pageNumber={1}
             height={pdfHeight}
-            width={pdfWidth}
             className="pointer-events-none cursor-default"
           />
         </Document>
