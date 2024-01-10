@@ -60,22 +60,19 @@ export function SeriesDetail({ series }: { series: OfficialSeries }) {
 
       <div className="flex basis-full flex-col justify-between px-6 text-teal800 antialiased">
         <header className="pt-16">
-          <h3 className="font-semilight teal800 mb-2 pr-2 text-3xl tracking-tight">
+          <h3 className="font-semilight mb-2 pr-2 text-3xl leading-9 tracking-tight">
             <Balancer>{series.name}</Balancer>
           </h3>
-          <h4 className="text-l mb-1 font-medium uppercase leading-tight tracking-widest text-gray700">
-            <Balancer>iRacing Official Series</Balancer>
+          <h4 className="font-semilight text-xl leading-tight tracking-wide text-gray700">
+            Official Series Schedule
           </h4>
-          <h4 className="text-l font-medium uppercase leading-tight tracking-widest text-gray700">
-            <Balancer>2024 Season 1</Balancer>
+          <h4 className="font-semilight text-xl  leading-tight tracking-wide text-gray700">
+            iRacing 2024 Season 1
           </h4>
         </header>
 
         <div className="flex flex-col items-start">
-          <span
-            className="mb-8 inline-block overflow-hidden rounded-sm shadow-lg active:scale-95"
-            // style={isError ? disabledDownload : enabledDownload}
-          >
+          <span className="mb-8 inline-block overflow-hidden rounded-sm shadow-lg active:scale-95">
             <a
               href={series.pdf}
               target="__blank"
