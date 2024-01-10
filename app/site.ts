@@ -1,4 +1,4 @@
-const STATIC_TITLE = 'iRacing Official Series Posters';
+const STATIC_TITLE = 'iRacing Official Series Schedules';
 
 export function getSiteTitle(item?: string) {
   return item ? `${item} | ${STATIC_TITLE}` : STATIC_TITLE;
