@@ -2,7 +2,11 @@ import Link from 'next/link';
 import { Back } from '../../2024s1/icons';
 import { SeriesDetail } from '../../2024s1/series-detail';
 import { LogoHorizontal } from '@/app/ui/logo';
-import { getDisciplineURL, getSeriesById } from '../../schedule-list';
+import {
+  getDisciplineURL,
+  getSeriesById,
+  iRacing2024S1,
+} from '../../schedule-list';
 import { Metadata } from 'next';
 import { getSiteTitle } from '@/app/site';
 
@@ -15,6 +19,13 @@ export function generateMetadata({
   return {
     title: series.name,
   };
+}
+
+export const dynamicParams = false;
+export function generateStaticParams() {
+  return iRacing2024S1.map((series) => {
+    return series.seriesId ? { id: series.seriesId } : null;
+  });
 }
 
 export default function Page({ params }: { params: { id: string } }) {
