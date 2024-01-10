@@ -4,6 +4,7 @@ import { SeriesDetail } from '../../2024s1/series-detail';
 import { LogoHorizontal } from '@/app/ui/logo';
 import { getDisciplineURL, getSeriesById } from '../../schedule-list';
 import { Metadata } from 'next';
+import { getSiteTitle } from '@/app/site';
 
 export function generateMetadata({
   params,
@@ -56,8 +57,8 @@ function BackLink(props: { href: string }): React.ReactNode {
       className="flex origin-left items-center opacity-50 transition-all ease-in hover:scale-105 hover:opacity-100"
     >
       <Back />
-      <span className="ml-2 opacity-50">Back to&nbsp;</span>iRacing Schedule
-      Posters
+      <span className="ml-2 opacity-50">Back to&nbsp;</span>
+      {getSiteTitle()}
     </Link>
   );
 }
