@@ -918,10 +918,12 @@ export const iRacing2024S1DirtOvalSeries: OfficialSeries[] = [
 
 export const iRacing2024S1DirtRoadSeries: OfficialSeries[] = [
   {
-    seriesId: '',
+    seriesId: '4661',
     discipline: 'Dirt Road',
     name: 'Rookie Pro 2 Lite Off‑Road Racing Series Fixed',
+    src: '/iracing/png/2024s1/RookiePro2LiteFixed.png',
     licenseClass: 'Rookie',
+    pdf: '/iracing/pdf/2024s1-dirtroad/RookiePro2LiteFixed.pdf',
   },
   {
     seriesId: '',
@@ -930,10 +932,12 @@ export const iRacing2024S1DirtRoadSeries: OfficialSeries[] = [
     licenseClass: 'Rookie',
   },
   {
-    seriesId: '',
+    seriesId: '4658',
     discipline: 'Dirt Road',
     name: 'iRX Volkswagen Beetle Lite',
+    src: '/iracing/png/2024s1/iRXBeetleLite.png',
     licenseClass: 'D',
+    pdf: '/iracing/pdf/2024s1-dirtroad/iRXBeetleLite.pdf',
   },
   {
     seriesId: '',
