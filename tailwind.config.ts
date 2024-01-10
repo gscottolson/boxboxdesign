@@ -7,6 +7,18 @@ const config: Config = {
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
+    fontSize: {
+      // Base Value: 16 Scale: 1.309
+      xs: '0.562rem',
+      sm: '0.75rem',
+      base: '1rem',
+      xl: '1.312rem',
+      '2xl': '1.688rem',
+      '3xl': '2.25rem',
+      '4xl': '2.938rem',
+      '5xl': '3.812rem',
+      '6xl': '5rem',
+    },
     extend: {
       backgroundImage: {
         siteGradient: 'url(/iracing/bg-gradient.png)',
