@@ -10,7 +10,7 @@ import { Download } from './icons';
 
 const ratio = 4 / 3;
 const pdfWidth = 480;
-const pdfHeight = pdfWidth * ratio;
+const pdfHeight = pdfWidth * ratio + 1; // add one to fix rounding error
 
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
   'pdfjs-dist/build/pdf.worker.min.js',
@@ -76,7 +76,7 @@ export function SeriesDetail({ series }: { series: OfficialSeries }) {
 
         <div className="flex flex-col items-start">
           <span
-            className="mb-8 inline-block overflow-hidden rounded-lg shadow-lg active:scale-95"
+            className="mb-8 inline-block overflow-hidden rounded-sm shadow-lg active:scale-95"
             // style={isError ? disabledDownload : enabledDownload}
           >
             <a
@@ -91,7 +91,7 @@ export function SeriesDetail({ series }: { series: OfficialSeries }) {
               <Download />
             </a>
           </span>
-          <div className="w-[256px] basis-[272px] self-stretch bg-white200">
+          <div className="w-[256px] basis-[272px] self-stretch overflow-hidden rounded-tl-sm rounded-tr-sm bg-white200">
             <svg ref={inputRef} className="barcode block" />
           </div>
         </div>
