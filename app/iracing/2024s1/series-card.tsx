@@ -33,7 +33,7 @@ export function SeriesCard({ series, priority }: SeriesCardProps) {
             </div>
           ) : (
             <Image
-              alt={`styled image of a schedule poster for ${series.name}`}
+              alt={`stylized image of a schedule poster for ${series.name} on iRacing.com`}
               src={series.src}
               width={size}
               height={size}
