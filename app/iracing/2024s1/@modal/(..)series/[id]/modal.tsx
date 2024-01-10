@@ -57,23 +57,27 @@ export function Modal({
           <Close />
         </button>
 
-        <Link
-          href={getSeriesURL(prevSeries.seriesId)}
-          replace
-          scroll={false}
-          className="absolute -left-3 top-1/2 mt-[-26px] rounded-md bg-white200 p-4 shadow-sm active:scale-95"
-        >
-          <Back />
-        </Link>
+        {prevSeries.seriesId && (
+          <Link
+            href={getSeriesURL(prevSeries.seriesId)}
+            replace
+            scroll={false}
+            className="absolute -left-3 top-1/2 mt-[-26px] rounded-md bg-white200 p-4 shadow-sm active:scale-95"
+          >
+            <Back />
+          </Link>
+        )}
 
-        <Link
-          href={getSeriesURL(nextSeries.seriesId)}
-          replace
-          scroll={false}
-          className="absolute -right-3 top-1/2 mt-[-26px] rounded-md bg-white200 p-4 shadow-sm active:scale-95"
-        >
-          <Next />
-        </Link>
+        {nextSeries.seriesId && (
+          <Link
+            href={getSeriesURL(nextSeries.seriesId)}
+            replace
+            scroll={false}
+            className="absolute -right-3 top-1/2 mt-[-26px] rounded-md bg-white200 p-4 shadow-sm active:scale-95"
+          >
+            <Next />
+          </Link>
+        )}
       </dialog>
     </div>,
     document.getElementById('modal-root')!,
