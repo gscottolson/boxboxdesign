@@ -9,6 +9,7 @@ import {
 } from '../../schedule-list';
 import { Metadata } from 'next';
 import { getSiteTitle } from '@/app/site';
+import { notFound } from 'next/navigation';
 
 export function generateMetadata({
   params,
@@ -30,8 +31,9 @@ export function generateStaticParams() {
 
 export default function Page({ params }: { params: { id: string } }) {
   const [series] = getSeriesById(params.id);
+
   if (series.isEmpty) {
-    return <p>404</p>;
+    notFound();
   }
 
   return (
