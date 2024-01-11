@@ -20,6 +20,10 @@ const config: Config = {
       '6xl': '5rem',
     },
     extend: {
+      boxShadow: {
+        homeShadow:
+          '0px 16px 36px 0px rgba(6, 14, 70, 0.10), 0px 66px 66px 0px rgba(6, 14, 70, 0.09), 0px 148px 89px 0px rgba(6, 14, 70, 0.05), 0px 263px 105px 0px rgba(6, 14, 70, 0.01), 0px 411px 115px 0px rgba(6, 14, 70, 0.00)',
+      },
       backgroundImage: {
         siteGradient: 'url(/iracing/bg-gradient.png)',
       },
