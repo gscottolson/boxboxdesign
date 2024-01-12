@@ -1,7 +1,7 @@
 import { Grid, Nav } from '../ui';
-import { getAllOval } from '../../schedule-list';
 import { Metadata } from 'next';
 import { useMemo } from 'react';
+import { getAllOval } from '../../data/series-util';
 
 export const metadata: Metadata = {
   title: 'Oval',
@@ -9,7 +9,6 @@ export const metadata: Metadata = {
 
 export default function Page() {
   const series = useMemo(() => getAllOval(), []);
-
   return (
     <>
       <Nav active="Oval" />

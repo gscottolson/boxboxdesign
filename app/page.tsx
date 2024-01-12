@@ -1,6 +1,6 @@
 import Link from 'next/link';
-import { getDisciplineURL } from './iracing/schedule-list';
 import { getSiteTitle } from './site';
+import { getDisciplineURL } from './iracing/data/series-util';
 
 export default function Page() {
   const pageBG =

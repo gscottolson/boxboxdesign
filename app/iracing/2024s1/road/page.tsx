@@ -1,7 +1,7 @@
 import { Grid, Nav } from '../ui';
-import { getAllRoad } from '../../schedule-list';
 import { Metadata } from 'next';
 import { useMemo } from 'react';
+import { getAllRoad } from '../../data/series-util';
 
 export const metadata: Metadata = {
   title: 'Road',

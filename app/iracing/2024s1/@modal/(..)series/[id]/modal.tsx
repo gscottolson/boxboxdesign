@@ -6,7 +6,8 @@ import useLockBodyScroll from '@/app/useLockBodyScroll';
 import { createPortal } from 'react-dom';
 import { Back, Close, Next } from '../../../icons';
 import Link from 'next/link';
-import { SeriesResult, getSeriesURL } from '@/app/iracing/schedule-list';
+import { SeriesResult } from '@/app/iracing/types';
+import { getSeriesURL } from '@/app/iracing/data/series-util';
 
 export function Modal({
   children,

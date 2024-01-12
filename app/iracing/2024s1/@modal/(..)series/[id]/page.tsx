@@ -1,7 +1,7 @@
 import { Modal } from './modal';
 import { SeriesDetail } from '../../../series-detail';
-import { getSeriesById } from '@/app/iracing/schedule-list';
 import { getSiteTitle } from '@/app/site';
+import { getSeriesById } from '@/app/iracing/data/series-util';
 
 export default function Page({ params }: { params: { id: string } }) {
   const [series, resultIndex] = getSeriesById(params.id, {
