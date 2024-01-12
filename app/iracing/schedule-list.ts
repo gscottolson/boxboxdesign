@@ -118,7 +118,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
     name: 'Formula 1600 Rookie Sim‑Motion Series Fixed',
     src: '/iracing/png/2024s1/Formula1600.png',
     licenseClass: 'Rookie',
-    pdf: '',
+    pdf: 'https://blobblobdesign.blob.core.windows.net/2024s1/FF1600Rookie.pdf',
   },
   {
     seriesId: '4568',
@@ -126,7 +126,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
     name: 'Ferrari GT3 Challenge Fixed',
     src: '/iracing/png/2024s1/FerrariGT3.png',
     licenseClass: 'D',
-    pdf: '',
+    pdf: 'https://blobblobdesign.blob.core.windows.net/2024s1/FerrariGT3Fixed.pdf',
   },
   {
     seriesId: '4560',
@@ -150,7 +150,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
     name: 'Formula 1600 Thrustmaster Trophy',
     src: '/iracing/png/2024s1/FF1600D.png',
     licenseClass: 'D',
-    pdf: '',
+    pdf: 'https://blobblobdesign.blob.core.windows.net/2024s1/FF1600.pdf',
   },
   {
     seriesId: '4570',
@@ -158,7 +158,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
     name: 'FIA Formula 4 Challenge',
     src: '/iracing/png/2024s1/Formula4.png',
     licenseClass: 'D',
-    pdf: '',
+    pdf: 'https://blobblobdesign.blob.core.windows.net/2024s1/Formula4.pdf',
   },
   {
     seriesId: '4569',
@@ -166,7 +166,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
     name: 'FIA Formula 4 Challenge Fixed',
     src: '/iracing/png/2024s1/Formula4Fixed.png',
     licenseClass: 'D',
-    pdf: '',
+    pdf: 'https://blobblobdesign.blob.core.windows.net/2024s1/Formula4Fixed.pdf',
   },
   {
     seriesId: '4564',
@@ -190,7 +190,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
     name: 'Global Fanatec Challenge Fixed',
     src: '/iracing/png/2024s1/GlobalFanatec.png',
     licenseClass: 'D',
-    pdf: '',
+    pdf: 'https://blobblobdesign.blob.core.windows.net/2024s1/FanatecFixed.pdf',
   },
   {
     seriesId: '4571',
@@ -246,7 +246,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
     name: 'FIA F4 Esports Regional Tour Europe North',
     src: '/iracing/png/2024s1/F4RegionalEurNo.png',
     licenseClass: 'D',
-    pdf: '',
+    pdf: 'https://blobblobdesign.blob.core.windows.net/2024s1/F4RegionalEuropeNorth.pdf',
   },
   {
     seriesId: '4577',
@@ -262,7 +262,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
     name: 'FIA F4 Esports Regional Tour Europe South',
     src: '/iracing/png/2024s1/F4RegionalEurSo.png',
     licenseClass: 'D',
-    pdf: '',
+    pdf: 'https://blobblobdesign.blob.core.windows.net/2024s1/F4RegionalEuropeSouth.pdf',
   },
   {
     seriesId: '4576',
@@ -270,7 +270,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
     name: 'FIA F4 Esports Regional Tour Asia Pacific',
     src: '/iracing/png/2024s1/F4RegionalAsiaPac.png',
     licenseClass: 'D',
-    pdf: '',
+    pdf: 'https://blobblobdesign.blob.core.windows.net/2024s1/F4RegionalAsiaPacific.pdf',
   },
   {
     seriesId: '4572',
@@ -334,7 +334,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
     name: 'Formula C DOF Reality Dallara F3 Series',
     src: '/iracing/png/2024s1/FormulaC.png',
     licenseClass: 'C',
-    pdf: '',
+    pdf: 'https://blobblobdesign.blob.core.windows.net/2024s1/FormulaC.pdf',
   },
   {
     seriesId: '4603',
@@ -342,7 +342,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
     name: 'Formula C Thrustmaster Dallara F3 Series Fixed',
     src: '/iracing/png/2024s1/FormulaCFixed.png',
     licenseClass: 'C',
-    pdf: '',
+    pdf: 'https://blobblobdesign.blob.core.windows.net/2024s1/FormulaCFixed.pdf',
   },
   {
     seriesId: '4620',
@@ -470,7 +470,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
     name: 'Formula B Super Formula IMSIM Series Fixed',
     src: '/iracing/png/2024s1/SuperFormulaFixed.png',
     licenseClass: 'B',
-    pdf: '',
+    pdf: 'https://blobblobdesign.blob.core.windows.net/2024s1/FormulaBFixed.pdf',
   },
   {
     seriesId: '4625',
@@ -478,7 +478,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
     name: 'Formula B Super Formula IMSIM Series',
     src: '/iracing/png/2024s1/SuperFormula.png',
     licenseClass: 'B',
-    pdf: '',
+    pdf: 'https://blobblobdesign.blob.core.windows.net/2024s1/FormulaB.pdf',
   },
   {
     seriesId: '4622',
@@ -526,7 +526,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
     name: 'Formula B Formula Renault 3.5 Series',
     src: '/iracing/png/2024s1/FormulaB.png',
     licenseClass: 'B',
-    pdf: '',
+    pdf: 'https://blobblobdesign.blob.core.windows.net/2024s1/Formula3.5.pdf',
   },
   {
     seriesId: '4615',
@@ -550,7 +550,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
     name: 'Formula A Grand Prix Series',
     src: '/iracing/png/2024s1/FormulaA.png',
     licenseClass: 'A',
-    pdf: '',
+    pdf: 'https://blobblobdesign.blob.core.windows.net/2024s1/FormulaA.pdf',
   },
   {
     seriesId: '4630',
@@ -558,7 +558,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
     name: 'Formula A Grand Prix Series Fixed',
     src: '/iracing/png/2024s1/FormulaAFixed.png',
     licenseClass: 'A',
-    pdf: '',
+    pdf: 'https://blobblobdesign.blob.core.windows.net/2024s1/FormulaAFixed.pdf',
   },
 ];
 
