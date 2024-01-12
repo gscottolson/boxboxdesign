@@ -27,7 +27,7 @@ export function SeriesCard({ series, priority }: SeriesCardProps) {
         <div
           className={`${cardStyles} group-active:scale-card flex scale-100 flex-col overflow-hidden rounded-sm`}
         >
-          {!series.src ? (
+          {!series.src?.endsWith('png') ? (
             <div className="h-card flex select-none items-center justify-center bg-gray700/20 p-4 align-middle leading-loose text-gray700">
               Coming soon
             </div>
