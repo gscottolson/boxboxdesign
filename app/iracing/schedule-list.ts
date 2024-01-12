@@ -206,7 +206,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
     name: 'Clio Cup Fixed',
     src: '/iracing/png/2024s1/ClioCupFixed.png',
     licenseClass: 'D',
-    pdf: '',
+    pdf: 'https://blobblobdesign.blob.core.windows.net/2024s1/ClioCupFixed.pdf',
   },
   {
     seriesId: '4567',
@@ -254,7 +254,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
     name: 'FIA F4 Esports Regional Tour Americas',
     src: '/iracing/png/2024s1/F4RegionalAmericas.png',
     licenseClass: 'D',
-    pdf: '',
+    pdf: 'https://blobblobdesign.blob.core.windows.net/2024s1/F4RegionalAmericas.pdf',
   },
   {
     seriesId: '4579',
@@ -366,7 +366,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
     name: 'Advanced Mazda MX‑5 Cup Series',
     src: '/iracing/png/2024s1/AdvancedMazda.png',
     licenseClass: 'C',
-    pdf: 'https://ujpoh6mh5fdfmza9.public.blob.vercel-storage.com/AdvancedMazda-SFuWbBH6GihH3UYDa9gmbSnDdhqtle.pdf',
+    pdf: 'https://blobblobdesign.blob.core.windows.net/2024s1/AdvancedMazda.pdf',
   },
   {
     seriesId: '4585',
@@ -586,7 +586,7 @@ export const iRacing2024S1OvalSeries: OfficialSeries[] = [
     name: 'ARCA Menards Series Fixed',
     src: '/iracing/png/2024s1/ARCASeriesFixed.png',
     licenseClass: 'D',
-    pdf: 'https://ujpoh6mh5fdfmza9.public.blob.vercel-storage.com/ARCASeriesFixed-KYzYciPEQ1zkiLoUYtR7a9qh5cFyXX.pdf',
+    pdf: 'https://blobblobdesign.blob.core.windows.net/2024s1/ARCASeriesFixed.pdf',
   },
   {
     seriesId: '4667',
@@ -594,7 +594,7 @@ export const iRacing2024S1OvalSeries: OfficialSeries[] = [
     name: 'Draft Master Fixed',
     src: '/iracing/png/2024s1/DraftMaster.png',
     licenseClass: 'D',
-    pdf: '',
+    pdf: 'https://blobblobdesign.blob.core.windows.net/2024s1/DraftMaster.pdf',
   },
   {
     seriesId: '4581',
@@ -659,7 +659,7 @@ export const iRacing2024S1OvalSeries: OfficialSeries[] = [
     name: 'Advanced Legends Cup',
     src: '/iracing/png/2024s1/AdvancedLegends.png',
     licenseClass: 'C',
-    pdf: 'https://ujpoh6mh5fdfmza9.public.blob.vercel-storage.com/AdvancedLegends-TrV93Xt2g46jPiJhDjSge6F6C9ToWq.pdf',
+    pdf: 'https://blobblobdesign.blob.core.windows.net/2024s1/AdvancedLegends.pdf',
   },
   {
     seriesId: '4580',
