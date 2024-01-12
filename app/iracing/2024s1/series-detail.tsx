@@ -1,12 +1,12 @@
 'use client';
 
-import { OfficialSeries } from '@/app/iracing/schedule-list';
 import { Document, Page as PDFPage, Thumbnail } from 'react-pdf';
 import { pdfjs } from 'react-pdf';
-import React, { useCallback, useState } from 'react';
+import React from 'react';
 import Balancer from 'react-wrap-balancer';
 import { useBarcode } from 'next-barcode';
 import { Download } from './icons';
+import { OfficialSeries } from '../types';
 
 const pdfHeight = 640;
 

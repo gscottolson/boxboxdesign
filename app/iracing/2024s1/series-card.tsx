@@ -1,7 +1,8 @@
 import Image from 'next/image';
-import { License, OfficialSeries, getSeriesURL } from '../schedule-list';
 import Balancer from 'react-wrap-balancer';
 import Link from 'next/link';
+import { License, OfficialSeries } from '../types';
+import { getSeriesURL } from '../data/series-util';
 
 interface SeriesCardProps {
   series: OfficialSeries;

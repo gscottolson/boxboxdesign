@@ -5,8 +5,8 @@ import { LogoHorizontal } from '@/app/ui/logo';
 import {
   getDisciplineURL,
   getSeriesById,
-  iRacing2024S1,
-} from '../../schedule-list';
+  getAll,
+} from '../../data/series-util';
 import { Metadata } from 'next';
 import { getSiteTitle } from '@/app/site';
 import { notFound } from 'next/navigation';
@@ -24,7 +24,7 @@ export function generateMetadata({
 
 export const dynamicParams = false;
 export function generateStaticParams() {
-  return iRacing2024S1.map((series) => {
+  return getAll().map((series) => {
     return series.seriesId ? { id: series.seriesId } : null;
   });
 }

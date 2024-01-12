@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { SeriesCard } from './series-card';
-import { Discipline, OfficialSeries, getDisciplineURL } from '../schedule-list';
+import { Discipline, OfficialSeries } from '../types';
+import { getDisciplineURL } from '../data/series-util';
 
 export function Nav({ active }: { active: Discipline }) {
   const isRoad = active === 'Road';
