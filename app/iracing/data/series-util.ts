@@ -2,6 +2,7 @@ import { iRacing2024S1DirtOvalSeries } from './2024s1-dirtoval';
 import { iRacing2024S1DirtRoadSeries } from './2024s1-dirtroad';
 import { iRacing2024S1OvalSeries } from './2024s1-oval';
 import { iRacing2024S1RoadSeries } from './2024s1-road';
+import { iRacing2024S1UnrankedSeries } from './2024s1-unranked';
 import { Discipline, OfficialSeries, Season, SeriesIndex } from '../types';
 
 const EMPTY: OfficialSeries = {
@@ -27,6 +28,8 @@ export function getDisciplineURL(discipline: Discipline, season?: Season) {
       return `/iracing/${seasonSlug}/dirtroad/`;
     case 'Dirt Oval':
       return `/iracing/${seasonSlug}/dirtoval/`;
+    case 'Unranked':
+      return `/iracing/${seasonSlug}/unranked/`;
     default:
       return '/';
   }
@@ -94,10 +97,14 @@ export function getAllDirtoval() {
 export function getAllDirtroad() {
   return iRacing2024S1DirtRoadSeries;
 }
+export function getAllUnranked() {
+  return iRacing2024S1UnrankedSeries;
+}
 
 const iRacing2024S1: OfficialSeries[] = [
   ...iRacing2024S1RoadSeries,
   ...iRacing2024S1OvalSeries,
   ...iRacing2024S1DirtOvalSeries,
   ...iRacing2024S1DirtRoadSeries,
+  ...iRacing2024S1UnrankedSeries,
 ];
