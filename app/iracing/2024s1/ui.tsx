@@ -8,6 +8,7 @@ export function Nav({ active }: { active: Discipline }) {
   const isOval = active === 'Oval';
   const isDirtOval = active === 'Dirt Oval';
   const isDirtRoad = active === 'Dirt Road';
+  const isUnranked = active === 'Unranked';
 
   return (
     <ul className="flex w-full justify-center gap-8 pb-12 pt-4 align-middle text-gray700">
@@ -25,6 +26,10 @@ export function Nav({ active }: { active: Discipline }) {
 
       <li key="d" style={{ textDecoration: isDirtRoad ? 'underline' : 'none' }}>
         <Link href={getDisciplineURL('Dirt Road')}>Dirt Road</Link>
+      </li>
+
+      <li key="e" style={{ textDecoration: isUnranked ? 'underline' : 'none' }}>
+        <Link href={getDisciplineURL('Unranked')}>Unranked</Link>
       </li>
     </ul>
   );
