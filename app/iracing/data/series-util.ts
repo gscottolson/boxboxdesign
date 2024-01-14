@@ -58,6 +58,9 @@ export function getSeriesById(
       case 'Dirt Road':
         seriesList = getAllDirtroad();
         break;
+      case 'Unranked':
+        seriesList = getAllUnranked();
+        break;
     }
   }
 
