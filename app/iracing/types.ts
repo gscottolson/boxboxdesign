@@ -9,7 +9,7 @@ export interface OfficialSeries {
     licenseClass: License;
     pdf?: string;
     src?: string;
-    setup: 'open' | 'fixed';
+    setup: 'open' | 'fixed' | null;
     isEmpty?: boolean;
 }
 
