@@ -8,6 +8,7 @@ export const iRacing2024S1DirtRoadSeries: OfficialSeries[] = [
         src: '/thumbnails/iracing/2024s1/4661-RookiePro2LiteFixed.png',
         licenseClass: 'Rookie',
         pdf: '/pdfs/iracing/2024s1-dirtroad/4661-RookiePro2LiteFixed.pdf',
+        setup: 'fixed',
     },
     {
         seriesId: '4657',
@@ -16,6 +17,7 @@ export const iRacing2024S1DirtRoadSeries: OfficialSeries[] = [
         src: '/thumbnails/iracing/2024s1/4657-RookieiRXBeetleLiteFixed.png',
         licenseClass: 'Rookie',
         pdf: '/pdfs/iracing/2024s1-dirtroad/4657-RookieiRXBeetleLiteFixed.pdf',
+        setup: 'fixed',
     },
     {
         seriesId: '4658',
@@ -24,6 +26,7 @@ export const iRacing2024S1DirtRoadSeries: OfficialSeries[] = [
         src: '/thumbnails/iracing/2024s1/4658-iRXBeetleLite.png',
         licenseClass: 'D',
         pdf: '/pdfs/iracing/2024s1-dirtroad/4658-iRXBeetleLite.pdf',
+        setup: 'open',
     },
     {
         seriesId: '4662',
@@ -32,6 +35,7 @@ export const iRacing2024S1DirtRoadSeries: OfficialSeries[] = [
         src: '/thumbnails/iracing/2024s1/4662-Pro4OffRoadFixed.png',
         licenseClass: 'D',
         pdf: '/pdfs/iracing/2024s1-dirtroad/4662-Pro4OffRoadFixed.pdf',
+        setup: 'fixed',
     },
     {
         seriesId: '4659',
@@ -40,6 +44,7 @@ export const iRacing2024S1DirtRoadSeries: OfficialSeries[] = [
         src: '/thumbnails/iracing/2024s1/4659-RallycrossSeriesFixed.png',
         licenseClass: 'C',
         pdf: '/pdfs/iracing/2024s1-dirtroad/4659-RallycrossSeriesFixed.pdf',
+        setup: 'fixed',
     },
     {
         seriesId: '4663',
@@ -48,6 +53,7 @@ export const iRacing2024S1DirtRoadSeries: OfficialSeries[] = [
         src: '/thumbnails/iracing/2024s1/4663-Pro2OffRoadFixed.png',
         licenseClass: 'C',
         pdf: '/pdfs/iracing/2024s1-dirtroad/4663-Pro2OffRoadFixed.pdf',
+        setup: 'fixed',
     },
     {
         seriesId: '4660',
@@ -56,6 +62,7 @@ export const iRacing2024S1DirtRoadSeries: OfficialSeries[] = [
         src: '/thumbnails/iracing/2024s1/4660-RallycrossSeries.png',
         licenseClass: 'B',
         pdf: '/pdfs/iracing/2024s1-dirtroad/4660-RallycrossSeries.pdf',
+        setup: 'open',
     },
     {
         seriesId: '4665',
@@ -64,6 +71,7 @@ export const iRacing2024S1DirtRoadSeries: OfficialSeries[] = [
         src: '/thumbnails/iracing/2024s1/4665-Pro2OffRoad.png',
         licenseClass: 'B',
         pdf: '/pdfs/iracing/2024s1-dirtroad/4665-Pro2OffRoad.pdf',
+        setup: 'open',
     },
     {
         seriesId: '4664',
@@ -72,5 +80,6 @@ export const iRacing2024S1DirtRoadSeries: OfficialSeries[] = [
         src: '/thumbnails/iracing/2024s1/4664-Pro4OffRoad.png',
         licenseClass: 'B',
         pdf: '/pdfs/iracing/2024s1-dirtroad/4664-Pro4OffRoad.pdf',
+        setup: 'open',
     },
 ];

@@ -8,6 +8,7 @@ export const iRacing2024S1OvalSeries: OfficialSeries[] = [
         src: '/thumbnails/iracing/2024s1/StreetStock.png',
         licenseClass: 'Rookie',
         pdf: '/pdfs/iracing/2024s1-oval/4554-StreetStock.pdf',
+        setup: 'fixed',
     },
     {
         seriesId: '4553',
@@ -16,15 +17,17 @@ export const iRacing2024S1OvalSeries: OfficialSeries[] = [
         src: '/thumbnails/iracing/2024s1/RookieLegends.png',
         licenseClass: 'Rookie',
         pdf: '/pdfs/iracing/2024s1-oval/4553-RookieLegends.pdf',
+        setup: 'fixed',
     },
 
     {
         seriesId: '4582',
         discipline: 'Oval',
-        name: 'ARCA Menards Series Fixed',
+        name: 'ARCA Menards Series',
         src: '/thumbnails/iracing/2024s1/ARCASeriesFixed.png',
         licenseClass: 'D',
-        pdf: '/pdfs/iracing/2024s1-oval/4582-ARCASeriesFixed.pdf',
+        pdf: '/pdfs/iracing/2024s1-oval/4582-ARCASeries.pdf',
+        setup: 'fixed',
     },
     {
         seriesId: '4667',
@@ -32,7 +35,8 @@ export const iRacing2024S1OvalSeries: OfficialSeries[] = [
         name: 'Draft Master Fixed',
         src: '/thumbnails/iracing/2024s1/DraftMaster.png',
         licenseClass: 'D',
-        pdf: '/pdfs/iracing/2024s1-oval/4667-DraftMaster.pdf',
+        pdf: '/pdfs/iracing/2024s1-oval/4667-DraftMasterFixed.pdf',
+        setup: 'fixed',
     },
     {
         seriesId: '4581',
@@ -41,6 +45,7 @@ export const iRacing2024S1OvalSeries: OfficialSeries[] = [
         src: '/thumbnails/iracing/2024s1/LateModelStockFixed.png',
         licenseClass: 'D',
         pdf: '/pdfs/iracing/2024s1-oval/4581-LateModelStockFixed.pdf',
+        setup: 'fixed',
     },
     {
         seriesId: '4584',
@@ -49,6 +54,7 @@ export const iRacing2024S1OvalSeries: OfficialSeries[] = [
         src: '/thumbnails/iracing/2024s1/SKModifiedFixed.png',
         licenseClass: 'D',
         pdf: '/pdfs/iracing/2024s1-oval/4584-SKModifiedFixed.pdf',
+        setup: 'fixed',
     },
     {
         seriesId: '4583',
@@ -57,8 +63,8 @@ export const iRacing2024S1OvalSeries: OfficialSeries[] = [
         src: '/thumbnails/iracing/2024s1/SKModifiedWeekly.png',
         licenseClass: 'D',
         pdf: '/pdfs/iracing/2024s1-oval/4583-SKModifiedWeekly.pdf',
+        setup: 'open',
     },
-
     {
         seriesId: '4596',
         discipline: 'Oval',
@@ -66,6 +72,7 @@ export const iRacing2024S1OvalSeries: OfficialSeries[] = [
         src: '/thumbnails/iracing/2024s1/NascarCFixed.png',
         licenseClass: 'C',
         pdf: '/pdfs/iracing/2024s1-oval/4596-NASCARCFixed.pdf',
+        setup: 'fixed',
     },
     {
         seriesId: '4671',
@@ -74,6 +81,7 @@ export const iRacing2024S1OvalSeries: OfficialSeries[] = [
         src: '/thumbnails/iracing/2024s1/NascarC.png',
         licenseClass: 'C',
         pdf: '/pdfs/iracing/2024s1-oval/4671-NASCARC.pdf',
+        setup: 'open',
     },
     {
         seriesId: '4599',
@@ -81,7 +89,8 @@ export const iRacing2024S1OvalSeries: OfficialSeries[] = [
         name: 'US Open Wheel C Dallara IR‑18 Fixed',
         src: '/thumbnails/iracing/2024s1/OpenWheelC.png',
         licenseClass: 'C',
-        pdf: '/pdfs/iracing/2024s1-oval/4599-OpenWheelC.pdf',
+        pdf: '/pdfs/iracing/2024s1-oval/4599-OpenWheelCFixed.pdf',
+        setup: 'fixed',
     },
     {
         seriesId: '4598',
@@ -90,6 +99,7 @@ export const iRacing2024S1OvalSeries: OfficialSeries[] = [
         src: '/thumbnails/iracing/2024s1/Gen4CupFixed.png',
         licenseClass: 'C',
         pdf: '/pdfs/iracing/2024s1-oval/4598-Gen4CupFixed.pdf',
+        setup: 'fixed',
     },
     {
         seriesId: '4558',
@@ -98,6 +108,7 @@ export const iRacing2024S1OvalSeries: OfficialSeries[] = [
         src: '/thumbnails/iracing/2024s1/AdvancedLegends.png',
         licenseClass: 'C',
         pdf: '/pdfs/iracing/2024s1-oval/4558-AdvancedLegends.pdf',
+        setup: 'open',
     },
     {
         seriesId: '4580',
@@ -106,6 +117,7 @@ export const iRacing2024S1OvalSeries: OfficialSeries[] = [
         src: '/thumbnails/iracing/2024s1/LateModelStock.png',
         licenseClass: 'C',
         pdf: '/pdfs/iracing/2024s1-oval/4580-LateModelStock.pdf',
+        setup: 'open',
     },
     {
         seriesId: '4591',
@@ -114,6 +126,7 @@ export const iRacing2024S1OvalSeries: OfficialSeries[] = [
         src: '/thumbnails/iracing/2024s1/StreetStockC.png',
         licenseClass: 'C',
         pdf: '/pdfs/iracing/2024s1-oval/4591-StreetStockC.pdf',
+        setup: 'fixed',
     },
     {
         seriesId: '4595',
@@ -122,6 +135,7 @@ export const iRacing2024S1OvalSeries: OfficialSeries[] = [
         src: '/thumbnails/iracing/2024s1/SuperLateModelFixed.png',
         licenseClass: 'C',
         pdf: '/pdfs/iracing/2024s1-oval/4595-SuperLateModelFixed.pdf',
+        setup: 'fixed',
     },
     {
         seriesId: '4594',
@@ -130,6 +144,7 @@ export const iRacing2024S1OvalSeries: OfficialSeries[] = [
         src: '/thumbnails/iracing/2024s1/SuperLateModel.png',
         licenseClass: 'C',
         pdf: '/pdfs/iracing/2024s1-oval/4594-SuperLateModel.pdf',
+        setup: 'open',
     },
     {
         seriesId: '4593',
@@ -138,6 +153,7 @@ export const iRacing2024S1OvalSeries: OfficialSeries[] = [
         src: '/thumbnails/iracing/2024s1/NascarTourModifiedFixed.png',
         licenseClass: 'C',
         pdf: '/pdfs/iracing/2024s1-oval/4593-NASCARTourModifiedFixed.pdf',
+        setup: 'fixed',
     },
     {
         seriesId: '4592',
@@ -146,6 +162,7 @@ export const iRacing2024S1OvalSeries: OfficialSeries[] = [
         src: '/thumbnails/iracing/2024s1/NascarTourModified.png',
         licenseClass: 'C',
         pdf: '/pdfs/iracing/2024s1-oval/4592-NASCARTourModified.pdf',
+        setup: 'open',
     },
 
     {
@@ -155,6 +172,7 @@ export const iRacing2024S1OvalSeries: OfficialSeries[] = [
         src: '/thumbnails/iracing/2024s1/NascarBFixed.png',
         licenseClass: 'B',
         pdf: '/pdfs/iracing/2024s1-oval/4611-NASCARBFixed.pdf',
+        setup: 'fixed',
     },
     {
         seriesId: '4672',
@@ -163,14 +181,16 @@ export const iRacing2024S1OvalSeries: OfficialSeries[] = [
         src: '/thumbnails/iracing/2024s1/NascarB.png',
         licenseClass: 'B',
         pdf: '/pdfs/iracing/2024s1-oval/4672-NASCARB.pdf',
+        setup: 'open',
     },
     {
         seriesId: '4597',
         discipline: 'Oval',
         name: 'NASCAR Legends Series',
-        src: '/thumbnails/iracing/2024s1/NascarLegendsFixed.png',
+        src: '/thumbnails/iracing/2024s1/NascarLegends.png',
         licenseClass: 'B',
-        pdf: '/pdfs/iracing/2024s1-oval/4597-NASCARLegendsFixed.pdf',
+        pdf: '/pdfs/iracing/2024s1-oval/4597-NASCARLegends.pdf',
+        setup: 'fixed',
     },
     {
         seriesId: '4613',
@@ -179,6 +199,7 @@ export const iRacing2024S1OvalSeries: OfficialSeries[] = [
         src: '/thumbnails/iracing/2024s1/SprintCarCup.png',
         licenseClass: 'B',
         pdf: '/pdfs/iracing/2024s1-oval/4613-SprintCarCup.pdf',
+        setup: 'open',
     },
     {
         seriesId: '4612',
@@ -187,6 +208,7 @@ export const iRacing2024S1OvalSeries: OfficialSeries[] = [
         src: '/thumbnails/iracing/2024s1/SilverCrownCup.png',
         licenseClass: 'B',
         pdf: '/pdfs/iracing/2024s1-oval/4612-SilverCrownCup.pdf',
+        setup: 'open',
     },
 
     {
@@ -196,6 +218,7 @@ export const iRacing2024S1OvalSeries: OfficialSeries[] = [
         src: '/thumbnails/iracing/2024s1/NascarAFixed.png',
         licenseClass: 'A',
         pdf: '/pdfs/iracing/2024s1-oval/4628-NASCARAFixed.pdf',
+        setup: 'fixed',
     },
     {
         seriesId: '4627',
@@ -204,5 +227,6 @@ export const iRacing2024S1OvalSeries: OfficialSeries[] = [
         src: '/thumbnails/iracing/2024s1/NascarA.png',
         licenseClass: 'A',
         pdf: '/pdfs/iracing/2024s1-oval/4627-NASCARA.pdf',
+        setup: 'open',
     },
 ];

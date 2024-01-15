@@ -8,6 +8,7 @@ export const iRacing2024S1DirtOvalSeries: OfficialSeries[] = [
         src: '/thumbnails/iracing/2024s1/DIRTcarStreetStockFixed.png',
         licenseClass: 'Rookie',
         pdf: '/pdfs/iracing/2024s1-dirtoval/4634-DIRTcarStreetStockFixed.pdf',
+        setup: 'fixed',
     },
     {
         seriesId: '4635',
@@ -16,6 +17,7 @@ export const iRacing2024S1DirtOvalSeries: OfficialSeries[] = [
         src: '/thumbnails/iracing/2024s1/DirtLegendsCup.png',
         licenseClass: 'Rookie',
         pdf: '/pdfs/iracing/2024s1-dirtoval/4635-DirtLegendsCup.pdf',
+        setup: 'fixed',
     },
     {
         seriesId: '4636',
@@ -24,6 +26,7 @@ export const iRacing2024S1DirtOvalSeries: OfficialSeries[] = [
         src: '/thumbnails/iracing/2024s1/DIRTcar305SprintFixed.png',
         licenseClass: 'D',
         pdf: '/pdfs/iracing/2024s1-dirtoval/4636-DIRTcar305SprintFixed.pdf',
+        setup: 'fixed',
     },
     {
         seriesId: '4637',
@@ -32,6 +35,7 @@ export const iRacing2024S1DirtOvalSeries: OfficialSeries[] = [
         src: '/thumbnails/iracing/2024s1/DIRTcarLateModelFixed.png',
         licenseClass: 'D',
         pdf: '/pdfs/iracing/2024s1-dirtoval/4637-DIRTcarLateModelFixed.pdf',
+        setup: 'fixed',
     },
     {
         seriesId: '4638',
@@ -40,6 +44,7 @@ export const iRacing2024S1DirtOvalSeries: OfficialSeries[] = [
         src: '/thumbnails/iracing/2024s1/DIRTcar358ModifiedFixed.png',
         licenseClass: 'D',
         pdf: '/pdfs/iracing/2024s1-dirtoval/4638-DIRTcar358ModifiedFixed.pdf',
+        setup: 'fixed',
     },
 
     {
@@ -49,6 +54,7 @@ export const iRacing2024S1DirtOvalSeries: OfficialSeries[] = [
         src: '/thumbnails/iracing/2024s1/DIRTcarProLateModelFixed.png',
         licenseClass: 'C',
         pdf: '/pdfs/iracing/2024s1-dirtoval/4646-DIRTcarProLateModelFixed.pdf',
+        setup: 'fixed',
     },
     {
         seriesId: '4645',
@@ -57,6 +63,7 @@ export const iRacing2024S1DirtOvalSeries: OfficialSeries[] = [
         src: '/thumbnails/iracing/2024s1/DIRTcarProLateModel.png',
         licenseClass: 'C',
         pdf: '/pdfs/iracing/2024s1-dirtoval/4645-DIRTcarProLateModel.pdf',
+        setup: 'open',
     },
     {
         seriesId: '4649',
@@ -65,6 +72,7 @@ export const iRacing2024S1DirtOvalSeries: OfficialSeries[] = [
         src: '/thumbnails/iracing/2024s1/BigBlockModifiedFixed.png',
         licenseClass: 'C',
         pdf: '/pdfs/iracing/2024s1-dirtoval/4649-BigBlockModifiedFixed.pdf',
+        setup: 'fixed',
     },
     {
         seriesId: '4648',
@@ -73,6 +81,7 @@ export const iRacing2024S1DirtOvalSeries: OfficialSeries[] = [
         src: '/thumbnails/iracing/2024s1/BigBlockModified.png',
         licenseClass: 'C',
         pdf: '/pdfs/iracing/2024s1-dirtoval/4648-BigBlockModified.pdf',
+        setup: 'open',
     },
     {
         seriesId: '4640',
@@ -81,6 +90,7 @@ export const iRacing2024S1DirtOvalSeries: OfficialSeries[] = [
         src: '/thumbnails/iracing/2024s1/DIRTcar360SprintFixed.png',
         licenseClass: 'C',
         pdf: '/pdfs/iracing/2024s1-dirtoval/4640-DIRTcar360SprintFixed.pdf',
+        setup: 'fixed',
     },
     {
         seriesId: '4639',
@@ -89,6 +99,7 @@ export const iRacing2024S1DirtOvalSeries: OfficialSeries[] = [
         src: '/thumbnails/iracing/2024s1/DIRTcar360Sprint.png',
         licenseClass: 'C',
         pdf: '/pdfs/iracing/2024s1-dirtoval/4639-DIRTcar360Sprint.pdf',
+        setup: 'open',
     },
     {
         seriesId: '4644',
@@ -97,6 +108,7 @@ export const iRacing2024S1DirtOvalSeries: OfficialSeries[] = [
         src: '/thumbnails/iracing/2024s1/DirtMidgetCupFixed.png',
         licenseClass: 'C',
         pdf: '/pdfs/iracing/2024s1-dirtoval/4644-DirtMidgetCupFixed.pdf',
+        setup: 'fixed',
     },
     {
         seriesId: '4643',
@@ -105,6 +117,7 @@ export const iRacing2024S1DirtOvalSeries: OfficialSeries[] = [
         src: '/thumbnails/iracing/2024s1/DirtMidgetCup.png',
         licenseClass: 'C',
         pdf: '/pdfs/iracing/2024s1-dirtoval/4643-DirtMidgetCup.pdf',
+        setup: 'open',
     },
     {
         seriesId: '4642',
@@ -113,6 +126,7 @@ export const iRacing2024S1DirtOvalSeries: OfficialSeries[] = [
         src: '/thumbnails/iracing/2024s1/DIRTcarClassCFixed.png',
         licenseClass: 'C',
         pdf: '/pdfs/iracing/2024s1-dirtoval/4642-DIRTcarClassCFixed.pdf',
+        setup: 'fixed',
     },
     {
         seriesId: '4656',
@@ -121,6 +135,7 @@ export const iRacing2024S1DirtOvalSeries: OfficialSeries[] = [
         src: '/thumbnails/iracing/2024s1/DirtSuperLateModelFixed.png',
         licenseClass: 'C',
         pdf: '/pdfs/iracing/2024s1-dirtoval/4656-DirtSuperLateModelFixed.pdf',
+        setup: 'fixed',
     },
     {
         seriesId: '4641',
@@ -129,6 +144,7 @@ export const iRacing2024S1DirtOvalSeries: OfficialSeries[] = [
         src: '/thumbnails/iracing/2024s1/USAC360Sprint.png',
         licenseClass: 'C',
         pdf: '/pdfs/iracing/2024s1-dirtoval/4641-USAC360Sprint.pdf',
+        setup: 'open',
     },
     {
         seriesId: '4652',
@@ -137,6 +153,7 @@ export const iRacing2024S1DirtOvalSeries: OfficialSeries[] = [
         src: '/thumbnails/iracing/2024s1/Dirt410SprintFixed.png',
         licenseClass: 'C',
         pdf: '/pdfs/iracing/2024s1-dirtoval/4652-Dirt410SprintFixed.pdf',
+        setup: 'fixed',
     },
     {
         seriesId: '4655',
@@ -145,6 +162,7 @@ export const iRacing2024S1DirtOvalSeries: OfficialSeries[] = [
         src: '/thumbnails/iracing/2024s1/WOOLateModelFixed.png',
         licenseClass: 'B',
         pdf: '/pdfs/iracing/2024s1-dirtoval/4655-WOOLateModelFixed.pdf',
+        setup: 'fixed',
     },
     {
         seriesId: '4654',
@@ -153,6 +171,7 @@ export const iRacing2024S1DirtOvalSeries: OfficialSeries[] = [
         src: '/thumbnails/iracing/2024s1/WOOLateModel.png',
         licenseClass: 'B',
         pdf: '/pdfs/iracing/2024s1-dirtoval/4654-WOOLateModel.pdf',
+        setup: 'open',
     },
     {
         seriesId: '4651',
@@ -161,6 +180,7 @@ export const iRacing2024S1DirtOvalSeries: OfficialSeries[] = [
         src: '/thumbnails/iracing/2024s1/WOOSprintCarFixed.png',
         licenseClass: 'B',
         pdf: '/pdfs/iracing/2024s1-dirtoval/4651-WOOSprintCarFixed.pdf',
+        setup: 'fixed',
     },
     {
         seriesId: '4650',
@@ -169,6 +189,7 @@ export const iRacing2024S1DirtOvalSeries: OfficialSeries[] = [
         src: '/thumbnails/iracing/2024s1/WOOSprintCar.png',
         licenseClass: 'B',
         pdf: '/pdfs/iracing/2024s1-dirtoval/4650-WOOSprintCar.pdf',
+        setup: 'open',
     },
     {
         seriesId: '4647',
@@ -177,6 +198,7 @@ export const iRacing2024S1DirtOvalSeries: OfficialSeries[] = [
         src: '/thumbnails/iracing/2024s1/DIRTcarUMPFixed.png',
         licenseClass: 'B',
         pdf: '/pdfs/iracing/2024s1-dirtoval/4647-DIRTcarUMPFixed.pdf',
+        setup: 'fixed',
     },
     {
         seriesId: '4653',
@@ -185,5 +207,6 @@ export const iRacing2024S1DirtOvalSeries: OfficialSeries[] = [
         src: '/thumbnails/iracing/2024s1/AMSOILUSACSprintFixed.png',
         licenseClass: 'B',
         pdf: '/pdfs/iracing/2024s1-dirtoval/4653-AMSOILUSACSprintFixed.pdf',
+        setup: 'fixed',
     },
 ];
