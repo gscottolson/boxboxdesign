@@ -4,19 +4,19 @@ import LogoVertical from '@/app/ui/logo';
 export function Donate() {
     return (
         <div className="flex flex-col pt-8 text-teal800">
-            <div className="bg-white200 p-8">
+            <div className="min-h-[240px] bg-white200 p-8">
                 <p className="text-center">Are you finding these schedules useful?</p>
                 <p className="text-center font-medium">You can help me keep these free.</p>
 
-                <div className="m-auto flex w-5/6 items-center gap-4 pt-8 md:w-1/2">
-                    <div className="h-0.5 basis-1/3 rounded-lg bg-teal800 opacity-25 md:h-1" />
-
-                    <div className="min-w-[180px] max-w-[440px] basis-1/3 rounded-lg border-b-4 border-white300 bg-white100 px-4 py-2 active:translate-y-0.5 active:border-b-2">
-                        <a href="https://www.buymeacoffee.com/boxboxdesign">
+                <div className="m-auto flex w-5/6 justify-center gap-4 pt-8 md:w-1/2">
+                    <div className="min-w-[180px] max-w-[440px]">
+                        <a
+                            href="https://www.buymeacoffee.com/boxboxdesign"
+                            className="block translate-y-0 rounded-lg border-b-4 border-white300 bg-white100 px-4 py-2 shadow-md active:translate-y-0.5 active:border-b-2 active:shadow-sm"
+                        >
                             <BuyMe />
                         </a>
                     </div>
-                    <div className="h-0.5 basis-1/3 rounded-lg bg-teal800 opacity-25 md:h-1" />
                 </div>
             </div>
         </div>
