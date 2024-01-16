@@ -1,18 +1,21 @@
 import { useMemo } from 'react';
-import { Grid, Nav } from '../ui';
+import { Nav } from '../nav';
 import { Metadata } from 'next';
 import { getAllDirtroad } from '../../data/series-util';
+import { Grid } from '../grid';
+import { Donate } from '../donate';
 
 export const metadata: Metadata = {
-  title: 'Dirt Road',
+    title: 'Dirt Road',
 };
 
 export default function Page() {
-  const series = useMemo(() => getAllDirtroad(), []);
-  return (
-    <>
-      <Nav active="Dirt Road" />
-      <Grid seriesArray={series} />
-    </>
-  );
+    const series = useMemo(() => getAllDirtroad(), []);
+    return (
+        <>
+            <Nav active="Dirt Road" />
+            <Grid seriesArray={series} />
+            <Donate />
+        </>
+    );
 }
