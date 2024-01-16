@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 
-import { getSiteTitle } from './site';
+import { getSiteTitle as getiRacingSiteTitle } from './site';
 import { getDisciplineURL } from './iracing/data/series-util';
 
 export default function Page() {
@@ -11,13 +11,21 @@ export default function Page() {
 
     return (
         <main
-            className="flex h-full flex-col items-center justify-center gap-16 p-6"
+            className="flex h-full flex-col items-center justify-center gap-16 p-6 text-[#211F1F]"
             style={{ background, backgroundBlendMode, backgroundSize }}
         >
             <Image width={420} height={420} alt="BoxBoxDesign logo" src="/home/boxbox-circle.svg" />
-            <Link href={getDisciplineURL('Road')} className="text-blue800 hover:underline">
-                {getSiteTitle()}
-            </Link>
+
+            <div className="flex flex-col items-center justify-center">
+                <p className="font-light">Current projects:</p>
+                <ul className="font-medium">
+                    <li>
+                        <Link href={getDisciplineURL('Road')} className=" hover:underline">
+                            {getiRacingSiteTitle()}
+                        </Link>
+                    </li>
+                </ul>
+            </div>
         </main>
     );
 }
