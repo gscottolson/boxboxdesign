@@ -128,15 +128,6 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
         setup: 'fixed',
     },
     {
-        seriesId: '4567',
-        discipline: 'Road',
-        name: 'Touring Car Challenge',
-        src: '/thumbnails/iracing/2024s1/TCC.png',
-        licenseClass: 'C',
-        pdf: '/pdfs/iracing/2024s1-road/4567-TCC.pdf',
-        setup: 'open',
-    },
-    {
         seriesId: '4566',
         discipline: 'Road',
         name: 'Touring Car Challenge Fixed',
@@ -224,6 +215,15 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
         src: '/thumbnails/iracing/2024s1/SCC.png',
         licenseClass: 'C',
         pdf: '/pdfs/iracing/2024s1-road/4565-SCC.pdf',
+        setup: 'open',
+    },
+    {
+        seriesId: '4567',
+        discipline: 'Road',
+        name: 'Touring Car Challenge',
+        src: '/thumbnails/iracing/2024s1/TCC.png',
+        licenseClass: 'C',
+        pdf: '/pdfs/iracing/2024s1-road/4567-TCC.pdf',
         setup: 'open',
     },
     {
