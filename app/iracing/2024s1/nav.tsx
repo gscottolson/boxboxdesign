@@ -11,7 +11,7 @@ export function Nav({ active }: { active: Discipline }) {
     const isUnranked = active === 'Unranked';
 
     return (
-        <ul className="flex w-full flex-wrap justify-center gap-x-8 gap-y-2 px-4 pb-12 pt-4 align-middle font-medium uppercase text-gray700">
+        <ul className="m-auto flex w-72 flex-wrap justify-center gap-x-8 gap-y-2 px-4 pb-12 pt-4 align-middle font-medium uppercase text-gray700 md:w-full">
             <li key="a" style={{ textDecoration: isRoad ? 'underline' : 'none' }}>
                 <Link href={getDisciplineURL('Road')}>Road</Link>
             </li>
