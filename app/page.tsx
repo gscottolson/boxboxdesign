@@ -11,7 +11,7 @@ export default function Page() {
 
     return (
         <main
-            className="flex h-full flex-col items-center justify-center gap-16 p-6 text-[#211F1F]"
+            className="flex min-h-dvh flex-col items-center justify-center gap-16 p-6 text-[#211F1F]"
             style={{ background, backgroundBlendMode, backgroundSize }}
         >
             <Image width={420} height={420} alt="BoxBoxDesign logo" src="/home/boxbox-circle.svg" />
