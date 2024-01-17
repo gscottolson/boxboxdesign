@@ -1,6 +1,7 @@
 import '@/app/ui/global.css';
 import localFont from 'next/font/local';
 import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 const outfit = localFont({ src: '../public/Outfit-VariableFont_wght.ttf' });
 
@@ -12,6 +13,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <div id="modal-root" />
 
                 <Analytics />
+                <SpeedInsights />
             </body>
         </html>
     );
