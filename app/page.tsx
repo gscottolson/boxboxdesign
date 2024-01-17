@@ -17,10 +17,10 @@ export default function Page() {
             <Image width={420} height={420} alt="BoxBoxDesign logo" src="/home/boxbox-circle.svg" />
 
             <div className="flex flex-col items-center justify-center">
-                <p className="font-light">Current projects:</p>
-                <ul className="font-medium">
+                <p className="pb-2 font-light">Current projects:</p>
+                <ul className="text-center font-medium leading-[18px]">
                     <li>
-                        <Link href={getDisciplineURL('Road')} className=" hover:underline">
+                        <Link href={getDisciplineURL('Road')} className="hover:underline">
                             {getiRacingSiteTitle()}
                         </Link>
                     </li>
