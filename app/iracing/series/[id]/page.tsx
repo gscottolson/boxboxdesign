@@ -2,15 +2,50 @@ import Link from 'next/link';
 import { Back } from '../../2024s1/icons';
 import { SeriesDetail } from '../../2024s1/series-detail';
 import { LogoHorizontal } from '@/app/ui/logo';
-import { getDisciplineURL, getSeriesById, getAll } from '../../data/series-util';
+import { getDisciplineURL, getSeriesById, getAll, getSeriesURL } from '../../data/series-util';
 import { Metadata } from 'next';
-import { getSiteTitle } from '@/app/site';
+import { getDetailTitle, getSiteTitle } from '@/app/site';
 import { notFound } from 'next/navigation';
 
 export function generateMetadata({ params }: { params: { id: string } }): Metadata {
     const [series] = getSeriesById(params.id);
+    const description = `https://boxbox.design/${series.src}`;
+    const title = getDetailTitle(series.name);
     return {
-        title: series.name,
+        title,
+        description,
+        keywords: ['iRacing', 'official series', 'race schedule'],
+        creator: 'G. Scott Olson',
+        publisher: 'G. Scott Olson',
+        formatDetection: {
+            email: false,
+            address: false,
+            telephone: false,
+        },
+        openGraph: {
+            title,
+            description,
+            url: getSeriesURL(series.seriesId),
+            siteName: getSiteTitle(),
+            images: [
+                {
+                    url: `https://boxbox.design/${series.src}`, // Must be an absolute URL
+                    width: 480,
+                    height: 480,
+                },
+            ],
+            locale: 'en_US',
+            type: 'website',
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title,
+            description,
+            siteId: '15408255',
+            creator: '@gscottolson',
+            creatorId: '15408255',
+            images: [`https://boxbox.design/${series.src}`], // Must be an absolute URL
+        },
     };
 }
 
