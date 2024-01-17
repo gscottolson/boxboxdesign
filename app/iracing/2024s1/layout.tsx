@@ -13,7 +13,7 @@ export default function Layout(props: { children: React.ReactNode; modal: React.
     const bgOrdered = 'bg-siteGradient bg-[#BDCDD2] bg-repeat-x';
     return (
         <div className="relative min-h-dvh bg-white200">
-            <div className={`flex-grow lg:pt-16 ${bgOrdered}`}>
+            <div className={`flex-grow pt-16 ${bgOrdered}`}>
                 <header className="text-center tracking-tighter text-gray700">
                     <h1 className=" px-10 pt-12 text-4xl font-light leading-none antialiased">
                         <Balancer>{getSiteTitle()}</Balancer>
