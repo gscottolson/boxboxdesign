@@ -3,26 +3,42 @@ import LogoVertical from '@/app/ui/logo';
 
 export function Donate() {
     return (
-        <div className="flex flex-col bg-white200 px-8 py-16 text-center text-base font-light text-teal800">
+        <div className="bg-white200 px-8 py-16 text-center text-base font-light text-teal800">
             <div className="m-auto max-w-[360px]">
-                <p className="mb-2 font-medium">Hello, I’m Scott…</p>
+                <div className="mb-4 flex justify-center opacity-30">
+                    <BoxBoxIcon />
+                </div>
+                <p className="mb-4 font-medium">Hello, I’m Scott…</p>
 
                 <p className="mb-2">iRacing enthusiast, motorsports fan and lover of well-designed information.</p>
 
-                <p>If you are finding these schedules useful, consider helping me out with a small donation. </p>
+                <p className="mb-8">
+                    If you are finding these schedules useful, consider helping me out with a small donation.
+                </p>
 
-                <div className="flex justify-center gap-4 pt-6">
-                    <div className="h-16 w-56">
-                        <a
-                            href="https://www.buymeacoffee.com/boxboxdesign"
-                            className="block translate-y-0 rounded-lg border-b-4 border-white300 bg-white100 px-4 py-2 shadow-md active:translate-y-0.5 active:border-b-2 active:shadow-sm"
-                        >
-                            <BuyMe />
-                        </a>
-                    </div>
+                <div className="m-auto h-16 w-56">
+                    <a
+                        href="https://www.buymeacoffee.com/boxboxdesign"
+                        className="block translate-y-0 rounded-lg border-b-4 border-white300 bg-white100 px-4 py-2 shadow-md active:translate-y-0.5 active:border-b-2 active:shadow-sm"
+                    >
+                        <BuyMe />
+                    </a>
                 </div>
             </div>
         </div>
+    );
+}
+
+function BoxBoxIcon() {
+    return (
+        <svg width="80" height="47" viewBox="0 0 160 94" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+                fillRule="evenodd"
+                clipRule="evenodd"
+                fill="currentColor"
+                d="M116.471 1.33711C118.169 0.356381 120.262 0.356381 121.961 1.33711L157.255 21.7142C158.954 22.6949 160 24.5073 160 26.4688V67.2229C160 69.1844 158.954 70.9969 157.255 71.9776L121.961 92.3546C120.262 93.3354 118.169 93.3354 116.471 92.3546L81.1764 71.9776C80.4484 71.5573 79.5515 71.5573 78.8235 71.9776L43.5294 92.3546C41.8307 93.3354 39.7379 93.3354 38.0392 92.3546L2.7451 71.9776C1.04643 70.9969 0 69.1844 0 67.2229V26.4688C0 24.5073 1.04643 22.6949 2.7451 21.7142L38.0392 1.33711C39.7379 0.356382 41.8307 0.356381 43.5294 1.33711L78.8235 21.7142C79.5515 22.1345 80.4484 22.1345 81.1764 21.7142L116.471 1.33711ZM120.392 4.05405C119.664 3.63374 118.767 3.63374 118.039 4.05405L82.7451 24.4311C81.0464 25.4118 78.9535 25.4118 77.2549 24.4311L41.9608 4.05405C41.2328 3.63374 40.3358 3.63374 39.6078 4.05405L4.31372 24.4311C3.58572 24.8514 3.13725 25.6282 3.13725 26.4688V67.2229C3.13725 68.0636 3.58572 68.8403 4.31372 69.2606L39.2157 89.4113V48.3939C39.2157 46.8994 40.013 45.5185 41.3072 44.7713L73.895 25.9567C74.6453 25.5235 75.6046 25.7806 76.0378 26.5309C76.4709 27.2811 76.2139 28.2405 75.4636 28.6736L42.8758 47.4882C42.7243 47.5757 42.6001 47.6978 42.5108 47.8414L78.6346 68.6975C80.0071 68.3452 81.4846 68.5329 82.7451 69.2606L117.647 89.4113V48.3285C117.647 46.8341 118.444 45.4531 119.739 44.7059L152.326 25.8913C153.077 25.4582 154.036 25.7152 154.469 26.4655C154.902 27.2158 154.645 28.1751 153.895 28.6083L121.307 47.4229C121.139 47.5201 121.004 47.6602 120.914 47.8249L156.548 68.3984C156.751 68.0468 156.863 67.6429 156.863 67.2229V26.4688C156.863 25.6282 156.414 24.8514 155.686 24.4311L120.392 4.05405ZM80 26.3967C80.8663 26.3967 81.5686 27.099 81.5686 27.9654V65.7792C81.5686 66.6455 80.8663 67.3478 80 67.3478C79.1336 67.3478 78.4313 66.6455 78.4313 65.7792V27.9654C78.4313 27.099 79.1336 26.3967 80 26.3967ZM5.50298 26.4677C5.93492 25.7168 6.89385 25.4581 7.64482 25.8901L37.6448 43.145C38.3958 43.5769 38.6544 44.5358 38.2225 45.2868C37.7906 46.0378 36.8316 46.2964 36.0806 45.8645L6.08066 28.6096C5.32969 28.1776 5.07105 27.2187 5.50298 26.4677ZM86.0762 25.8901C85.3252 25.4581 84.3663 25.7168 83.9343 26.4677C83.5024 27.2187 83.761 28.1776 84.512 28.6096L114.512 45.8645C115.263 46.2964 116.222 46.0378 116.654 45.2868C117.086 44.5358 116.827 43.5769 116.076 43.145L86.0762 25.8901Z"
+            />
+        </svg>
     );
 }
 
