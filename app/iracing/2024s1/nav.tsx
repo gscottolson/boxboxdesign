@@ -12,24 +12,23 @@ export function Nav({ active }: { active: Discipline }) {
 
     return (
         <ul className="m-auto flex flex-wrap items-start justify-center gap-2 px-4 pb-12 pt-4 align-middle font-medium uppercase tracking-widest text-gray700 md:w-full md:items-start">
-            <Item key="road" discipline="Road" active={isRoad} />
-            <Item key="oval" discipline="Oval" active={isOval} />
-            <Item key="dirtoval" discipline="Dirt Oval" active={isDirtOval} />
-            <Item key="dirtroad" discipline="Dirt Road" active={isDirtRoad} />
-            <Item key="unranked" discipline="Unranked" active={isUnranked} />
+            <Item key="road" label="Road" active={isRoad} />
+            <Item key="oval" label="Oval" active={isOval} />
+            <Item key="dirtoval" label="Dirt Oval" active={isDirtOval} />
+            <Item key="dirtroad" label="Dirt Road" active={isDirtRoad} />
+            <Item key="unranked" label="Unranked" active={isUnranked} />
+            <Item key="about" label="About the project" />
         </ul>
     );
 }
 
-function Item({ discipline, active }: { discipline: Discipline; active: boolean }) {
+function Item({ label, active, url }: { label: Discipline | 'About the project'; active?: boolean; url?: string }) {
     const classes = active ? 'text-white100 bg-teal800/50 inner-shadow' : 'hover:bg-teal800/10';
+    const itemURL = label === 'About the project' ? '/iracing' : url || getDisciplineURL(label); // otherwise set it to the provided URL or the mapped discipline URL
     return (
         <li className={`${classes} rounded-md px-4 py-1 transition-all`}>
-            <Link
-                className={active ? 'cursor-default drop-shadow-sm' : 'cursor-pointer'}
-                href={active ? '' : getDisciplineURL(discipline)}
-            >
-                {discipline}
+            <Link className={active ? 'cursor-default drop-shadow-sm' : 'cursor-pointer'} href={itemURL}>
+                {label}
             </Link>
         </li>
     );
