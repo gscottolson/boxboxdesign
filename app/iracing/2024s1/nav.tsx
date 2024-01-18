@@ -24,7 +24,7 @@ export function Nav({ active }: { active: Discipline }) {
 function Item({ discipline, active }: { discipline: Discipline; active: boolean }) {
     const classes = active ? 'text-white100 bg-teal800/50 inner-shadow' : 'hover:bg-teal800/10';
     return (
-        <li key="e" className={`${classes} rounded-md px-4 py-1 transition-all`}>
+        <li className={`${classes} rounded-md px-4 py-1 transition-all`}>
             <Link
                 className={active ? 'cursor-default drop-shadow-sm' : 'cursor-pointer'}
                 href={active ? '' : getDisciplineURL(discipline)}
