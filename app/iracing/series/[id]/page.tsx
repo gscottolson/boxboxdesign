@@ -69,7 +69,7 @@ export default function Page({ params }: { params: { id: string } }) {
                 <SeriesDetail series={series} />
             </div>
 
-            <div className="m-auto flex flex-col items-center gap-8 px-4 pt-6 text-blue800 subpixel-antialiased md:m-0 md:flex-row md:justify-between md:gap-0">
+            <div className="m-auto flex flex-col items-center gap-8 px-4 py-6 text-blue800 subpixel-antialiased md:m-0 md:flex-row md:justify-between md:gap-0">
                 <BackLink href={getDisciplineURL(series.discipline)} />
                 <Credits />
             </div>
