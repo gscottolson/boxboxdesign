@@ -3,14 +3,15 @@ import LogoVertical from '@/app/ui/logo';
 
 export function Donate() {
     return (
-        <div className="flex flex-col pt-8 text-xl text-teal800">
-            <div className="bg-white200 px-8 py-4 text-center">
-                <p>Are you finding these schedules useful?</p>
-                <p>
-                    Help me keep them free. <span className="font-medium">If you like this work…</span>
-                </p>
+        <div className="flex flex-col bg-white200 px-8 py-16 text-center text-base font-light text-teal800">
+            <div className="m-auto max-w-[360px]">
+                <p className="mb-2 font-medium">Hello, I’m Scott…</p>
 
-                <div className="flex justify-center gap-4 pt-4">
+                <p className="mb-2">iRacing enthusiast, motorsports fan and lover of well-designed information.</p>
+
+                <p>If you are finding these schedules useful, consider helping me out with a small donation. </p>
+
+                <div className="flex justify-center gap-4 pt-6">
                     <div className="h-16 w-56">
                         <a
                             href="https://www.buymeacoffee.com/boxboxdesign"
