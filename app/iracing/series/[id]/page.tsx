@@ -22,6 +22,7 @@ export function generateMetadata({ params }: { params: { id: string } }): Metada
             address: false,
             telephone: false,
         },
+        metadataBase: new URL('https://boxbox.design'),
         openGraph: {
             title,
             description,
