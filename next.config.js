@@ -8,4 +8,7 @@ module.exports = {
         config.resolve.alias.canvas = false;
         return config;
     },
+    images: {
+        unoptimized: true,
+    }
 }
