@@ -14,7 +14,7 @@ export default function Page() {
                         <div className="pt-4">
                             <BoxBoxIconOneColor />
                         </div>
-                        <div className="inline-block h-auto w-auto rounded-sm shadow-2xl">
+                        <div className="inline-block h-auto w-auto overflow-hidden rounded-sm shadow-2xl">
                             <Image
                                 src="/iracing/poster-grid.png"
                                 width={1236 / 2}
