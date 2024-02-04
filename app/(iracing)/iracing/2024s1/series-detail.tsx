@@ -38,7 +38,7 @@ export function SeriesDetail({ series }: { series: OfficialSeries }) {
     }
 
     return (
-        <div className="box-content flex w-full flex-col md:flex-row md:border-[.5px] md:border-[rgba(90,90,90,0.15)]">
+        <div className="font-semilight box-content flex w-full flex-col overflow-hidden pt-16 md:flex-row md:border-[.5px] md:border-[rgba(90,90,90,0.15)] md:pt-0">
             <div className="relative mx-auto flex h-[400px] w-[300px] grow place-content-center overflow-hidden text-center md:mx-0 md:h-full md:w-full md:bg-white100">
                 <Document
                     file={series.pdf}
@@ -52,16 +52,12 @@ export function SeriesDetail({ series }: { series: OfficialSeries }) {
             </div>
 
             <div className="flex w-full shrink-0 flex-col justify-between px-6 text-teal800 antialiased md:w-[320px]">
-                <header className="pt-4 text-center md:text-left">
-                    <h3 className="font-semilight mb-2 pr-2 text-3xl leading-9 tracking-tight">
+                <header className="pt-4 text-center text-xl leading-tight tracking-wide md:pt-8 md:text-left">
+                    <h3 className="mb-2 pr-2 text-3xl leading-9 tracking-tight">
                         <Balancer>{series.name}</Balancer>
                     </h3>
-                    <h4 className="font-semilight text-xl leading-tight tracking-wide text-gray700">
-                        Official Series Schedule
-                    </h4>
-                    <h4 className="font-semilight text-xl  leading-tight tracking-wide text-gray700">
-                        iRacing 2024 Season 1
-                    </h4>
+                    <h4 className="text-gray700">Official Series Schedule</h4>
+                    <h4 className="text-gray700">iRacing 2024 Season 1</h4>
                 </header>
 
                 <div className="flex flex-col items-center pt-4 md:items-start md:pt-0">
@@ -70,9 +66,9 @@ export function SeriesDetail({ series }: { series: OfficialSeries }) {
                             href={series.pdf}
                             target="__blank"
                             rel="noopener"
-                            className={`inline-flex place-content-center px-6 py-3 ${downloadClass} text-center focus:ring-2  focus:ring-black  focus:ring-offset-4  focus:ring-offset-[#D6DDDF]`}
+                            className={`inline-flex place-content-center items-center px-6 py-3 ${downloadClass} ocus:ring-offset-[#D6DDDF] text-center focus:ring-2 focus:ring-black focus:ring-offset-4`}
                         >
-                            <span className="pr-4 font-medium uppercase text-white100">Download PDF</span> <Download />
+                            <span className="pr-2 font-medium uppercase text-white100">Download PDF</span> <Download />
                         </a>
                     </span>
                     <div className="hidden w-[256px] basis-[272px] self-stretch overflow-hidden rounded-tl-sm rounded-tr-sm bg-white200 md:block">
