@@ -24,9 +24,6 @@ const config: Config = {
                 homeShadow:
                     '0px 16px 36px 0px rgba(6, 14, 70, 0.10), 0px 66px 66px 0px rgba(6, 14, 70, 0.09), 0px 148px 89px 0px rgba(6, 14, 70, 0.05), 0px 263px 105px 0px rgba(6, 14, 70, 0.01), 0px 411px 115px 0px rgba(6, 14, 70, 0.00)',
             },
-            backgroundImage: {
-                siteGradient: 'url(/iracing/bg-gradient.png)',
-            },
             colors: {
                 white100: '#F5F5F5',
                 white200: '#EBEBEB',
@@ -52,6 +49,17 @@ const config: Config = {
             },
             scale: {
                 card: '0.992',
+            },
+            dropShadow: {
+                'graphics-header': [
+                    '0 0.5px 0 #AAAAAA',
+                    '0 1px 0 #AAAAAA',
+                    '0 0 1px rgba(77, 0, 17, 0.25)',
+                    '0 2px 2px rgba(77, 0, 17, 0.21)',
+                    '0 4px 2px rgba(77, 0, 17, 0.13)',
+                    '0 7px 3px rgba(77, 0, 17, 0.04)',
+                    '0 11px 3px rgba(77, 0, 17, 0.00)',
+                ],
             },
         },
         keyframes: {
