@@ -18,13 +18,13 @@ export default function Page() {
             </p>
 
             <Image
-                src="/project/ioverlay/project/ioverlay-dark.png"
+                src="/project/ioverlay/ioverlay-dark.png"
                 width={1280}
                 height={700}
                 alt="iOverlay identity on a dark background"
             />
             <Image
-                src="/project/ioverlay/project/ioverlay-light.png"
+                src="/project/ioverlay/ioverlay-light.png"
                 width={1280}
                 height={700}
                 alt="iOverlay identity on a light background"
