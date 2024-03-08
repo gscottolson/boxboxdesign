@@ -3,7 +3,14 @@ import { iRacing2024S1DirtRoadSeries } from './2024s1-dirtroad';
 import { iRacing2024S1OvalSeries } from './2024s1-oval';
 import { iRacing2024S1RoadSeries } from './2024s1-road';
 import { iRacing2024S1UnrankedSeries } from './2024s1-unranked';
-import { Discipline, OfficialSeries, Season, SeriesIndex } from '../types';
+import { Discipline, OfficialSeries, Season, SeriesIndex, UpdatedDiscipline } from '../types';
+
+import { iRacing2024S2DirtOvalSeries } from './2024s2-dirtoval';
+import { iRacing2024S2DirtRoadSeries } from './2024s2-dirtroad';
+import { iRacing2024S2FormulaSeries } from './2024s2-formula';
+import { iRacing2024S2SportsCarSeries } from './2024s2-sportscar';
+import { iRacing2024S2OvalSeries } from './2024s2-oval';
+import { iRacing2024S2UnrankedSeries } from './2024s2-unranked';
 
 const EMPTY: OfficialSeries = {
     seriesId: '',
@@ -18,9 +25,13 @@ export function getSeriesURL(seriesId?: string) {
     return seriesId ? `/iracing/series/${seriesId}` : '/iracing/series/notfound';
 }
 
-export function getDisciplineURL(discipline: Discipline, season?: Season) {
+export function getDisciplineURL(discipline: Discipline | UpdatedDiscipline, season?: Season) {
     const seasonSlug: Season = season || '2024s1';
     switch (discipline) {
+        case 'Formula':
+            return `/iracing/${seasonSlug}/formula/`;
+        case 'Sports Car':
+            return `/iracing/${seasonSlug}/sportscar/`;
         case 'Road':
             return `/iracing/${seasonSlug}/road/`;
         case 'Oval':
@@ -78,8 +89,8 @@ export function getSeriesById(id: string, options?: { limitToDiscipline: boolean
     ];
 }
 
-export function getAll() {
-    return iRacing2024S1;
+export function getAllForBuildPaths() {
+    return [...iRacing2024S1, ...iRacing2024S2];
 }
 
 export function getAllRoad() {
@@ -104,4 +115,32 @@ const iRacing2024S1: OfficialSeries[] = [
     ...iRacing2024S1DirtOvalSeries,
     ...iRacing2024S1DirtRoadSeries,
     ...iRacing2024S1UnrankedSeries,
+];
+
+export function get2024S2Formula() {
+    return iRacing2024S2FormulaSeries;
+}
+export function get2024S2SportsCar() {
+    return iRacing2024S2SportsCarSeries;
+}
+export function get2024S2Oval() {
+    return iRacing2024S2OvalSeries;
+}
+export function get2024S2Dirtoval() {
+    return iRacing2024S2DirtOvalSeries;
+}
+export function get2024S2Dirtroad() {
+    return iRacing2024S2DirtRoadSeries;
+}
+export function get2024S2Unranked() {
+    return iRacing2024S2UnrankedSeries;
+}
+
+const iRacing2024S2: OfficialSeries[] = [
+    ...iRacing2024S2FormulaSeries,
+    ...iRacing2024S2SportsCarSeries,
+    ...iRacing2024S2OvalSeries,
+    ...iRacing2024S2DirtOvalSeries,
+    ...iRacing2024S2DirtRoadSeries,
+    ...iRacing2024S2UnrankedSeries,
 ];
