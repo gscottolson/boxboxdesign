@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { Back } from '../../2024s1/icons';
 import { SeriesDetail } from '../../2024s1/series-detail';
-import { getDisciplineURL, getSeriesById, getAll, getSeriesURL } from '../../data/series-util';
+import { getDisciplineURL, getSeriesById, getAllForBuildPaths, getSeriesURL } from '../../data/series-util';
 import { Metadata } from 'next';
 import { getDetailTitle, getSiteTitle } from '@/app/site';
 import { notFound } from 'next/navigation';
@@ -52,7 +52,7 @@ export function generateMetadata({ params }: { params: { id: string } }): Metada
 
 export const dynamicParams = false;
 export function generateStaticParams() {
-    return getAll().map((series) => {
+    return getAllForBuildPaths().map((series) => {
         return series.seriesId ? { id: series.seriesId } : null;
     });
 }
