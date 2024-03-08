@@ -3,6 +3,7 @@ import { OfficialSeries } from '../types';
 export const iRacing2024S1RoadSeries: OfficialSeries[] = [
     {
         seriesId: '4555',
+        season: '2024s1',
         discipline: 'Road',
         name: 'Global Mazda MX‑5 Fanatec Cup',
         src: '/thumbnails/iracing/2024s1/GlobalMazda.png',
@@ -12,6 +13,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4556',
+        season: '2024s1',
         discipline: 'Road',
         name: 'Formula Vee SIMAGIC Series',
         src: '/thumbnails/iracing/2024s1/Vee.png',
@@ -21,6 +23,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4557',
+        season: '2024s1',
         discipline: 'Road',
         name: 'Formula 1600 Rookie Sim‑Motion Series Fixed',
         src: '/thumbnails/iracing/2024s1/Formula1600.png',
@@ -30,6 +33,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4568',
+        season: '2024s1',
         discipline: 'Road',
         name: 'Ferrari GT3 Challenge Fixed',
         src: '/thumbnails/iracing/2024s1/FerrariGT3.png',
@@ -39,6 +43,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4560',
+        season: '2024s1',
         discipline: 'Road',
         name: 'GR Buttkicker Cup Fixed',
         src: '/thumbnails/iracing/2024s1/GRCup.png',
@@ -48,6 +53,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4563',
+        season: '2024s1',
         discipline: 'Road',
         name: 'Production Car Sim‑Lab Challenge',
         src: '/thumbnails/iracing/2024s1/PCC.png',
@@ -57,6 +63,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4561',
+        season: '2024s1',
         discipline: 'Road',
         name: 'Formula 1600 Thrustmaster Trophy',
         src: '/thumbnails/iracing/2024s1/FF1600D.png',
@@ -66,6 +73,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4570',
+        season: '2024s1',
         discipline: 'Road',
         name: 'FIA Formula 4 Challenge',
         src: '/thumbnails/iracing/2024s1/Formula4.png',
@@ -75,6 +83,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4569',
+        season: '2024s1',
         discipline: 'Road',
         name: 'FIA Formula 4 Challenge Fixed',
         src: '/thumbnails/iracing/2024s1/Formula4Fixed.png',
@@ -84,6 +93,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4564',
+        season: '2024s1',
         discipline: 'Road',
         name: 'GT4 Falken Tyre Challenge Fixed',
         src: '/thumbnails/iracing/2024s1/GT4Fixed.png',
@@ -93,6 +103,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4670',
+        season: '2024s1',
         discipline: 'Road',
         name: 'Weekly Race Challenge',
         src: '/thumbnails/iracing/2024s1/WeeklyRace.png',
@@ -102,6 +113,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4575',
+        season: '2024s1',
         discipline: 'Road',
         name: 'Global Fanatec Challenge',
         src: '/thumbnails/iracing/2024s1/GlobalFanatec.png',
@@ -111,6 +123,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4571',
+        season: '2024s1',
         discipline: 'Road',
         name: 'Skip Barber Race Series',
         src: '/thumbnails/iracing/2024s1/SkipBarber.png',
@@ -120,6 +133,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4562',
+        season: '2024s1',
         discipline: 'Road',
         name: 'Clio Cup Fixed',
         src: '/thumbnails/iracing/2024s1/ClioCupFixed.png',
@@ -129,6 +143,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4566',
+        season: '2024s1',
         discipline: 'Road',
         name: 'Touring Car Challenge Fixed',
         src: '/thumbnails/iracing/2024s1/TCCFixed.png',
@@ -138,6 +153,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4574',
+        season: '2024s1',
         discipline: 'Road',
         name: 'Spec Racer Ford Challenge',
         src: '/thumbnails/iracing/2024s1/SpecRacer.png',
@@ -147,6 +163,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4559',
+        season: '2024s1',
         discipline: 'Road',
         name: 'US Open Wheel D USF 2000 Series Fixed',
         src: '/thumbnails/iracing/2024s1/OpenWheelD.png',
@@ -156,6 +173,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4578',
+        season: '2024s1',
         discipline: 'Road',
         name: 'FIA F4 Esports Regional Tour Europe North',
         src: '/thumbnails/iracing/2024s1/F4RegionalEurNo.png',
@@ -165,6 +183,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4577',
+        season: '2024s1',
         discipline: 'Road',
         name: 'FIA F4 Esports Regional Tour Americas',
         src: '/thumbnails/iracing/2024s1/F4RegionalAmericas.png',
@@ -174,6 +193,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4579',
+        season: '2024s1',
         discipline: 'Road',
         name: 'FIA F4 Esports Regional Tour Europe South',
         src: '/thumbnails/iracing/2024s1/F4RegionalEurSo.png',
@@ -183,6 +203,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4576',
+        season: '2024s1',
         discipline: 'Road',
         name: 'FIA F4 Esports Regional Tour Asia Pacific',
         src: '/thumbnails/iracing/2024s1/F4RegionalAsiaPac.png',
@@ -192,6 +213,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4572',
+        season: '2024s1',
         discipline: 'Road',
         name: 'Mustang Skip Barber Challenge Fixed',
         src: '/thumbnails/iracing/2024s1/MustangBarber.png',
@@ -201,6 +223,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4573',
+        season: '2024s1',
         discipline: 'Road',
         name: 'Mission R Challenge Fixed',
         src: '/thumbnails/iracing/2024s1/MissionR.png',
@@ -210,6 +233,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4565',
+        season: '2024s1',
         discipline: 'Road',
         name: 'Falken Tyre Sports Car Challenge',
         src: '/thumbnails/iracing/2024s1/SCC.png',
@@ -219,6 +243,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4567',
+        season: '2024s1',
         discipline: 'Road',
         name: 'Touring Car Challenge',
         src: '/thumbnails/iracing/2024s1/TCC.png',
@@ -228,6 +253,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4609',
+        season: '2024s1',
         discipline: 'Road',
         name: 'Proto‑GT Thrustmaster Challenge',
         src: '/thumbnails/iracing/2024s1/ProtoGT.png',
@@ -237,6 +263,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4666',
+        season: '2024s1',
         discipline: 'Road',
         name: 'Ring Meister Ricmotech Series Fixed',
         src: '/thumbnails/iracing/2024s1/RingMeister.png',
@@ -246,6 +273,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4608',
+        season: '2024s1',
         discipline: 'Road',
         name: 'iRacing Porsche Cup by Coach Dave Delta Fixed',
         src: '/thumbnails/iracing/2024s1/PorscheCupFixed.png',
@@ -255,6 +283,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4607',
+        season: '2024s1',
         discipline: 'Road',
         name: 'iRacing Porsche Cup by Coach Dave Delta',
         src: '/thumbnails/iracing/2024s1/PorscheCup.png',
@@ -264,6 +293,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4602',
+        season: '2024s1',
         discipline: 'Road',
         name: 'Formula C DOF Reality Dallara F3 Series',
         src: '/thumbnails/iracing/2024s1/FormulaC.png',
@@ -273,6 +303,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4603',
+        season: '2024s1',
         discipline: 'Road',
         name: 'Formula C Thrustmaster Dallara F3 Series Fixed',
         src: '/thumbnails/iracing/2024s1/FormulaCFixed.png',
@@ -282,6 +313,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4620',
+        season: '2024s1',
         discipline: 'Road',
         name: 'GT Endurance VRS Series',
         src: '/thumbnails/iracing/2024s1/GTEndurance.png',
@@ -291,6 +323,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4589',
+        season: '2024s1',
         discipline: 'Road',
         name: 'IMSA Michelin Pilot Challenge',
         src: '/thumbnails/iracing/2024s1/IMSAPilot.png',
@@ -300,6 +333,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4601',
+        season: '2024s1',
         discipline: 'Road',
         name: 'Advanced Mazda MX‑5 Cup Series',
         src: '/thumbnails/iracing/2024s1/AdvancedMazda.png',
@@ -309,6 +343,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4585',
+        season: '2024s1',
         discipline: 'Road',
         name: 'LMP3 Turn Racing Trophy Fixed',
         src: '/thumbnails/iracing/2024s1/LMP3Trophy.png',
@@ -318,6 +353,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4586',
+        season: '2024s1',
         discipline: 'Road',
         name: 'Radical Esports Cup Fixed',
         src: '/thumbnails/iracing/2024s1/RadicalCup.png',
@@ -327,6 +363,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4617',
+        season: '2024s1',
         discipline: 'Road',
         name: 'Classic Lotus Grand Prix',
         src: '/thumbnails/iracing/2024s1/LotusGP.png',
@@ -336,6 +373,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4590',
+        season: '2024s1',
         discipline: 'Road',
         name: 'Dallara Formula iR Fixed',
         src: '/thumbnails/iracing/2024s1/FormulaiRFixed.png',
@@ -345,6 +383,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4587',
+        season: '2024s1',
         discipline: 'Road',
         name: 'IMSA Vintage Series',
         src: '/thumbnails/iracing/2024s1/IMSAVintage.png',
@@ -354,6 +393,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4605',
+        season: '2024s1',
         discipline: 'Road',
         name: 'Supercars Series',
         src: '/thumbnails/iracing/2024s1/SupercarsSeries.png',
@@ -363,6 +403,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4606',
+        season: '2024s1',
         discipline: 'Road',
         name: 'Supercars Series Australian Servers',
         src: '/thumbnails/iracing/2024s1/SupercarsSeriesAus.png',
@@ -372,6 +413,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4604',
+        season: '2024s1',
         discipline: 'Road',
         name: 'US Open Wheel C Indy Pro 2000 Series',
         src: '/thumbnails/iracing/2024s1/OpenWheelC.png',
@@ -381,6 +423,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4610',
+        season: '2024s1',
         discipline: 'Road',
         name: 'Grand Prix Legends',
         src: '/thumbnails/iracing/2024s1/GrandPrixLegends.png',
@@ -390,6 +433,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4588',
+        season: '2024s1',
         discipline: 'Road',
         name: 'Stock Car Brasil Fixed',
         src: '/thumbnails/iracing/2024s1/StockCarBrasil.png',
@@ -399,6 +443,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4618',
+        season: '2024s1',
         discipline: 'Road',
         name: 'GT3 Fanatec Challenge Fixed',
         src: '/thumbnails/iracing/2024s1/GT3Fixed.png',
@@ -408,6 +453,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4619',
+        season: '2024s1',
         discipline: 'Road',
         name: 'GT Sprint VRS Series',
         src: '/thumbnails/iracing/2024s1/GTSprint.png',
@@ -417,6 +463,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4626',
+        season: '2024s1',
         discipline: 'Road',
         name: 'Formula B Super Formula IMSIM Series Fixed',
         src: '/thumbnails/iracing/2024s1/SuperFormulaFixed.png',
@@ -426,6 +473,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4625',
+        season: '2024s1',
         discipline: 'Road',
         name: 'Formula B Super Formula IMSIM Series',
         src: '/thumbnails/iracing/2024s1/SuperFormula.png',
@@ -435,6 +483,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4622',
+        season: '2024s1',
         discipline: 'Road',
         name: 'Global Endurance Pure Driving School Tour',
         src: '/thumbnails/iracing/2024s1/GlobalEndurance.png',
@@ -444,6 +493,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4614',
+        season: '2024s1',
         discipline: 'Road',
         name: 'LMP2 Prototype Challenge Fixed',
         src: '/thumbnails/iracing/2024s1/LMP2Proto.png',
@@ -453,6 +503,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4621',
+        season: '2024s1',
         discipline: 'Road',
         name: 'GTE Sprint Pure Driving School Series',
         src: '/thumbnails/iracing/2024s1/GTESprint.png',
@@ -462,6 +513,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4623',
+        season: '2024s1',
         discipline: 'Road',
         name: 'IMSA Endurance Series',
         src: '/thumbnails/iracing/2024s1/IMSAEndurance.png',
@@ -471,6 +523,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4600',
+        season: '2024s1',
         discipline: 'Road',
         name: 'US Open Wheel B Dallara IR‑18',
         src: '/thumbnails/iracing/2024s1/OpenWheelB.png',
@@ -480,6 +533,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4624',
+        season: '2024s1',
         discipline: 'Road',
         name: 'Formula B Formula Renault 3.5 Series',
         src: '/thumbnails/iracing/2024s1/FormulaB.png',
@@ -489,6 +543,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4615',
+        season: '2024s1',
         discipline: 'Road',
         name: 'IMSA iRacing Series',
         src: '/thumbnails/iracing/2024s1/IMSA.png',
@@ -498,6 +553,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4616',
+        season: '2024s1',
         discipline: 'Road',
         name: 'IMSA iRacing Series Fixed',
         src: '/thumbnails/iracing/2024s1/IMSAFixed.png',
@@ -507,6 +563,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4629',
+        season: '2024s1',
         discipline: 'Road',
         name: 'Formula A Grand Prix Series',
         src: '/thumbnails/iracing/2024s1/FormulaA.png',
@@ -516,6 +573,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4630',
+        season: '2024s1',
         discipline: 'Road',
         name: 'Formula A Grand Prix Series Fixed',
         src: '/thumbnails/iracing/2024s1/FormulaAFixed.png',

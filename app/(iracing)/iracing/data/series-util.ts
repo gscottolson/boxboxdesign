@@ -14,6 +14,7 @@ import { iRacing2024S2UnrankedSeries } from './2024s2-unranked';
 
 const EMPTY: OfficialSeries = {
     seriesId: '',
+    season: null,
     discipline: null,
     name: 'NOT FOUND',
     licenseClass: null,
@@ -48,30 +49,17 @@ export function getDisciplineURL(discipline: Discipline | UpdatedDiscipline, sea
 }
 
 export function getSeriesById(id: string, options?: { limitToDiscipline: boolean }): [OfficialSeries, SeriesIndex] {
-    const series = iRacing2024S1.find((value) => value.seriesId === id) || EMPTY;
+    const series = SEASONS_BY_ID.find((value) => value.seriesId === id) || EMPTY;
+    const { discipline: targetDiscipline, season: targetSeason } = series;
 
-    const filterToDiscipline = series && options && options.limitToDiscipline;
-    let seriesList = iRacing2024S1;
-
-    if (filterToDiscipline) {
-        switch (series.discipline) {
-            case 'Road':
-                seriesList = getAllRoad();
-                break;
-            case 'Oval':
-                seriesList = getAllOval();
-                break;
-            case 'Dirt Oval':
-                seriesList = getAllDirtoval();
-                break;
-            case 'Dirt Road':
-                seriesList = getAllDirtroad();
-                break;
-            case 'Unranked':
-                seriesList = getAllUnranked();
-                break;
+    const filterToDiscipline = series.discipline && options && options.limitToDiscipline;
+    let seriesList = SEASONS_BY_ID.filter(({ discipline, season }) => {
+        if (filterToDiscipline && targetDiscipline) {
+            return discipline === targetDiscipline && season === targetSeason;
+        } else {
+            return season === targetSeason;
         }
-    }
+    });
 
     const seriesIndex = seriesList.findIndex((value) => value.seriesId === series.seriesId);
 
@@ -87,10 +75,6 @@ export function getSeriesById(id: string, options?: { limitToDiscipline: boolean
             next: [seriesList[nextIndex], { index: nextIndex }],
         },
     ];
-}
-
-export function getAllForBuildPaths() {
-    return [...iRacing2024S1, ...iRacing2024S2];
 }
 
 export function getAllRoad() {
@@ -144,3 +128,9 @@ const iRacing2024S2: OfficialSeries[] = [
     ...iRacing2024S2DirtRoadSeries,
     ...iRacing2024S2UnrankedSeries,
 ];
+
+export function getAllForBuildPaths() {
+    return [...iRacing2024S1, ...iRacing2024S2];
+}
+
+const SEASONS_BY_ID = getAllForBuildPaths();

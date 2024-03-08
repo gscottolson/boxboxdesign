@@ -3,6 +3,7 @@ import { OfficialSeries } from '../types';
 export const iRacing2024S1DirtRoadSeries: OfficialSeries[] = [
     {
         seriesId: '4661',
+        season: '2024s1',
         discipline: 'Dirt Road',
         name: 'Rookie Pro 2 Lite Off‑Road Racing Series Fixed',
         src: '/thumbnails/iracing/2024s1/4661-RookiePro2LiteFixed.png',
@@ -12,6 +13,7 @@ export const iRacing2024S1DirtRoadSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4657',
+        season: '2024s1',
         discipline: 'Dirt Road',
         name: 'Rookie iRX Volkswagen Beetle Lite Fixed',
         src: '/thumbnails/iracing/2024s1/4657-RookieiRXBeetleLiteFixed.png',
@@ -21,6 +23,7 @@ export const iRacing2024S1DirtRoadSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4658',
+        season: '2024s1',
         discipline: 'Dirt Road',
         name: 'iRX Volkswagen Beetle Lite',
         src: '/thumbnails/iracing/2024s1/4658-iRXBeetleLite.png',
@@ -30,6 +33,7 @@ export const iRacing2024S1DirtRoadSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4662',
+        season: '2024s1',
         discipline: 'Dirt Road',
         name: 'Pro 4 Off‑Road Racing Series Fixed',
         src: '/thumbnails/iracing/2024s1/4662-Pro4OffRoadFixed.png',
@@ -39,6 +43,7 @@ export const iRacing2024S1DirtRoadSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4659',
+        season: '2024s1',
         discipline: 'Dirt Road',
         name: 'Rallycross Series Fixed',
         src: '/thumbnails/iracing/2024s1/4659-RallycrossSeriesFixed.png',
@@ -48,6 +53,7 @@ export const iRacing2024S1DirtRoadSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4663',
+        season: '2024s1',
         discipline: 'Dirt Road',
         name: 'Pro 2 Off‑Road Racing Series Fixed',
         src: '/thumbnails/iracing/2024s1/4663-Pro2OffRoadFixed.png',
@@ -57,6 +63,7 @@ export const iRacing2024S1DirtRoadSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4660',
+        season: '2024s1',
         discipline: 'Dirt Road',
         name: 'Rallycross Series',
         src: '/thumbnails/iracing/2024s1/4660-RallycrossSeries.png',
@@ -66,6 +73,7 @@ export const iRacing2024S1DirtRoadSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4665',
+        season: '2024s1',
         discipline: 'Dirt Road',
         name: 'Pro 2 Off‑Road Racing Series',
         src: '/thumbnails/iracing/2024s1/4665-Pro2OffRoad.png',
@@ -75,6 +83,7 @@ export const iRacing2024S1DirtRoadSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4664',
+        season: '2024s1',
         discipline: 'Dirt Road',
         name: 'Pro 4 Off‑Road Racing Series',
         src: '/thumbnails/iracing/2024s1/4664-Pro4OffRoad.png',
