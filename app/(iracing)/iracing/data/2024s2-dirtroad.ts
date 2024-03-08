@@ -3,6 +3,7 @@ import { OfficialSeries } from '../types';
 export const iRacing2024S2DirtRoadSeries: OfficialSeries[] = [
     {
         seriesId: '4661',
+        season: '2024s2',
         discipline: 'Dirt Road',
         name: 'Rookie Pro 2 Lite Off‑Road Racing Series Fixed',
         src: '/thumbnails/iracing/2024s2',
@@ -12,6 +13,7 @@ export const iRacing2024S2DirtRoadSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4657',
+        season: '2024s2',
         discipline: 'Dirt Road',
         name: 'Rookie iRX Volkswagen Beetle Lite Fixed',
         src: '/thumbnails/iracing/2024s2',
@@ -21,6 +23,7 @@ export const iRacing2024S2DirtRoadSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4658',
+        season: '2024s2',
         discipline: 'Dirt Road',
         name: 'iRX Volkswagen Beetle Lite',
         src: '/thumbnails/iracing/2024s2',
@@ -30,6 +33,7 @@ export const iRacing2024S2DirtRoadSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4662',
+        season: '2024s2',
         discipline: 'Dirt Road',
         name: 'Pro 4 Off‑Road Racing Series Fixed',
         src: '/thumbnails/iracing/2024s2',
@@ -39,6 +43,7 @@ export const iRacing2024S2DirtRoadSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4659',
+        season: '2024s2',
         discipline: 'Dirt Road',
         name: 'Rallycross Series Fixed',
         src: '/thumbnails/iracing/2024s2',
@@ -48,6 +53,7 @@ export const iRacing2024S2DirtRoadSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4663',
+        season: '2024s2',
         discipline: 'Dirt Road',
         name: 'Pro 2 Off‑Road Racing Series Fixed',
         src: '/thumbnails/iracing/2024s2',
@@ -57,6 +63,7 @@ export const iRacing2024S2DirtRoadSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4660',
+        season: '2024s2',
         discipline: 'Dirt Road',
         name: 'Rallycross Series',
         src: '/thumbnails/iracing/2024s2',
@@ -66,6 +73,7 @@ export const iRacing2024S2DirtRoadSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4665',
+        season: '2024s2',
         discipline: 'Dirt Road',
         name: 'Pro 2 Off‑Road Racing Series',
         src: '/thumbnails/iracing/2024s2',
@@ -75,6 +83,7 @@ export const iRacing2024S2DirtRoadSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4664',
+        season: '2024s2',
         discipline: 'Dirt Road',
         name: 'Pro 4 Off‑Road Racing Series',
         src: '/thumbnails/iracing/2024s2',

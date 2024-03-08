@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { Back } from '../../2024s1/icons';
-import { SeriesDetail } from '../../2024s1/series-detail';
+import { SeriesDetail as SeriesDetail2024S1 } from '../../2024s1/series-detail';
+import { SeriesDetail as SeriesDetail2024S2 } from '../../2024s2/series-detail';
 import { getDisciplineURL, getSeriesById, getAllForBuildPaths, getSeriesURL } from '../../data/series-util';
 import { Metadata } from 'next';
 import { getDetailTitle, getSiteTitle } from '@/app/site';
@@ -59,6 +60,7 @@ export function generateStaticParams() {
 
 export default function Page({ params }: { params: { id: string } }) {
     const [series] = getSeriesById(params.id);
+    const { season } = series;
 
     if (series.isEmpty) {
         notFound();
@@ -67,7 +69,8 @@ export default function Page({ params }: { params: { id: string } }) {
     return (
         <div className="m-auto flex h-full max-w-[800px] flex-col place-content-center">
             <div className="mt-20 md:max-h-[640px] md:bg-white400/50 md:shadow-2xl">
-                <SeriesDetail series={series} />
+                {season === '2024s1' && <SeriesDetail2024S1 series={series} />}
+                {season === '2024s2' && <SeriesDetail2024S2 series={series} />}
             </div>
 
             <div className="m-auto flex flex-col items-center gap-8 px-4 py-6 text-blue800 subpixel-antialiased md:m-0 md:flex-row md:justify-between md:gap-0">

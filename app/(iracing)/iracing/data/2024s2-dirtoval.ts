@@ -3,6 +3,8 @@ import { OfficialSeries } from '../types';
 export const iRacing2024S2DirtOvalSeries: OfficialSeries[] = [
     {
         seriesId: '4634',
+        season: '2024s2',
+
         discipline: 'Dirt Oval',
         name: 'Rookie DIRTcar Street Stock Series Fixed',
         src: '/thumbnails/iracing/2024s2',
@@ -12,6 +14,8 @@ export const iRacing2024S2DirtOvalSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4635',
+        season: '2024s2',
+
         discipline: 'Dirt Oval',
         name: 'Dirt Legends Cup',
         src: '/thumbnails/iracing/2024s2',
@@ -21,6 +25,8 @@ export const iRacing2024S2DirtOvalSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4636',
+        season: '2024s2',
+
         discipline: 'Dirt Oval',
         name: 'DIRTcar 305 Sprint Car Fanatec Series Fixed',
         src: '/thumbnails/iracing/2024s2',
@@ -30,6 +36,8 @@ export const iRacing2024S2DirtOvalSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4637',
+        season: '2024s2',
+
         discipline: 'Dirt Oval',
         name: 'DIRTcar Limited Late Model Series Fixed',
         src: '/thumbnails/iracing/2024s2',
@@ -39,6 +47,8 @@ export const iRacing2024S2DirtOvalSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4638',
+        season: '2024s2',
+
         discipline: 'Dirt Oval',
         name: 'DIRTcar 358 Modified Engine Ice Series',
         src: '/thumbnails/iracing/2024s2',
@@ -49,6 +59,8 @@ export const iRacing2024S2DirtOvalSeries: OfficialSeries[] = [
 
     {
         seriesId: '4646',
+        season: '2024s2',
+
         discipline: 'Dirt Oval',
         name: 'DIRTcar Pro Late Model Series Fixed',
         src: '/thumbnails/iracing/2024s2',
@@ -58,6 +70,8 @@ export const iRacing2024S2DirtOvalSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4645',
+        season: '2024s2',
+
         discipline: 'Dirt Oval',
         name: 'DIRTcar Pro Late Model Series',
         src: '/thumbnails/iracing/2024s2',
@@ -67,6 +81,8 @@ export const iRacing2024S2DirtOvalSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4649',
+        season: '2024s2',
+
         discipline: 'Dirt Oval',
         name: 'SUPER DIRTcar Big Block Modified Series Fixed',
         src: '/thumbnails/iracing/2024s2',
@@ -76,6 +92,8 @@ export const iRacing2024S2DirtOvalSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4648',
+        season: '2024s2',
+
         discipline: 'Dirt Oval',
         name: 'SUPER DIRTcar Big Block Modified Series',
         src: '/thumbnails/iracing/2024s2',
@@ -85,6 +103,8 @@ export const iRacing2024S2DirtOvalSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4640',
+        season: '2024s2',
+
         discipline: 'Dirt Oval',
         name: 'DIRTcar 360 Sprint Car Carquest Series Fixed',
         src: '/thumbnails/iracing/2024s2',
@@ -94,6 +114,8 @@ export const iRacing2024S2DirtOvalSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4639',
+        season: '2024s2',
+
         discipline: 'Dirt Oval',
         name: 'DIRTcar 360 Sprint Car Carquest Series',
         src: '/thumbnails/iracing/2024s2',
@@ -103,6 +125,8 @@ export const iRacing2024S2DirtOvalSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4644',
+        season: '2024s2',
+
         discipline: 'Dirt Oval',
         name: 'Dirt Midget Cup Fixed',
         src: '/thumbnails/iracing/2024s2',
@@ -112,6 +136,8 @@ export const iRacing2024S2DirtOvalSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4643',
+        season: '2024s2',
+
         discipline: 'Dirt Oval',
         name: 'Dirt Midget Cup',
         src: '/thumbnails/iracing/2024s2',
@@ -121,6 +147,8 @@ export const iRacing2024S2DirtOvalSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4642',
+        season: '2024s2',
+
         discipline: 'Dirt Oval',
         name: 'DIRTcar Class C Street Stock Series Fixed',
         src: '/thumbnails/iracing/2024s2',
@@ -130,6 +158,8 @@ export const iRacing2024S2DirtOvalSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4656',
+        season: '2024s2',
+
         discipline: 'Dirt Oval',
         name: 'Dirt Super Late Model Tour Fixed',
         src: '/thumbnails/iracing/2024s2',
@@ -139,6 +169,8 @@ export const iRacing2024S2DirtOvalSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4641',
+        season: '2024s2',
+
         discipline: 'Dirt Oval',
         name: 'USAC 360 Sprint Car Series',
         src: '/thumbnails/iracing/2024s2',
@@ -148,6 +180,8 @@ export const iRacing2024S2DirtOvalSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4652',
+        season: '2024s2',
+
         discipline: 'Dirt Oval',
         name: 'Dirt 410 Sprint Car Tour Fixed',
         src: '/thumbnails/iracing/2024s2',
@@ -157,6 +191,8 @@ export const iRacing2024S2DirtOvalSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4655',
+        season: '2024s2',
+
         discipline: 'Dirt Oval',
         name: 'World of Outlaws Late Model Series Fixed',
         src: '/thumbnails/iracing/2024s2',
@@ -166,6 +202,8 @@ export const iRacing2024S2DirtOvalSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4654',
+        season: '2024s2',
+
         discipline: 'Dirt Oval',
         name: 'World of Outlaws Late Model Series',
         src: '/thumbnails/iracing/2024s2',
@@ -175,6 +213,8 @@ export const iRacing2024S2DirtOvalSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4651',
+        season: '2024s2',
+
         discipline: 'Dirt Oval',
         name: 'World of Outlaws Sprint Car Series Fixed',
         src: '/thumbnails/iracing/2024s2',
@@ -184,6 +224,8 @@ export const iRacing2024S2DirtOvalSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4650',
+        season: '2024s2',
+
         discipline: 'Dirt Oval',
         name: 'World of Outlaws Sprint Car Series',
         src: '/thumbnails/iracing/2024s2',
@@ -193,6 +235,8 @@ export const iRacing2024S2DirtOvalSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4647',
+        season: '2024s2',
+
         discipline: 'Dirt Oval',
         name: 'DIRTcar UMP Modified Series Fixed',
         src: '/thumbnails/iracing/2024s2',
@@ -202,6 +246,8 @@ export const iRacing2024S2DirtOvalSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4653',
+        season: '2024s2',
+
         discipline: 'Dirt Oval',
         name: 'AMSOIL USAC Sprint Car Fixed',
         src: '/thumbnails/iracing/2024s2',

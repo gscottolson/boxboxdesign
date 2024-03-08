@@ -2,7 +2,8 @@ import { OfficialSeries } from '../types';
 
 export const iRacing2024S2FormulaSeries: OfficialSeries[] = [
     {
-        seriesId: 'x4556',
+        seriesId: '0014556',
+        season: '2024s2',
         discipline: 'Formula',
         name: 'Formula Vee SIMAGIC Series',
         src: '/thumbnails/iracing/2024s2',
@@ -11,7 +12,8 @@ export const iRacing2024S2FormulaSeries: OfficialSeries[] = [
         setup: 'fixed',
     },
     {
-        seriesId: 'x4557',
+        seriesId: '0014557',
+        season: '2024s2',
         discipline: 'Formula',
         name: 'Formula 1600 Rookie Sim‑Motion Series Fixed',
         src: '/thumbnails/iracing/2024s2',
@@ -21,7 +23,8 @@ export const iRacing2024S2FormulaSeries: OfficialSeries[] = [
     },
 
     {
-        seriesId: 'x4561',
+        seriesId: '0014561',
+        season: '2024s2',
         discipline: 'Formula',
         name: 'Formula 1600 Thrustmaster Trophy',
         src: '/thumbnails/iracing/2024s2',
@@ -30,7 +33,8 @@ export const iRacing2024S2FormulaSeries: OfficialSeries[] = [
         setup: 'open',
     },
     {
-        seriesId: 'x4570',
+        seriesId: '0014570',
+        season: '2024s2',
         discipline: 'Formula',
         name: 'FIA Formula 4 Challenge',
         src: '/thumbnails/iracing/2024s2',
@@ -39,7 +43,8 @@ export const iRacing2024S2FormulaSeries: OfficialSeries[] = [
         setup: 'open',
     },
     {
-        seriesId: 'x4569',
+        seriesId: '0014569',
+        season: '2024s2',
         discipline: 'Formula',
         name: 'FIA Formula 4 Challenge Fixed',
         src: '/thumbnails/iracing/2024s2',
@@ -49,7 +54,8 @@ export const iRacing2024S2FormulaSeries: OfficialSeries[] = [
     },
 
     {
-        seriesId: 'x4571',
+        seriesId: '0014571',
+        season: '2024s2',
         discipline: 'Formula',
         name: 'Skip Barber Race Series',
         src: '/thumbnails/iracing/2024s2',
@@ -59,7 +65,8 @@ export const iRacing2024S2FormulaSeries: OfficialSeries[] = [
     },
 
     {
-        seriesId: 'x4559',
+        seriesId: '0014559',
+        season: '2024s2',
         discipline: 'Formula',
         name: 'US Open Wheel D USF 2000 Series Fixed',
         src: '/thumbnails/iracing/2024s2',
@@ -68,7 +75,8 @@ export const iRacing2024S2FormulaSeries: OfficialSeries[] = [
         setup: 'fixed',
     },
     {
-        seriesId: 'x4577',
+        seriesId: '0014577',
+        season: '2024s2',
         discipline: 'Formula',
         name: 'FIA F4 Esports Regional Tour Americas',
         src: '/thumbnails/iracing/2024s2',
@@ -77,7 +85,8 @@ export const iRacing2024S2FormulaSeries: OfficialSeries[] = [
         setup: 'open',
     },
     {
-        seriesId: 'x4579',
+        seriesId: '0014579',
+        season: '2024s2',
         discipline: 'Formula',
         name: 'FIA F4 Esports Regional Tour Europe',
         src: '/thumbnails/iracing/2024s2',
@@ -86,7 +95,8 @@ export const iRacing2024S2FormulaSeries: OfficialSeries[] = [
         setup: 'open',
     },
     {
-        seriesId: 'x4576',
+        seriesId: '0014576',
+        season: '2024s2',
         discipline: 'Formula',
         name: 'FIA F4 Esports Regional Tour Asia Pacific',
         src: '/thumbnails/iracing/2024s2',
@@ -96,7 +106,8 @@ export const iRacing2024S2FormulaSeries: OfficialSeries[] = [
     },
 
     {
-        seriesId: 'x4602',
+        seriesId: '0014602',
+        season: '2024s2',
         discipline: 'Formula',
         name: 'Formula C DOF Reality Dallara F3 Series',
         src: '/thumbnails/iracing/2024s2',
@@ -105,7 +116,8 @@ export const iRacing2024S2FormulaSeries: OfficialSeries[] = [
         setup: 'open',
     },
     {
-        seriesId: 'x4603',
+        seriesId: '0014603',
+        season: '2024s2',
         discipline: 'Formula',
         name: 'Formula C Thrustmaster Dallara F3 Series Fixed',
         src: '/thumbnails/iracing/2024s2',
@@ -114,7 +126,8 @@ export const iRacing2024S2FormulaSeries: OfficialSeries[] = [
         setup: 'fixed',
     },
     {
-        seriesId: 'x4602',
+        seriesId: '0014602',
+        season: '2024s2',
         discipline: 'Formula',
         name: 'Formula C Super Formula Lights',
         src: '/thumbnails/iracing/2024s2',
@@ -123,7 +136,8 @@ export const iRacing2024S2FormulaSeries: OfficialSeries[] = [
         setup: 'open',
     },
     {
-        seriesId: 'x4603',
+        seriesId: '0014603',
+        season: '2024s2',
         discipline: 'Formula',
         name: 'Formula C Super Formula Lights Fixed',
         src: '/thumbnails/iracing/2024s2',
@@ -133,7 +147,8 @@ export const iRacing2024S2FormulaSeries: OfficialSeries[] = [
     },
 
     {
-        seriesId: 'x4617',
+        seriesId: '0014617',
+        season: '2024s2',
         discipline: 'Formula',
         name: 'iRacing Classic Lotus Grand Prix',
         src: '/thumbnails/iracing/2024s2',
@@ -142,7 +157,8 @@ export const iRacing2024S2FormulaSeries: OfficialSeries[] = [
         setup: 'open',
     },
     {
-        seriesId: 'x4590',
+        seriesId: '0014590',
+        season: '2024s2',
         discipline: 'Formula',
         name: 'Dallara Formula iR Fixed',
         src: '/thumbnails/iracing/2024s2',
@@ -152,7 +168,8 @@ export const iRacing2024S2FormulaSeries: OfficialSeries[] = [
     },
 
     {
-        seriesId: 'x4604',
+        seriesId: '0014604',
+        season: '2024s2',
         discipline: 'Formula',
         name: 'US Open Wheel C Indy Pro 2000 Series',
         src: '/thumbnails/iracing/2024s2',
@@ -161,7 +178,8 @@ export const iRacing2024S2FormulaSeries: OfficialSeries[] = [
         setup: 'open',
     },
     {
-        seriesId: 'x4610',
+        seriesId: '0014610',
+        season: '2024s2',
         discipline: 'Formula',
         name: 'Grand Prix Legends',
         src: '/thumbnails/iracing/2024s2',
@@ -170,7 +188,8 @@ export const iRacing2024S2FormulaSeries: OfficialSeries[] = [
         setup: 'open',
     },
     {
-        seriesId: 'x4610',
+        seriesId: '0014610',
+        season: '2024s2',
         discipline: 'Formula',
         name: 'Formula A Grand Prix Tour',
         src: '/thumbnails/iracing/2024s2',
@@ -179,7 +198,8 @@ export const iRacing2024S2FormulaSeries: OfficialSeries[] = [
         setup: 'open',
     },
     {
-        seriesId: 'x4619',
+        seriesId: '0014619',
+        season: '2024s2',
         discipline: 'Formula',
         name: 'Formula A Grand Prix Tour Fixed',
         src: '/thumbnails/iracing/2024s2',
@@ -188,7 +208,8 @@ export const iRacing2024S2FormulaSeries: OfficialSeries[] = [
         setup: 'fixed',
     },
     {
-        seriesId: 'x4616',
+        seriesId: '0014616',
+        season: '2024s2',
         discipline: 'Formula',
         name: 'INDYCAR iRacing Series',
         src: '/thumbnails/iracing/2024s2',
@@ -197,7 +218,8 @@ export const iRacing2024S2FormulaSeries: OfficialSeries[] = [
         setup: 'open',
     },
     {
-        seriesId: 'x4626',
+        seriesId: '0014626',
+        season: '2024s2',
         discipline: 'Formula',
         name: 'Formula B Super Formula IMSIM Series Fixed',
         src: '/thumbnails/iracing/2024s2',
@@ -206,7 +228,8 @@ export const iRacing2024S2FormulaSeries: OfficialSeries[] = [
         setup: 'fixed',
     },
     {
-        seriesId: 'x4625',
+        seriesId: '0014625',
+        season: '2024s2',
         discipline: 'Formula',
         name: 'Formula B Super Formula IMSIM Series',
         src: '/thumbnails/iracing/2024s2',
@@ -216,7 +239,8 @@ export const iRacing2024S2FormulaSeries: OfficialSeries[] = [
     },
 
     {
-        seriesId: 'x4600',
+        seriesId: '0014600',
+        season: '2024s2',
         discipline: 'Formula',
         name: 'INDYCAR Series',
         src: '/thumbnails/iracing/2024s2',
@@ -225,7 +249,8 @@ export const iRacing2024S2FormulaSeries: OfficialSeries[] = [
         setup: 'open',
     },
     {
-        seriesId: 'x4624',
+        seriesId: '0014624',
+        season: '2024s2',
         discipline: 'Formula',
         name: 'INDYCAR Series Fixed',
         src: '/thumbnails/iracing/2024s2',
@@ -234,7 +259,8 @@ export const iRacing2024S2FormulaSeries: OfficialSeries[] = [
         setup: 'fixed',
     },
     {
-        seriesId: 'x4629',
+        seriesId: '0014629',
+        season: '2024s2',
         discipline: 'Formula',
         name: 'Formula A Grand Prix Series',
         src: '/thumbnails/iracing/2024s2',
@@ -243,7 +269,8 @@ export const iRacing2024S2FormulaSeries: OfficialSeries[] = [
         setup: 'open',
     },
     {
-        seriesId: 'x4630',
+        seriesId: '0014630',
+        season: '2024s2',
         discipline: 'Formula',
         name: 'Formula A Grand Prix Series Fixed',
         src: '/thumbnails/iracing/2024s2',

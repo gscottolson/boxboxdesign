@@ -57,7 +57,7 @@ export function SeriesDetail({ series }: { series: OfficialSeries }) {
                         <Balancer>{series.name}</Balancer>
                     </h3>
                     <h4 className="text-gray700">Official Series Schedule</h4>
-                    <h4 className="text-gray700">iRacing 2024 Season 1</h4>
+                    <h4 className="text-gray700">iRacing 2024 Season 2</h4>
                 </header>
 
                 <div className="flex flex-col items-center pt-4 md:items-start md:pt-0">

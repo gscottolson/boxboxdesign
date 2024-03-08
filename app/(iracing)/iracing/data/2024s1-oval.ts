@@ -3,6 +3,7 @@ import { OfficialSeries } from '../types';
 export const iRacing2024S1OvalSeries: OfficialSeries[] = [
     {
         seriesId: '4554',
+        season: '2024s1',
         discipline: 'Oval',
         name: 'Street Stock Fanatec Series R',
         src: '/thumbnails/iracing/2024s1/StreetStock.png',
@@ -12,6 +13,7 @@ export const iRacing2024S1OvalSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4553',
+        season: '2024s1',
         discipline: 'Oval',
         name: 'Rookie Legends VRS Cup',
         src: '/thumbnails/iracing/2024s1/RookieLegends.png',
@@ -22,6 +24,7 @@ export const iRacing2024S1OvalSeries: OfficialSeries[] = [
 
     {
         seriesId: '4582',
+        season: '2024s1',
         discipline: 'Oval',
         name: 'ARCA Menards Series',
         src: '/thumbnails/iracing/2024s1/ARCASeriesFixed.png',
@@ -31,6 +34,7 @@ export const iRacing2024S1OvalSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4667',
+        season: '2024s1',
         discipline: 'Oval',
         name: 'Draft Master Fixed',
         src: '/thumbnails/iracing/2024s1/DraftMaster.png',
@@ -40,6 +44,7 @@ export const iRacing2024S1OvalSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4581',
+        season: '2024s1',
         discipline: 'Oval',
         name: 'CARS Late Model Stock Tour Fixed',
         src: '/thumbnails/iracing/2024s1/LateModelStockFixed.png',
@@ -49,6 +54,7 @@ export const iRacing2024S1OvalSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4584',
+        season: '2024s1',
         discipline: 'Oval',
         name: 'SK Modified Weekly Series Fixed',
         src: '/thumbnails/iracing/2024s1/SKModifiedFixed.png',
@@ -58,6 +64,7 @@ export const iRacing2024S1OvalSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4583',
+        season: '2024s1',
         discipline: 'Oval',
         name: 'SK Modified Weekly Series',
         src: '/thumbnails/iracing/2024s1/SKModifiedWeekly.png',
@@ -67,6 +74,7 @@ export const iRacing2024S1OvalSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4596',
+        season: '2024s1',
         discipline: 'Oval',
         name: 'NASCAR Class C Maconi Setup Shop Fixed',
         src: '/thumbnails/iracing/2024s1/NascarCFixed.png',
@@ -76,6 +84,7 @@ export const iRacing2024S1OvalSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4671',
+        season: '2024s1',
         discipline: 'Oval',
         name: 'NASCAR iRacing Class C',
         src: '/thumbnails/iracing/2024s1/NascarC.png',
@@ -85,6 +94,7 @@ export const iRacing2024S1OvalSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4599',
+        season: '2024s1',
         discipline: 'Oval',
         name: 'US Open Wheel C Dallara IR‑18 Fixed',
         src: '/thumbnails/iracing/2024s1/OpenWheelC.png',
@@ -94,6 +104,7 @@ export const iRacing2024S1OvalSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4598',
+        season: '2024s1',
         discipline: 'Oval',
         name: 'Gen 4 Cup Fixed',
         src: '/thumbnails/iracing/2024s1/Gen4CupFixed.png',
@@ -103,6 +114,7 @@ export const iRacing2024S1OvalSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4558',
+        season: '2024s1',
         discipline: 'Oval',
         name: 'Advanced Legends Cup',
         src: '/thumbnails/iracing/2024s1/AdvancedLegends.png',
@@ -112,6 +124,7 @@ export const iRacing2024S1OvalSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4580',
+        season: '2024s1',
         discipline: 'Oval',
         name: 'CARS Late Model Stock Tour',
         src: '/thumbnails/iracing/2024s1/LateModelStock.png',
@@ -121,6 +134,7 @@ export const iRacing2024S1OvalSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4591',
+        season: '2024s1',
         discipline: 'Oval',
         name: 'Street Stock Next Level Racing Series C',
         src: '/thumbnails/iracing/2024s1/StreetStockC.png',
@@ -130,6 +144,7 @@ export const iRacing2024S1OvalSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4595',
+        season: '2024s1',
         discipline: 'Oval',
         name: 'Super Late Model Series Fixed',
         src: '/thumbnails/iracing/2024s1/SuperLateModelFixed.png',
@@ -139,6 +154,7 @@ export const iRacing2024S1OvalSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4594',
+        season: '2024s1',
         discipline: 'Oval',
         name: 'Super Late Model Series',
         src: '/thumbnails/iracing/2024s1/SuperLateModel.png',
@@ -148,6 +164,7 @@ export const iRacing2024S1OvalSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4593',
+        season: '2024s1',
         discipline: 'Oval',
         name: 'NASCAR Tour Modified Series Fixed',
         src: '/thumbnails/iracing/2024s1/NascarTourModifiedFixed.png',
@@ -157,6 +174,7 @@ export const iRacing2024S1OvalSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4592',
+        season: '2024s1',
         discipline: 'Oval',
         name: 'NASCAR Tour Modified Series ',
         src: '/thumbnails/iracing/2024s1/NascarTourModified.png',
@@ -167,6 +185,7 @@ export const iRacing2024S1OvalSeries: OfficialSeries[] = [
 
     {
         seriesId: '4611',
+        season: '2024s1',
         discipline: 'Oval',
         name: 'NASCAR Class B Series Fixed',
         src: '/thumbnails/iracing/2024s1/NascarBFixed.png',
@@ -176,6 +195,7 @@ export const iRacing2024S1OvalSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4672',
+        season: '2024s1',
         discipline: 'Oval',
         name: 'NASCAR iRacing Class B Series',
         src: '/thumbnails/iracing/2024s1/NascarB.png',
@@ -185,6 +205,7 @@ export const iRacing2024S1OvalSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4597',
+        season: '2024s1',
         discipline: 'Oval',
         name: 'NASCAR Legends Series',
         src: '/thumbnails/iracing/2024s1/NascarLegends.png',
@@ -194,6 +215,7 @@ export const iRacing2024S1OvalSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4613',
+        season: '2024s1',
         discipline: 'Oval',
         name: 'Sprint Car Cup',
         src: '/thumbnails/iracing/2024s1/SprintCarCup.png',
@@ -203,6 +225,7 @@ export const iRacing2024S1OvalSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4612',
+        season: '2024s1',
         discipline: 'Oval',
         name: 'Silver Crown Cup',
         src: '/thumbnails/iracing/2024s1/SilverCrownCup.png',
@@ -213,6 +236,7 @@ export const iRacing2024S1OvalSeries: OfficialSeries[] = [
 
     {
         seriesId: '4628',
+        season: '2024s1',
         discipline: 'Oval',
         name: 'NASCAR Class A Series Fixed',
         src: '/thumbnails/iracing/2024s1/NascarAFixed.png',
@@ -222,6 +246,7 @@ export const iRacing2024S1OvalSeries: OfficialSeries[] = [
     },
     {
         seriesId: '4627',
+        season: '2024s1',
         discipline: 'Oval',
         name: 'NASCAR Class A Series',
         src: '/thumbnails/iracing/2024s1/NascarA.png',

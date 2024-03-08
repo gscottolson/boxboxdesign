@@ -12,8 +12,8 @@ import { getSeriesURL } from '@/app/(iracing)/iracing/data/series-util';
 export function Modal({
     children,
     title,
-    next = [{ name: '', licenseClass: null, discipline: null, setup: null }, { index: 0 }],
-    prev = [{ name: '', licenseClass: null, discipline: null, setup: null }, { index: 0 }],
+    next = [{ name: '', season: null, licenseClass: null, discipline: null, setup: null }, { index: 0 }],
+    prev = [{ name: '', season: null, licenseClass: null, discipline: null, setup: null }, { index: 0 }],
 }: {
     children: React.ReactNode;
     title: string;

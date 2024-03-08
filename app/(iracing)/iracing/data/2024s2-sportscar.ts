@@ -2,7 +2,8 @@ import { OfficialSeries } from '../types';
 
 export const iRacing2024S2SportsCarSeries: OfficialSeries[] = [
     {
-        seriesId: 'x4555',
+        seriesId: '0014555',
+        season: '2024s2',
         discipline: 'Sports Car',
         name: 'Global Mazda MX‑5 Fanatec Cup',
         src: '/thumbnails/iracing/2024s2',
@@ -11,7 +12,7 @@ export const iRacing2024S2SportsCarSeries: OfficialSeries[] = [
         setup: 'fixed',
     },
     // {
-    //     seriesId: 'x4000_',
+    //     seriesId: '0014000_',
     //     discipline: 'Sports Car',
     //     name: 'Racing Prodigy Mazda MX-5 Golden Ticket Series',
     //     src: '/thumbnails/iracing/2024s2',
@@ -20,7 +21,8 @@ export const iRacing2024S2SportsCarSeries: OfficialSeries[] = [
     //     setup: 'fixed',
     // },
     {
-        seriesId: 'x4568',
+        seriesId: '0014568',
+        season: '2024s2',
         discipline: 'Sports Car',
         name: 'Ferrari GT3 Challenge Fixed',
         src: '/thumbnails/iracing/2024s2',
@@ -29,7 +31,8 @@ export const iRacing2024S2SportsCarSeries: OfficialSeries[] = [
         setup: 'fixed',
     },
     {
-        seriesId: 'x4004',
+        seriesId: '0014004',
+        season: '2024s2',
         discipline: 'Sports Car',
         name: 'BMW M Power Tour Fixed',
         src: '/thumbnails/iracing/2024s2',
@@ -38,7 +41,8 @@ export const iRacing2024S2SportsCarSeries: OfficialSeries[] = [
         setup: 'fixed',
     },
     {
-        seriesId: 'x4560',
+        seriesId: '0014560',
+        season: '2024s2',
         discipline: 'Sports Car',
         name: 'GR Buttkicker Cup Fixed',
         src: '/thumbnails/iracing/2024s2',
@@ -47,7 +51,8 @@ export const iRacing2024S2SportsCarSeries: OfficialSeries[] = [
         setup: 'fixed',
     },
     {
-        seriesId: 'x4563',
+        seriesId: '0014563',
+        season: '2024s2',
         discipline: 'Sports Car',
         name: 'Production Car Sim‑Lab Challenge',
         src: '/thumbnails/iracing/2024s2',
@@ -56,7 +61,8 @@ export const iRacing2024S2SportsCarSeries: OfficialSeries[] = [
         setup: 'open',
     },
     {
-        seriesId: 'x4564',
+        seriesId: '0014564',
+        season: '2024s2',
         discipline: 'Sports Car',
         name: 'GT4 Falken Tyre Challenge Fixed',
         src: '/thumbnails/iracing/2024s2',
@@ -65,7 +71,8 @@ export const iRacing2024S2SportsCarSeries: OfficialSeries[] = [
         setup: 'fixed',
     },
     {
-        seriesId: 'x4670',
+        seriesId: '0014670',
+        season: '2024s2',
         discipline: 'Sports Car',
         name: 'Weekly Race Challenge',
         src: '/thumbnails/iracing/2024s2',
@@ -74,7 +81,8 @@ export const iRacing2024S2SportsCarSeries: OfficialSeries[] = [
         setup: 'open',
     },
     {
-        seriesId: 'x4575',
+        seriesId: '0014575',
+        season: '2024s2',
         discipline: 'Sports Car',
         name: 'Global Fanatec Challenge',
         src: '/thumbnails/iracing/2024s2',
@@ -83,7 +91,8 @@ export const iRacing2024S2SportsCarSeries: OfficialSeries[] = [
         setup: 'fixed',
     },
     {
-        seriesId: 'x4562',
+        seriesId: '0014562',
+        season: '2024s2',
         discipline: 'Sports Car',
         name: 'Clio Cup Fixed',
         src: '/thumbnails/iracing/2024s2',
@@ -92,7 +101,8 @@ export const iRacing2024S2SportsCarSeries: OfficialSeries[] = [
         setup: 'fixed',
     },
     {
-        seriesId: 'x4566',
+        seriesId: '0014566',
+        season: '2024s2',
         discipline: 'Sports Car',
         name: 'TCR Virtual Challenge Fixed',
         src: '/thumbnails/iracing/2024s2',
@@ -101,7 +111,8 @@ export const iRacing2024S2SportsCarSeries: OfficialSeries[] = [
         setup: 'fixed',
     },
     {
-        seriesId: 'x4574',
+        seriesId: '0014574',
+        season: '2024s2',
         discipline: 'Sports Car',
         name: 'Spec Racer Ford Challenge',
         src: '/thumbnails/iracing/2024s2',
@@ -110,7 +121,8 @@ export const iRacing2024S2SportsCarSeries: OfficialSeries[] = [
         setup: 'open',
     },
     {
-        seriesId: 'x4572',
+        seriesId: '0014572',
+        season: '2024s2',
         discipline: 'Sports Car',
         name: 'Mustang Skip Barber Challenge Fixed',
         src: '/thumbnails/iracing/2024s2',
@@ -119,7 +131,8 @@ export const iRacing2024S2SportsCarSeries: OfficialSeries[] = [
         setup: 'fixed',
     },
     {
-        seriesId: 'x4573',
+        seriesId: '0014573',
+        season: '2024s2',
         discipline: 'Sports Car',
         name: 'Mission R Challenge Fixed',
         src: '/thumbnails/iracing/2024s2',
@@ -129,7 +142,8 @@ export const iRacing2024S2SportsCarSeries: OfficialSeries[] = [
     },
 
     {
-        seriesId: 'x4565',
+        seriesId: '0014565',
+        season: '2024s2',
         discipline: 'Sports Car',
         name: 'Falken Tyre Sports Car Challenge',
         src: '/thumbnails/iracing/2024s2',
@@ -138,7 +152,8 @@ export const iRacing2024S2SportsCarSeries: OfficialSeries[] = [
         setup: 'open',
     },
     {
-        seriesId: 'x4567',
+        seriesId: '0014567',
+        season: '2024s2',
         discipline: 'Sports Car',
         name: 'TCR Virtual Challenge',
         src: '/thumbnails/iracing/2024s2',
@@ -147,7 +162,8 @@ export const iRacing2024S2SportsCarSeries: OfficialSeries[] = [
         setup: 'open',
     },
     {
-        seriesId: 'x4609',
+        seriesId: '0014609',
+        season: '2024s2',
         discipline: 'Sports Car',
         name: 'Proto‑GT Thrustmaster Challenge',
         src: '/thumbnails/iracing/2024s2',
@@ -156,7 +172,8 @@ export const iRacing2024S2SportsCarSeries: OfficialSeries[] = [
         setup: 'open',
     },
     {
-        seriesId: 'x4666',
+        seriesId: '0014666',
+        season: '2024s2',
         discipline: 'Sports Car',
         name: 'Ring Meister Ricmotech Series Fixed',
         src: '/thumbnails/iracing/2024s2',
@@ -165,7 +182,8 @@ export const iRacing2024S2SportsCarSeries: OfficialSeries[] = [
         setup: 'fixed',
     },
     {
-        seriesId: 'x4608',
+        seriesId: '0014608',
+        season: '2024s2',
         discipline: 'Sports Car',
         name: 'iRacing Porsche Cup by Coach Dave Delta Fixed',
         src: '/thumbnails/iracing/2024s2',
@@ -174,7 +192,8 @@ export const iRacing2024S2SportsCarSeries: OfficialSeries[] = [
         setup: 'fixed',
     },
     {
-        seriesId: 'x4607',
+        seriesId: '0014607',
+        season: '2024s2',
         discipline: 'Sports Car',
         name: 'iRacing Porsche Cup by Coach Dave Delta',
         src: '/thumbnails/iracing/2024s2',
@@ -184,7 +203,8 @@ export const iRacing2024S2SportsCarSeries: OfficialSeries[] = [
     },
 
     {
-        seriesId: 'x4620',
+        seriesId: '0014620',
+        season: '2024s2',
         discipline: 'Sports Car',
         name: 'GT Endurance VRS Series',
         src: '/thumbnails/iracing/2024s2',
@@ -193,7 +213,8 @@ export const iRacing2024S2SportsCarSeries: OfficialSeries[] = [
         setup: 'open',
     },
     {
-        seriesId: 'x4589',
+        seriesId: '0014589',
+        season: '2024s2',
         discipline: 'Sports Car',
         name: 'IMSA Michelin Pilot Challenge',
         src: '/thumbnails/iracing/2024s2',
@@ -202,7 +223,8 @@ export const iRacing2024S2SportsCarSeries: OfficialSeries[] = [
         setup: 'open',
     },
     {
-        seriesId: 'x4601',
+        seriesId: '0014601',
+        season: '2024s2',
         discipline: 'Sports Car',
         name: 'Advanced Mazda MX‑5 Cup Series',
         src: '/thumbnails/iracing/2024s2',
@@ -211,7 +233,8 @@ export const iRacing2024S2SportsCarSeries: OfficialSeries[] = [
         setup: 'open',
     },
     {
-        seriesId: 'x4585',
+        seriesId: '0014585',
+        season: '2024s2',
         discipline: 'Sports Car',
         name: 'LMP3 Trophy Fixed',
         src: '/thumbnails/iracing/2024s2',
@@ -220,7 +243,8 @@ export const iRacing2024S2SportsCarSeries: OfficialSeries[] = [
         setup: 'fixed',
     },
     {
-        seriesId: 'x4586',
+        seriesId: '0014586',
+        season: '2024s2',
         discipline: 'Sports Car',
         name: 'Radical Esports Cup Fixed',
         src: '/thumbnails/iracing/2024s2',
@@ -230,7 +254,8 @@ export const iRacing2024S2SportsCarSeries: OfficialSeries[] = [
     },
 
     {
-        seriesId: 'x4587',
+        seriesId: '0014587',
+        season: '2024s2',
         discipline: 'Sports Car',
         name: 'IMSA Vintage Series',
         src: '/thumbnails/iracing/2024s2',
@@ -239,7 +264,8 @@ export const iRacing2024S2SportsCarSeries: OfficialSeries[] = [
         setup: 'open',
     },
     {
-        seriesId: 'x4605',
+        seriesId: '0014605',
+        season: '2024s2',
         discipline: 'Sports Car',
         name: 'Supercars Series',
         src: '/thumbnails/iracing/2024s2',
@@ -248,7 +274,8 @@ export const iRacing2024S2SportsCarSeries: OfficialSeries[] = [
         setup: 'open',
     },
     {
-        seriesId: 'x4606',
+        seriesId: '0014606',
+        season: '2024s2',
         discipline: 'Sports Car',
         name: 'Supercars Series Australian Servers',
         src: '/thumbnails/iracing/2024s2',
@@ -257,7 +284,8 @@ export const iRacing2024S2SportsCarSeries: OfficialSeries[] = [
         setup: 'open',
     },
     {
-        seriesId: 'x4588',
+        seriesId: '0014588',
+        season: '2024s2',
         discipline: 'Sports Car',
         name: 'Stock Car Brasil Fixed',
         src: '/thumbnails/iracing/2024s2',
@@ -267,7 +295,8 @@ export const iRacing2024S2SportsCarSeries: OfficialSeries[] = [
     },
 
     {
-        seriesId: 'x4618',
+        seriesId: '0014618',
+        season: '2024s2',
         discipline: 'Sports Car',
         name: 'GT3 Fanatec Challenge Fixed',
         src: '/thumbnails/iracing/2024s2',
@@ -276,7 +305,8 @@ export const iRacing2024S2SportsCarSeries: OfficialSeries[] = [
         setup: 'fixed',
     },
     {
-        seriesId: 'x4619',
+        seriesId: '0014619',
+        season: '2024s2',
         discipline: 'Sports Car',
         name: 'GT Sprint VRS Series',
         src: '/thumbnails/iracing/2024s2',
@@ -285,7 +315,8 @@ export const iRacing2024S2SportsCarSeries: OfficialSeries[] = [
         setup: 'open',
     },
     {
-        seriesId: 'x4622',
+        seriesId: '0014622',
+        season: '2024s2',
         discipline: 'Sports Car',
         name: 'Global Endurance CONSPIT Tour',
         src: '/thumbnails/iracing/2024s2',
@@ -294,7 +325,8 @@ export const iRacing2024S2SportsCarSeries: OfficialSeries[] = [
         setup: 'open',
     },
     {
-        seriesId: 'x4614',
+        seriesId: '0014614',
+        season: '2024s2',
         discipline: 'Sports Car',
         name: 'LMP2 Prototype Challenge Fixed',
         src: '/thumbnails/iracing/2024s2',
@@ -303,7 +335,8 @@ export const iRacing2024S2SportsCarSeries: OfficialSeries[] = [
         setup: 'fixed',
     },
     {
-        seriesId: 'x4621',
+        seriesId: '0014621',
+        season: '2024s2',
         discipline: 'Sports Car',
         name: 'GTE Sprint CONSPIT Series',
         src: '/thumbnails/iracing/2024s2',
@@ -312,7 +345,8 @@ export const iRacing2024S2SportsCarSeries: OfficialSeries[] = [
         setup: 'open',
     },
     {
-        seriesId: 'x4623',
+        seriesId: '0014623',
+        season: '2024s2',
         discipline: 'Sports Car',
         name: 'IMSA Endurance Series',
         src: '/thumbnails/iracing/2024s2',
@@ -322,7 +356,8 @@ export const iRacing2024S2SportsCarSeries: OfficialSeries[] = [
     },
 
     {
-        seriesId: 'x4615',
+        seriesId: '0014615',
+        season: '2024s2',
         discipline: 'Sports Car',
         name: 'IMSA iRacing Series',
         src: '/thumbnails/iracing/2024s2',
@@ -331,7 +366,8 @@ export const iRacing2024S2SportsCarSeries: OfficialSeries[] = [
         setup: 'open',
     },
     {
-        seriesId: 'x4616',
+        seriesId: '0014616',
+        season: '2024s2',
         discipline: 'Sports Car',
         name: 'IMSA iRacing Series Fixed',
         src: '/thumbnails/iracing/2024s2',
