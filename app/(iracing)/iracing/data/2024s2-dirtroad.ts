@@ -8,7 +8,7 @@ export const iRacing2024S2DirtRoadSeries: OfficialSeries[] = [
         name: 'Rookie Pro 2 Lite Off‑Road Racing Series Fixed',
         src: '/thumbnails/iracing/2024s2',
         licenseClass: 'Rookie',
-        pdf: '/pdfs/iracing/2024s1-dirtroad/4661-RookiePro2LiteFixed.pdf',
+        pdfLight: '/pdf/iracing/2024s1-dirtroad/4661-RookiePro2LiteFixed.pdf',
         setup: 'fixed',
     },
     {
@@ -18,7 +18,7 @@ export const iRacing2024S2DirtRoadSeries: OfficialSeries[] = [
         name: 'Rookie iRX Volkswagen Beetle Lite Fixed',
         src: '/thumbnails/iracing/2024s2',
         licenseClass: 'Rookie',
-        pdf: '/pdfs/iracing/2024s1-dirtroad/4657-RookieiRXBeetleLiteFixed.pdf',
+        pdfLight: '/pdf/iracing/2024s1-dirtroad/4657-RookieiRXBeetleLiteFixed.pdf',
         setup: 'fixed',
     },
     {
@@ -28,7 +28,7 @@ export const iRacing2024S2DirtRoadSeries: OfficialSeries[] = [
         name: 'iRX Volkswagen Beetle Lite',
         src: '/thumbnails/iracing/2024s2',
         licenseClass: 'D',
-        pdf: '/pdfs/iracing/2024s1-dirtroad/4658-iRXBeetleLite.pdf',
+        pdfLight: '/pdf/iracing/2024s1-dirtroad/4658-iRXBeetleLite.pdf',
         setup: 'open',
     },
     {
@@ -38,7 +38,7 @@ export const iRacing2024S2DirtRoadSeries: OfficialSeries[] = [
         name: 'Pro 4 Off‑Road Racing Series Fixed',
         src: '/thumbnails/iracing/2024s2',
         licenseClass: 'D',
-        pdf: '/pdfs/iracing/2024s1-dirtroad/4662-Pro4OffRoadFixed.pdf',
+        pdfLight: '/pdf/iracing/2024s1-dirtroad/4662-Pro4OffRoadFixed.pdf',
         setup: 'fixed',
     },
     {
@@ -48,7 +48,7 @@ export const iRacing2024S2DirtRoadSeries: OfficialSeries[] = [
         name: 'Rallycross Series Fixed',
         src: '/thumbnails/iracing/2024s2',
         licenseClass: 'C',
-        pdf: '/pdfs/iracing/2024s1-dirtroad/4659-RallycrossSeriesFixed.pdf',
+        pdfLight: '/pdf/iracing/2024s1-dirtroad/4659-RallycrossSeriesFixed.pdf',
         setup: 'fixed',
     },
     {
@@ -58,7 +58,7 @@ export const iRacing2024S2DirtRoadSeries: OfficialSeries[] = [
         name: 'Pro 2 Off‑Road Racing Series Fixed',
         src: '/thumbnails/iracing/2024s2',
         licenseClass: 'C',
-        pdf: '/pdfs/iracing/2024s1-dirtroad/4663-Pro2OffRoadFixed.pdf',
+        pdfLight: '/pdf/iracing/2024s1-dirtroad/4663-Pro2OffRoadFixed.pdf',
         setup: 'fixed',
     },
     {
@@ -68,7 +68,7 @@ export const iRacing2024S2DirtRoadSeries: OfficialSeries[] = [
         name: 'Rallycross Series',
         src: '/thumbnails/iracing/2024s2',
         licenseClass: 'B',
-        pdf: '/pdfs/iracing/2024s1-dirtroad/4660-RallycrossSeries.pdf',
+        pdfLight: '/pdf/iracing/2024s1-dirtroad/4660-RallycrossSeries.pdf',
         setup: 'open',
     },
     {
@@ -78,7 +78,7 @@ export const iRacing2024S2DirtRoadSeries: OfficialSeries[] = [
         name: 'Pro 2 Off‑Road Racing Series',
         src: '/thumbnails/iracing/2024s2',
         licenseClass: 'B',
-        pdf: '/pdfs/iracing/2024s1-dirtroad/4665-Pro2OffRoad.pdf',
+        pdfLight: '/pdf/iracing/2024s1-dirtroad/4665-Pro2OffRoad.pdf',
         setup: 'open',
     },
     {
@@ -88,7 +88,7 @@ export const iRacing2024S2DirtRoadSeries: OfficialSeries[] = [
         name: 'Pro 4 Off‑Road Racing Series',
         src: '/thumbnails/iracing/2024s2',
         licenseClass: 'B',
-        pdf: '/pdfs/iracing/2024s1-dirtroad/4664-Pro4OffRoad.pdf',
+        pdfLight: '/pdf/iracing/2024s1-dirtroad/4664-Pro4OffRoad.pdf',
         setup: 'open',
     },
 ];

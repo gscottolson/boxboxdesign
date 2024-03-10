@@ -8,7 +8,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
         name: 'Global Mazda MX‑5 Fanatec Cup',
         src: '/thumbnails/iracing/2024s1/GlobalMazda.png',
         licenseClass: 'Rookie',
-        pdf: '/pdfs/iracing/2024s1-road/4555-GlobalMazda.pdf',
+        pdfLight: '/pdf/iracing/2024s1-road/4555-GlobalMazda.pdf',
         setup: 'fixed',
     },
     {
@@ -18,7 +18,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
         name: 'Formula Vee SIMAGIC Series',
         src: '/thumbnails/iracing/2024s1/Vee.png',
         licenseClass: 'Rookie',
-        pdf: '/pdfs/iracing/2024s1-road/4556-FormulaVee.pdf',
+        pdfLight: '/pdf/iracing/2024s1-road/4556-FormulaVee.pdf',
         setup: 'fixed',
     },
     {
@@ -28,7 +28,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
         name: 'Formula 1600 Rookie Sim‑Motion Series Fixed',
         src: '/thumbnails/iracing/2024s1/Formula1600.png',
         licenseClass: 'Rookie',
-        pdf: '/pdfs/iracing/2024s1-road/4557-FF1600Rookie.pdf',
+        pdfLight: '/pdf/iracing/2024s1-road/4557-FF1600Rookie.pdf',
         setup: 'fixed',
     },
     {
@@ -38,7 +38,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
         name: 'Ferrari GT3 Challenge Fixed',
         src: '/thumbnails/iracing/2024s1/FerrariGT3.png',
         licenseClass: 'D',
-        pdf: '/pdfs/iracing/2024s1-road/4568-FerrariGT3Fixed.pdf',
+        pdfLight: '/pdf/iracing/2024s1-road/4568-FerrariGT3Fixed.pdf',
         setup: 'fixed',
     },
     {
@@ -48,7 +48,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
         name: 'GR Buttkicker Cup Fixed',
         src: '/thumbnails/iracing/2024s1/GRCup.png',
         licenseClass: 'D',
-        pdf: '/pdfs/iracing/2024s1-road/4560-GRCupFixed.pdf',
+        pdfLight: '/pdf/iracing/2024s1-road/4560-GRCupFixed.pdf',
         setup: 'fixed',
     },
     {
@@ -58,7 +58,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
         name: 'Production Car Sim‑Lab Challenge',
         src: '/thumbnails/iracing/2024s1/PCC.png',
         licenseClass: 'D',
-        pdf: '/pdfs/iracing/2024s1-road/4563-PCC.pdf',
+        pdfLight: '/pdf/iracing/2024s1-road/4563-PCC.pdf',
         setup: 'open',
     },
     {
@@ -68,7 +68,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
         name: 'Formula 1600 Thrustmaster Trophy',
         src: '/thumbnails/iracing/2024s1/FF1600D.png',
         licenseClass: 'D',
-        pdf: '/pdfs/iracing/2024s1-road/4561-FF1600.pdf',
+        pdfLight: '/pdf/iracing/2024s1-road/4561-FF1600.pdf',
         setup: 'open',
     },
     {
@@ -78,7 +78,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
         name: 'FIA Formula 4 Challenge',
         src: '/thumbnails/iracing/2024s1/Formula4.png',
         licenseClass: 'D',
-        pdf: '/pdfs/iracing/2024s1-road/4570-Formula4.pdf',
+        pdfLight: '/pdf/iracing/2024s1-road/4570-Formula4.pdf',
         setup: 'open',
     },
     {
@@ -88,7 +88,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
         name: 'FIA Formula 4 Challenge Fixed',
         src: '/thumbnails/iracing/2024s1/Formula4Fixed.png',
         licenseClass: 'D',
-        pdf: '/pdfs/iracing/2024s1-road/4569-Formula4Fixed.pdf',
+        pdfLight: '/pdf/iracing/2024s1-road/4569-Formula4Fixed.pdf',
         setup: 'fixed',
     },
     {
@@ -98,7 +98,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
         name: 'GT4 Falken Tyre Challenge Fixed',
         src: '/thumbnails/iracing/2024s1/GT4Fixed.png',
         licenseClass: 'D',
-        pdf: '/pdfs/iracing/2024s1-road/4564-GT4FalkenFixed.pdf',
+        pdfLight: '/pdf/iracing/2024s1-road/4564-GT4FalkenFixed.pdf',
         setup: 'fixed',
     },
     {
@@ -108,7 +108,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
         name: 'Weekly Race Challenge',
         src: '/thumbnails/iracing/2024s1/WeeklyRace.png',
         licenseClass: 'D',
-        pdf: '/pdfs/iracing/2024s1-road/4670-WeeklyChallenge.pdf',
+        pdfLight: '/pdf/iracing/2024s1-road/4670-WeeklyChallenge.pdf',
         setup: 'open',
     },
     {
@@ -118,7 +118,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
         name: 'Global Fanatec Challenge',
         src: '/thumbnails/iracing/2024s1/GlobalFanatec.png',
         licenseClass: 'D',
-        pdf: '/pdfs/iracing/2024s1-road/4575-GlobalFanatec.pdf',
+        pdfLight: '/pdf/iracing/2024s1-road/4575-GlobalFanatec.pdf',
         setup: 'fixed',
     },
     {
@@ -128,7 +128,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
         name: 'Skip Barber Race Series',
         src: '/thumbnails/iracing/2024s1/SkipBarber.png',
         licenseClass: 'D',
-        pdf: '/pdfs/iracing/2024s1-road/4571-SkipBarber.pdf',
+        pdfLight: '/pdf/iracing/2024s1-road/4571-SkipBarber.pdf',
         setup: 'open',
     },
     {
@@ -138,7 +138,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
         name: 'Clio Cup Fixed',
         src: '/thumbnails/iracing/2024s1/ClioCupFixed.png',
         licenseClass: 'D',
-        pdf: '/pdfs/iracing/2024s1-road/4562-ClioCupFixed.pdf',
+        pdfLight: '/pdf/iracing/2024s1-road/4562-ClioCupFixed.pdf',
         setup: 'fixed',
     },
     {
@@ -148,7 +148,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
         name: 'Touring Car Challenge Fixed',
         src: '/thumbnails/iracing/2024s1/TCCFixed.png',
         licenseClass: 'D',
-        pdf: '/pdfs/iracing/2024s1-road/4566-TCCFixed.pdf',
+        pdfLight: '/pdf/iracing/2024s1-road/4566-TCCFixed.pdf',
         setup: 'fixed',
     },
     {
@@ -158,7 +158,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
         name: 'Spec Racer Ford Challenge',
         src: '/thumbnails/iracing/2024s1/SpecRacer.png',
         licenseClass: 'D',
-        pdf: '/pdfs/iracing/2024s1-road/4574-SpecRacer.pdf',
+        pdfLight: '/pdf/iracing/2024s1-road/4574-SpecRacer.pdf',
         setup: 'open',
     },
     {
@@ -168,7 +168,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
         name: 'US Open Wheel D USF 2000 Series Fixed',
         src: '/thumbnails/iracing/2024s1/OpenWheelD.png',
         licenseClass: 'D',
-        pdf: '/pdfs/iracing/2024s1-road/4559-OpenWheelDFixed.pdf',
+        pdfLight: '/pdf/iracing/2024s1-road/4559-OpenWheelDFixed.pdf',
         setup: 'fixed',
     },
     {
@@ -178,7 +178,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
         name: 'FIA F4 Esports Regional Tour Europe North',
         src: '/thumbnails/iracing/2024s1/F4RegionalEurNo.png',
         licenseClass: 'D',
-        pdf: '/pdfs/iracing/2024s1-road/4578-F4RegionalEuropeNorth.pdf',
+        pdfLight: '/pdf/iracing/2024s1-road/4578-F4RegionalEuropeNorth.pdf',
         setup: 'open',
     },
     {
@@ -188,7 +188,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
         name: 'FIA F4 Esports Regional Tour Americas',
         src: '/thumbnails/iracing/2024s1/F4RegionalAmericas.png',
         licenseClass: 'D',
-        pdf: '/pdfs/iracing/2024s1-road/4577-F4RegionalAmericas.pdf',
+        pdfLight: '/pdf/iracing/2024s1-road/4577-F4RegionalAmericas.pdf',
         setup: 'open',
     },
     {
@@ -198,7 +198,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
         name: 'FIA F4 Esports Regional Tour Europe South',
         src: '/thumbnails/iracing/2024s1/F4RegionalEurSo.png',
         licenseClass: 'D',
-        pdf: '/pdfs/iracing/2024s1-road/4579-F4RegionalEuropeSouth.pdf',
+        pdfLight: '/pdf/iracing/2024s1-road/4579-F4RegionalEuropeSouth.pdf',
         setup: 'open',
     },
     {
@@ -208,7 +208,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
         name: 'FIA F4 Esports Regional Tour Asia Pacific',
         src: '/thumbnails/iracing/2024s1/F4RegionalAsiaPac.png',
         licenseClass: 'D',
-        pdf: '/pdfs/iracing/2024s1-road/4576-F4RegionalAsiaPacific.pdf',
+        pdfLight: '/pdf/iracing/2024s1-road/4576-F4RegionalAsiaPacific.pdf',
         setup: 'open',
     },
     {
@@ -218,7 +218,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
         name: 'Mustang Skip Barber Challenge Fixed',
         src: '/thumbnails/iracing/2024s1/MustangBarber.png',
         licenseClass: 'D',
-        pdf: '/pdfs/iracing/2024s1-road/4572-SkipBarberFixed.pdf',
+        pdfLight: '/pdf/iracing/2024s1-road/4572-SkipBarberFixed.pdf',
         setup: 'fixed',
     },
     {
@@ -228,7 +228,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
         name: 'Mission R Challenge Fixed',
         src: '/thumbnails/iracing/2024s1/MissionR.png',
         licenseClass: 'D',
-        pdf: '/pdfs/iracing/2024s1-road/4573-MissionRFixed.pdf',
+        pdfLight: '/pdf/iracing/2024s1-road/4573-MissionRFixed.pdf',
         setup: 'fixed',
     },
     {
@@ -238,7 +238,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
         name: 'Falken Tyre Sports Car Challenge',
         src: '/thumbnails/iracing/2024s1/SCC.png',
         licenseClass: 'C',
-        pdf: '/pdfs/iracing/2024s1-road/4565-SCC.pdf',
+        pdfLight: '/pdf/iracing/2024s1-road/4565-SCC.pdf',
         setup: 'open',
     },
     {
@@ -248,7 +248,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
         name: 'Touring Car Challenge',
         src: '/thumbnails/iracing/2024s1/TCC.png',
         licenseClass: 'C',
-        pdf: '/pdfs/iracing/2024s1-road/4567-TCC.pdf',
+        pdfLight: '/pdf/iracing/2024s1-road/4567-TCC.pdf',
         setup: 'open',
     },
     {
@@ -258,7 +258,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
         name: 'Proto‑GT Thrustmaster Challenge',
         src: '/thumbnails/iracing/2024s1/ProtoGT.png',
         licenseClass: 'C',
-        pdf: '/pdfs/iracing/2024s1-road/4609-ProtoGT.pdf',
+        pdfLight: '/pdf/iracing/2024s1-road/4609-ProtoGT.pdf',
         setup: 'open',
     },
     {
@@ -268,7 +268,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
         name: 'Ring Meister Ricmotech Series Fixed',
         src: '/thumbnails/iracing/2024s1/RingMeister.png',
         licenseClass: 'C',
-        pdf: '/pdfs/iracing/2024s1-road/4666-RingMeisterFixed.pdf',
+        pdfLight: '/pdf/iracing/2024s1-road/4666-RingMeisterFixed.pdf',
         setup: 'fixed',
     },
     {
@@ -278,7 +278,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
         name: 'iRacing Porsche Cup by Coach Dave Delta Fixed',
         src: '/thumbnails/iracing/2024s1/PorscheCupFixed.png',
         licenseClass: 'C',
-        pdf: '/pdfs/iracing/2024s1-road/4608-iRacingPorscheCupFixed.pdf',
+        pdfLight: '/pdf/iracing/2024s1-road/4608-iRacingPorscheCupFixed.pdf',
         setup: 'fixed',
     },
     {
@@ -288,7 +288,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
         name: 'iRacing Porsche Cup by Coach Dave Delta',
         src: '/thumbnails/iracing/2024s1/PorscheCup.png',
         licenseClass: 'C',
-        pdf: '/pdfs/iracing/2024s1-road/4607-iRacingPorscheCup.pdf',
+        pdfLight: '/pdf/iracing/2024s1-road/4607-iRacingPorscheCup.pdf',
         setup: 'open',
     },
     {
@@ -298,7 +298,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
         name: 'Formula C DOF Reality Dallara F3 Series',
         src: '/thumbnails/iracing/2024s1/FormulaC.png',
         licenseClass: 'C',
-        pdf: '/pdfs/iracing/2024s1-road/4602-FormulaC.pdf',
+        pdfLight: '/pdf/iracing/2024s1-road/4602-FormulaC.pdf',
         setup: 'open',
     },
     {
@@ -308,7 +308,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
         name: 'Formula C Thrustmaster Dallara F3 Series Fixed',
         src: '/thumbnails/iracing/2024s1/FormulaCFixed.png',
         licenseClass: 'C',
-        pdf: '/pdfs/iracing/2024s1-road/4603-FormulaCFixed.pdf',
+        pdfLight: '/pdf/iracing/2024s1-road/4603-FormulaCFixed.pdf',
         setup: 'fixed',
     },
     {
@@ -318,7 +318,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
         name: 'GT Endurance VRS Series',
         src: '/thumbnails/iracing/2024s1/GTEndurance.png',
         licenseClass: 'C',
-        pdf: '/pdfs/iracing/2024s1-road/4620-GTEndurance.pdf',
+        pdfLight: '/pdf/iracing/2024s1-road/4620-GTEndurance.pdf',
         setup: 'open',
     },
     {
@@ -328,7 +328,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
         name: 'IMSA Michelin Pilot Challenge',
         src: '/thumbnails/iracing/2024s1/IMSAPilot.png',
         licenseClass: 'C',
-        pdf: '/pdfs/iracing/2024s1-road/4589-IMSAPilot.pdf',
+        pdfLight: '/pdf/iracing/2024s1-road/4589-IMSAPilot.pdf',
         setup: 'open',
     },
     {
@@ -338,7 +338,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
         name: 'Advanced Mazda MX‑5 Cup Series',
         src: '/thumbnails/iracing/2024s1/AdvancedMazda.png',
         licenseClass: 'C',
-        pdf: '/pdfs/iracing/2024s1-road/4601-AdvancedMazda.pdf',
+        pdfLight: '/pdf/iracing/2024s1-road/4601-AdvancedMazda.pdf',
         setup: 'open',
     },
     {
@@ -348,7 +348,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
         name: 'LMP3 Turn Racing Trophy Fixed',
         src: '/thumbnails/iracing/2024s1/LMP3Trophy.png',
         licenseClass: 'C',
-        pdf: '/pdfs/iracing/2024s1-road/4585-LMP3Fixed.pdf',
+        pdfLight: '/pdf/iracing/2024s1-road/4585-LMP3Fixed.pdf',
         setup: 'fixed',
     },
     {
@@ -358,7 +358,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
         name: 'Radical Esports Cup Fixed',
         src: '/thumbnails/iracing/2024s1/RadicalCup.png',
         licenseClass: 'C',
-        pdf: '/pdfs/iracing/2024s1-road/4586-RadicalFixed.pdf',
+        pdfLight: '/pdf/iracing/2024s1-road/4586-RadicalFixed.pdf',
         setup: 'fixed',
     },
     {
@@ -368,7 +368,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
         name: 'Classic Lotus Grand Prix',
         src: '/thumbnails/iracing/2024s1/LotusGP.png',
         licenseClass: 'C',
-        pdf: '/pdfs/iracing/2024s1-road/4617-LotusGP.pdf',
+        pdfLight: '/pdf/iracing/2024s1-road/4617-LotusGP.pdf',
         setup: 'open',
     },
     {
@@ -378,7 +378,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
         name: 'Dallara Formula iR Fixed',
         src: '/thumbnails/iracing/2024s1/FormulaiRFixed.png',
         licenseClass: 'C',
-        pdf: '/pdfs/iracing/2024s1-road/4590-FormulaiRFixed.pdf',
+        pdfLight: '/pdf/iracing/2024s1-road/4590-FormulaiRFixed.pdf',
         setup: 'fixed',
     },
     {
@@ -388,7 +388,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
         name: 'IMSA Vintage Series',
         src: '/thumbnails/iracing/2024s1/IMSAVintage.png',
         licenseClass: 'C',
-        pdf: '/pdfs/iracing/2024s1-road/4587-IMSAVintage.pdf',
+        pdfLight: '/pdf/iracing/2024s1-road/4587-IMSAVintage.pdf',
         setup: 'open',
     },
     {
@@ -398,7 +398,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
         name: 'Supercars Series',
         src: '/thumbnails/iracing/2024s1/SupercarsSeries.png',
         licenseClass: 'C',
-        pdf: '/pdfs/iracing/2024s1-road/4605-SupercarsSeries.pdf',
+        pdfLight: '/pdf/iracing/2024s1-road/4605-SupercarsSeries.pdf',
         setup: 'open',
     },
     {
@@ -408,7 +408,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
         name: 'Supercars Series Australian Servers',
         src: '/thumbnails/iracing/2024s1/SupercarsSeriesAus.png',
         licenseClass: 'C',
-        pdf: '/pdfs/iracing/2024s1-road/4606-SupercarsAus.pdf',
+        pdfLight: '/pdf/iracing/2024s1-road/4606-SupercarsAus.pdf',
         setup: 'open',
     },
     {
@@ -418,7 +418,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
         name: 'US Open Wheel C Indy Pro 2000 Series',
         src: '/thumbnails/iracing/2024s1/OpenWheelC.png',
         licenseClass: 'C',
-        pdf: '/pdfs/iracing/2024s1-road/4604-OpenWheelC.pdf',
+        pdfLight: '/pdf/iracing/2024s1-road/4604-OpenWheelC.pdf',
         setup: 'open',
     },
     {
@@ -428,7 +428,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
         name: 'Grand Prix Legends',
         src: '/thumbnails/iracing/2024s1/GrandPrixLegends.png',
         licenseClass: 'C',
-        pdf: '/pdfs/iracing/2024s1-road/4610-GPLegends.pdf',
+        pdfLight: '/pdf/iracing/2024s1-road/4610-GPLegends.pdf',
         setup: 'open',
     },
     {
@@ -438,7 +438,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
         name: 'Stock Car Brasil Fixed',
         src: '/thumbnails/iracing/2024s1/StockCarBrasil.png',
         licenseClass: 'C',
-        pdf: '/pdfs/iracing/2024s1-road/4588-StockCarBrasilFixed.pdf',
+        pdfLight: '/pdf/iracing/2024s1-road/4588-StockCarBrasilFixed.pdf',
         setup: 'fixed',
     },
     {
@@ -448,7 +448,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
         name: 'GT3 Fanatec Challenge Fixed',
         src: '/thumbnails/iracing/2024s1/GT3Fixed.png',
         licenseClass: 'B',
-        pdf: '/pdfs/iracing/2024s1-road/4618-GT3Fixed.pdf',
+        pdfLight: '/pdf/iracing/2024s1-road/4618-GT3Fixed.pdf',
         setup: 'fixed',
     },
     {
@@ -458,7 +458,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
         name: 'GT Sprint VRS Series',
         src: '/thumbnails/iracing/2024s1/GTSprint.png',
         licenseClass: 'B',
-        pdf: '/pdfs/iracing/2024s1-road/4619-GTSprint.pdf',
+        pdfLight: '/pdf/iracing/2024s1-road/4619-GTSprint.pdf',
         setup: 'open',
     },
     {
@@ -468,7 +468,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
         name: 'Formula B Super Formula IMSIM Series Fixed',
         src: '/thumbnails/iracing/2024s1/SuperFormulaFixed.png',
         licenseClass: 'B',
-        pdf: '/pdfs/iracing/2024s1-road/4626-FormulaBFixed.pdf',
+        pdfLight: '/pdf/iracing/2024s1-road/4626-FormulaBFixed.pdf',
         setup: 'fixed',
     },
     {
@@ -478,7 +478,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
         name: 'Formula B Super Formula IMSIM Series',
         src: '/thumbnails/iracing/2024s1/SuperFormula.png',
         licenseClass: 'B',
-        pdf: '/pdfs/iracing/2024s1-road/4625-FormulaB.pdf',
+        pdfLight: '/pdf/iracing/2024s1-road/4625-FormulaB.pdf',
         setup: 'open',
     },
     {
@@ -488,7 +488,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
         name: 'Global Endurance Pure Driving School Tour',
         src: '/thumbnails/iracing/2024s1/GlobalEndurance.png',
         licenseClass: 'B',
-        pdf: '/pdfs/iracing/2024s1-road/4622-GlobalEndurance.pdf',
+        pdfLight: '/pdf/iracing/2024s1-road/4622-GlobalEndurance.pdf',
         setup: 'open',
     },
     {
@@ -498,7 +498,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
         name: 'LMP2 Prototype Challenge Fixed',
         src: '/thumbnails/iracing/2024s1/LMP2Proto.png',
         licenseClass: 'B',
-        pdf: '/pdfs/iracing/2024s1-road/4614-LMP2Fixed.pdf',
+        pdfLight: '/pdf/iracing/2024s1-road/4614-LMP2Fixed.pdf',
         setup: 'fixed',
     },
     {
@@ -508,7 +508,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
         name: 'GTE Sprint Pure Driving School Series',
         src: '/thumbnails/iracing/2024s1/GTESprint.png',
         licenseClass: 'B',
-        pdf: '/pdfs/iracing/2024s1-road/4621-GTESprint.pdf',
+        pdfLight: '/pdf/iracing/2024s1-road/4621-GTESprint.pdf',
         setup: 'open',
     },
     {
@@ -518,7 +518,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
         name: 'IMSA Endurance Series',
         src: '/thumbnails/iracing/2024s1/IMSAEndurance.png',
         licenseClass: 'B',
-        pdf: '/pdfs/iracing/2024s1-road/4623-IMSAEndurance.pdf',
+        pdfLight: '/pdf/iracing/2024s1-road/4623-IMSAEndurance.pdf',
         setup: 'open',
     },
     {
@@ -528,7 +528,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
         name: 'US Open Wheel B Dallara IR‑18',
         src: '/thumbnails/iracing/2024s1/OpenWheelB.png',
         licenseClass: 'B',
-        pdf: '/pdfs/iracing/2024s1-road/4600-OpenWheelB.pdf',
+        pdfLight: '/pdf/iracing/2024s1-road/4600-OpenWheelB.pdf',
         setup: 'open',
     },
     {
@@ -538,7 +538,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
         name: 'Formula B Formula Renault 3.5 Series',
         src: '/thumbnails/iracing/2024s1/FormulaB.png',
         licenseClass: 'B',
-        pdf: '/pdfs/iracing/2024s1-road/4624-Formula3.5.pdf',
+        pdfLight: '/pdf/iracing/2024s1-road/4624-Formula3.5.pdf',
         setup: 'open',
     },
     {
@@ -548,7 +548,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
         name: 'IMSA iRacing Series',
         src: '/thumbnails/iracing/2024s1/IMSA.png',
         licenseClass: 'A',
-        pdf: '/pdfs/iracing/2024s1-road/4615-IMSA.pdf',
+        pdfLight: '/pdf/iracing/2024s1-road/4615-IMSA.pdf',
         setup: 'open',
     },
     {
@@ -558,7 +558,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
         name: 'IMSA iRacing Series Fixed',
         src: '/thumbnails/iracing/2024s1/IMSAFixed.png',
         licenseClass: 'A',
-        pdf: '/pdfs/iracing/2024s1-road/4616-IMSAFixed.pdf',
+        pdfLight: '/pdf/iracing/2024s1-road/4616-IMSAFixed.pdf',
         setup: 'fixed',
     },
     {
@@ -568,7 +568,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
         name: 'Formula A Grand Prix Series',
         src: '/thumbnails/iracing/2024s1/FormulaA.png',
         licenseClass: 'A',
-        pdf: '/pdfs/iracing/2024s1-road/4629-FormulaA.pdf',
+        pdfLight: '/pdf/iracing/2024s1-road/4629-FormulaA.pdf',
         setup: 'open',
     },
     {
@@ -578,7 +578,7 @@ export const iRacing2024S1RoadSeries: OfficialSeries[] = [
         name: 'Formula A Grand Prix Series Fixed',
         src: '/thumbnails/iracing/2024s1/FormulaAFixed.png',
         licenseClass: 'A',
-        pdf: '/pdfs/iracing/2024s1-road/4630-FormulaAFixed.pdf',
+        pdfLight: '/pdf/iracing/2024s1-road/4630-FormulaAFixed.pdf',
         setup: 'fixed',
     },
 ];
