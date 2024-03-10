@@ -8,7 +8,7 @@ export const iRacing2024S2FormulaSeries: OfficialSeries[] = [
         name: 'Formula Vee SIMAGIC Series',
         src: '/thumbnails/iracing/2024s2',
         licenseClass: 'Rookie',
-        pdf: '/pdfs/iracing/2024s1-road/4556-FormulaVee.pdf',
+        pdfLight: '/pdf/iracing/2024s1-road/4556-FormulaVee.pdf',
         setup: 'fixed',
     },
     {
@@ -18,7 +18,7 @@ export const iRacing2024S2FormulaSeries: OfficialSeries[] = [
         name: 'Formula 1600 Rookie Sim‑Motion Series Fixed',
         src: '/thumbnails/iracing/2024s2',
         licenseClass: 'Rookie',
-        pdf: '/pdfs/iracing/2024s1-road/4557-FF1600Rookie.pdf',
+        pdfLight: '/pdf/iracing/2024s1-road/4557-FF1600Rookie.pdf',
         setup: 'fixed',
     },
 
@@ -29,7 +29,7 @@ export const iRacing2024S2FormulaSeries: OfficialSeries[] = [
         name: 'Formula 1600 Thrustmaster Trophy',
         src: '/thumbnails/iracing/2024s2',
         licenseClass: 'D',
-        pdf: '/pdfs/iracing/2024s1-road/4561-FF1600.pdf',
+        pdfLight: '/pdf/iracing/2024s1-road/4561-FF1600.pdf',
         setup: 'open',
     },
     {
@@ -39,7 +39,7 @@ export const iRacing2024S2FormulaSeries: OfficialSeries[] = [
         name: 'FIA Formula 4 Challenge',
         src: '/thumbnails/iracing/2024s2',
         licenseClass: 'D',
-        pdf: '/pdfs/iracing/2024s1-road/4570-Formula4.pdf',
+        pdfLight: '/pdf/iracing/2024s1-road/4570-Formula4.pdf',
         setup: 'open',
     },
     {
@@ -49,7 +49,7 @@ export const iRacing2024S2FormulaSeries: OfficialSeries[] = [
         name: 'FIA Formula 4 Challenge Fixed',
         src: '/thumbnails/iracing/2024s2',
         licenseClass: 'D',
-        pdf: '/pdfs/iracing/2024s1-road/4569-Formula4Fixed.pdf',
+        pdfLight: '/pdf/iracing/2024s1-road/4569-Formula4Fixed.pdf',
         setup: 'fixed',
     },
 
@@ -60,7 +60,7 @@ export const iRacing2024S2FormulaSeries: OfficialSeries[] = [
         name: 'Skip Barber Race Series',
         src: '/thumbnails/iracing/2024s2',
         licenseClass: 'D',
-        pdf: '/pdfs/iracing/2024s1-road/4571-SkipBarber.pdf',
+        pdfLight: '/pdf/iracing/2024s1-road/4571-SkipBarber.pdf',
         setup: 'open',
     },
 
@@ -71,7 +71,7 @@ export const iRacing2024S2FormulaSeries: OfficialSeries[] = [
         name: 'US Open Wheel D USF 2000 Series Fixed',
         src: '/thumbnails/iracing/2024s2',
         licenseClass: 'D',
-        pdf: '/pdfs/iracing/2024s1-road/4559-OpenWheelDFixed.pdf',
+        pdfLight: '/pdf/iracing/2024s1-road/4559-OpenWheelDFixed.pdf',
         setup: 'fixed',
     },
     {
@@ -81,7 +81,7 @@ export const iRacing2024S2FormulaSeries: OfficialSeries[] = [
         name: 'FIA F4 Esports Regional Tour Americas',
         src: '/thumbnails/iracing/2024s2',
         licenseClass: 'D',
-        pdf: '/pdfs/iracing/2024s1-road/4577-F4RegionalAmericas.pdf',
+        pdfLight: '/pdf/iracing/2024s1-road/4577-F4RegionalAmericas.pdf',
         setup: 'open',
     },
     {
@@ -91,7 +91,7 @@ export const iRacing2024S2FormulaSeries: OfficialSeries[] = [
         name: 'FIA F4 Esports Regional Tour Europe',
         src: '/thumbnails/iracing/2024s2',
         licenseClass: 'D',
-        pdf: '/pdfs/iracing/2024s1-road/4579-F4RegionalEuropeSouth.pdf',
+        pdfLight: '/pdf/iracing/2024s1-road/4579-F4RegionalEuropeSouth.pdf',
         setup: 'open',
     },
     {
@@ -101,7 +101,7 @@ export const iRacing2024S2FormulaSeries: OfficialSeries[] = [
         name: 'FIA F4 Esports Regional Tour Asia Pacific',
         src: '/thumbnails/iracing/2024s2',
         licenseClass: 'D',
-        pdf: '/pdfs/iracing/2024s1-road/4576-F4RegionalAsiaPacific.pdf',
+        pdfLight: '/pdf/iracing/2024s1-road/4576-F4RegionalAsiaPacific.pdf',
         setup: 'open',
     },
 
@@ -112,7 +112,7 @@ export const iRacing2024S2FormulaSeries: OfficialSeries[] = [
         name: 'Formula C DOF Reality Dallara F3 Series',
         src: '/thumbnails/iracing/2024s2',
         licenseClass: 'C',
-        pdf: '/pdfs/iracing/2024s1-road/4602-FormulaC.pdf',
+        pdfLight: '/pdf/iracing/2024s1-road/4602-FormulaC.pdf',
         setup: 'open',
     },
     {
@@ -122,7 +122,7 @@ export const iRacing2024S2FormulaSeries: OfficialSeries[] = [
         name: 'Formula C Thrustmaster Dallara F3 Series Fixed',
         src: '/thumbnails/iracing/2024s2',
         licenseClass: 'C',
-        pdf: '/pdfs/iracing/2024s1-road/4603-FormulaCFixed.pdf',
+        pdfLight: '/pdf/iracing/2024s1-road/4603-FormulaCFixed.pdf',
         setup: 'fixed',
     },
     {
@@ -132,7 +132,7 @@ export const iRacing2024S2FormulaSeries: OfficialSeries[] = [
         name: 'Formula C Super Formula Lights',
         src: '/thumbnails/iracing/2024s2',
         licenseClass: 'C',
-        pdf: '/pdfs/iracing/2024s1-road/4602-FormulaC.pdf',
+        pdfLight: '/pdf/iracing/2024s1-road/4602-FormulaC.pdf',
         setup: 'open',
     },
     {
@@ -142,7 +142,7 @@ export const iRacing2024S2FormulaSeries: OfficialSeries[] = [
         name: 'Formula C Super Formula Lights Fixed',
         src: '/thumbnails/iracing/2024s2',
         licenseClass: 'C',
-        pdf: '/pdfs/iracing/2024s1-road/4603-FormulaCFixed.pdf',
+        pdfLight: '/pdf/iracing/2024s1-road/4603-FormulaCFixed.pdf',
         setup: 'fixed',
     },
 
@@ -153,7 +153,7 @@ export const iRacing2024S2FormulaSeries: OfficialSeries[] = [
         name: 'iRacing Classic Lotus Grand Prix',
         src: '/thumbnails/iracing/2024s2',
         licenseClass: 'C',
-        pdf: '/pdfs/iracing/2024s1-road/4617-LotusGP.pdf',
+        pdfLight: '/pdf/iracing/2024s1-road/4617-LotusGP.pdf',
         setup: 'open',
     },
     {
@@ -163,7 +163,7 @@ export const iRacing2024S2FormulaSeries: OfficialSeries[] = [
         name: 'Dallara Formula iR Fixed',
         src: '/thumbnails/iracing/2024s2',
         licenseClass: 'C',
-        pdf: '/pdfs/iracing/2024s1-road/4590-FormulaiRFixed.pdf',
+        pdfLight: '/pdf/iracing/2024s1-road/4590-FormulaiRFixed.pdf',
         setup: 'fixed',
     },
 
@@ -174,7 +174,7 @@ export const iRacing2024S2FormulaSeries: OfficialSeries[] = [
         name: 'US Open Wheel C Indy Pro 2000 Series',
         src: '/thumbnails/iracing/2024s2',
         licenseClass: 'C',
-        pdf: '/pdfs/iracing/2024s1-road/4604-OpenWheelC.pdf',
+        pdfLight: '/pdf/iracing/2024s1-road/4604-OpenWheelC.pdf',
         setup: 'open',
     },
     {
@@ -184,7 +184,7 @@ export const iRacing2024S2FormulaSeries: OfficialSeries[] = [
         name: 'Grand Prix Legends',
         src: '/thumbnails/iracing/2024s2',
         licenseClass: 'C',
-        pdf: '/pdfs/iracing/2024s1-road/4610-GPLegends.pdf',
+        pdfLight: '/pdf/iracing/2024s1-road/4610-GPLegends.pdf',
         setup: 'open',
     },
     {
@@ -194,7 +194,7 @@ export const iRacing2024S2FormulaSeries: OfficialSeries[] = [
         name: 'Formula A Grand Prix Tour',
         src: '/thumbnails/iracing/2024s2',
         licenseClass: 'C',
-        pdf: '/pdfs/iracing/2024s1-road/4610-GPLegends.pdf',
+        pdfLight: '/pdf/iracing/2024s1-road/4610-GPLegends.pdf',
         setup: 'open',
     },
     {
@@ -204,7 +204,7 @@ export const iRacing2024S2FormulaSeries: OfficialSeries[] = [
         name: 'Formula A Grand Prix Tour Fixed',
         src: '/thumbnails/iracing/2024s2',
         licenseClass: 'C',
-        pdf: '/pdfs/iracing/2024s1-road/4610-GPLegends.pdf',
+        pdfLight: '/pdf/iracing/2024s1-road/4610-GPLegends.pdf',
         setup: 'fixed',
     },
     {
@@ -214,7 +214,7 @@ export const iRacing2024S2FormulaSeries: OfficialSeries[] = [
         name: 'INDYCAR iRacing Series',
         src: '/thumbnails/iracing/2024s2',
         licenseClass: 'C',
-        pdf: '/pdfs/iracing/2024s1-road/4610-GPLegends.pdf',
+        pdfLight: '/pdf/iracing/2024s1-road/4610-GPLegends.pdf',
         setup: 'open',
     },
     {
@@ -224,7 +224,7 @@ export const iRacing2024S2FormulaSeries: OfficialSeries[] = [
         name: 'Formula B Super Formula IMSIM Series Fixed',
         src: '/thumbnails/iracing/2024s2',
         licenseClass: 'B',
-        pdf: '/pdfs/iracing/2024s1-road/4626-FormulaBFixed.pdf',
+        pdfLight: '/pdf/iracing/2024s1-road/4626-FormulaBFixed.pdf',
         setup: 'fixed',
     },
     {
@@ -234,7 +234,7 @@ export const iRacing2024S2FormulaSeries: OfficialSeries[] = [
         name: 'Formula B Super Formula IMSIM Series',
         src: '/thumbnails/iracing/2024s2',
         licenseClass: 'B',
-        pdf: '/pdfs/iracing/2024s1-road/4625-FormulaB.pdf',
+        pdfLight: '/pdf/iracing/2024s1-road/4625-FormulaB.pdf',
         setup: 'open',
     },
 
@@ -245,7 +245,7 @@ export const iRacing2024S2FormulaSeries: OfficialSeries[] = [
         name: 'INDYCAR Series',
         src: '/thumbnails/iracing/2024s2',
         licenseClass: 'B',
-        pdf: '/pdfs/iracing/2024s1-road/4600-OpenWheelB.pdf',
+        pdfLight: '/pdf/iracing/2024s1-road/4600-OpenWheelB.pdf',
         setup: 'open',
     },
     {
@@ -255,7 +255,7 @@ export const iRacing2024S2FormulaSeries: OfficialSeries[] = [
         name: 'INDYCAR Series Fixed',
         src: '/thumbnails/iracing/2024s2',
         licenseClass: 'B',
-        pdf: '/pdfs/iracing/2024s1-road/4624-Formula3.5.pdf',
+        pdfLight: '/pdf/iracing/2024s1-road/4624-Formula3.5.pdf',
         setup: 'fixed',
     },
     {
@@ -265,7 +265,7 @@ export const iRacing2024S2FormulaSeries: OfficialSeries[] = [
         name: 'Formula A Grand Prix Series',
         src: '/thumbnails/iracing/2024s2',
         licenseClass: 'A',
-        pdf: '/pdfs/iracing/2024s1-road/4629-FormulaA.pdf',
+        pdfLight: '/pdf/iracing/2024s1-road/4629-FormulaA.pdf',
         setup: 'open',
     },
     {
@@ -275,7 +275,7 @@ export const iRacing2024S2FormulaSeries: OfficialSeries[] = [
         name: 'Formula A Grand Prix Series Fixed',
         src: '/thumbnails/iracing/2024s2',
         licenseClass: 'A',
-        pdf: '/pdfs/iracing/2024s1-road/4630-FormulaAFixed.pdf',
+        pdfLight: '/pdf/iracing/2024s1-road/4630-FormulaAFixed.pdf',
         setup: 'fixed',
     },
 ];

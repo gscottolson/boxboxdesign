@@ -8,7 +8,7 @@ export const iRacing2024S2OvalSeries: OfficialSeries[] = [
         name: 'Street Stock Fanatec Series R',
         src: '/thumbnails/iracing/2024s2',
         licenseClass: 'Rookie',
-        pdf: '/pdfs/iracing/2024s1-oval/4554-StreetStock.pdf',
+        pdfLight: '/pdf/iracing/2024s1-oval/4554-StreetStock.pdf',
         setup: 'fixed',
     },
     {
@@ -18,7 +18,7 @@ export const iRacing2024S2OvalSeries: OfficialSeries[] = [
         name: 'Rookie Legends VRS Cup',
         src: '/thumbnails/iracing/2024s2',
         licenseClass: 'Rookie',
-        pdf: '/pdfs/iracing/2024s1-oval/4553-RookieLegends.pdf',
+        pdfLight: '/pdf/iracing/2024s1-oval/4553-RookieLegends.pdf',
         setup: 'fixed',
     },
 
@@ -29,7 +29,7 @@ export const iRacing2024S2OvalSeries: OfficialSeries[] = [
         name: 'ARCA Menards Series',
         src: '/thumbnails/iracing/2024s2',
         licenseClass: 'D',
-        pdf: '/pdfs/iracing/2024s1-oval/4582-ARCASeries.pdf',
+        pdfLight: '/pdf/iracing/2024s1-oval/4582-ARCASeries.pdf',
         setup: 'fixed',
     },
     {
@@ -39,7 +39,7 @@ export const iRacing2024S2OvalSeries: OfficialSeries[] = [
         name: 'Draft Master Fixed',
         src: '/thumbnails/iracing/2024s2',
         licenseClass: 'D',
-        pdf: '/pdfs/iracing/2024s1-oval/4667-DraftMasterFixed.pdf',
+        pdfLight: '/pdf/iracing/2024s1-oval/4667-DraftMasterFixed.pdf',
         setup: 'fixed',
     },
     {
@@ -49,7 +49,7 @@ export const iRacing2024S2OvalSeries: OfficialSeries[] = [
         name: 'CARS Late Model Stock Tour Fixed',
         src: '/thumbnails/iracing/2024s2',
         licenseClass: 'D',
-        pdf: '/pdfs/iracing/2024s1-oval/4581-LateModelStockFixed.pdf',
+        pdfLight: '/pdf/iracing/2024s1-oval/4581-LateModelStockFixed.pdf',
         setup: 'fixed',
     },
     {
@@ -59,7 +59,7 @@ export const iRacing2024S2OvalSeries: OfficialSeries[] = [
         name: 'SK Modified Weekly Series Fixed',
         src: '/thumbnails/iracing/2024s2',
         licenseClass: 'D',
-        pdf: '/pdfs/iracing/2024s1-oval/4584-SKModifiedFixed.pdf',
+        pdfLight: '/pdf/iracing/2024s1-oval/4584-SKModifiedFixed.pdf',
         setup: 'fixed',
     },
     {
@@ -69,7 +69,7 @@ export const iRacing2024S2OvalSeries: OfficialSeries[] = [
         name: 'SK Modified Weekly Series',
         src: '/thumbnails/iracing/2024s2',
         licenseClass: 'D',
-        pdf: '/pdfs/iracing/2024s1-oval/4583-SKModifiedWeekly.pdf',
+        pdfLight: '/pdf/iracing/2024s1-oval/4583-SKModifiedWeekly.pdf',
         setup: 'open',
     },
     {
@@ -79,7 +79,7 @@ export const iRacing2024S2OvalSeries: OfficialSeries[] = [
         name: 'SRX Series',
         src: '/thumbnails/iracing/2024s2',
         licenseClass: 'D',
-        pdf: '/pdfs/iracing/2024s1-oval/4583-SKModifiedWeekly.pdf',
+        pdfLight: '/pdf/iracing/2024s1-oval/4583-SKModifiedWeekly.pdf',
         setup: 'open',
     },
 
@@ -90,7 +90,7 @@ export const iRacing2024S2OvalSeries: OfficialSeries[] = [
         name: 'NASCAR Class C Maconi Fixed',
         src: '/thumbnails/iracing/2024s2',
         licenseClass: 'C',
-        pdf: '/pdfs/iracing/2024s1-oval/4596-NASCARCFixed.pdf',
+        pdfLight: '/pdf/iracing/2024s1-oval/4596-NASCARCFixed.pdf',
         setup: 'fixed',
     },
     {
@@ -100,7 +100,7 @@ export const iRacing2024S2OvalSeries: OfficialSeries[] = [
         name: 'NASCAR iRacing Class C',
         src: '/thumbnails/iracing/2024s2',
         licenseClass: 'C',
-        pdf: '/pdfs/iracing/2024s1-oval/4671-NASCARC.pdf',
+        pdfLight: '/pdf/iracing/2024s1-oval/4671-NASCARC.pdf',
         setup: 'open',
     },
     {
@@ -110,7 +110,7 @@ export const iRacing2024S2OvalSeries: OfficialSeries[] = [
         name: 'Gen 4 Cup Fixed',
         src: '/thumbnails/iracing/2024s2',
         licenseClass: 'C',
-        pdf: '/pdfs/iracing/2024s1-oval/4598-Gen4CupFixed.pdf',
+        pdfLight: '/pdf/iracing/2024s1-oval/4598-Gen4CupFixed.pdf',
         setup: 'fixed',
     },
     {
@@ -120,7 +120,7 @@ export const iRacing2024S2OvalSeries: OfficialSeries[] = [
         name: 'Advanced Legends Cup',
         src: '/thumbnails/iracing/2024s2',
         licenseClass: 'C',
-        pdf: '/pdfs/iracing/2024s1-oval/4558-AdvancedLegends.pdf',
+        pdfLight: '/pdf/iracing/2024s1-oval/4558-AdvancedLegends.pdf',
         setup: 'open',
     },
     {
@@ -130,7 +130,7 @@ export const iRacing2024S2OvalSeries: OfficialSeries[] = [
         name: 'CARS Late Model Stock Tour',
         src: '/thumbnails/iracing/2024s2',
         licenseClass: 'C',
-        pdf: '/pdfs/iracing/2024s1-oval/4580-LateModelStock.pdf',
+        pdfLight: '/pdf/iracing/2024s1-oval/4580-LateModelStock.pdf',
         setup: 'open',
     },
     {
@@ -140,7 +140,7 @@ export const iRacing2024S2OvalSeries: OfficialSeries[] = [
         name: 'Street Stock Next Level Racing Series C',
         src: '/thumbnails/iracing/2024s2',
         licenseClass: 'C',
-        pdf: '/pdfs/iracing/2024s1-oval/4591-StreetStockC.pdf',
+        pdfLight: '/pdf/iracing/2024s1-oval/4591-StreetStockC.pdf',
         setup: 'fixed',
     },
     {
@@ -150,7 +150,7 @@ export const iRacing2024S2OvalSeries: OfficialSeries[] = [
         name: 'Super Late Model Series Fixed',
         src: '/thumbnails/iracing/2024s2',
         licenseClass: 'C',
-        pdf: '/pdfs/iracing/2024s1-oval/4595-SuperLateModelFixed.pdf',
+        pdfLight: '/pdf/iracing/2024s1-oval/4595-SuperLateModelFixed.pdf',
         setup: 'fixed',
     },
     {
@@ -160,7 +160,7 @@ export const iRacing2024S2OvalSeries: OfficialSeries[] = [
         name: 'Super Late Model Series',
         src: '/thumbnails/iracing/2024s2',
         licenseClass: 'C',
-        pdf: '/pdfs/iracing/2024s1-oval/4594-SuperLateModel.pdf',
+        pdfLight: '/pdf/iracing/2024s1-oval/4594-SuperLateModel.pdf',
         setup: 'open',
     },
     {
@@ -170,7 +170,7 @@ export const iRacing2024S2OvalSeries: OfficialSeries[] = [
         name: 'NASCAR Tour Modified Series Fixed',
         src: '/thumbnails/iracing/2024s2',
         licenseClass: 'C',
-        pdf: '/pdfs/iracing/2024s1-oval/4593-NASCARTourModifiedFixed.pdf',
+        pdfLight: '/pdf/iracing/2024s1-oval/4593-NASCARTourModifiedFixed.pdf',
         setup: 'fixed',
     },
     {
@@ -180,7 +180,7 @@ export const iRacing2024S2OvalSeries: OfficialSeries[] = [
         name: 'NASCAR Tour Modified Series',
         src: '/thumbnails/iracing/2024s2',
         licenseClass: 'C',
-        pdf: '/pdfs/iracing/2024s1-oval/4592-NASCARTourModified.pdf',
+        pdfLight: '/pdf/iracing/2024s1-oval/4592-NASCARTourModified.pdf',
         setup: 'open',
     },
     {
@@ -190,7 +190,7 @@ export const iRacing2024S2OvalSeries: OfficialSeries[] = [
         name: 'NASCAR iRacing Series Open',
         src: '/thumbnails/iracing/2024s2',
         licenseClass: 'C',
-        pdf: '/pdfs/iracing/2024s1-oval/4592-NASCARTourModified.pdf',
+        pdfLight: '/pdf/iracing/2024s1-oval/4592-NASCARTourModified.pdf',
         setup: 'open',
     },
     {
@@ -200,7 +200,7 @@ export const iRacing2024S2OvalSeries: OfficialSeries[] = [
         name: 'NASCAR iRacing Series Fixed',
         src: '/thumbnails/iracing/2024s2',
         licenseClass: 'C',
-        pdf: '/pdfs/iracing/2024s1-oval/4592-NASCARTourModified.pdf',
+        pdfLight: '/pdf/iracing/2024s1-oval/4592-NASCARTourModified.pdf',
         setup: 'fixed',
     },
 
@@ -211,7 +211,7 @@ export const iRacing2024S2OvalSeries: OfficialSeries[] = [
         name: 'NASCAR Class B Series Fixed',
         src: '/thumbnails/iracing/2024s2',
         licenseClass: 'B',
-        pdf: '/pdfs/iracing/2024s1-oval/4611-NASCARBFixed.pdf',
+        pdfLight: '/pdf/iracing/2024s1-oval/4611-NASCARBFixed.pdf',
         setup: 'fixed',
     },
     {
@@ -221,7 +221,7 @@ export const iRacing2024S2OvalSeries: OfficialSeries[] = [
         name: 'NASCAR iRacing Class B Series',
         src: '/thumbnails/iracing/2024s2',
         licenseClass: 'B',
-        pdf: '/pdfs/iracing/2024s1-oval/4672-NASCARB.pdf',
+        pdfLight: '/pdf/iracing/2024s1-oval/4672-NASCARB.pdf',
         setup: 'open',
     },
     {
@@ -231,7 +231,7 @@ export const iRacing2024S2OvalSeries: OfficialSeries[] = [
         name: 'NASCAR Legends Series',
         src: '/thumbnails/iracing/2024s2',
         licenseClass: 'B',
-        pdf: '/pdfs/iracing/2024s1-oval/4597-NASCARLegends.pdf',
+        pdfLight: '/pdf/iracing/2024s1-oval/4597-NASCARLegends.pdf',
         setup: 'fixed',
     },
     {
@@ -241,7 +241,7 @@ export const iRacing2024S2OvalSeries: OfficialSeries[] = [
         name: 'Sprint Car Cup',
         src: '/thumbnails/iracing/2024s2',
         licenseClass: 'B',
-        pdf: '/pdfs/iracing/2024s1-oval/4613-SprintCarCup.pdf',
+        pdfLight: '/pdf/iracing/2024s1-oval/4613-SprintCarCup.pdf',
         setup: 'open',
     },
     {
@@ -251,7 +251,7 @@ export const iRacing2024S2OvalSeries: OfficialSeries[] = [
         name: 'Silver Crown Cup',
         src: '/thumbnails/iracing/2024s2',
         licenseClass: 'B',
-        pdf: '/pdfs/iracing/2024s1-oval/4612-SilverCrownCup.pdf',
+        pdfLight: '/pdf/iracing/2024s1-oval/4612-SilverCrownCup.pdf',
         setup: 'open',
     },
     {
@@ -261,7 +261,7 @@ export const iRacing2024S2OvalSeries: OfficialSeries[] = [
         name: 'INDYCAR Series Oval Fixed',
         src: '/thumbnails/iracing/2024s2',
         licenseClass: 'B',
-        pdf: '/pdfs/iracing/2024s1-oval/4612-SilverCrownCup.pdf',
+        pdfLight: '/pdf/iracing/2024s1-oval/4612-SilverCrownCup.pdf',
         setup: 'fixed',
     },
 
@@ -272,7 +272,7 @@ export const iRacing2024S2OvalSeries: OfficialSeries[] = [
         name: 'NASCAR Class A Series Fixed',
         src: '/thumbnails/iracing/2024s2',
         licenseClass: 'A',
-        pdf: '/pdfs/iracing/2024s1-oval/4628-NASCARAFixed.pdf',
+        pdfLight: '/pdf/iracing/2024s1-oval/4628-NASCARAFixed.pdf',
         setup: 'fixed',
     },
     {
@@ -282,7 +282,7 @@ export const iRacing2024S2OvalSeries: OfficialSeries[] = [
         name: 'NASCAR Class A Series',
         src: '/thumbnails/iracing/2024s2',
         licenseClass: 'A',
-        pdf: '/pdfs/iracing/2024s1-oval/4627-NASCARA.pdf',
+        pdfLight: '/pdf/iracing/2024s1-oval/4627-NASCARA.pdf',
         setup: 'open',
     },
     {
@@ -292,7 +292,7 @@ export const iRacing2024S2OvalSeries: OfficialSeries[] = [
         name: 'eNASCAR Road to Pro Qual Series Round 1',
         src: '/thumbnails/iracing/2024s2',
         licenseClass: 'A',
-        pdf: '/pdfs/iracing/2024s1-oval/4627-NASCARA.pdf',
+        pdfLight: '/pdf/iracing/2024s1-oval/4627-NASCARA.pdf',
         setup: 'open',
     },
 ];

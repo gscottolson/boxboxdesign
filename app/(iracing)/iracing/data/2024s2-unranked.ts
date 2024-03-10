@@ -8,7 +8,7 @@ export const iRacing2024S2UnrankedSeries: OfficialSeries[] = [
         name: 'Carburetor Cup',
         src: '/thumbnails/iracing/2024s2',
         licenseClass: 'Rookie',
-        pdf: '/pdfs/iracing/2024s1-unranked/4632-CarburetorCup.pdf',
+        pdfLight: '/pdf/iracing/2024s1-unranked/4632-CarburetorCup.pdf',
         setup: 'fixed',
     },
     {
@@ -18,7 +18,7 @@ export const iRacing2024S2UnrankedSeries: OfficialSeries[] = [
         name: 'Dallara Dash',
         src: '/thumbnails/iracing/2024s2',
         licenseClass: 'Rookie',
-        pdf: '/pdfs/iracing/2024s1-unranked/4633-DallaraDash.pdf',
+        pdfLight: '/pdf/iracing/2024s1-unranked/4633-DallaraDash.pdf',
         setup: 'fixed',
     },
     {
@@ -28,7 +28,7 @@ export const iRacing2024S2UnrankedSeries: OfficialSeries[] = [
         name: 'PickUp Cup',
         src: '/thumbnails/iracing/2024s2',
         licenseClass: 'Rookie',
-        pdf: '/pdfs/iracing/2024s1-unranked/4631-PickUpCup.pdf',
+        pdfLight: '/pdf/iracing/2024s1-unranked/4631-PickUpCup.pdf',
         setup: 'fixed',
     },
 ];

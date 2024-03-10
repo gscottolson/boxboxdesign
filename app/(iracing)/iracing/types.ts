@@ -9,7 +9,7 @@ export interface OfficialSeries {
     discipline: Discipline | UpdatedDiscipline;
     name: string;
     licenseClass: License;
-    pdf?: string;
+    pdfLight?: string;
     src?: string;
     setup: 'open' | 'fixed' | null;
     isEmpty?: boolean;
