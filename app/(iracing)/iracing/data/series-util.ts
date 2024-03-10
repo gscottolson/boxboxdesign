@@ -3,7 +3,7 @@ import { iRacing2024S1DirtRoadSeries } from './2024s1-dirtroad';
 import { iRacing2024S1OvalSeries } from './2024s1-oval';
 import { iRacing2024S1RoadSeries } from './2024s1-road';
 import { iRacing2024S1UnrankedSeries } from './2024s1-unranked';
-import { Discipline, OfficialSeries, Season, SeriesIndex, UpdatedDiscipline } from '../types';
+import { Discipline, OfficialSeries, Season, SeriesResult, UpdatedDiscipline } from '../types';
 
 import { iRacing2024S2DirtOvalSeries } from './2024s2-dirtoval';
 import { iRacing2024S2DirtRoadSeries } from './2024s2-dirtroad';
@@ -48,7 +48,7 @@ export function getDisciplineURL(discipline: Discipline | UpdatedDiscipline, sea
     }
 }
 
-export function getSeriesById(id: string, options?: { limitToDiscipline: boolean }): [OfficialSeries, SeriesIndex] {
+export function getSeriesById(id: string, options?: { limitToDiscipline: boolean }): SeriesResult {
     const series = SEASONS_BY_ID.find((value) => value.seriesId === id) || EMPTY;
     const { discipline: targetDiscipline, season: targetSeason } = series;
 

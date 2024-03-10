@@ -11,11 +11,11 @@ interface SeriesCardProps {
 }
 
 function getClassCard(licenseClass: License) {
-    if (licenseClass === 'Rookie') return 'border-rookie border-t-4 shadow-xl';
-    if (licenseClass === 'D') return 'border-classD border-t-4 shadow-xl';
-    if (licenseClass === 'C') return 'border-classC border-t-4 shadow-xl';
-    if (licenseClass === 'B') return 'border-classB border-t-4 shadow-xl';
-    if (licenseClass === 'A') return 'border-classA border-t-4 shadow-xl';
+    if (licenseClass === 'Rookie') return 'border-[#92342E] border-t-4 shadow-xl';
+    if (licenseClass === 'D') return 'border-[#F98406] border-t-4 shadow-xl';
+    if (licenseClass === 'C') return 'border-[#D3A400] border-t-4 shadow-xl';
+    if (licenseClass === 'B') return 'border-[#3C6D56] border-t-4 shadow-xl';
+    if (licenseClass === 'A') return 'border-[#315187] border-t-4 shadow-xl';
     return 'shadow-inner';
 }
 
