@@ -105,7 +105,6 @@ export const iRacing2024S2OvalSeries: OfficialSeries[] = [
         discipline: 'Oval',
         licenseClass: 'C',
         name: 'NASCAR Class C Maconi Fixed',
-        src: '/thumbnails/iracing/2024s2',
         srcLight: '/thumbnails/iracing/2024s2/055d-NASCARCFixed-Light.png',
         srcDark: '/thumbnails/iracing/2024s2/055d-NASCARCFixed-Dark.png',
         pdfLight: '/pdf/iracing/2024s2-oval/055d-NASCARCFixed-Light.pdf',

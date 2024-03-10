@@ -31,7 +31,7 @@ export function SeriesCard({ series, priority }: SeriesCardProps) {
                 <div
                     className={`${cardStyles} flex scale-100 flex-col overflow-hidden rounded-sm group-active:scale-card`}
                 >
-                    {!series.src?.endsWith('png') ? (
+                    {!series.srcLight?.endsWith('png') ? (
                         <div className="flex h-card select-none items-center justify-center bg-gray700/20 p-4 align-middle leading-loose text-gray700">
                             Coming soon
                         </div>
@@ -39,7 +39,7 @@ export function SeriesCard({ series, priority }: SeriesCardProps) {
                         <Image
                             style={{ opacity: hasPDF ? 1 : 0.8 }}
                             alt={`stylized image of a schedule poster for ${series.name} on iRacing.com`}
-                            src={series.src}
+                            src={series.srcLight}
                             width={size}
                             height={size}
                             priority={priority}

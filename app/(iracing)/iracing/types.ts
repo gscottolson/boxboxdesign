@@ -11,7 +11,6 @@ export interface OfficialSeries {
     licenseClass: License;
     pdfLight?: string;
     pdfDark?: string;
-    src?: string;
     srcLight?: string;
     srcDark?: string;
     setup: 'open' | 'fixed' | null;
