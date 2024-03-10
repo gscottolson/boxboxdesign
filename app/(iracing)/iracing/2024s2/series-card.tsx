@@ -24,7 +24,7 @@ export function SeriesCard({ series, priority }: SeriesCardProps) {
     const size = 240;
     const cardStyles = getClassCard(series.licenseClass || null);
     const iconTitle = series.setup === 'fixed' ? 'Fixed setup' : 'Open setup';
-    const hasImage = series.src?.endsWith('png') || series.srcLight?.endsWith('png') || series.srcDark?.endsWith('png');
+    const hasImage = series.srcLight?.endsWith('png') || series.srcDark?.endsWith('png');
 
     return (
         <CardWrap series={series}>

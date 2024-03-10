@@ -7,7 +7,7 @@ import TemplateLightDark from './template-lightdark';
 
 export function generateMetadata({ params }: { params: { id: string } }): Metadata {
     const [series] = getSeriesById(params.id);
-    const description = `https://boxbox.design/${series.src}`;
+    const description = `https://boxbox.design/${series.srcDark}`;
     const title = getDetailTitle(series.name);
     return {
         title,
@@ -28,7 +28,7 @@ export function generateMetadata({ params }: { params: { id: string } }): Metada
             siteName: getSiteTitle(),
             images: [
                 {
-                    url: `https://boxbox.design/${series.src}`, // Must be an absolute URL
+                    url: `https://boxbox.design/${series.srcDark}`, // Must be an absolute URL
                     width: 480,
                     height: 480,
                 },
@@ -43,7 +43,7 @@ export function generateMetadata({ params }: { params: { id: string } }): Metada
             siteId: '15408255',
             creator: '@gscottolson',
             creatorId: '15408255',
-            images: [`https://boxbox.design/${series.src}`], // Must be an absolute URL
+            images: [`https://boxbox.design/${series.srcDark}`], // Must be an absolute URL
         },
     };
 }

@@ -10,7 +10,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             lang="en"
             className="bg-gradient-to-b from-[#D6DDDF] to-[#C9D2D5] bg-fixed text-base font-light leading-[28px] text-teal800 antialiased dark:from-gray-800 dark:to-gray-950"
         >
-            <body className={outfit.className}>
+            <body className={`${outfit.className} w-dvw`}>
                 {/** does next-themes provide the right info? **/}
                 <Providers>{children}</Providers>
 

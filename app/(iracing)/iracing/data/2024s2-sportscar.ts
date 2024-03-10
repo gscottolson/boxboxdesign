@@ -17,7 +17,7 @@ export const iRacing2024S2SportsCarSeries: OfficialSeries[] = [
     //     seriesId: '0014000_',
     //     discipline: 'Sports Car',
     //     name: 'Racing Prodigy Mazda MX-5 Golden Ticket Series',
-    //     src: '/thumbnails/iracing/2024s2',
+    //     srcLight: '/thumbnails/iracing/2024s2',
     //     licenseClass: 'Rookie',
     //     pdfLight: '/pdf/iracing/2024s2-sportscar/4555-GlobalMazda.pdf',
     //     setup: 'fixed',
