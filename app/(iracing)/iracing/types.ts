@@ -10,7 +10,10 @@ export interface OfficialSeries {
     name: string;
     licenseClass: License;
     pdfLight?: string;
+    pdfDark?: string;
     src?: string;
+    srcLight?: string;
+    srcDark?: string;
     setup: 'open' | 'fixed' | null;
     isEmpty?: boolean;
 }

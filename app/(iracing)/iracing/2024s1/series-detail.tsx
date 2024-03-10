@@ -41,7 +41,7 @@ export function SeriesDetail({ series }: { series: OfficialSeries }) {
         <div className="font-semilight box-content flex w-full flex-col overflow-hidden pt-16 md:flex-row md:border-[.5px] md:border-[rgba(90,90,90,0.15)] md:pt-0">
             <div className="relative mx-auto flex h-[400px] w-[300px] grow place-content-center overflow-hidden text-center md:mx-0 md:h-full md:w-full md:bg-white100">
                 <Document
-                    file={series.pdf}
+                    file={series.pdfLight}
                     className="absolute -left-[30%] -top-[30%] z-0 h-pdf w-pdf scale-[0.625] md:relative md:left-auto md:top-auto md:scale-100"
                     loading={<PDFLoading />}
                     noData={<PDFError />}
@@ -63,7 +63,7 @@ export function SeriesDetail({ series }: { series: OfficialSeries }) {
                 <div className="flex flex-col items-center pt-4 md:items-start md:pt-0">
                     <span className="mb-8 inline-block overflow-hidden rounded-sm shadow-lg active:scale-95">
                         <a
-                            href={series.pdf}
+                            href={series.pdfLight}
                             target="__blank"
                             rel="noopener"
                             className={`inline-flex place-content-center items-center px-6 py-3 ${downloadClass} ocus:ring-offset-[#D6DDDF] text-center focus:ring-2 focus:ring-black focus:ring-offset-4`}

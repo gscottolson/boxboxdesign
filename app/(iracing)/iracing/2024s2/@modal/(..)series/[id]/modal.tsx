@@ -63,7 +63,7 @@ export function Modal({
                         href={getSeriesURL(prevSeries.seriesId)}
                         replace
                         scroll={false}
-                        className="absolute -left-3 top-1/2 z-10 mt-[-26px] rounded-md bg-white200 p-4 shadow-sm active:scale-95 dark:bg-gray-900"
+                        className="absolute -left-3 top-1/3 z-10 mt-[-26px] rounded-md bg-white200 p-4 shadow-sm active:scale-95 dark:bg-gray-900"
                     >
                         <Back />
                     </Link>
@@ -74,7 +74,7 @@ export function Modal({
                         href={getSeriesURL(nextSeries.seriesId)}
                         replace
                         scroll={false}
-                        className="absolute -right-3 top-1/2 z-10 mt-[-26px] rounded-md bg-white200 p-4 shadow-sm active:scale-95 dark:bg-gray-900"
+                        className="absolute -right-3 top-1/3 z-10 mt-[-26px] rounded-md bg-white200 p-4 shadow-sm active:scale-95 dark:bg-gray-900"
                     >
                         <Next />
                     </Link>

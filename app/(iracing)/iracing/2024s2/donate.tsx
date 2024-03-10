@@ -21,7 +21,7 @@ export function Donate() {
                     over here at BoxBoxDesign.
                 </p>
 
-                <p className="mb-8">If you are finding these schedules useful, help me out with a small donation.</p>
+                <p className="mb-8">Please donate to help keep these schedules free.</p>
 
                 <div className="m-auto h-16 w-56">
                     <a

@@ -21,7 +21,8 @@ function getClassCard(licenseClass: License) {
 
 export function SeriesCard({ series, priority }: SeriesCardProps) {
     const size = 240;
-    const cardStyles = getClassCard(series.pdf ? series.licenseClass : null);
+    const hasPDF = !!series.pdfLight || !!series.pdfDark;
+    const cardStyles = getClassCard(hasPDF ? series.licenseClass : null);
     const iconTitle = series.setup === 'fixed' ? 'Fixed setup' : 'Open setup';
 
     return (
@@ -36,7 +37,7 @@ export function SeriesCard({ series, priority }: SeriesCardProps) {
                         </div>
                     ) : (
                         <Image
-                            style={{ opacity: series.pdf === '' ? 0.8 : 1 }}
+                            style={{ opacity: hasPDF ? 1 : 0.8 }}
                             alt={`stylized image of a schedule poster for ${series.name} on iRacing.com`}
                             src={series.src}
                             width={size}
@@ -60,7 +61,9 @@ export function SeriesCard({ series, priority }: SeriesCardProps) {
 }
 
 function CardWrap({ series, children }: { series: OfficialSeries; children: React.ReactNode }) {
-    if (series.seriesId && series.pdf) {
+    const hasPDF = !!series.pdfLight || !!series.pdfDark;
+
+    if (series.seriesId && hasPDF) {
         return (
             <Link
                 href={getSeriesURL(series.seriesId)}
@@ -71,6 +74,7 @@ function CardWrap({ series, children }: { series: OfficialSeries; children: Reac
                 {children}
             </Link>
         );
+    } else {
+        return <div>{children}</div>;
     }
-    return <div>{children}</div>;
 }
