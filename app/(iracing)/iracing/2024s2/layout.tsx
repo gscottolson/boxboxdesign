@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function Layout(props: { children: React.ReactNode; modal: React.ReactNode }) {
     return (
-        <div className="relative min-h-dvh w-full bg-white200">
+        <div className="relative min-h-dvh w-full bg-white200 dark:bg-gray-900">
             <div className="flex-grow bg-[#BDCDD2] pt-16 dark:bg-[#282C2D]">
                 <header className="text-center tracking-tighter text-gray700 dark:text-gray-200">
                     <h1 className=" px-10 pt-12 text-4xl font-light leading-none antialiased">
