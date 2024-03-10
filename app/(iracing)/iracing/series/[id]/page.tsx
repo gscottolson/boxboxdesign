@@ -2,7 +2,7 @@ import { getDisciplineURL, getSeriesById, getAllForBuildPaths, getSeriesURL } fr
 import { Metadata } from 'next';
 import { getDetailTitle, getSiteTitle } from '@/app/site';
 import { notFound } from 'next/navigation';
-import Template2024S1 from './template-2024S1';
+import Template2024S1 from './template-2024s1';
 import TemplateLightDark from './template-lightdark';
 
 export function generateMetadata({ params }: { params: { id: string } }): Metadata {

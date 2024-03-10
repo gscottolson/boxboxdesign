@@ -6,6 +6,7 @@ const config: Config = {
         './components/**/*.{js,ts,jsx,tsx,mdx}',
         './app/**/*.{js,ts,jsx,tsx,mdx}',
     ],
+    darkMode: 'class',
     theme: {
         fontSize: {
             // Base Value: 16 Scale: 1.309
