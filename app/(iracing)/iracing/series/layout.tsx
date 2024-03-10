@@ -9,6 +9,5 @@ export const metadata: Metadata = {
 };
 
 export default function Layout(props: { children: React.ReactNode }) {
-    const bgOrdered = 'bg-siteGradient bg-[#BDCDD2] bg-repeat-x';
     return <div className={`flex min-h-dvh w-full flex-col`}>{props.children}</div>;
 }

@@ -11,11 +11,11 @@ interface SeriesCardProps {
 }
 
 function getClassCard(licenseClass: License) {
-    if (licenseClass === 'Rookie') return 'border-rookie border-t-4 shadow-xl';
-    if (licenseClass === 'D') return 'border-classD border-t-4 shadow-xl';
-    if (licenseClass === 'C') return 'border-classC border-t-4 shadow-xl';
-    if (licenseClass === 'B') return 'border-classB border-t-4 shadow-xl';
-    if (licenseClass === 'A') return 'border-classA border-t-4 shadow-xl';
+    if (licenseClass === 'Rookie') return 'border-[#DA0229] dark:border-[#FF7373]  border-t-4 shadow-xl';
+    if (licenseClass === 'D') return 'border-[#F77600] dark:border-[#FA9352] border-t-4 shadow-xl';
+    if (licenseClass === 'C') return 'border-[#F3AF00] dark:border-[#FFE14D] border-t-4 shadow-xl';
+    if (licenseClass === 'B') return 'border-[#019751] dark:border-[#80FF85] border-t-4 shadow-xl';
+    if (licenseClass === 'A') return 'border-[#064ABD] dark:border-[#66B6FF] border-t-4 shadow-xl';
     return 'shadow-inner';
 }
 
@@ -26,12 +26,12 @@ export function SeriesCard({ series, priority }: SeriesCardProps) {
 
     return (
         <CardWrap series={series}>
-            <div className="w-card text-teal800">
+            <div className="w-card text-teal800 dark:text-gray-200">
                 <div
                     className={`${cardStyles} flex scale-100 flex-col overflow-hidden rounded-sm group-active:scale-card`}
                 >
                     {!series.src?.endsWith('png') ? (
-                        <div className="flex h-card select-none items-center justify-center bg-gray700/20 p-4 align-middle leading-loose text-gray700">
+                        <div className="flex h-card select-none items-center justify-center bg-gray700/20 p-4 align-middle leading-loose text-gray-700 dark:bg-gray-500/20 dark:text-gray-400">
                             Coming soon
                         </div>
                     ) : (

@@ -11,7 +11,7 @@ export function Nav({ active }: { active: UpdatedDiscipline }) {
     const isUnranked = active === 'Unranked';
 
     return (
-        <ul className=" m-auto flex max-w-3xl flex-wrap items-start justify-center gap-2 px-4 pb-12 pt-4 align-middle text-base font-medium uppercase tracking-widest text-gray700 md:w-full md:items-start">
+        <ul className=" m-auto flex max-w-3xl flex-wrap items-start justify-center gap-2 px-4 pb-12 pt-4 align-middle text-base font-medium uppercase tracking-widest text-gray700 md:w-full md:items-start dark:text-gray-300">
             <Item key="formula" label="Formula" active={isFormula} />
             <Item key="sportscar" label="Sports Car" active={isSportsCar} />
             <Item key="oval" label="Oval" active={isOval} />
@@ -33,7 +33,7 @@ function Item({
     url?: string;
 }) {
     const classes = active
-        ? 'text-white100 bg-teal800/50 inner-shadow cursor-default drop-shadow-sm'
+        ? 'text-gray-100 bg-teal800/50 dark:bg-gray-900/50 inner-shadow cursor-default drop-shadow-sm'
         : 'hover:bg-teal800/10 cursor-pointer';
     const itemURL = label === 'About the project' ? '/iracing' : url || getDisciplineURL(label, '2024s2'); // otherwise set it to the provided URL or the mapped discipline URL
     return (
