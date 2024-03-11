@@ -12,13 +12,13 @@ export default function ModeToggle() {
         if (rotation !== undefined) {
             setRot(rotation + 90);
         }
-    }, [setTheme, setRot, rotation]);
+    }, [theme, setTheme, setRot, rotation]);
 
     useEffect(() => {
         if (rotation === undefined) {
             setRot(theme === 'dark' ? 0 : 90);
         }
-    }, [theme]);
+    }, [theme, setRot, rotation]);
 
     return (
         <div

@@ -7,6 +7,7 @@ import Balancer from 'react-wrap-balancer';
 import { useBarcode } from 'next-barcode';
 import { Download } from './icons';
 import { OfficialSeries } from '../types';
+import { useTheme } from 'next-themes';
 
 const pdfHeight = 640;
 
@@ -15,6 +16,7 @@ pdfjs.GlobalWorkerOptions.workerSrc = new URL('pdfjs-dist/build/pdf.worker.min.j
 type LoadingState = 'initial' | 'loading' | 'success';
 
 export function SeriesDetail({ series }: { series: OfficialSeries }) {
+    const { theme } = useTheme();
     const [mode, setMode] = useState<LoadingState>('initial');
     const { inputRef } = useBarcode<HTMLImageElement>({
         value: ` ${series.seriesId?.substring(0, 4)} ` || '',
@@ -47,8 +49,8 @@ export function SeriesDetail({ series }: { series: OfficialSeries }) {
             <div className="relative mx-auto flex h-[400px] w-[300px] grow place-content-center overflow-hidden text-center md:mx-0 md:h-full md:w-full md:bg-white100 dark:md:bg-[#222222]">
                 <div style={{ opacity: mode === 'success' ? 1 : 0, transition: 'opacity 150ms ease-in' }}>
                     <Document
-                        file={series.pdfDark}
-                        className="absolute -left-[30%] -top-[30%] z-0 h-pdf w-pdf scale-[0.625] md:relative md:left-auto md:top-auto md:scale-100 dark:bg-pink-200"
+                        file={theme === 'dark' ? series.pdfDark : series.pdfLight}
+                        className="absolute -left-[30%] -top-[30%] z-0 h-pdf w-pdf scale-[0.625] bg-gray-100 md:relative md:left-auto md:top-auto md:scale-100 dark:bg-gray-800"
                         loading={<PDFLoading />}
                         noData={<PDFError />}
                         error={<PDFError />}
