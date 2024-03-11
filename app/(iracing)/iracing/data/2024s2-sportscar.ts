@@ -23,7 +23,7 @@ export const iRacing2024S2SportsCarSeries: OfficialSeries[] = [
     //     setup: 'fixed',
     // },
     {
-        name: 'Ferrari GT3 Challenge Fixed',
+        name: 'Ferrari GT3 Challenge',
         seriesId: 'ffba-FerrariGT3Fixed',
         season: '2024s2',
         discipline: 'Sports Car',
