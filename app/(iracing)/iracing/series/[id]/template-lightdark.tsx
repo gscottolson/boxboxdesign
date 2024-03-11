@@ -7,8 +7,8 @@ import { OfficialSeries } from '../../types';
 
 export default function TemplateLightDark({ series, href }: { series: OfficialSeries; href: string }) {
     return (
-        <div className="m-auto flex h-full max-w-[800px] flex-col place-content-center">
-            <div className="mt-20 md:max-h-[640px] md:bg-white400/50 md:shadow-2xl dark:md:bg-gray-900/80">
+        <div className="m-auto flex h-full flex-col place-content-center">
+            <div className="mt-20 md:max-h-[640px] md:bg-white400/50 md:shadow-2xl dark:bg-gray-900/80">
                 <SeriesDetail series={series} />
             </div>
 
