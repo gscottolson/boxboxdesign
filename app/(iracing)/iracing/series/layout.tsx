@@ -9,5 +9,5 @@ export const metadata: Metadata = {
 };
 
 export default function Layout(props: { children: React.ReactNode }) {
-    return <div className="flex min-h-dvh w-full flex-col dark:bg-gray-900">{props.children}</div>;
+    return <div className="flex min-h-dvh w-full flex-col dark:bg-gray-950">{props.children}</div>;
 }
