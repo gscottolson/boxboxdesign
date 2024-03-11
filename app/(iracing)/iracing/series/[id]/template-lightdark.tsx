@@ -1,13 +1,16 @@
 import { SeriesDetail } from '../../2024s2/series-detail';
 import Link from 'next/link';
 import { getSiteTitle } from '@/app/site';
-import { Back } from '../../2024s1/icons';
+import { Back } from '../../2024s2/icons';
 import { BoxBoxDesign } from '@/app/logos';
 import { OfficialSeries } from '../../types';
+import ModeToggle from '../../2024s2/mode-toggle';
 
 export default function TemplateLightDark({ series, href }: { series: OfficialSeries; href: string }) {
     return (
         <div className="m-auto flex h-full flex-col place-content-center">
+            <ModeToggle />
+
             <div className="mt-20 md:max-h-[640px] md:bg-white400/50 md:shadow-2xl dark:bg-gray-900/80">
                 <SeriesDetail series={series} />
             </div>
