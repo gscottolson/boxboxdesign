@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import { UpdatedDiscipline } from '../types';
 import { getDisciplineURL } from '../data/series-util';
-import ModeToggle from './mode-toggle';
 
 export function Nav({ active }: { active: UpdatedDiscipline }) {
     const isFormula = active === 'Formula';
@@ -20,9 +19,6 @@ export function Nav({ active }: { active: UpdatedDiscipline }) {
             <Item key="dirtroad" label="Dirt Road" active={isDirtRoad} />
             <Item key="unranked" label="Unranked" active={isUnranked} />
             <Item key="about" label="About the project" />
-            {/* <li>
-                <ModeToggle />
-            </li> */}
         </ul>
     );
 }

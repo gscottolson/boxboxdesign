@@ -9,7 +9,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <html
             suppressHydrationWarning
             lang="en"
-            className="bg-gradient-to-b from-[#D6DDDF] to-[#C9D2D5] bg-fixed text-base font-light leading-[28px] text-teal800 antialiased dark:from-gray-800 dark:to-gray-950"
+            className="bg-gradient-to-b from-[#D6DDDF] to-[#C9D2D5] bg-fixed text-base font-light leading-[28px] text-teal800 antialiased"
         >
             <body className={`${outfit.className} w-dvw`}>
                 {/** does next-themes provide the right info? **/}
