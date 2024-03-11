@@ -43,7 +43,7 @@ export function SeriesDetail({ series }: { series: OfficialSeries }) {
     const handleLoadSuccess = () => setMode('success');
 
     return (
-        <div className="font-semilight box-content flex w-full flex-col overflow-hidden pt-16 md:flex-row md:border-[.5px] md:border-[rgba(90,90,90,0.15)] md:pt-0">
+        <div className="font-semilight box-content flex w-full flex-col overflow-hidden pt-16 md:flex-row md:border-[.5px] md:border-[rgba(90,90,90,0.15)] md:pt-0 dark:bg-gray-950">
             <div className="relative mx-auto flex h-[400px] w-[300px] grow place-content-center overflow-hidden text-center md:mx-0 md:h-full md:w-full md:bg-white100 dark:md:bg-[#222222]">
                 <div style={{ opacity: mode === 'success' ? 1 : 0, transition: 'opacity 150ms ease-in' }}>
                     <Document
