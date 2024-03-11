@@ -75,14 +75,14 @@ export function SeriesDetail({ series }: { series: OfficialSeries }) {
                 </header>
 
                 <div>
-                    <div className="mb-8 flex items-center justify-center gap-2 pt-4 text-sm md:items-start md:pt-0">
+                    <div className="mb-8 flex items-center justify-start gap-2 pt-4 text-sm md:items-start md:pt-0">
                         <span className="inline-block overflow-hidden rounded-sm shadow-lg active:scale-95">
                             <a
                                 href={series.pdfDark}
                                 target="__blank"
                                 rel="noopener"
                                 //focus:ring-2 focus:ring-black focus:ring-offset-4 focus:ring-offset-[#D6DDDF]
-                                className={`inline-flex place-content-center items-center px-4 py-2 ${downloadClass} bg-white200 text-center dark:bg-gray-800`}
+                                className={`inline-flex place-content-center items-center px-4 py-2 ${downloadClass} bg-white200 text-center dark:bg-gray-900`}
                             >
                                 <span className="pr-2 font-medium uppercase">PDF Dark</span> <Download />
                             </a>
@@ -92,13 +92,13 @@ export function SeriesDetail({ series }: { series: OfficialSeries }) {
                                 href={series.pdfLight}
                                 target="__blank"
                                 rel="noopener"
-                                className={`inline-flex place-content-center items-center px-4 py-2 ${downloadClass} bg-white100 text-center dark:bg-gray-700`}
+                                className={`inline-flex place-content-center items-center px-4 py-2 ${downloadClass} bg-white100 text-center dark:bg-gray-800`}
                             >
                                 <span className="pr-2 font-medium uppercase">PDF Light</span> <Download />
                             </a>
                         </span>
                     </div>
-                    <div className="hidden w-[256px] basis-[272px] self-stretch overflow-hidden rounded-tl-sm rounded-tr-sm bg-white200 md:block dark:bg-gray-800 dark:text-gray-400">
+                    <div className="hidden min-h-[256px] w-[256px] basis-[272px] self-stretch overflow-hidden rounded-tl-sm rounded-tr-sm bg-white200 md:block dark:bg-[#222222] dark:text-gray-400">
                         <svg ref={inputRef} className="barcode block" />
                     </div>
                 </div>
