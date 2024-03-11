@@ -65,14 +65,14 @@ export const iRacing2024S2FormulaSeries: OfficialSeries[] = [
 
     {
         name: 'Skip Barber Race Series',
-        seriesId: '3bed-SkibBarber',
+        seriesId: '3bed-SkipBarber',
         season: '2024s2',
         discipline: 'Formula',
         licenseClass: 'D',
-        srcLight: '/thumbnails/iracing/2024s2/3bed-SkibBarber-Light.png',
-        srcDark: '/thumbnails/iracing/2024s2/3bed-SkibBarber-Dark.png',
-        pdfLight: '/pdf/iracing/2024s2-formula/3bed-SkibBarber-Light.pdf',
-        pdfDark: '/pdf/iracing/2024s2-formula/3bed-SkibBarber-Dark.pdf',
+        srcLight: '/thumbnails/iracing/2024s2/3bed-SkipBarber-Light.png',
+        srcDark: '/thumbnails/iracing/2024s2/3bed-SkipBarber-Dark.png',
+        pdfLight: '/pdf/iracing/2024s2-formula/3bed-SkipBarber-Light.pdf',
+        pdfDark: '/pdf/iracing/2024s2-formula/3bed-SkipBarber-Dark.pdf',
         setup: 'open',
     },
 
