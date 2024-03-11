@@ -35,7 +35,7 @@ export const iRacing2024S2SportsCarSeries: OfficialSeries[] = [
         setup: 'fixed',
     },
     {
-        name: 'GR Buttkicker Cup Fixed',
+        name: 'GR Buttkicker Cup',
         seriesId: '7ae1-GRCupFixed',
         season: '2024s2',
         discipline: 'Sports Car',
@@ -59,7 +59,7 @@ export const iRacing2024S2SportsCarSeries: OfficialSeries[] = [
         setup: 'open',
     },
     {
-        name: 'GT4 Falken Tyre Challenge Fixed',
+        name: 'GT4 Falken Tyre Challenge',
         seriesId: '766a-GT4Fixed',
         season: '2024s2',
         discipline: 'Sports Car',
@@ -95,7 +95,7 @@ export const iRacing2024S2SportsCarSeries: OfficialSeries[] = [
         setup: 'fixed',
     },
     {
-        name: 'Clio Cup Fixed',
+        name: 'Clio Cup',
         seriesId: 'e9a9-ClioFixed',
         season: '2024s2',
         discipline: 'Sports Car',
@@ -131,7 +131,7 @@ export const iRacing2024S2SportsCarSeries: OfficialSeries[] = [
         setup: 'open',
     },
     {
-        name: 'Mustang Skip Barber Challenge Fixed',
+        name: 'Mustang Skip Barber Challenge',
         seriesId: 'a7ee-MustangFixed',
         season: '2024s2',
         discipline: 'Sports Car',
@@ -143,7 +143,7 @@ export const iRacing2024S2SportsCarSeries: OfficialSeries[] = [
         setup: 'fixed',
     },
     {
-        name: 'Mission R Challenge Fixed',
+        name: 'Mission R Challenge',
         seriesId: 'ef8d-MissionRFixed',
         season: '2024s2',
         discipline: 'Sports Car',
@@ -333,7 +333,7 @@ export const iRacing2024S2SportsCarSeries: OfficialSeries[] = [
         setup: 'open',
     },
     {
-        name: 'Stock Car Brasil Fixed',
+        name: 'Stock Car Brasil',
         seriesId: '2ebb-StockCarBrasilFixed',
         season: '2024s2',
         discipline: 'Sports Car',
@@ -382,7 +382,7 @@ export const iRacing2024S2SportsCarSeries: OfficialSeries[] = [
         setup: 'open',
     },
     {
-        name: 'LMP2 Prototype Challenge Fixed',
+        name: 'LMP2 Prototype Challenge',
         seriesId: '7daa-LMP2Fixed',
         season: '2024s2',
         discipline: 'Sports Car',
