@@ -3,18 +3,26 @@ import { OfficialSeries } from '../types';
 export const iRacing2024S2DirtOvalSeries: OfficialSeries[] = [
     {
         name: 'Rookie DIRTcar SS Moza Racing Fixed',
-        seriesId: '9ae8-RookieDIRTCarFixed',
+        seriesId: '8f82-RookieDIRTcarFixed',
         season: '2024s2',
         discipline: 'Dirt Oval',
         licenseClass: 'Rookie',
+        srcLight: '/thumbnails/iracing/2024s2/8f82-RookieDIRTcarFixed-Light.png',
+        srcDark: '/thumbnails/iracing/2024s2/8f82-RookieDIRTcarFixed-Dark.png',
+        pdfLight: '/pdf/iracing/2024s2-dirtoval/8f82-RookieDIRTcarFixed-Light.pdf',
+        pdfDark: '/pdf/iracing/2024s2-dirtoval/8f82-RookieDIRTcarFixed-Dark.pdf',
         setup: 'fixed',
     },
     {
         name: 'Dirt Legends Cup',
-        seriesId: '9ebc-DirtLegendsFixed',
+        seriesId: '009e-DirtLegendsFixed',
         season: '2024s2',
         discipline: 'Dirt Oval',
         licenseClass: 'Rookie',
+        srcLight: '/thumbnails/iracing/2024s2/009e-DirtLegendsFixed-Light.png',
+        srcDark: '/thumbnails/iracing/2024s2/009e-DirtLegendsFixed-Dark.png',
+        pdfLight: '/pdf/iracing/2024s2-dirtoval/009e-DirtLegendsFixed-Light.pdf',
+        pdfDark: '/pdf/iracing/2024s2-dirtoval/009e-DirtLegendsFixed-Dark.pdf',
         setup: 'fixed',
     },
     {
