@@ -11,12 +11,19 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             lang="en"
             className="bg-gradient-to-b from-[#D6DDDF] to-[#C9D2D5] bg-fixed text-base font-light leading-[28px] text-teal800 antialiased"
         >
+            <head>
+                <script
+                    defer
+                    src="https://analytics.us.umami.is/script.js"
+                    data-website-id="ea42990e-0591-454e-b494-416a0703ceef"
+                ></script>
+            </head>
             <body className={`${outfit.className} w-dvw`}>
                 {/** does next-themes provide the right info? **/}
                 <Providers>{children}</Providers>
 
                 <div id="modal-root" />
-                <Analytics />
+                {/* <Analytics /> */}
                 <SpeedInsights />
             </body>
         </html>

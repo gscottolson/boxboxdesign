@@ -11,6 +11,13 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
         <html lang="en" className="bg-gradient-to-b from-[#9D0728] to-[#810823] bg-fixed  text-white100 antialiased">
+            <head>
+                <script
+                    defer
+                    src="https://analytics.us.umami.is/script.js"
+                    data-website-id="ea42990e-0591-454e-b494-416a0703ceef"
+                ></script>
+            </head>
             <body className={openSans.className}>
                 {children}
                 <Analytics />
