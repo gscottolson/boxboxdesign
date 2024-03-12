@@ -7,6 +7,10 @@ export const iRacing2024S2DirtRoadSeries: OfficialSeries[] = [
         season: '2024s2',
         discipline: 'Dirt Road',
         licenseClass: 'Rookie',
+        srcLight: '/thumbnails/iracing/2024s2/b72a-RookiePro2LiteFixed-Light.png',
+        srcDark: '/thumbnails/iracing/2024s2/b72a-RookiePro2LiteFixed-Dark.png',
+        pdfLight: '/pdf/iracing/2024s2-dirtroad/b72a-RookiePro2LiteFixed-Light.pdf',
+        pdfDark: '/pdf/iracing/2024s2-dirtroad/b72a-RookiePro2LiteFixed-Dark.pdf',
         setup: 'fixed',
     },
     {
