@@ -160,6 +160,10 @@ export const iRacing2024S2SportsCarSeries: OfficialSeries[] = [
         season: '2024s2',
         discipline: 'Sports Car',
         licenseClass: 'D',
+        srcLight: '/thumbnails/iracing/2024s2/28fa-BMWPowerTourFixed-Light.png',
+        srcDark: '/thumbnails/iracing/2024s2/28fa-BMWPowerTourFixed-Dark.png',
+        pdfLight: '/pdf/iracing/2024s2-sportscar/28fa-BMWPowerTourFixed-Light.pdf',
+        pdfDark: '/pdf/iracing/2024s2-sportscar/28fa-BMWPowerTourFixed-Dark.pdf',
         setup: 'fixed',
     },
     {
