@@ -224,6 +224,18 @@ export const iRacing2024S2FormulaSeries: OfficialSeries[] = [
         setup: 'open',
     },
     {
+        name: 'INDYCAR iRacing Series',
+        seriesId: 'e9aa-INDYCARiRacingOpen',
+        season: '2024s2',
+        discipline: 'Formula',
+        licenseClass: 'C',
+        srcLight: '/thumbnails/iracing/2024s2/e9aa-INDYCARiRacingOpen-Light.png',
+        srcDark: '/thumbnails/iracing/2024s2/e9aa-INDYCARiRacingOpen-Dark.png',
+        pdfLight: '/pdf/iracing/2024s2-formula/e9aa-INDYCARiRacingOpen-Light.pdf',
+        pdfDark: '/pdf/iracing/2024s2-formula/e9aa-INDYCARiRacingOpen-Dark.pdf',
+        setup: 'open',
+    },
+    {
         name: 'Formula A Grand Prix Tour',
         seriesId: '0014610',
         season: '2024s2',
@@ -238,14 +250,6 @@ export const iRacing2024S2FormulaSeries: OfficialSeries[] = [
         discipline: 'Formula',
         licenseClass: 'C',
         setup: 'fixed',
-    },
-    {
-        name: 'INDYCAR iRacing Series',
-        seriesId: '0014616',
-        season: '2024s2',
-        discipline: 'Formula',
-        licenseClass: 'C',
-        setup: 'open',
     },
     {
         name: 'Formula B Super Formula IMSIM Series Fixed',
