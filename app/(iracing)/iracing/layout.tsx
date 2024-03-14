@@ -18,7 +18,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                     data-website-id="ea42990e-0591-454e-b494-416a0703ceef"
                 ></script>
             </head>
-            <body className={`${outfit.className} w-dvw`}>
+            <body className={`${outfit.className} w-full`}>
                 {/** does next-themes provide the right info? **/}
                 <Providers>{children}</Providers>
 

@@ -28,29 +28,31 @@ export function SeriesCard({ series, priority }: SeriesCardProps) {
 
     return (
         <CardWrap series={series}>
-            <div className="w-card text-teal800 dark:text-gray-200">
+            <div className="w-responsiveCard relative overflow-hidden text-teal800 md:w-card dark:text-gray-200">
                 <div
-                    className={`${cardStyles} flex scale-100 flex-col overflow-hidden rounded-sm group-active:scale-card`}
+                    className={`${cardStyles} flex h-[160px] scale-100 flex-col overflow-hidden rounded-sm group-active:scale-card md:h-full`}
                 >
-                    {hasImage ? (
-                        <CardImage series={series} priority={priority} />
-                    ) : (
-                        <div className="flex h-card select-none items-center justify-center bg-gray700/20 p-4 align-middle leading-loose text-gray-700 dark:bg-gray-500/20 dark:text-gray-400">
-                            Coming soon
-                        </div>
-                    )}
+                    {hasImage ? <CardImage series={series} priority={priority} /> : <ComingSoon />}
                 </div>
 
-                <div className="flex gap-3 px-2">
+                <div className="flex gap-3 px-2 py-2 text-xl md:py-1 md:text-base">
                     <h2 className="basis-full pt-2 leading-5">
                         <Balancer>{series.name}</Balancer>
                     </h2>
-                    <div className="w-[20px] pt-2 opacity-50" title={iconTitle}>
+                    <div className="w-[20px] pt-2 opacity-75 md:opacity-50" title={iconTitle}>
                         {series.setup === 'fixed' ? <Fixed /> : <Open />}
                     </div>
                 </div>
             </div>
         </CardWrap>
+    );
+}
+
+function ComingSoon() {
+    return (
+        <div className="flex h-card select-none items-center justify-center bg-gray700/20 p-4 align-middle leading-loose text-gray-700 dark:bg-gray-500/20 dark:text-gray-400">
+            Coming soon
+        </div>
     );
 }
 

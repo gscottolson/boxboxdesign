@@ -41,6 +41,9 @@ export function Modal({
 
     const [nextSeries]: SeriesResult = next;
     const [prevSeries]: SeriesResult = prev;
+    const hasPrevSeries = !!prevSeries.seriesId;
+    const hasNextSeries = !!nextSeries.seriesId;
+    const hasAnyLink = hasPrevSeries || hasNextSeries;
 
     return createPortal(
         <div>
@@ -48,36 +51,40 @@ export function Modal({
                 id="series-modal"
                 ref={dialogRef}
                 onClose={onDismiss}
-                className="relative flex w-full overflow-visible bg-gray-200 shadow-2xl backdrop:bg-backdrop backdrop:backdrop-blur-sm md:h-[640px] md:w-[800px] dark:bg-gray-950 dark:text-blue-300 dark:backdrop:bg-gray-950/30"
+                className="flex h-full w-full items-start overflow-visible bg-transparent pt-8 backdrop:bg-backdrop backdrop:backdrop-blur-sm md:h-[640px] md:w-[800px] md:pt-0 md:shadow-2xl dark:text-blue-300 dark:backdrop:bg-gray-950/50"
             >
                 {children}
                 <button
                     onClick={onDismiss}
-                    className="absolute right-3 top-3 rounded-md p-2 text-center focus:ring-2 focus:ring-black focus:ring-offset-4 focus:ring-offset-[#D6DDDF] active:scale-90"
+                    className="fixed right-3 top-3 rounded-md p-2 text-center focus:ring-2 focus:ring-black focus:ring-offset-4 focus:ring-offset-[#D6DDDF] active:scale-90"
                 >
                     <Close />
                 </button>
 
-                {prevSeries.seriesId && (
-                    <Link
-                        href={getSeriesURL(prevSeries.seriesId)}
-                        replace
-                        scroll={false}
-                        className="absolute -left-3 top-1/3 z-10 mt-[-26px] rounded-md bg-white200 p-4 shadow-sm active:scale-95 dark:bg-gray-900"
-                    >
-                        <Back />
-                    </Link>
-                )}
+                {hasAnyLink && (
+                    <div className="fixed bottom-1/3 left-0 flex w-full items-center justify-between px-2 md:px-8">
+                        {hasPrevSeries && (
+                            <Link
+                                href={getSeriesURL(prevSeries.seriesId)}
+                                replace
+                                scroll={false}
+                                className="scale-100 rounded-md bg-white200 p-6 shadow-lg active:scale-95 dark:bg-gray-900"
+                            >
+                                <Back />
+                            </Link>
+                        )}
 
-                {nextSeries.seriesId && (
-                    <Link
-                        href={getSeriesURL(nextSeries.seriesId)}
-                        replace
-                        scroll={false}
-                        className="absolute -right-3 top-1/3 z-10 mt-[-26px] rounded-md bg-white200 p-4 shadow-sm active:scale-95 dark:bg-gray-900"
-                    >
-                        <Next />
-                    </Link>
+                        {hasNextSeries && (
+                            <Link
+                                href={getSeriesURL(nextSeries.seriesId)}
+                                replace
+                                scroll={false}
+                                className="scale-100 rounded-md bg-white200 p-6 shadow-lg active:scale-95 dark:bg-gray-900"
+                            >
+                                <Next />
+                            </Link>
+                        )}
+                    </div>
                 )}
             </dialog>
         </div>,
