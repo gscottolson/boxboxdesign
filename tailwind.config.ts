@@ -42,6 +42,7 @@ const config: Config = {
             width: {
                 pdf: '480px',
                 card: '240px',
+                responsiveCard: '90vw',
             },
             scale: {
                 card: '0.992',
