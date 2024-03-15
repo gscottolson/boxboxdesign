@@ -51,7 +51,7 @@ export function Modal({
                 id="series-modal"
                 ref={dialogRef}
                 onClose={onDismiss}
-                className="flex h-full w-full items-start overflow-visible bg-transparent pt-8 backdrop:bg-backdrop backdrop:backdrop-blur-sm md:h-[640px] md:w-[800px] md:pt-0 md:shadow-2xl dark:text-blue-300 dark:backdrop:bg-gray-950/50"
+                className="flex min-h-full w-full items-start overflow-visible bg-transparent pt-8 backdrop:bg-white300 md:h-[640px] md:min-h-0 md:w-[800px] md:pt-0 md:shadow-2xl dark:text-blue-300 dark:backdrop:bg-neutral-700"
             >
                 {children}
                 <button
@@ -62,13 +62,13 @@ export function Modal({
                 </button>
 
                 {hasAnyLink && (
-                    <div className="fixed bottom-1/3 left-0 flex w-full items-center justify-between px-2 md:px-8">
+                    <div className="fixed left-0 top-[420px] flex w-full items-center justify-between px-2">
                         {hasPrevSeries && (
                             <Link
                                 href={getSeriesURL(prevSeries.seriesId)}
                                 replace
                                 scroll={false}
-                                className="scale-100 rounded-md bg-white200 p-6 shadow-lg active:scale-95 dark:bg-gray-900"
+                                className="scale-100 rounded-md bg-white200/90 p-6 shadow-lg active:scale-95 dark:bg-gray-900/50"
                             >
                                 <Back />
                             </Link>
@@ -79,7 +79,7 @@ export function Modal({
                                 href={getSeriesURL(nextSeries.seriesId)}
                                 replace
                                 scroll={false}
-                                className="scale-100 rounded-md bg-white200 p-6 shadow-lg active:scale-95 dark:bg-gray-900"
+                                className="scale-100 rounded-md bg-white200/90 p-6 shadow-lg active:scale-95 dark:bg-gray-900/50"
                             >
                                 <Next />
                             </Link>
