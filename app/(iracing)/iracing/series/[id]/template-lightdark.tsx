@@ -11,7 +11,7 @@ export default function TemplateLightDark({ series, href }: { series: OfficialSe
         <div className="m-auto flex h-full flex-col place-content-center">
             <ModeToggle />
 
-            <div className="mt-20 md:max-h-[640px] md:bg-white400/50 md:shadow-2xl dark:bg-gray-900/80">
+            <div className="mt-20 md:max-h-[640px] md:bg-white400/50 md:shadow-2xl dark:md:bg-neutral-700">
                 <SeriesDetail series={series} />
             </div>
 
@@ -32,9 +32,6 @@ export default function TemplateLightDark({ series, href }: { series: OfficialSe
                 {/** Credits **/}
                 <div className="text-sm opacity-50 transition-all ease-in hover:scale-105 hover:opacity-100 md:origin-right">
                     <Link className="flex items-center gap-4" href="/" target="_blank">
-                        <span className="text-right uppercase tracking-wide text-gray700 dark:text-gray-200">
-                            Brought to you by
-                        </span>
                         <div className="block dark:hidden">
                             <BoxBoxDesign.DarkHorizontal scale={0.08} />
                         </div>
