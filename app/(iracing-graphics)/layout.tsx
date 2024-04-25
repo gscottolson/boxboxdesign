@@ -20,13 +20,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </head>
             <body className={openSans.className}>
                 {children}
-                <Analytics />
+                {/* <Analytics /> */}
                 <SpeedInsights />
             </body>
         </html>
     );
 }
-
-// #graphics-layout {
-//     margin-left: calc(100vw - 100%);
-// }
