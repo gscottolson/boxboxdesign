@@ -1,9 +1,15 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import { Metadata } from 'next';
+
 import './page.css';
 
 import { getSiteTitle as getiRacingSiteTitle } from '../site';
 import { getDisciplineURL } from '../(iracing)/iracing/data/series-util';
+
+export const metadata: Metadata = {
+    title: 'BoxBoxDesign, makers of fine digital goods',
+};
 
 export default function Page() {
     return (
