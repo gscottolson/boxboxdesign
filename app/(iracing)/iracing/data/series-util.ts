@@ -30,19 +30,19 @@ export function getDisciplineURL(discipline: Discipline | UpdatedDiscipline, sea
     const seasonSlug: Season = season || '2024s1';
     switch (discipline) {
         case 'Formula':
-            return `/iracing/${seasonSlug}/formula/`;
+            return `/iracing/${seasonSlug}/formula`;
         case 'Sports Car':
-            return `/iracing/${seasonSlug}/sportscar/`;
+            return `/iracing/${seasonSlug}/sportscar`;
         case 'Road':
-            return `/iracing/${seasonSlug}/road/`;
+            return `/iracing/${seasonSlug}/road`;
         case 'Oval':
-            return `/iracing/${seasonSlug}/oval/`;
+            return `/iracing/${seasonSlug}/oval`;
         case 'Dirt Road':
-            return `/iracing/${seasonSlug}/dirtroad/`;
+            return `/iracing/${seasonSlug}/dirtroad`;
         case 'Dirt Oval':
-            return `/iracing/${seasonSlug}/dirtoval/`;
+            return `/iracing/${seasonSlug}/dirtoval`;
         case 'Unranked':
-            return `/iracing/${seasonSlug}/unranked/`;
+            return `/iracing/${seasonSlug}/unranked`;
         default:
             return '/';
     }
