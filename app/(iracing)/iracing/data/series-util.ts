@@ -12,6 +12,13 @@ import { iRacing2024S2SportsCarSeries } from './2024s2-sportscar';
 import { iRacing2024S2OvalSeries } from './2024s2-oval';
 import { iRacing2024S2UnrankedSeries } from './2024s2-unranked';
 
+import { iRacing2024S3DirtOvalSeries } from './2024s3-dirtoval';
+import { iRacing2024S3DirtRoadSeries } from './2024s3-dirtroad';
+import { iRacing2024S3FormulaSeries } from './2024s3-formula';
+import { iRacing2024S3SportsCarSeries } from './2024s3-sportscar';
+import { iRacing2024S3OvalSeries } from './2024s3-oval';
+import { iRacing2024S3UnrankedSeries } from './2024s3-unranked';
+
 const EMPTY: OfficialSeries = {
     seriesId: '',
     season: null,
@@ -101,24 +108,12 @@ const iRacing2024S1: OfficialSeries[] = [
     ...iRacing2024S1UnrankedSeries,
 ];
 
-export function get2024S2Formula() {
-    return iRacing2024S2FormulaSeries;
-}
-export function get2024S2SportsCar() {
-    return iRacing2024S2SportsCarSeries;
-}
-export function get2024S2Oval() {
-    return iRacing2024S2OvalSeries;
-}
-export function get2024S2Dirtoval() {
-    return iRacing2024S2DirtOvalSeries;
-}
-export function get2024S2Dirtroad() {
-    return iRacing2024S2DirtRoadSeries;
-}
-export function get2024S2Unranked() {
-    return iRacing2024S2UnrankedSeries;
-}
+export const get2024S2Formula = () => iRacing2024S2FormulaSeries;
+export const get2024S2SportsCar = () => iRacing2024S2SportsCarSeries;
+export const get2024S2Oval = () => iRacing2024S2OvalSeries;
+export const get2024S2Dirtoval = () => iRacing2024S2DirtOvalSeries;
+export const get2024S2Dirtroad = () => iRacing2024S2DirtRoadSeries;
+export const get2024S2Unranked = () => iRacing2024S2UnrankedSeries;
 
 const iRacing2024S2: OfficialSeries[] = [
     ...iRacing2024S2FormulaSeries,
@@ -129,8 +124,24 @@ const iRacing2024S2: OfficialSeries[] = [
     ...iRacing2024S2UnrankedSeries,
 ];
 
+export const get2024S3Formula = () => iRacing2024S3FormulaSeries;
+export const get2024S3SportsCar = () => iRacing2024S3SportsCarSeries;
+export const get2024S3Oval = () => iRacing2024S3OvalSeries;
+export const get2024S3Dirtoval = () => iRacing2024S3DirtOvalSeries;
+export const get2024S3Dirtroad = () => iRacing2024S3DirtRoadSeries;
+export const get2024S3Unranked = () => iRacing2024S3UnrankedSeries;
+
+const iRacing2024S3: OfficialSeries[] = [
+    ...iRacing2024S3FormulaSeries,
+    ...iRacing2024S3SportsCarSeries,
+    ...iRacing2024S3OvalSeries,
+    ...iRacing2024S3DirtOvalSeries,
+    ...iRacing2024S3DirtRoadSeries,
+    ...iRacing2024S3UnrankedSeries,
+];
+
 export function getAllForBuildPaths() {
-    return [...iRacing2024S1, ...iRacing2024S2];
+    return [...iRacing2024S1, ...iRacing2024S2, ...iRacing2024S3];
 }
 
 const SEASONS_BY_ID = getAllForBuildPaths();

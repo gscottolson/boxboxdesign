@@ -2,8 +2,8 @@ import { getDisciplineURL, getSeriesById, getAllForBuildPaths, getSeriesURL } fr
 import { Metadata } from 'next';
 import { getDetailTitle, getSiteTitle } from '@/app/site';
 import { notFound } from 'next/navigation';
-import Template2024S1 from './template-2024s1';
-import TemplateLightDark from './template-lightdark';
+import { TemplateMono } from './template-mono';
+import { TemplateLightDark } from './template-lightdark';
 
 export function generateMetadata({ params }: { params: { id: string } }): Metadata {
     const [series] = getSeriesById(params.id);
@@ -64,7 +64,7 @@ export default function Page({ params }: { params: { id: string } }) {
     if (series.isEmpty) {
         notFound();
     } else if (season === '2024s1') {
-        return <Template2024S1 series={series} href={href} />;
+        return <TemplateMono series={series} href={href} />;
     } else {
         return <TemplateLightDark series={series} href={href} />;
     }

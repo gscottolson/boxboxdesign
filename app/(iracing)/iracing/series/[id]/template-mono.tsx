@@ -5,7 +5,7 @@ import { BoxBoxDesign } from '@/app/logos';
 import { OfficialSeries } from '../../types';
 import { getSiteTitle } from '@/app/site';
 
-export default function Template2024S1({ series, href }: { series: OfficialSeries; href: string }) {
+export function TemplateMono({ series, href }: { series: OfficialSeries; href: string }) {
     return (
         <div className="m-auto flex h-full max-w-[800px] flex-col place-content-center">
             <div className="mt-20 md:max-h-[640px] md:bg-white400/50 md:shadow-2xl">

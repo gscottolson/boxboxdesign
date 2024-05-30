@@ -1,12 +1,12 @@
-import { SeriesDetail } from '../../2024s2/series-detail';
+import { SeriesDetail } from '../../2024s3/series-detail';
 import Link from 'next/link';
 import { getSiteTitle } from '@/app/site';
-import { Back } from '../../2024s2/icons';
+import { Back } from '../../2024s3/icons';
 import { BoxBoxDesign } from '@/app/logos';
 import { OfficialSeries } from '../../types';
-import ModeToggle from '../../2024s2/mode-toggle';
+import ModeToggle from '../../2024s3/mode-toggle';
 
-export default function TemplateLightDark({ series, href }: { series: OfficialSeries; href: string }) {
+export function TemplateLightDark({ series, href }: { series: OfficialSeries; href: string }) {
     return (
         <div className="m-auto flex h-full flex-col place-content-center">
             <ModeToggle />
