@@ -2,7 +2,8 @@ import { Nav2024S3 } from '../nav2024s3';
 import { Metadata } from 'next';
 import { useMemo } from 'react';
 import { Grid2024S3 } from '../grid2024s3';
-import { Donate } from '../donate';
+import { DonateWithinGrid } from '../donate-within-grid';
+import { FooterIcon } from '../../footer-icon';
 
 import { get2024S3Oval } from '../../data/series-util';
 
@@ -15,8 +16,10 @@ export default function Page() {
     return (
         <>
             <Nav2024S3 active="Oval" />
-            <Grid2024S3 seriesArray={series} />
-            <Donate />
+            <Grid2024S3 seriesArray={series}>
+                <DonateWithinGrid />
+            </Grid2024S3>
+            <FooterIcon />
         </>
     );
 }
