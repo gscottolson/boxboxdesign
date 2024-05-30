@@ -1,4 +1,4 @@
-import { Nav } from '../nav';
+import { Nav2024S3 } from '../nav2024s3';
 import { Metadata } from 'next';
 import { useMemo } from 'react';
 import { Grid2024S3 } from '../grid2024s3';
@@ -14,7 +14,7 @@ export default function Page() {
     const series = useMemo(() => get2024S3Dirtroad(), []);
     return (
         <>
-            <Nav active="Dirt Road" />
+            <Nav2024S3 active="Dirt Road" />
             <Grid2024S3 seriesArray={series} />
             <Donate />
         </>
