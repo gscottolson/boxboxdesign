@@ -3,9 +3,9 @@ import { BuyMeACoffee } from './icons';
 
 export function DonateWithinGrid() {
     return (
-        <div className="w-full bg-white300 px-8 py-16 text-center text-base font-light text-teal800 dark:bg-gray-950 dark:text-gray-400">
+        <div className="mx-24 w-2/3 rounded-2xl bg-white300 px-8 py-16 text-center text-base font-light text-teal800 dark:bg-gray-950 dark:text-gray-400">
             <div className="m-auto text-xl">
-                <p className="m-auto mb-8 w-[60%] max-w-[560px]">
+                <p className="m-auto mb-8 w-[70%] max-w-[560px]">
                     Hello, <span className="font-medium"> I’m Scott</span>, a one-man pit crew at BoxBoxDesign.
                     <span className="font-medium"> Please donate</span> to help keep these schedules free.
                 </p>
