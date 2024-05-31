@@ -28,7 +28,7 @@ export function SeriesCard({ series, priority }: SeriesCardProps) {
 
     return (
         <CardWrap series={series}>
-            <div className="w-responsiveCard relative overflow-hidden text-teal800 md:w-card dark:text-gray-200">
+            <div className="relative w-responsiveCard text-teal800 md:w-card dark:text-gray-200">
                 <div
                     className={`${cardStyles} flex h-[160px] scale-100 flex-col overflow-hidden rounded-sm group-active:scale-card md:h-full`}
                 >
