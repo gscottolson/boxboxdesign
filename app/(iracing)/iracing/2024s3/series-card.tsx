@@ -40,7 +40,7 @@ export function SeriesCard({ series, priority }: SeriesCardProps) {
                         <Balancer>{series.name}</Balancer>
                     </h2>
                     <div className="w-[20px] pt-2 opacity-75 md:opacity-50" title={iconTitle}>
-                        {series.setup === 'fixed' ? <Fixed /> : <Open />}
+                        {series.setup === 'open' && <Open />}
                     </div>
                 </div>
             </div>
