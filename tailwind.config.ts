@@ -39,6 +39,7 @@ const config: Config = {
             height: {
                 pdf: '640px',
                 card: '240px',
+                'card-half': '120px',
             },
             width: {
                 pdf: '480px',
