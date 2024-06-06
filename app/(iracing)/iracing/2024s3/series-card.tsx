@@ -12,11 +12,11 @@ interface SeriesCardProps {
 }
 
 function getClassCard(licenseClass: License) {
-    if (licenseClass === 'Rookie') return 'border-[#DA0229] dark:border-[#FF7373]  border-t-4 shadow-xl';
-    if (licenseClass === 'D') return 'border-[#F77600] dark:border-[#FA9352] border-t-4 shadow-xl';
-    if (licenseClass === 'C') return 'border-[#F3AF00] dark:border-[#FFE14D] border-t-4 shadow-xl';
-    if (licenseClass === 'B') return 'border-[#019751] dark:border-[#80FF85] border-t-4 shadow-xl';
-    if (licenseClass === 'A') return 'border-[#064ABD] dark:border-[#66B6FF] border-t-4 shadow-xl';
+    if (licenseClass === 'Rookie') return 'border-[#DA0229] dark:border-[#FF4F64]  border-t-4 shadow-xl';
+    if (licenseClass === 'D') return 'border-[#F77600] dark:border-[#FF9635] border-t-4 shadow-xl';
+    if (licenseClass === 'C') return 'border-[#F3AF00] dark:border-[#FFF23B] border-t-4 shadow-xl';
+    if (licenseClass === 'B') return 'border-[#019751] dark:border-[#2EFF75] border-t-4 shadow-xl';
+    if (licenseClass === 'A') return 'border-[#064ABD] dark:border-[#0BA5EC] border-t-4 shadow-xl';
     return 'shadow-inner';
 }
 
