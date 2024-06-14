@@ -91,12 +91,12 @@ export const iRacing2024S2OvalSeries: OfficialSeries[] = [
         season: '2024s2',
         discipline: 'Oval',
         licenseClass: 'D',
-        name: 'SRX Series',
+        name: 'SRX Series Fixed',
         srcLight: '/thumbnails/iracing/2024s2/e4a7-SRXFixed-Light.png',
         srcDark: '/thumbnails/iracing/2024s2/e4a7-SRXFixed-Dark.png',
         pdfLight: '/pdf/iracing/2024s2-oval/e4a7-SRXFixed-Light.pdf',
         pdfDark: '/pdf/iracing/2024s2-oval/e4a7-SRXFixed-Dark.pdf',
-        setup: 'open',
+        setup: 'fixed',
     },
 
     {
@@ -158,7 +158,7 @@ export const iRacing2024S2OvalSeries: OfficialSeries[] = [
         srcDark: '/thumbnails/iracing/2024s2/96ca-StreetStockCOpen-Dark.png',
         pdfLight: '/pdf/iracing/2024s2-oval/96ca-StreetStockCOpen-Light.pdf',
         pdfDark: '/pdf/iracing/2024s2-oval/96ca-StreetStockCOpen-Dark.pdf',
-        setup: 'fixed',
+        setup: 'open',
     },
     {
         seriesId: '266a-SuperLateModelFixed',
