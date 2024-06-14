@@ -54,7 +54,7 @@ export function SeriesDetail({ series }: { series: OfficialSeries }) {
                 <h4 className="text-gray700 dark:text-gray-300">iRacing 2024 Season 3</h4>
             </header>
 
-            <div className="relative mx-auto flex h-[426.66px] w-[320px] grow place-content-center overflow-hidden rounded-sm text-center shadow-pdfFrame md:mx-0 md:h-full md:w-full md:bg-white100 dark:md:bg-[#222222]">
+            <div className="dark:shadow-pdfFrameDark relative mx-auto flex h-[426.66px] w-[320px] grow place-content-center overflow-hidden rounded-sm text-center shadow-pdfFrame md:mx-0 md:h-full md:w-full md:bg-white100 dark:md:bg-[#222222]">
                 <div style={{ opacity: mode === 'success' ? 1 : 0, transition: 'opacity 150ms ease-in' }}>
                     <Document
                         file={theme === 'dark' ? series.pdfDark : series.pdfLight}
