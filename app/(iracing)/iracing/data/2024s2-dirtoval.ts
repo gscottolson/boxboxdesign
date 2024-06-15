@@ -26,7 +26,7 @@ export const iRacing2024S2DirtOvalSeries: OfficialSeries[] = [
         setup: 'fixed',
     },
     {
-        name: 'Rookie Micro Winged Sprint Car Series Fixed ',
+        name: 'Rookie Micro Winged Sprint Car Series Fixed',
         seriesId: 'dd88-RookieMicroWingedFixed',
         season: '2024s2',
         discipline: 'Dirt Oval',

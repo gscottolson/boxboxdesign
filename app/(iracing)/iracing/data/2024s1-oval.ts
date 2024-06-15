@@ -176,7 +176,7 @@ export const iRacing2024S1OvalSeries: OfficialSeries[] = [
         seriesId: '4592',
         season: '2024s1',
         discipline: 'Oval',
-        name: 'NASCAR Tour Modified Series ',
+        name: 'NASCAR Tour Modified Series',
         srcLight: '/thumbnails/iracing/2024s1/NascarTourModified.png',
         licenseClass: 'C',
         pdfLight: '/pdf/iracing/2024s1-oval/4592-NASCARTourModified.pdf',
