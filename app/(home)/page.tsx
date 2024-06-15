@@ -20,7 +20,7 @@ export default function Page() {
                 <p className="pb-2 font-light">Current projects:</p>
                 <ul className="pb-16 text-center font-medium">
                     <li>
-                        <Link href={getDisciplineURL('Formula', '2024s2')} className="hover:underline">
+                        <Link href={getDisciplineURL('Formula', '2024s3')} className="hover:underline">
                             {getiRacingSiteTitle()}
                         </Link>
                     </li>
