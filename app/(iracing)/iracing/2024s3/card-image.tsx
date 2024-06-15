@@ -28,7 +28,7 @@ export function CardImage({ series, priority }: { series: OfficialSeries; priori
     return (
         <div className="absolute left-0 top-0 w-full md:relative">
             <Image
-                className="h-[120px] w-responsiveCard max-w-none bg-[#BAB8B6] md:w-card dark:bg-[#474440]"
+                className="w-responsiveCard max-w-none bg-[#BAB8B6] md:h-[120px] md:w-card dark:bg-[#474440]"
                 alt={`stylized image of a schedule poster for ${series.name} on iRacing.com`}
                 src={imgSrc}
                 width={size}
