@@ -86,7 +86,7 @@ export default function Page() {
                 </div>
 
                 <div className="pb-12 pt-24 text-center text-xl font-normal">
-                    <BackLink href={getDisciplineURL('Formula', '2024s2')} />
+                    <BackLink href={getDisciplineURL('Formula', '2024s3')} />
                 </div>
             </div>
 
