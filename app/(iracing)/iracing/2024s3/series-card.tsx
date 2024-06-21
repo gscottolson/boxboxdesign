@@ -50,7 +50,7 @@ export function SeriesCard({ series, priority }: SeriesCardProps) {
 
 function ComingSoon() {
     return (
-        <div className="h-card-half flex select-none items-center justify-center bg-gray700/20 p-4 align-middle leading-loose text-gray-700 dark:bg-gray-500/20 dark:text-gray-400">
+        <div className="flex h-card-half select-none items-center justify-center bg-gray700/20 p-4 align-middle leading-loose text-gray-700 dark:bg-gray-500/20 dark:text-gray-400">
             Coming soon
         </div>
     );
@@ -65,6 +65,7 @@ function CardWrap({ series, children }: { series: OfficialSeries; children: Reac
                 passHref
                 scroll={false}
                 className="group" //required to use group-active on nested children
+                data-umami-event={`grid-view-to-${series.seriesId}`}
             >
                 {children}
             </Link>

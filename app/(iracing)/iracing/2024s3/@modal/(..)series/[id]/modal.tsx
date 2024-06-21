@@ -69,6 +69,7 @@ export function Modal({
                                 replace
                                 scroll={false}
                                 className="scale-100 rounded-md bg-white200/90 p-6 shadow-lg active:scale-95 dark:bg-gray-900/50"
+                                data-umami-event={`prev-button-to-${prevSeries.seriesId}`}
                             >
                                 <Back />
                             </Link>
@@ -80,6 +81,7 @@ export function Modal({
                                 replace
                                 scroll={false}
                                 className="scale-100 rounded-md bg-white200/90 p-6 shadow-lg active:scale-95 dark:bg-gray-900/50"
+                                data-umami-event={`next-button-to-${nextSeries.seriesId}`}
                             >
                                 <Next />
                             </Link>
