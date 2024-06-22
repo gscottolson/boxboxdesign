@@ -27,18 +27,29 @@ const MyComponent = () => {
     }, []);
 
     return !isClient ? null : (
-        <div className="h-dvh w-full">
+        <div className="flex h-dvh w-full items-center">
             <swiper-container
-                slides-per-view="3"
-                class="m-auto w-1/2"
+                class="m-auto w-2/3"
                 speed="500"
                 css-mode="true"
                 navigation="true"
                 pagination="true"
+                loop="true"
+                grab-cursor="true"
+                centered-slides="true"
+                slides-per-view="3"
+                effect="coverflow"
+                coverflow-effect-rotate="60"
+                coverflow-effect-stretch="0"
+                coverflow-effect-depth="200"
+                coverflow-effect-scale="0.9"
+                grabCursor="true"
             >
                 {[1, 2, 3, 4, 5, 6].map((value) => (
-                    <swiper-slide class="flex h-96 items-center justify-center bg-slate-300" key={value}>
-                        Slide {value}
+                    <swiper-slide class="flex h-96 items-center justify-center" key={value}>
+                        <div className="swiper-slide-transform flex aspect-[3/4] h-full items-center justify-center bg-slate-300">
+                            Slide {value}
+                        </div>
                     </swiper-slide>
                 ))}
             </swiper-container>
