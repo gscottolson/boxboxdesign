@@ -3,6 +3,7 @@
 import { useRef, useEffect, useState } from 'react';
 import 'swiper/css/bundle';
 import { SwiperContainer, register } from 'swiper/element/bundle';
+import Image from 'next/image';
 register();
 
 // swiper parameters
@@ -14,6 +15,10 @@ const swiperParams = {
     speed: 100,
     centeredSlides: true,
     // slidesPerView: 1.2,
+    freeMode: {
+        enabled: true,
+        sticky: true,
+    },
     effect: 'coverflow',
     coverflowEffect: {
         rotate: '20',
@@ -82,7 +87,7 @@ const MyComponent = () => {
             Object.assign(swiperElRef.current, swiperParams);
             swiperElRef.current.initialize();
         } else {
-            console.error('Expected swiperElRef to reference swiper element');
+            console.info('Expected !!! swiperElRef to reference swiper element', swiperElRef.current);
         }
     }, [isClient]);
 
@@ -92,10 +97,16 @@ const MyComponent = () => {
                 {posterIDs.map((value, index) => (
                     <div
                         slot={`slide-${index}`}
-                        className="slide-content flex h-auto items-center justify-center"
+                        className="slide-content flex h-auto items-center justify-center bg-slate-950"
                         key={value}
                     >
-                        <img className="h-auto w-full" src={`/iracing/posters/2024s3/${value}-Dark.png`} />
+                        <Image
+                            className="h-auto w-full"
+                            src={`/iracing/posters/2024s3/${value}-Dark.png`}
+                            alt=""
+                            width={900}
+                            height={1200}
+                        />
                     </div>
                 ))}
             </swiper-container>
