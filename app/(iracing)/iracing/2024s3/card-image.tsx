@@ -23,7 +23,7 @@ export function CardImage({ series, priority }: { series: OfficialSeries; priori
                 setImgSrc(srcLight);
                 break;
         }
-    }, [theme]);
+    }, [theme, srcDark, srcLight]);
 
     return (
         <div className="absolute left-0 top-0 w-full md:relative">
