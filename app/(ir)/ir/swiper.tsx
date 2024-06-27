@@ -30,8 +30,8 @@ const swiperParams = {
     },
     breakpoints: {
         320: { slidesPerView: 1.2 },
-        640: { slidesPerView: 2 },
-        1024: { slidesPerView: 3 },
+        640: { slidesPerView: 2.2 },
+        1024: { slidesPerView: 2.8 },
     },
     on: {
         init() {
@@ -93,7 +93,7 @@ const MyComponent = () => {
 
     return !isClient ? null : (
         <div className="flex h-dvh w-full">
-            <swiper-container ref={swiperElRef} init="false" class="swiper m-auto w-11/12 py-48">
+            <swiper-container ref={swiperElRef} init="false" class="swiper my-auto w-full py-48">
                 {posterIDs.map((value, index) => (
                     <div
                         slot={`slide-${index}`}
