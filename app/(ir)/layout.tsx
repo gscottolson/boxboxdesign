@@ -1,14 +1,15 @@
 import '@/app/ui/global.css';
 import { SpeedInsights } from '@vercel/speed-insights/next';
-import { outfit } from '../fonts';
-import { UmamiTracker } from '../UmamiTracker';
+import { outfit } from '@/app/fonts';
+import { UmamiTracker } from '@/app/UmamiTracker';
+import { Providers } from '@/app/providers';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
-        <html lang="en" className="bg-[#EEEEEE]">
+        <html lang="en">
             <head></head>
             <body className={outfit.className}>
-                {children}
+                <Providers>{children}</Providers>
                 <SpeedInsights />
                 <UmamiTracker />
             </body>
