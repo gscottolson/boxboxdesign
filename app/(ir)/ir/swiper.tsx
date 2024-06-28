@@ -28,6 +28,11 @@ const swiperParams = {
         slideShadows: 'true',
         stretch: '0',
     },
+    scrollbar: {
+        draggable: false,
+        hide: true,
+        el: '.swiper-custom-scrollbar',
+    },
     breakpoints: {
         320: { slidesPerView: 1.2 },
         640: { slidesPerView: 2.2 },
@@ -92,7 +97,7 @@ export function PosterSwiper(): React.ReactNode {
     }, [isClient]);
 
     return !isClient ? null : (
-        <div className="flex h-dvh w-full">
+        <div className="relative flex w-full justify-center">
             <swiper-container ref={swiperElRef} init="false" class="swiper my-auto w-full py-48">
                 {posterIDs.map((value, index) => (
                     <div
@@ -110,6 +115,7 @@ export function PosterSwiper(): React.ReactNode {
                     </div>
                 ))}
             </swiper-container>
+            <div className="swiper-custom-scrollbar absolute bottom-[-24px] h-[6px] w-11/12 rounded-[4px] bg-slate-300 dark:bg-slate-900" />
         </div>
     );
 }

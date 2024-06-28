@@ -10,7 +10,9 @@ export default function Page() {
     return (
         <div className="h-full w-full bg-slate-100 dark:bg-slate-950">
             <ModeToggle />
-            <PosterSwiper />
+            <div className="flex h-dvh flex-col justify-center">
+                <PosterSwiper />
+            </div>
         </div>
     );
 }
