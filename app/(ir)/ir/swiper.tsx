@@ -76,7 +76,7 @@ const posterIDs = [
     'ed6d-GlobalChallengeFixed',
 ];
 
-const MyComponent = () => {
+export function PosterSwiper(): React.ReactNode {
     const swiperElRef = useRef<SwiperContainer>(null);
     const [isClient, setIsClient] = useState(false);
 
@@ -112,6 +112,4 @@ const MyComponent = () => {
             </swiper-container>
         </div>
     );
-};
-
-export default MyComponent;
+}

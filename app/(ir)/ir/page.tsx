@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import SwiperView from './swiper';
+import { PosterSwiper } from './swiper';
 
 export const metadata: Metadata = {
     title: 'Swiper Test',
@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 export default function Page() {
     return (
         <>
-            <SwiperView />
+            <PosterSwiper />
         </>
     );
 }
