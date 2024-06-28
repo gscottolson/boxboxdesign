@@ -3,21 +3,30 @@
 @tailwind utilities;
 
 input[type='number'] {
-  -moz-appearance: textfield;
-  appearance: textfield;
+    -moz-appearance: textfield;
+    appearance: textfield;
 }
 
 input[type='number']::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 input[type='number']::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+    -webkit-appearance: none;
+    margin: 0;
 }
 
-a:focus, button:focus {
-  outline: none;
+a:focus,
+button:focus {
+    outline: none;
 }
 
+:root {
+    --swiper-scrollbar-border-radius: 4px;
+    --swiper-scrollbar-drag-bg-color: rgba(2, 6, 23, 0.8);
+}
+
+.dark:root {
+    --swiper-scrollbar-drag-bg-color: rgba(225, 239, 241, 0.8);
+}
