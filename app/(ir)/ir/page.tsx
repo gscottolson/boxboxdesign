@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function Page() {
     return (
-        <div className="h-full w-full bg-slate-100 dark:bg-slate-950">
+        <div className="h-full w-full bg-[rgb(230,228,226)] dark:bg-slate-950">
             <ModeToggle />
             <div className="flex h-dvh flex-col justify-center">
                 <PosterSwiper />
