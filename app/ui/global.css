@@ -21,12 +21,3 @@ a:focus,
 button:focus {
     outline: none;
 }
-
-:root {
-    --swiper-scrollbar-border-radius: 4px;
-    --swiper-scrollbar-drag-bg-color: rgba(2, 6, 23, 0.5);
-}
-
-.dark:root {
-    --swiper-scrollbar-drag-bg-color: rgba(225, 239, 241, 0.8);
-}

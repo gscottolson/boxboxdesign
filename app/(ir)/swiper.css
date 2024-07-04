@@ -1,0 +1,29 @@
+:root {
+    --swiper-scrollbar-border-radius: 4px;
+    --swiper-scrollbar-drag-bg-color: rgba(2, 6, 23, 0.5);
+}
+
+.dark:root {
+    --swiper-scrollbar-drag-bg-color: rgba(225, 239, 241, 0.8);
+}
+
+swiper-container,
+swiper-container::part(container) {
+    overflow: visible !important;
+}
+
+swiper-slide {
+    opacity: 0.5;
+    transition:
+        opacity 500ms ease-out,
+        transform 300ms ease-out;
+    z-index: 0;
+    overflow: visible;
+    transform: scale(0.94);
+}
+
+swiper-slide.swiper-slide-active {
+    opacity: 1;
+    z-index: 1;
+    transform: scale(1);
+}
