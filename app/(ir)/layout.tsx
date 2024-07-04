@@ -1,4 +1,5 @@
 import '@/app/ui/global.css';
+import '@/app/(ir)/swiper.css';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { outfit } from '@/app/fonts';
 import { UmamiTracker } from '@/app/UmamiTracker';
