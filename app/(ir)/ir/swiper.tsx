@@ -8,43 +8,27 @@ import { useTheme } from 'next-themes';
 import { iRacing2024S3SportsCarSeries } from '@/app/(iracing)/iracing/data/2024s3-sportscar';
 register();
 
-const darkBGValues = '0, 0, 0';
-const darkStyles = `
-.swiper-wrapper .swiper-slide-shadow-left {
-    background-image: linear-gradient(to left, rgba(${darkBGValues}, 0.7), rgba(${darkBGValues}, 0.3));
-}
-.swiper-wrapper .swiper-slide-shadow-right {
-    background-image: linear-gradient(to right, rgba(${darkBGValues}, 0.7), rgba(${darkBGValues}, 0.3));
-}
-`;
-
-const lightBGValues = '230, 228, 226';
-const lightStyles = `
-.swiper-wrapper .swiper-slide-shadow-left {
-    background-image: linear-gradient(to left, rgba(${lightBGValues}, 0.7), rgba(${lightBGValues}, 0.3));
-}   
-.swiper-wrapper .swiper-slide-shadow-right {
-    background-image: linear-gradient(to right, rgba(${lightBGValues}, 0.7), rgba(${lightBGValues}, 0.3));
-}   
-`;
-
 const swiperParams = {
     cssMode: false,
     grabCursor: true,
-    speed: 100,
+    speed: 200,
     centeredSlides: true,
     freeMode: {
         enabled: true,
         sticky: true,
     },
-    effect: 'coverflow',
-    coverflowEffect: {
-        rotate: '20',
-        modifier: '1',
-        depth: '10',
-        scale: '0.95',
-        slideShadows: true,
-        stretch: '0',
+    // effect: 'coverflow',
+    // coverflowEffect: {
+    //     rotate: '20',
+    //     modifier: '1',
+    //     depth: '10',
+    //     scale: '0.95',
+    //     slideShadows: true,
+    //     stretch: '0',
+    // },
+    spaceBetween: 4,
+    hashNavigation: {
+        watchState: true,
     },
     scrollbar: {
         draggable: false,
@@ -69,9 +53,7 @@ export function PosterSwiper(): React.ReactNode {
 
     useEffect(() => {
         if (swiperElRef && swiperElRef.current) {
-            Object.assign(swiperElRef.current, swiperParams, {
-                injectStyles: [theme === 'dark' ? darkStyles : lightStyles],
-            });
+            Object.assign(swiperElRef.current, swiperParams);
             swiperElRef.current.initialize();
         } else {
             console.info('Expected !!! swiperElRef to reference swiper element', swiperElRef.current);
@@ -79,15 +61,16 @@ export function PosterSwiper(): React.ReactNode {
     }, [isClient, theme]);
 
     return !isClient ? null : (
-        <div className="relative flex w-full justify-center" key={`swiper-${theme}`}>
+        <div className="relative flex w-full justify-center">
             <swiper-container ref={swiperElRef} init="false" class="swiper my-auto w-full max-w-[1440px] py-48">
                 {posterIDs.map((value, index) => {
                     const posterSlug = `${value}-${theme === 'dark' ? 'Dark' : 'Light'}`;
                     return (
-                        <div
-                            slot={`slide-${index}`}
-                            className="slide-content flex h-auto items-center justify-center bg-slate-950 bg-opacity-5 dark:bg-opacity-80"
+                        <swiper-slide
                             key={value}
+                            data-hash={value}
+                            class="flex h-auto items-center justify-center bg-slate-950 bg-opacity-5 shadow-2xl dark:bg-opacity-80"
+                            className="slide-content"
                         >
                             <Image
                                 className="h-auto w-full"
@@ -96,7 +79,7 @@ export function PosterSwiper(): React.ReactNode {
                                 width={900}
                                 height={1200}
                             />
-                        </div>
+                        </swiper-slide>
                     );
                 })}
             </swiper-container>
