@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
-import { PosterSwiper } from './swiper';
 import ModeToggle from '@/app/(iracing)/iracing/2024s3/mode-toggle';
+import { SeasonFilter } from './season-filter';
 
 export const metadata: Metadata = {
     title: 'Swiper Test',
@@ -8,11 +8,9 @@ export const metadata: Metadata = {
 
 export default function Page() {
     return (
-        <div className="h-full w-full bg-[rgb(230,228,226)] dark:bg-slate-950">
+        <div className="h-full w-full bg-[rgb(230,228,226)] dark:bg-stone-700">
             <ModeToggle />
-            <div className="flex h-dvh flex-col justify-center">
-                <PosterSwiper />
-            </div>
+            <SeasonFilter />
         </div>
     );
 }
