@@ -42,7 +42,7 @@ const swiperParams = {
     },
 };
 
-const posterIDs = iRacing2024S3SportsCarSeries.map((series) => series.seriesId);
+const sportsCarSeries = iRacing2024S3SportsCarSeries;
 
 export function PosterSwiper(): React.ReactNode {
     const swiperElRef = useRef<SwiperContainer>(null);
@@ -61,19 +61,19 @@ export function PosterSwiper(): React.ReactNode {
     return !isClient ? null : (
         <div className="relative flex w-full justify-center">
             <swiper-container ref={swiperElRef} init="false" class="swiper my-auto w-full max-w-[1440px] py-48">
-                {posterIDs.map((value, index) => {
-                    const posterSlug = `${value}-${theme === 'dark' ? 'Dark' : 'Light'}`;
+                {sportsCarSeries.map((series, index) => {
+                    const posterSlug = `${series.seriesId}-${theme === 'dark' ? 'Dark' : 'Light'}`;
                     return (
                         <swiper-slide
-                            key={value}
-                            data-hash={value}
+                            key={series.seriesId}
+                            data-hash={series.seriesId}
                             class="flex h-auto items-center justify-center bg-slate-950 bg-opacity-5 shadow-2xl dark:bg-opacity-80"
                             className="slide-content"
                         >
                             <Image
                                 className="h-auto w-full"
                                 src={`/iracing/posters/2024s3/${posterSlug}.png`}
-                                alt=""
+                                alt={`Race Schedule Poster for ${series.name}, a race series in iRacing 2024 Season 3`}
                                 width={900}
                                 height={1200}
                             />
