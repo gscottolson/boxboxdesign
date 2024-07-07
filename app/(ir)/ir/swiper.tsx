@@ -55,8 +55,6 @@ export function PosterSwiper(): React.ReactNode {
         if (swiperElRef && swiperElRef.current) {
             Object.assign(swiperElRef.current, swiperParams);
             swiperElRef.current.initialize();
-        } else {
-            console.info('Expected !!! swiperElRef to reference swiper element', swiperElRef.current);
         }
     }, [isClient, theme]);
 
