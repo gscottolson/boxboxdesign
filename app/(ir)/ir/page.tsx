@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function Page() {
     return (
-        <div className="h-full w-full bg-[rgb(230,228,226)] dark:bg-stone-700">
+        <div className="fixed h-full w-full bg-[rgb(230,228,226)] dark:bg-stone-700">
             <ModeToggle />
             <SeasonFilter />
         </div>
