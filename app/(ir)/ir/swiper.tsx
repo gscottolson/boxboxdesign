@@ -30,6 +30,9 @@ const swiperParams = {
     hashNavigation: {
         watchState: true,
     },
+    mousewheel: {
+        enabled: true,
+    },
     scrollbar: {
         draggable: false,
         hide: true,
