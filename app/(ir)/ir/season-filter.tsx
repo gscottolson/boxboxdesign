@@ -27,18 +27,50 @@ export function SeasonFilter(props: SeasonFilterProps) {
     }, []);
 
     return (
-        <div className="flex h-dvh flex-col justify-center">
-            <div className="text-center text-xl text-stone-600 dark:text-stone-100">
-                <div className="uppercase tracking-wider dark:text-stone-400">iRacing Offical Series Schedules</div>
-                <button
-                    className="inline-block text-center text-3xl font-extralight tracking-tighter"
-                    onClick={handleSeasonSelect}
-                >
-                    {season}
-                </button>
-                <div className="mb-8">
+        <div className="my-auto flex h-dvh shrink-0 flex-col justify-start lg:justify-center">
+            <div className="mb-4 shrink-0 text-center text-stone-600 dark:text-stone-100">
+                <div className="mt-12 uppercase tracking-wider lg:mt-0 lg:text-xl dark:text-stone-400">
+                    iRacing Offical Series Schedules
+                </div>
+
+                <div className="relative inline-block w-full max-w-[500px]">
                     <button
-                        className="text-xl font-light text-stone-600 dark:text-stone-100"
+                        className="inline-block text-center text-2xl font-extralight tracking-tighter lg:text-3xl"
+                        onClick={handleSeasonSelect}
+                    >
+                        {season}
+                    </button>
+
+                    {modalVisible && (
+                        <div
+                            onClick={handleModalClick}
+                            className="absolute left-0 top-[100px] z-20 my-auto flex flex-col items-center justify-center gap-1 bg-stone-800 text-xl text-stone-300"
+                        >
+                            <button
+                                className="block w-full"
+                                onClick={() => handleSeasonClick(iRacingSeasons['2024s3'])}
+                            >
+                                {iRacingSeasons['2024s3']}
+                            </button>
+                            <button
+                                className="block w-full"
+                                onClick={() => handleSeasonClick(iRacingSeasons['2024s2'])}
+                            >
+                                {iRacingSeasons['2024s2']}
+                            </button>
+                            <button
+                                className="block w-full"
+                                onClick={() => handleSeasonClick(iRacingSeasons['2024s1'])}
+                            >
+                                {iRacingSeasons['2024s1']}
+                            </button>
+                        </div>
+                    )}
+                </div>
+
+                <div className="">
+                    <button
+                        className="text-xl font-light text-stone-600 lg:text-2xl dark:text-stone-100"
                         onClick={handleSeasonSelect}
                     >
                         Sports Car
@@ -52,31 +84,7 @@ export function SeasonFilter(props: SeasonFilterProps) {
                 <div
                     className="fixed z-10 flex h-dvh w-dvw items-center justify-center bg-stone-900 bg-opacity-60"
                     onClick={handleBGClick}
-                >
-                    <div
-                        onClick={handleModalClick}
-                        className="flex h-full max-h-[600px] w-full max-w-[600px] flex-col items-center justify-center gap-1 bg-stone-900 text-xl text-stone-300"
-                    >
-                        <button
-                            className="block w-64 bg-stone-800"
-                            onClick={() => handleSeasonClick(iRacingSeasons['2024s3'])}
-                        >
-                            {iRacingSeasons['2024s3']}
-                        </button>
-                        <button
-                            className="block w-64 bg-stone-800"
-                            onClick={() => handleSeasonClick(iRacingSeasons['2024s2'])}
-                        >
-                            {iRacingSeasons['2024s2']}
-                        </button>
-                        <button
-                            className="block w-64 bg-stone-800"
-                            onClick={() => handleSeasonClick(iRacingSeasons['2024s1'])}
-                        >
-                            {iRacingSeasons['2024s1']}
-                        </button>
-                    </div>
-                </div>
+                />
             )}
         </div>
     );
