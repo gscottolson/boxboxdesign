@@ -1,3 +1,30 @@
 #email b {
     display: none;
-  }
+}
+
+header {
+    position: relative;
+}
+
+header::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background-color: #9bb0a4;
+    transform: translateY(-100vh);
+    height: calc(100vh + 100%);
+}
+
+.init-sequence::before {
+    content: 'INIT ////\Asystem check ok\A arranging bits\A¬\ALATENCY 12 MS\A¬';
+    white-space: pre-line;
+}
+
+.footer-sequence::after {
+    content: '¬\ASTATE READY';
+    white-space: pre-line;
+    display: block;
+}
