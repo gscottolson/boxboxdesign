@@ -42,7 +42,9 @@ export default function Page() {
 
                 <ContentWrap>
                     <h2 className="mb-4 mt-32 text-2xl font-medium uppercase">3d explorations</h2>
-                    <p className="mb-16">Refining an understanding of how form influences emotional tone.</p>
+                    <p className="mb-16">
+                        It’s a 2D app icon, but exploring a few dimensional compositions adds new context.
+                    </p>
                 </ContentWrap>
                 <div className="grid grid-flow-row grid-cols-2 gap-[12px]">
                     <Image src="/project/ioverlay/closeup.jpg" width={634} height={634} alt="" />
