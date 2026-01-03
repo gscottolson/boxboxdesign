@@ -26,9 +26,9 @@ export default function Page() {
         <div className="overflow-x-hidden">
             <main className="flex min-h-dvh flex-col items-center justify-center text-[#304F70] lg:flex-row lg:gap-16">
                 <header className="relative flex w-[282px] flex-col items-center justify-center gap-0 pr-[14px] font-thin uppercase">
-                    <div className="init-sequence text-right"></div>
+                    <div className="init-sequence w-full text-right"></div>
 
-                    <div className="flex flex-col items-end">
+                    <div className="flex w-full flex-col items-end">
                         <LogoIcon />
 
                         <div className="flex h-12 items-center justify-end">
