@@ -9,7 +9,7 @@ export function UmamiTracker() {
             script.async = true;
             script.defer = true;
             script.setAttribute('data-website-id', 'ea42990e-0591-454e-b494-416a0703ceef');
-            script.src = 'https://analytics.us.umami.is/script.js';
+            script.src = 'https://cloud.umami.is/script.js';
             document.head.appendChild(script);
 
             return () => {
