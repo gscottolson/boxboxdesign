@@ -78,7 +78,7 @@ export default function Page() {
                                     <div className="image-overlay absolute left-0 top-0 h-full w-full bg-[#1a575a] opacity-100 mix-blend-soft-light" />
                                 </div>
                                 <p className="project-link-text pt-2 text-left font-light uppercase leading-[1.1] hover:border-b-[0.5px] hover:border-[#9bb0a4]">
-                                    iOverlay
+                                    iOverlay Identity Refresh
                                 </p>
                             </Link>
                         </li>

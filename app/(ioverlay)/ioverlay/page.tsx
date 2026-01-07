@@ -12,7 +12,7 @@ export default function Page() {
         <div>
             <div className="m-auto max-w-[1280px] py-16 text-xl text-[#484848]">
                 <ContentWrap>
-                    <h1 className="mb-1 text-3xl leading-snug">iOverlay Identity Project</h1>
+                    <h1 className="mb-1 text-3xl leading-snug">iOverlay Identity Refresh</h1>
                     <h2 className="mb-8 text-2xl uppercase">Fall 2023</h2>
                     <p className="mb-16">
                         BoxBoxDesign partnered with Joeri to develop a new visual identity for iOverlay, a real-time
