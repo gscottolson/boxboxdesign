@@ -20,7 +20,7 @@ export default function ModeToggle({ darkMode, onToggle }: { darkMode: boolean; 
 
     return (
         <>
-            <style>{`.mode-toggle-2026{position:fixed;top:-72px;left:50%;margin-left:-60px;z-index:50;transform:scale(0.75);border-radius:9999px;box-shadow:0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -2px rgba(0,0,0,.1);cursor:pointer;transition:top 150ms ease,transform 150ms ease,box-shadow 150ms ease}.mode-toggle-2026:hover{top:-64px;transform:scale(1);box-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -4px rgba(0,0,0,.1)}`}</style>
+            <style>{`.mode-toggle-2026{position:fixed;top:-72px;left:50%;margin-left:-60px;z-index:50;transform:scale(0.75);border-radius:9999px;box-shadow:0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -2px rgba(0,0,0,.1);cursor:pointer;transition:top 150ms ease,transform 150ms ease,box-shadow 150ms ease}.mode-toggle-2026:hover{top:-64px;transform:scale(1);box-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -4px rgba(0,0,0,.1)}@media(max-width:760px){.mode-toggle-2026{left:auto;right:1.5rem;margin-left:0}.mode-toggle-2026:hover{transform:scale(1)}}`}</style>
             <div onClick={handleClick} className="mode-toggle-2026">
                 <svg
                     width="120"

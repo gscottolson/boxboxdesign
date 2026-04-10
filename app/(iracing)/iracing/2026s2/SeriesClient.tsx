@@ -614,7 +614,7 @@ const SeriesCard = memo(
                                     {[
                                         s.discipline,
                                         s.license_class &&
-                                            (s.license_class === 'Rookie' ? 'Rookie' : `${s.license_class} Class`),
+                                            (s.license_class === 'Rookie' ? 'Rookie' : `${s.license_class} License`),
                                         s.setup,
                                     ]
                                         .filter(Boolean)
@@ -1892,6 +1892,7 @@ export default function SeriesClient({ series }: SeriesClientProps) {
           .page-header { padding-left: 0.75rem !important; }
           .series-nav-toggle { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; flex-shrink: 0; background: none; border: none; cursor: pointer; padding: 0; color: var(--fg-body); }
           .series-detail { grid-column: 1; padding: 2rem 1rem; max-width: 440px; margin: 0 auto; width: 100%; }
+          .disc-row { align-self: flex-start !important; }
         }
         .entries-info { text-wrap: pretty; }
         .series-body { display: flex; flex-direction: column; gap: 1.5rem; }
