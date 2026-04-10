@@ -582,6 +582,7 @@ const SeriesCard = memo(forwardRef<HTMLDivElement, SeriesCardProps>(function Ser
                   color: "var(--fg-dim)",
                   fontWeight: 300, fontStyle: "italic", fontSize: "calc(38px * var(--scale))", lineHeight: "30px", letterSpacing: "-0.04em",
                   textAlign: "left",
+                  fontVariantNumeric: "tabular-nums",
                 }}
               >
                 {String(w.week).padStart(2, "0")}
