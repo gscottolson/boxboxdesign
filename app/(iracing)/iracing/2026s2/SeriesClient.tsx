@@ -1200,9 +1200,13 @@ const SeriesCard = memo(
                             return { value, exceptions };
                         }
 
-                        function exc(exceptions: number[]) {
+                        function exc(exceptions: number[], label: (w: Week) => string) {
                             if (!exceptions.length) return '';
-                            return ` (wk ${exceptions.join(', ')} differ)`;
+                            const parts = exceptions.map((wk) => {
+                                const w = weeks.find((w) => w.week === wk);
+                                return `wk ${wk}: ${w ? label(w) : '?'}`;
+                            });
+                            return ` (${parts.join('; ')})`;
                         }
 
                         const gridByClass = seriesVal<boolean>('grid_by_class');
@@ -1244,12 +1248,20 @@ const SeriesCard = memo(
                         if (allDynSky) statements.push(<span key="dynsky">Dynamic sky, constant weather</span>);
 
                         if (gridByClass.value)
-                            statements.push(<span key="grid">Grid by class{exc(gridByClass.exceptions)}</span>);
+                            statements.push(
+                                <span key="grid">
+                                    Grid by class
+                                    {exc(gridByClass.exceptions, (w) =>
+                                        w.grid_by_class ? 'grid by class' : 'no grid by class',
+                                    )}
+                                </span>,
+                            );
                         if (minDrivers.value != null) {
                             const driverExc = [...new Set([...minDrivers.exceptions, ...maxDrivers.exceptions])];
                             statements.push(
                                 <span key="drivers">
-                                    {minDrivers.value}–{maxDrivers.value} drivers{exc(driverExc)}
+                                    {minDrivers.value}–{maxDrivers.value} drivers
+                                    {exc(driverExc, (w) => `${w.min_drivers ?? '?'}–${w.max_drivers ?? '?'} drivers`)}
                                 </span>,
                             );
                         }
@@ -1257,18 +1269,37 @@ const SeriesCard = memo(
                             statements.push(
                                 <span key="fs">
                                     Fair share — {fairShare.value}
-                                    {exc(fairShare.exceptions)}
+                                    {exc(fairShare.exceptions, (w) => w.fair_share ?? 'none')}
                                 </span>,
                             );
                         if (cautionLaps.value === false)
                             statements.push(
-                                <span key="cl">Caution laps don&apos;t count{exc(cautionLaps.exceptions)}</span>,
+                                <span key="cl">
+                                    Caution laps don&apos;t count
+                                    {exc(cautionLaps.exceptions, (w) =>
+                                        w.caution_laps_count ? 'caution laps count' : "caution laps don't count",
+                                    )}
+                                </span>,
                             );
                         if (restartParts.length)
                             statements.push(
                                 <span key="restart">
                                     Restarts — {restartParts.join(', ')}
-                                    {exc(restartExceptions)}
+                                    {restartExceptions.length
+                                        ? ` (${restartExceptions
+                                              .map((wk) => {
+                                                  const w = weeks.find((w) => w.week === wk);
+                                                  if (!w) return `wk ${wk}: ?`;
+                                                  const parts: string[] = [];
+                                                  if (w.start_zone) parts.push('start zone');
+                                                  if (w.lucky_dog) parts.push('lucky dog');
+                                                  if (w.gwc != null) parts.push(`${w.gwc}-G/W/C`);
+                                                  if (w.restart_file && w.restart_position)
+                                                      parts.push(`${w.restart_file}-file ${w.restart_position}`);
+                                                  return `wk ${wk}: ${parts.length ? parts.join(', ') : 'none'}`;
+                                              })
+                                              .join('; ')})`
+                                        : ''}
                                 </span>,
                             );
 
@@ -1318,6 +1349,7 @@ const SeriesCard = memo(
                             lineHeight: '1.7',
                             color: 'var(--fg-secondary)',
                             fontStyle: 'italic',
+                            textWrap: 'balance',
                         };
 
                         return (
