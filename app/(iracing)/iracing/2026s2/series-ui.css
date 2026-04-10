@@ -1,0 +1,38 @@
+/* CSS variables for the 2026s2 SeriesClient UI */
+:root {
+    --bg: #f0edeb;
+    --fg: #403a33;
+    --fg-body: #423f3c;
+    --fg-secondary: #6b6560;
+    --fg-muted: #99928a;
+    --fg-subtle: #b0aaa4;
+    --fg-dim: #ada9a4;
+    --border: #e8e3de;
+    --license-rookie: #e3274c;
+    --license-d: #f27f1b;
+    --license-c: #ebb523;
+    --license-b: #219657;
+    --license-a: #3868c8;
+    --license-c-text-shadow: 0 0.5px 0 var(--fg);
+    --shadow-nav: 0 8px 32px rgba(66, 63, 60, 0.12), 0 2px 8px rgba(66, 63, 60, 0.08);
+    --backdrop-bg: rgba(230, 227, 225, 0.90);
+}
+
+[data-theme="dark"] {
+    --bg: #1a1714;
+    --fg: #f2e9df;
+    --fg-body: #ccc4bc;
+    --fg-secondary: #9a9088;
+    --fg-muted: #7a7268;
+    --fg-subtle: #5a5248;
+    --fg-dim: #e3d7ca;
+    --border: #2e2a28;
+    --license-rookie: #ff3d60;
+    --license-d: #ff8820;
+    --license-c: #ffe50a;
+    --license-b: #06e858;
+    --license-a: #29aaff;
+    --license-c-text-shadow: none;
+    --shadow-nav: 0 8px 32px rgba(0, 0, 0, 0.4), 0 2px 8px rgba(0, 0, 0, 0.3);
+    --backdrop-bg: rgba(20, 18, 16, 0.90);
+}
