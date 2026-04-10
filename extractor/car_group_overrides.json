@@ -1,0 +1,12 @@
+{
+  "_comment": "Keys are 'Series Name/week_N'. Values override the derived car_group_label.",
+  "_schedule_mode_comment": "Keys are 'Series Name' with value 'cars' or 'tracks' to override auto-detection.",
+  "car_group_labels": {
+    "Draft Master Challenge/week_2": "Gen 4",
+    "Draft Master Challenge/week_4": "Impala COT 2009",
+    "Draft Master Challenge/week_8": "Gen 4",
+    "Draft Master Challenge/week_10": "Impala COT 2009"
+  },
+  "schedule_modes": {
+  }
+}
