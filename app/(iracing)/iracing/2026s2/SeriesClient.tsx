@@ -1349,7 +1349,6 @@ const SeriesCard = memo(
                             lineHeight: '1.7',
                             color: 'var(--fg-secondary)',
                             fontStyle: 'italic',
-                            textWrap: 'balance',
                         };
 
                         return (
@@ -1358,7 +1357,7 @@ const SeriesCard = memo(
                                     className="race-info-inner"
                                     style={{ borderTop: '1px solid var(--border)', paddingTop: '0.75rem' }}
                                 >
-                                    <p style={proseStyle}>
+                                    <p className="race-info-prose" style={proseStyle}>
                                         {statements.map((stmt, i) => (
                                             <span key={i}>
                                                 {stmt}
@@ -1684,7 +1683,7 @@ export default function SeriesClient({ series }: SeriesClientProps) {
             seriesRefs.current[targetIndex]?.scrollIntoView({ behavior: 'instant', block: 'start' });
             suppressScroll.current = false;
             let cancelled = false;
-            Promise.all([document.fonts.ready, new Promise((resolve) => setTimeout(resolve, 600))]).then(() => {
+            Promise.all([document.fonts.ready, new Promise((resolve) => setTimeout(resolve, 1100))]).then(() => {
                 if (!cancelled) setLoading(false);
             });
             return () => {
@@ -1693,7 +1692,7 @@ export default function SeriesClient({ series }: SeriesClientProps) {
         } else {
             // No hash — wait for fonts + minimum hold so the loading state is visible
             let cancelled = false;
-            Promise.all([document.fonts.ready, new Promise((resolve) => setTimeout(resolve, 600))]).then(() => {
+            Promise.all([document.fonts.ready, new Promise((resolve) => setTimeout(resolve, 1100))]).then(() => {
                 if (!cancelled) setLoading(false);
             });
             return () => {
@@ -1940,6 +1939,7 @@ export default function SeriesClient({ series }: SeriesClientProps) {
           .car-decoration { display: block; width: 2px; border-radius: 0.5px; background: var(--accent); margin-top: 1px; margin-bottom: 1px; margin-left: 6px; flex-shrink: 0; }
           .race-info { grid-column: 1 / -1; display: flex; justify-content: center; }
           .race-info-inner { max-width: 40ch; width: 100%; text-align: center; }
+          .race-info-prose { text-wrap: balance; }
         }
         .loading-overlay {
           position: absolute;
