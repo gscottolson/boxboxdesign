@@ -19,7 +19,6 @@ import { iRacing2024S3SportsCarSeries } from './2024s3-sportscar';
 import { iRacing2024S3OvalSeries } from './2024s3-oval';
 import { iRacing2024S3UnrankedSeries } from './2024s3-unranked';
 
-
 const EMPTY: OfficialSeries = {
     seriesId: '',
     season: null,
