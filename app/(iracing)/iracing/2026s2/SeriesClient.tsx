@@ -1,5 +1,6 @@
 'use client';
 import { useEffect, useLayoutEffect, useMemo, useRef, useState, memo, forwardRef, useCallback } from 'react';
+import ModeToggle from './mode-toggle';
 
 interface WeatherData {
     air_temperature_c: number | null;
@@ -1672,6 +1673,7 @@ export default function SeriesClient({ series }: SeriesClientProps) {
 
     return (
         <div style={{ position: 'fixed', inset: 0, display: 'flex', flexDirection: 'column', background: 'var(--bg)' }}>
+            <ModeToggle darkMode={darkMode} onToggle={toggleTheme} />
             {/* Page header */}
             <div
                 className="page-header"
@@ -1752,110 +1754,6 @@ export default function SeriesClient({ series }: SeriesClientProps) {
                     <br />
                     <span style={{ fontWeight: 400, fontSize: '0.8em', color: 'var(--fg-muted)' }}>2026 Season 2</span>
                 </div>
-                <button
-                    onClick={toggleTheme}
-                    style={{
-                        background: 'none',
-                        border: 'none',
-                        cursor: 'pointer',
-                        padding: '6px',
-                        color: 'var(--fg-body)',
-                        flexShrink: 0,
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        borderRadius: '6px',
-                    }}
-                    aria-label={darkMode ? 'Switch to light mode' : 'Switch to dark mode'}
-                >
-                    {darkMode ? (
-                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-                            <circle cx="9" cy="9" r="4" stroke="currentColor" strokeWidth="1.5" />
-                            <line
-                                x1="9"
-                                y1="1"
-                                x2="9"
-                                y2="3"
-                                stroke="currentColor"
-                                strokeWidth="1.5"
-                                strokeLinecap="round"
-                            />
-                            <line
-                                x1="9"
-                                y1="15"
-                                x2="9"
-                                y2="17"
-                                stroke="currentColor"
-                                strokeWidth="1.5"
-                                strokeLinecap="round"
-                            />
-                            <line
-                                x1="1"
-                                y1="9"
-                                x2="3"
-                                y2="9"
-                                stroke="currentColor"
-                                strokeWidth="1.5"
-                                strokeLinecap="round"
-                            />
-                            <line
-                                x1="15"
-                                y1="9"
-                                x2="17"
-                                y2="9"
-                                stroke="currentColor"
-                                strokeWidth="1.5"
-                                strokeLinecap="round"
-                            />
-                            <line
-                                x1="3.05"
-                                y1="3.05"
-                                x2="4.46"
-                                y2="4.46"
-                                stroke="currentColor"
-                                strokeWidth="1.5"
-                                strokeLinecap="round"
-                            />
-                            <line
-                                x1="13.54"
-                                y1="13.54"
-                                x2="14.95"
-                                y2="14.95"
-                                stroke="currentColor"
-                                strokeWidth="1.5"
-                                strokeLinecap="round"
-                            />
-                            <line
-                                x1="3.05"
-                                y1="14.95"
-                                x2="4.46"
-                                y2="13.54"
-                                stroke="currentColor"
-                                strokeWidth="1.5"
-                                strokeLinecap="round"
-                            />
-                            <line
-                                x1="13.54"
-                                y1="4.46"
-                                x2="14.95"
-                                y2="3.05"
-                                stroke="currentColor"
-                                strokeWidth="1.5"
-                                strokeLinecap="round"
-                            />
-                        </svg>
-                    ) : (
-                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-                            <path
-                                d="M15 10.5A6.5 6.5 0 0 1 7.5 3a6.5 6.5 0 1 0 7.5 7.5z"
-                                stroke="currentColor"
-                                strokeWidth="1.5"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                            />
-                        </svg>
-                    )}
-                </button>
             </div>
 
             {/* Content grid */}
