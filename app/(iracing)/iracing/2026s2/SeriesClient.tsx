@@ -608,7 +608,6 @@ const SeriesCard = memo(
                                         background: licenseColors(s.license_class).chipBg,
                                         borderRadius: licenseColors(s.license_class).chipBg ? '4px' : undefined,
                                         padding: licenseColors(s.license_class).chipBg ? '2px 6px' : undefined,
-                                        alignSelf: 'flex-end',
                                     }}
                                 >
                                     {[
@@ -1892,7 +1891,6 @@ export default function SeriesClient({ series }: SeriesClientProps) {
           .page-header { padding-left: 0.75rem !important; }
           .series-nav-toggle { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; flex-shrink: 0; background: none; border: none; cursor: pointer; padding: 0; color: var(--fg-body); }
           .series-detail { grid-column: 1; padding: 2rem 1rem; max-width: 440px; margin: 0 auto; width: 100%; }
-          .disc-row { align-self: flex-start !important; }
         }
         .entries-info { text-wrap: pretty; }
         .series-body { display: flex; flex-direction: column; gap: 1.5rem; }
@@ -1904,7 +1902,7 @@ export default function SeriesClient({ series }: SeriesClientProps) {
           .series-meta { text-align: right; }
           .series-meta h2 { text-wrap: pretty; }
           .series-meta .cadence-highlight { justify-content: flex-end; }
-          .series-meta .disc-row { justify-content: flex-end; }
+          .series-meta .disc-row { justify-content: flex-end; align-self: flex-end; }
           .series-schedule { flex: 1; }
           .car-item { justify-content: flex-end; }
           .car-decoration { display: block; width: 2px; border-radius: 0.5px; background: var(--accent); margin-top: 1px; margin-bottom: 1px; margin-left: 6px; flex-shrink: 0; }
