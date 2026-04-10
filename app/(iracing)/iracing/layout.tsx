@@ -17,7 +17,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <Providers>{children}</Providers>
 
                 <div id="modal-root" />
-                <SpeedInsights />
+                {process.env.VERCEL && <SpeedInsights />}
                 <UmamiTracker />
             </body>
         </html>
