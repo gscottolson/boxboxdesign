@@ -10,5 +10,17 @@ module.exports = {
     },
     images: {
         unoptimized: true,
-    }
+    },
+    ...(process.env.NODE_ENV === 'development' && {
+        experimental: {
+            webpackBuildWorker: false,
+        },
+        webpack: (config, { dev }) => {
+            config.resolve.alias.canvas = false;
+            if (dev) {
+                config.cache = false;
+            }
+            return config;
+        },
+    }),
 }
