@@ -13,12 +13,15 @@
     --license-c: #ebb523;
     --license-b: #219657;
     --license-a: #3868c8;
-    --license-c-text-shadow: 0 0.5px 0 var(--fg);
+    --license-c-text-shadow: none;
+    --license-c-chip-bg: var(--fg);
+    --license-c-sep-color: #f0edeb;
+    --license-c-chip-color: var(--bg);
     --shadow-nav: 0 8px 32px rgba(66, 63, 60, 0.12), 0 2px 8px rgba(66, 63, 60, 0.08);
-    --backdrop-bg: rgba(230, 227, 225, 0.90);
+    --backdrop-bg: rgba(230, 227, 225, 0.9);
 }
 
-[data-theme="dark"] {
+[data-theme='dark'] {
     --bg: #1a1714;
     --fg: #f2e9df;
     --fg-body: #ccc4bc;
@@ -33,6 +36,9 @@
     --license-b: #06e858;
     --license-a: #29aaff;
     --license-c-text-shadow: none;
+    --license-c-chip-bg: transparent;
+    --license-c-sep-color: var(--fg);
+    --license-c-chip-color: var(--license-c);
     --shadow-nav: 0 8px 32px rgba(0, 0, 0, 0.4), 0 2px 8px rgba(0, 0, 0, 0.3);
-    --backdrop-bg: rgba(20, 18, 16, 0.90);
+    --backdrop-bg: rgba(20, 18, 16, 0.9);
 }
