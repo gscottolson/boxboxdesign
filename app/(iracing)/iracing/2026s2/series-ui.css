@@ -43,6 +43,37 @@
     --backdrop-bg: rgba(20, 18, 16, 0.9);
 }
 
+/*
+ * C license chip (light: dark --fg slab behind yellow type). Skew only the panel;
+ * inner counter-skews so text stays upright. Dark theme chip bg is transparent — no skew.
+ */
+/* Chip wrappers use +2px/side horizontal padding in SeriesClient for skewed panel vs text. */
+:root .license-c-chip-shape {
+    display: inline-block;
+    vertical-align: baseline;
+    border-radius: 2px;
+    transform: skewX(-17.9deg);
+}
+
+:root .license-c-chip-shape__inner {
+    transform: skewX(17.9deg);
+}
+
+:root .license-c-chip-shape__inner--flex {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+}
+
+[data-theme='dark'] .license-c-chip-shape,
+[data-theme='dark'] .license-c-chip-shape__inner {
+    transform: none;
+}
+
+[data-theme='dark'] .license-c-chip-shape {
+    border-radius: 2px;
+}
+
 /* SeriesClient layout and schedule UI (was inline <style> in SeriesClient.tsx) */
 .series-nav-wrap {
     display: flex;
@@ -65,6 +96,8 @@
 /* Detail scrollport: bottom padding + desktop right gutter (see mobile overrides below). */
 .series-detail .series-detail-pane {
     padding-bottom: 2rem;
+    /* Skewed C-license chips paint past their box; overflow-y-auto also clips X — inset so corners aren’t cut. */
+    padding-left: 0.375rem;
 }
 
 @media (min-width: 761px) {
@@ -235,6 +268,18 @@
 
 .series-meta h2 {
     text-wrap: balance;
+}
+
+/* “Cars start with … % fuel”: right-aligned in split layout; left on mobile (matches 760px layout). */
+.series-uniform-fuel {
+    display: flex;
+    justify-content: flex-end;
+}
+
+@media (max-width: 760px) {
+    .series-uniform-fuel {
+        justify-content: flex-start;
+    }
 }
 
 .car-item {

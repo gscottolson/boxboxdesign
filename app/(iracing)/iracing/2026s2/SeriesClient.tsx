@@ -545,47 +545,77 @@ const SeriesCard = memo(
                             </div>
                         )}
                         <div style={{ display: 'flex', flexDirection: 'column', marginBottom: '1.75rem' }}>
-                            {(s.discipline || s.license_class || s.setup) && (
-                                <div
-                                    className="disc-row"
-                                    style={{
-                                        display: 'flex',
-                                        alignItems: 'baseline',
-                                        gap: '8px',
-                                        fontSize: 'calc(18px * var(--scale))',
-                                        lineHeight: '1.44',
-                                        fontWeight: 600,
-                                        fontStyle: 'italic',
-                                        color: licenseColors(s.license_class).text,
-                                        marginBottom: '1.44em',
-                                        flexWrap: 'wrap',
-                                        background: licenseColors(s.license_class).chipBg,
-                                        borderRadius: licenseColors(s.license_class).chipBg ? '4px' : undefined,
-                                        padding: licenseColors(s.license_class).chipBg ? '2px 6px' : undefined,
-                                    }}
-                                >
-                                    {[
-                                        s.discipline,
-                                        s.license_class &&
-                                            (s.license_class === 'Rookie' ? 'Rookie' : `${s.license_class} License`),
-                                        s.setup,
-                                    ]
-                                        .filter(Boolean)
-                                        .flatMap((item, i, arr) =>
-                                            i < arr.length - 1
-                                                ? [
-                                                      <span key={i}>{item}</span>,
-                                                      <span
-                                                          key={`sep-${i}`}
-                                                          style={{ color: 'var(--fg-dim)', opacity: 0.25 }}
-                                                      >
-                                                          {'//'}
-                                                      </span>,
-                                                  ]
-                                                : [<span key={i}>{item}</span>],
-                                        )}
-                                </div>
-                            )}
+                            {(s.discipline || s.license_class || s.setup) && (() => {
+                                const lcRow = licenseColors(s.license_class);
+                                const discItems = [
+                                    s.discipline,
+                                    s.license_class &&
+                                        (s.license_class === 'Rookie' ? 'Rookie' : `${s.license_class} License`),
+                                    s.setup,
+                                ]
+                                    .filter(Boolean)
+                                    .flatMap((item, i, arr) =>
+                                        i < arr.length - 1
+                                            ? [
+                                                  <span key={i}>{item}</span>,
+                                                  <span
+                                                      key={`sep-${i}`}
+                                                      style={{
+                                                          color: 'var(--fg-dim)',
+                                                          opacity: 0.25,
+                                                          fontStyle: 'normal',
+                                                      }}
+                                                  >
+                                                      {'//'}
+                                                  </span>,
+                                              ]
+                                            : [<span key={i}>{item}</span>],
+                                    );
+                                const rowTypography = {
+                                    display: 'flex' as const,
+                                    alignItems: 'baseline' as const,
+                                    gap: '8px',
+                                    fontSize: 'calc(18px * var(--scale))',
+                                    lineHeight: '1.44',
+                                    fontWeight: 600,
+                                    fontStyle: 'italic' as const,
+                                    color: lcRow.text,
+                                    flexWrap: 'wrap' as const,
+                                };
+                                if (s.license_class === 'C') {
+                                    return (
+                                        <div
+                                            className="disc-row license-c-chip-shape"
+                                            style={{
+                                                marginBottom: '1.44em',
+                                                background: lcRow.chipBg,
+                                                padding: lcRow.chipBg ? '2px 8px' : undefined,
+                                            }}
+                                        >
+                                            <div
+                                                className="license-c-chip-shape__inner license-c-chip-shape__inner--flex"
+                                                style={rowTypography}
+                                            >
+                                                {discItems}
+                                            </div>
+                                        </div>
+                                    );
+                                }
+                                return (
+                                    <div
+                                        className="disc-row"
+                                        style={{
+                                            ...rowTypography,
+                                            marginBottom: '1.44em',
+                                            background: lcRow.chipBg,
+                                            borderRadius: lcRow.chipBg ? '4px' : undefined,
+                                            padding: lcRow.chipBg ? '2px 8px' : undefined,
+                                        }}
+                                    >
+                                        {discItems}
+                                    </div>
+                                );
+                            })()}
                             {s.schedule_mode === 'cars'
                                 ? (() => {
                                       const weeksWithCars = (s.weeks || []).filter(
@@ -625,10 +655,10 @@ const SeriesCard = memo(
                                       </div>
                                   )}
                             {uniformFuel != null && (
-                                <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '1.44em' }}>
+                                <div className="series-uniform-fuel" style={{ marginBottom: '1.44em' }}>
                                     <span
                                         style={{
-                                            fontSize: 'calc(15px * var(--scale))',
+                                            fontSize: 'calc(16px * var(--scale))',
                                             fontStyle: 'italic',
                                             fontWeight: 600,
                                             color: 'var(--fg-subtle)',
@@ -647,19 +677,21 @@ const SeriesCard = memo(
                                                     display: 'inline-flex',
                                                     alignItems: 'center',
                                                     justifyContent: 'center',
-                                                    width: '28px',
-                                                    height: '28px',
+                                                    width: '32px',
+                                                    height: '32px',
                                                     flexShrink: 0,
                                                 }}
                                             >
                                                 {(() => {
-                                                    const r = 12;
+                                                    const size = 32;
+                                                    const c = size / 2;
+                                                    const r = 12.5;
                                                     const circ = 2 * Math.PI * r;
                                                     const filled = (uniformFuel / 100) * circ;
                                                     return (
                                                         <svg
-                                                            width="28"
-                                                            height="28"
+                                                            width={size}
+                                                            height={size}
                                                             style={{
                                                                 position: 'absolute',
                                                                 inset: 0,
@@ -667,8 +699,8 @@ const SeriesCard = memo(
                                                             }}
                                                         >
                                                             <circle
-                                                                cx="14"
-                                                                cy="14"
+                                                                cx={c}
+                                                                cy={c}
                                                                 r={r}
                                                                 fill="none"
                                                                 stroke="currentColor"
@@ -676,8 +708,8 @@ const SeriesCard = memo(
                                                                 strokeWidth="2.5"
                                                             />
                                                             <circle
-                                                                cx="14"
-                                                                cy="14"
+                                                                cx={c}
+                                                                cy={c}
                                                                 r={r}
                                                                 fill="none"
                                                                 stroke="currentColor"
@@ -692,23 +724,22 @@ const SeriesCard = memo(
                                                 <span
                                                     style={{
                                                         position: 'relative',
+                                                        zIndex: 1,
+                                                        display: 'flex',
+                                                        alignItems: 'center',
+                                                        justifyContent: 'center',
+                                                        width: '100%',
+                                                        height: '100%',
                                                         fontWeight: 800,
                                                         fontSize: '0.75em',
                                                         letterSpacing: 0,
                                                         textTransform: 'none',
                                                         lineHeight: 1,
+                                                        fontStyle: 'normal',
+                                                        fontVariantNumeric: 'tabular-nums',
                                                     }}
                                                 >
-                                                    <span
-                                                        style={{
-                                                            width: 0,
-                                                            overflow: 'visible',
-                                                            display: 'inline-flex',
-                                                            justifyContent: 'center',
-                                                        }}
-                                                    >
-                                                        {uniformFuel}
-                                                    </span>
+                                                    {uniformFuel}
                                                 </span>
                                             </span>
                                             <span>% fuel</span>
@@ -910,6 +941,8 @@ const SeriesCard = memo(
                                                 fontSize: 'calc(12px * var(--scale))',
                                                 lineHeight: '1.17',
                                                 fontStyle: 'italic',
+                                                fontWeight: 600,
+                                                fontVariantNumeric: 'tabular-nums',
                                                 color: 'var(--fg-dim)',
                                                 opacity: 0.5,
                                                 textAlign: 'left',
@@ -939,7 +972,8 @@ const SeriesCard = memo(
                                                 flexWrap: 'nowrap',
                                                 gap: 'calc(4px * var(--scale))',
                                                 alignItems: 'baseline',
-                                                overflow: 'hidden',
+                                                minWidth: 0,
+                                                overflow: 'visible',
                                             }}
                                         >
                                             {(() => {
@@ -1019,19 +1053,17 @@ const SeriesCard = memo(
                                                             ? w.weather.chance_of_rain
                                                             : null;
                                                     if (hasTemp || rain) {
-                                                        parts.push(
-                                                            <span
-                                                                key="weather"
-                                                                style={{ whiteSpace: 'nowrap', flexShrink: 0 }}
-                                                            >
+                                                        const weatherGap = hasTemp && rain
+                                                            ? 'calc(10px * var(--scale))'
+                                                            : '0px';
+                                                        const weatherChildren = (
+                                                            <>
                                                                 {hasTemp && (
                                                                     <span
                                                                         style={{
                                                                             color: lc.text,
                                                                             fontWeight: 800,
-                                                                            background: lc.chipBg,
-                                                                            borderRadius: lc.chipBg ? '3px' : undefined,
-                                                                            padding: lc.chipBg ? '0 3px' : undefined,
+                                                                            fontVariantNumeric: 'tabular-nums',
                                                                         }}
                                                                     >
                                                                         {w.weather.air_temperature_c}°C
@@ -1043,8 +1075,7 @@ const SeriesCard = memo(
                                                                             display: 'inline-flex',
                                                                             alignItems: 'center',
                                                                             gap: '2px',
-                                                                            color: 'var(--license-a)',
-                                                                            marginLeft: hasTemp ? '4px' : undefined,
+                                                                            color: '#0BA5EC',
                                                                         }}
                                                                     >
                                                                         <svg
@@ -1062,6 +1093,46 @@ const SeriesCard = memo(
                                                                         </svg>
                                                                         <span style={{ fontWeight: 800 }}>{rain}</span>
                                                                     </span>
+                                                                )}
+                                                            </>
+                                                        );
+                                                        const weatherRow = (
+                                                            <span
+                                                                style={{
+                                                                    display: 'inline-flex',
+                                                                    alignItems: 'center',
+                                                                    gap: weatherGap,
+                                                                }}
+                                                            >
+                                                                {weatherChildren}
+                                                            </span>
+                                                        );
+                                                        parts.push(
+                                                            <span
+                                                                key="weather"
+                                                                style={{ whiteSpace: 'nowrap', flexShrink: 0 }}
+                                                            >
+                                                                {lc.chipBg ? (
+                                                                    <span
+                                                                        className="license-c-chip-shape"
+                                                                        style={{
+                                                                            background: lc.chipBg,
+                                                                            padding: '0 5px',
+                                                                        }}
+                                                                    >
+                                                                        <span
+                                                                            className="license-c-chip-shape__inner"
+                                                                            style={{
+                                                                                display: 'inline-flex',
+                                                                                alignItems: 'center',
+                                                                                gap: weatherGap,
+                                                                            }}
+                                                                        >
+                                                                            {weatherChildren}
+                                                                        </span>
+                                                                    </span>
+                                                                ) : (
+                                                                    weatherRow
                                                                 )}
                                                             </span>,
                                                         );
@@ -1098,7 +1169,11 @@ const SeriesCard = memo(
                                                         : [
                                                               <span
                                                                   key={`sep-${i}`}
-                                                                  style={{ opacity: 0.4, flexShrink: 0 }}
+                                                                  style={{
+                                                                      opacity: 0.4,
+                                                                      flexShrink: 0,
+                                                                      fontStyle: 'normal',
+                                                                  }}
                                                               >
                                                                   {'//'}
                                                               </span>,
@@ -1734,7 +1809,7 @@ export default function SeriesClient({ series }: SeriesClientProps) {
                 <div className={`series-nav-wrap${navOpen ? ' series-nav-wrap--open' : ''}`} ref={navRef}>
                     <div className={clsx('series-nav relative min-w-0', navOpen && 'series-nav--open')}>
                         <div
-                            className="series-nav-scroll absolute inset-0 overflow-y-auto pl-2"
+                            className="series-nav-scroll absolute inset-0 overflow-y-auto pl-3"
                             ref={navScrollRef}
                         >
                             {pillGeometry && (
@@ -1767,19 +1842,24 @@ export default function SeriesClient({ series }: SeriesClientProps) {
                                                     className="sticky top-0 z-[2] -ml-2 bg-[var(--bg)] pt-4 pr-2 pb-[0.2rem] pl-[calc(0.5rem+8px)] text-[0.85em] font-semibold uppercase tracking-[0.08em]"
                                                     style={{ color: licenseColors(license).text }}
                                                 >
-                                                    <span
-                                                        style={{
-                                                            background: licenseColors(license).chipBg,
-                                                            borderRadius: licenseColors(license).chipBg
-                                                                ? '3px'
-                                                                : undefined,
-                                                            padding: licenseColors(license).chipBg
-                                                                ? '1px 5px'
-                                                                : undefined,
-                                                        }}
-                                                    >
-                                                        {discipline} {license}
-                                                    </span>
+                                                    {licenseColors(license).chipBg ? (
+                                                        <span
+                                                            className="license-c-chip-shape"
+                                                            style={{
+                                                                background: licenseColors(license).chipBg,
+                                                                padding: '1px 7px',
+                                                            }}
+                                                        >
+                                                            <span
+                                                                className="license-c-chip-shape__inner"
+                                                                style={{ display: 'inline-block' }}
+                                                            >
+                                                                {discipline} {license}
+                                                            </span>
+                                                        </span>
+                                                    ) : (
+                                                        <span>{discipline} {license}</span>
+                                                    )}
                                                 </div>
                                                 {seriesArr.map((s) => {
                                                     const flatIdx = originalIndexToFlatIdx.get(s._originalIndex) ?? 0;
@@ -1808,7 +1888,7 @@ export default function SeriesClient({ series }: SeriesClientProps) {
                 </div>
 
                 {/* Detail pane — full list */}
-                <div className="series-detail relative overflow-hidden">
+                <div className="series-detail relative overflow-visible">
                     {overlayMounted && (
                         <div
                             role="status"
