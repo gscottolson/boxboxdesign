@@ -184,6 +184,9 @@ function shortenTrackName(name: string | null | undefined): string | null | unde
 // Series where cars mode is active but track is the primary display (car is secondary)
 const TRACK_PRIMARY_SERIES = new Set(['eNASCAR Coca Cola iRacing Qualifying Series']);
 
+/** Matches `series-ui.css` @media (max-width: 760px): overlay nav, detail full width. */
+const MOBILE_LAYOUT_MAX_WIDTH_PX = 760;
+
 const LAYOUT_ABBR: Record<string, string> = {
     Industriefahrten: 'Indus.',
 };
@@ -218,10 +221,7 @@ function formatLegacyTrack(trackName: string | null | undefined, trackLayout: st
 const CADENCE_HIGHLIGHT =
     /(\d{1,2}\s*(?:timeslots?|hours?|minutes?)|\:?\d{1,2}(?::\d{2})?(?:\s*(?:GMT|past|after))?|\bhour(?:ly)?\b|\btop of the hour\b|\bhalf past\b|\bon the hour\b)/gi;
 
-const LICENSE_COLORS: Record<
-    string,
-    { text: string; border: string; bg: string; textShadow?: string; chipBg?: string; chipColor?: string }
-> = {
+const LICENSE_COLORS: Record<string, { text: string; border: string; bg: string; chipBg?: string }> = {
     Rookie: { text: 'var(--license-rookie)', border: 'var(--license-rookie)', bg: 'var(--bg)' },
     D: { text: 'var(--license-d)', border: 'var(--license-d)', bg: 'var(--bg)' },
     C: { text: 'var(--license-c)', border: 'var(--license-c)', bg: 'var(--bg)', chipBg: 'var(--license-c-chip-bg)' },
@@ -254,23 +254,13 @@ function CarItem({ car }: { car: string }) {
     );
 }
 
-function highlightCadence(text: string, color: string, chipBg?: string, textShadow?: string) {
+function highlightCadence(text: string) {
     text = text.replace(/(\d+)\s*Timeslots?\s*Per\s*Week/gi, (_, n) => `${n} timeslots per week`);
     const parts = text.split(CADENCE_HIGHLIGHT);
     return parts.map((part, i) => {
         if (i % 2 === 1)
             return (
-                <span
-                    key={i}
-                    style={{
-                        color,
-                        fontWeight: 700,
-                        textShadow,
-                        background: chipBg,
-                        borderRadius: chipBg ? '3px' : undefined,
-                        padding: chipBg ? '0 3px' : undefined,
-                    }}
-                >
+                <span key={i} style={{ fontWeight: 600 }}>
                     {part}
                 </span>
             );
@@ -749,12 +739,7 @@ const SeriesCard = memo(
                                         color: 'var(--fg-body)',
                                     }}
                                 >
-                                    {highlightCadence(
-                                        s.race_cadence,
-                                        licenseColors(s.license_class).text,
-                                        licenseColors(s.license_class).chipBg,
-                                        licenseColors(s.license_class).textShadow,
-                                    )}
+                                    {highlightCadence(s.race_cadence)}
                                 </div>
                             )}
                             {s.qualifying_cadence && (
@@ -767,12 +752,7 @@ const SeriesCard = memo(
                                         color: 'var(--fg-body)',
                                     }}
                                 >
-                                    {highlightCadence(
-                                        s.qualifying_cadence,
-                                        licenseColors(s.license_class).text,
-                                        licenseColors(s.license_class).chipBg,
-                                        licenseColors(s.license_class).textShadow,
-                                    )}
+                                    {highlightCadence(s.qualifying_cadence)}
                                 </div>
                             )}
                             {uniformDuration && (
@@ -784,18 +764,7 @@ const SeriesCard = memo(
                                         color: 'var(--fg-body)',
                                     }}
                                 >
-                                    All races are{' '}
-                                    <span
-                                        style={{
-                                            fontWeight: 700,
-                                            color: lc.text,
-                                            background: lc.chipBg,
-                                            borderRadius: lc.chipBg ? '3px' : undefined,
-                                            padding: lc.chipBg ? '0 3px' : undefined,
-                                        }}
-                                    >
-                                        {uniformDuration}
-                                    </span>
+                                    All races are <span style={{ fontWeight: 600 }}>{uniformDuration}</span>
                                 </div>
                             )}
                             {uniformSegments && (
@@ -819,7 +788,7 @@ const SeriesCard = memo(
                                                 ? 'Feature'
                                                 : seg.type.charAt(0).toUpperCase() + seg.type.slice(1);
                                         return (
-                                            <span key={i}>
+                                            <span key={i} style={{ fontWeight: 600 }}>
                                                 {label}: {seg.laps} laps
                                             </span>
                                         );
@@ -878,8 +847,7 @@ const SeriesCard = memo(
                                             display: 'grid',
                                             gridTemplateColumns: 'calc(42px * var(--scale)) 1fr',
                                             columnGap: 'calc(8px * var(--scale))',
-                                            gridTemplateRows: '30px 14px 8px',
-                                            height: '52px',
+                                            gridTemplateRows: `calc(30px * var(--scale)) calc(14px * var(--scale)) calc(8px * var(--scale))`,
                                             overflow: 'visible',
                                         }}
                                     >
@@ -892,7 +860,7 @@ const SeriesCard = memo(
                                                 fontWeight: 300,
                                                 fontStyle: 'italic',
                                                 fontSize: 'calc(38px * var(--scale))',
-                                                lineHeight: '30px',
+                                                lineHeight: 'calc(30px * var(--scale))',
                                                 letterSpacing: '-0.04em',
                                                 textAlign: 'left',
                                                 fontVariantNumeric: 'tabular-nums',
@@ -907,7 +875,7 @@ const SeriesCard = memo(
                                                     fontWeight: 800,
                                                     fontStyle: 'italic',
                                                     fontSize: 'calc(38px * var(--scale))',
-                                                    lineHeight: '30px',
+                                                    lineHeight: 'calc(30px * var(--scale))',
                                                     letterSpacing: '-0.02em',
                                                     textTransform: 'uppercase',
                                                     color: 'var(--fg)',
@@ -923,7 +891,7 @@ const SeriesCard = memo(
                                                         fontWeight: 300,
                                                         fontStyle: 'italic',
                                                         fontSize: 'calc(38px * var(--scale))',
-                                                        lineHeight: '30px',
+                                                        lineHeight: 'calc(30px * var(--scale))',
                                                         color: 'var(--fg-dim)',
                                                         opacity: 0.5,
                                                         letterSpacing: '-0.03em',
@@ -969,7 +937,7 @@ const SeriesCard = memo(
                                                 color: 'var(--fg)',
                                                 display: 'flex',
                                                 flexWrap: 'nowrap',
-                                                gap: '4px',
+                                                gap: 'calc(4px * var(--scale))',
                                                 alignItems: 'baseline',
                                                 overflow: 'hidden',
                                             }}
@@ -1100,7 +1068,10 @@ const SeriesCard = memo(
                                                     }
                                                 }
                                                 const nowrap = (key: string, content: string) => (
-                                                    <span key={key} style={{ whiteSpace: 'nowrap', flexShrink: 0 }}>
+                                                    <span
+                                                        key={key}
+                                                        style={{ whiteSpace: 'nowrap', flexShrink: 0, fontWeight: 600 }}
+                                                    >
                                                         {content}
                                                     </span>
                                                 );
@@ -1136,7 +1107,13 @@ const SeriesCard = memo(
                                                 );
                                             })()}
                                         </div>
-                                        <div style={{ gridColumn: 2, gridRow: 3, paddingBottom: isLast ? 0 : '7px' }} />
+                                        <div
+                                            style={{
+                                                gridColumn: 2,
+                                                gridRow: 3,
+                                                paddingBottom: isLast ? 0 : 'calc(7px * var(--scale))',
+                                            }}
+                                        />
                                     </div>
                                 );
                             })}
@@ -1388,7 +1365,16 @@ export default function SeriesClient({ series }: SeriesClientProps) {
         if (!pane) return;
 
         const computeScale = () => {
-            const scale = Math.min(1.0, Math.max(0.7, 0.7 + ((window.innerWidth - 375) / 825) * 0.3));
+            const w = window.innerWidth;
+            // Type is tuned for the split layout (nav + detail). Full-width mobile needs a higher
+            // floor so schedule/meta do not read tiny. Keep formulas in sync with --scale in series-ui.css.
+            const t = Math.min(1, Math.max(0, (w - 375) / 825));
+            const isMobileLayout = w <= MOBILE_LAYOUT_MAX_WIDTH_PX;
+            const minScale = isMobileLayout ? 0.98 : 0.88;
+            const maxScale = 1;
+            // Same 0.12 ramp as split layout so by ~760px (widest mobile) scale caps at 1.0.
+            const ramp = 0.12;
+            const scale = Math.min(maxScale, minScale + t * ramp);
             pane.style.setProperty('--scale', scale.toFixed(4));
         };
         computeScale();
@@ -1396,11 +1382,14 @@ export default function SeriesClient({ series }: SeriesClientProps) {
         let resizing = false;
         let resizeTimer: ReturnType<typeof setTimeout>;
         const handleResize = () => {
+            // Keep --scale in sync with the window every event; debouncing this made type/layout
+            // lag behind vw-based CSS while the window edge was dragged.
+            computeScale();
+
             resizing = true;
             clearTimeout(resizeTimer);
             resizeTimer = setTimeout(() => {
                 resizing = false;
-                computeScale();
                 requestAnimationFrame(() => {
                     seriesRefs.current[selectedIndexRef.current]?.scrollIntoView({
                         behavior: 'instant',
@@ -1853,7 +1842,7 @@ export default function SeriesClient({ series }: SeriesClientProps) {
                     )}
                     <div
                         ref={detailPaneRef}
-                        className="absolute inset-0 overflow-y-auto pb-8 pr-8 [container-name:detail] [container-type:inline-size] snap-y snap-mandatory"
+                        className="series-detail-pane absolute inset-0 overflow-y-auto [container-name:detail] [container-type:inline-size] snap-y snap-mandatory"
                     >
                         {showColumns && (
                             <div className="col-overlay pointer-events-none fixed inset-0 z-[100] grid grid-cols-[32ch_minmax(0,2fr)_minmax(0,3fr)] gap-x-8 pr-8">
