@@ -184,9 +184,6 @@ function shortenTrackName(name: string | null | undefined): string | null | unde
 // Series where cars mode is active but track is the primary display (car is secondary)
 const TRACK_PRIMARY_SERIES = new Set(['eNASCAR Coca Cola iRacing Qualifying Series']);
 
-/** Matches `series-ui.css` @media (max-width: 760px): overlay nav, detail full width. */
-const MOBILE_LAYOUT_MAX_WIDTH_PX = 760;
-
 const LAYOUT_ABBR: Record<string, string> = {
     Industriefahrten: 'Indus.',
 };
@@ -487,8 +484,7 @@ const SeriesCard = memo(
                 }}
             >
                 <div className="series-body">
-                    {/* Meta */}
-                    <div className="series-meta">
+                    <div className="series-meta series-meta-lead">
                         <h2
                             style={{
                                 margin: '0 0 1rem',
@@ -544,7 +540,6 @@ const SeriesCard = memo(
                                 </ul>
                             </div>
                         )}
-                        <div style={{ display: 'flex', flexDirection: 'column', marginBottom: '1.75rem' }}>
                             {(s.discipline || s.license_class || s.setup) && (() => {
                                 const lcRow = licenseColors(s.license_class);
                                 const discItems = [
@@ -616,246 +611,7 @@ const SeriesCard = memo(
                                     </div>
                                 );
                             })()}
-                            {s.schedule_mode === 'cars'
-                                ? (() => {
-                                      const weeksWithCars = (s.weeks || []).filter(
-                                          (w) => w.cars_in_use && w.cars_in_use.length > 0,
-                                      );
-                                      const seen = new Set<string>();
-                                      const allCars = weeksWithCars
-                                          .flatMap((w) => w.cars_in_use)
-                                          .filter((car) => (seen.has(car) ? false : (seen.add(car), true)));
-                                      return allCars.length > 0 ? (
-                                          <div
-                                              style={{
-                                                  display: 'flex',
-                                                  flexDirection: 'column',
-                                                  gap: 'calc(8px * var(--scale))',
-                                                  marginBottom: '1.44em',
-                                              }}
-                                          >
-                                              {allCars.map((car, i) => (
-                                                  <CarItem key={`${car}-${i}`} car={car} />
-                                              ))}
-                                          </div>
-                                      ) : null;
-                                  })()
-                                : (s.cars || []).length > 0 && (
-                                      <div
-                                          style={{
-                                              display: 'flex',
-                                              flexDirection: 'column',
-                                              gap: 'calc(8px * var(--scale))',
-                                              marginBottom: '1.44em',
-                                          }}
-                                      >
-                                          {s.cars.map((car) => (
-                                              <CarItem key={car} car={car} />
-                                          ))}
-                                      </div>
-                                  )}
-                            {uniformFuel != null && (
-                                <div className="series-uniform-fuel" style={{ marginBottom: '1.44em' }}>
-                                    <span
-                                        style={{
-                                            fontSize: 'calc(16px * var(--scale))',
-                                            fontStyle: 'italic',
-                                            fontWeight: 600,
-                                            color: 'var(--fg-subtle)',
-                                            letterSpacing: '0.04em',
-                                            textTransform: 'uppercase',
-                                            display: 'flex',
-                                            alignItems: 'center',
-                                            gap: '0.4em',
-                                        }}
-                                    >
-                                        Cars start with
-                                        <span style={{ display: 'inline-flex', alignItems: 'center', gap: 0 }}>
-                                            <span
-                                                style={{
-                                                    position: 'relative',
-                                                    display: 'inline-flex',
-                                                    alignItems: 'center',
-                                                    justifyContent: 'center',
-                                                    width: '32px',
-                                                    height: '32px',
-                                                    flexShrink: 0,
-                                                }}
-                                            >
-                                                {(() => {
-                                                    const size = 32;
-                                                    const c = size / 2;
-                                                    const r = 12.5;
-                                                    const circ = 2 * Math.PI * r;
-                                                    const filled = (uniformFuel / 100) * circ;
-                                                    return (
-                                                        <svg
-                                                            width={size}
-                                                            height={size}
-                                                            style={{
-                                                                position: 'absolute',
-                                                                inset: 0,
-                                                                transform: 'rotate(-90deg)',
-                                                            }}
-                                                        >
-                                                            <circle
-                                                                cx={c}
-                                                                cy={c}
-                                                                r={r}
-                                                                fill="none"
-                                                                stroke="currentColor"
-                                                                strokeOpacity={0.2}
-                                                                strokeWidth="2.5"
-                                                            />
-                                                            <circle
-                                                                cx={c}
-                                                                cy={c}
-                                                                r={r}
-                                                                fill="none"
-                                                                stroke="currentColor"
-                                                                strokeOpacity={0.8}
-                                                                strokeWidth="2.5"
-                                                                strokeDasharray={`${filled} ${circ}`}
-                                                                strokeLinecap="round"
-                                                            />
-                                                        </svg>
-                                                    );
-                                                })()}
-                                                <span
-                                                    style={{
-                                                        position: 'relative',
-                                                        zIndex: 1,
-                                                        display: 'flex',
-                                                        alignItems: 'center',
-                                                        justifyContent: 'center',
-                                                        width: '100%',
-                                                        height: '100%',
-                                                        fontWeight: 800,
-                                                        fontSize: '0.75em',
-                                                        letterSpacing: 0,
-                                                        textTransform: 'none',
-                                                        lineHeight: 1,
-                                                        fontStyle: 'normal',
-                                                        fontVariantNumeric: 'tabular-nums',
-                                                    }}
-                                                >
-                                                    {uniformFuel}
-                                                </span>
-                                            </span>
-                                            <span>% fuel</span>
-                                        </span>
-                                    </span>
-                                </div>
-                            )}
-                            {uniformTireSets != null && (
-                                <div
-                                    style={{
-                                        fontSize: 'calc(16px * var(--scale))',
-                                        lineHeight: '1.625',
-                                        fontStyle: 'italic',
-                                        color: 'var(--fg-body)',
-                                        marginBottom: '1.44em',
-                                    }}
-                                >
-                                    {`${uniformTireSets} tire set${uniformTireSets !== 1 ? 's' : ''}`}
-                                </div>
-                            )}
-                            {s.race_cadence && (
-                                <div
-                                    className="cadence-highlight"
-                                    style={{
-                                        fontSize: 'calc(16px * var(--scale))',
-                                        lineHeight: '1.625',
-                                        fontStyle: 'italic',
-                                        color: 'var(--fg-body)',
-                                    }}
-                                >
-                                    {highlightCadence(s.race_cadence)}
-                                </div>
-                            )}
-                            {s.qualifying_cadence && (
-                                <div
-                                    className="cadence-highlight"
-                                    style={{
-                                        fontSize: 'calc(16px * var(--scale))',
-                                        lineHeight: '1.625',
-                                        fontStyle: 'italic',
-                                        color: 'var(--fg-body)',
-                                    }}
-                                >
-                                    {highlightCadence(s.qualifying_cadence)}
-                                </div>
-                            )}
-                            {uniformDuration && (
-                                <div
-                                    style={{
-                                        fontSize: 'calc(16px * var(--scale))',
-                                        lineHeight: '1.625',
-                                        fontStyle: 'italic',
-                                        color: 'var(--fg-body)',
-                                    }}
-                                >
-                                    All races are <span style={{ fontWeight: 600 }}>{uniformDuration}</span>
-                                </div>
-                            )}
-                            {uniformSegments && (
-                                <div
-                                    style={{
-                                        fontSize: 'calc(16px * var(--scale))',
-                                        lineHeight: '1.625',
-                                        fontStyle: 'italic',
-                                        color: 'var(--fg-body)',
-                                        display: 'flex',
-                                        flexDirection: 'column',
-                                    }}
-                                >
-                                    {uniformSegments.map((seg, i) => {
-                                        const label =
-                                            seg.type === 'heat'
-                                                ? 'Heat'
-                                                : seg.type === 'consolation'
-                                                ? 'Consolation'
-                                                : seg.type === 'feature'
-                                                ? 'Feature'
-                                                : seg.type.charAt(0).toUpperCase() + seg.type.slice(1);
-                                        return (
-                                            <span key={i} style={{ fontWeight: 600 }}>
-                                                {label}: {seg.laps} laps
-                                            </span>
-                                        );
-                                    })}
-                                </div>
-                            )}
-                            <div
-                                className="entries-info"
-                                style={{
-                                    display: 'flex',
-                                    flexDirection: 'column',
-                                    fontSize: 'calc(16px * var(--scale))',
-                                    lineHeight: '1.625',
-                                    fontStyle: 'italic',
-                                    color: 'var(--fg-body)',
-                                    marginTop: '1.625em',
-                                }}
-                            >
-                                {s.min_entries != null && (
-                                    <>
-                                        <span>{`Official at ${s.min_entries} entries, splits at ${s.split_at}`}</span>
-                                        <span>{`${s.drops} drop weeks allowed`}</span>
-                                    </>
-                                )}
-                                {s.incident_penalty != null && (
-                                    <span>
-                                        {s.incident_penalty_repeat != null
-                                            ? `Drive-through at ${s.incident_penalty} incidents, then every ${s.incident_penalty_repeat}`
-                                            : `Drive-through every ${s.incident_penalty} incidents`}
-                                    </span>
-                                )}
-                                {s.incident_dq != null && <span>{`Disqualified at ${s.incident_dq} incidents`}</span>}
-                            </div>
-                        </div>
                     </div>
-                    {/* end series-meta */}
 
                     {/* Schedule */}
                     <div className="series-schedule">
@@ -1196,6 +952,250 @@ const SeriesCard = memo(
                     </div>
                     {/* end series-schedule */}
 
+
+                    <div className="series-meta series-meta-tail">
+                        <div style={{ display: 'flex', flexDirection: 'column', marginBottom: '1.75rem' }}>
+                            {s.schedule_mode === 'cars'
+                                ? (() => {
+                                      const weeksWithCars = (s.weeks || []).filter(
+                                          (w) => w.cars_in_use && w.cars_in_use.length > 0,
+                                      );
+                                      const seen = new Set<string>();
+                                      const allCars = weeksWithCars
+                                          .flatMap((w) => w.cars_in_use)
+                                          .filter((car) => (seen.has(car) ? false : (seen.add(car), true)));
+                                      return allCars.length > 0 ? (
+                                          <div
+                                              style={{
+                                                  display: 'flex',
+                                                  flexDirection: 'column',
+                                                  gap: 'calc(8px * var(--scale))',
+                                                  marginBottom: '1.44em',
+                                              }}
+                                          >
+                                              {allCars.map((car, i) => (
+                                                  <CarItem key={`${car}-${i}`} car={car} />
+                                              ))}
+                                          </div>
+                                      ) : null;
+                                  })()
+                                : (s.cars || []).length > 0 && (
+                                      <div
+                                          style={{
+                                              display: 'flex',
+                                              flexDirection: 'column',
+                                              gap: 'calc(8px * var(--scale))',
+                                              marginBottom: '1.44em',
+                                          }}
+                                      >
+                                          {s.cars.map((car) => (
+                                              <CarItem key={car} car={car} />
+                                          ))}
+                                      </div>
+                                  )}
+                            {uniformFuel != null && (
+                                <div className="series-uniform-fuel" style={{ marginBottom: '1.44em' }}>
+                                    <span
+                                        style={{
+                                            fontSize: 'calc(16px * var(--scale))',
+                                            fontStyle: 'italic',
+                                            fontWeight: 600,
+                                            color: 'var(--fg-subtle)',
+                                            letterSpacing: '0.04em',
+                                            textTransform: 'uppercase',
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            gap: '0.4em',
+                                        }}
+                                    >
+                                        Cars start with
+                                        <span style={{ display: 'inline-flex', alignItems: 'center', gap: 0 }}>
+                                            <span
+                                                style={{
+                                                    position: 'relative',
+                                                    display: 'inline-flex',
+                                                    alignItems: 'center',
+                                                    justifyContent: 'center',
+                                                    width: '32px',
+                                                    height: '32px',
+                                                    flexShrink: 0,
+                                                }}
+                                            >
+                                                {(() => {
+                                                    const size = 32;
+                                                    const c = size / 2;
+                                                    const r = 12.5;
+                                                    const circ = 2 * Math.PI * r;
+                                                    const filled = (uniformFuel / 100) * circ;
+                                                    return (
+                                                        <svg
+                                                            width={size}
+                                                            height={size}
+                                                            style={{
+                                                                position: 'absolute',
+                                                                inset: 0,
+                                                                transform: 'rotate(-90deg)',
+                                                            }}
+                                                        >
+                                                            <circle
+                                                                cx={c}
+                                                                cy={c}
+                                                                r={r}
+                                                                fill="none"
+                                                                stroke="currentColor"
+                                                                strokeOpacity={0.2}
+                                                                strokeWidth="2.5"
+                                                            />
+                                                            <circle
+                                                                cx={c}
+                                                                cy={c}
+                                                                r={r}
+                                                                fill="none"
+                                                                stroke="currentColor"
+                                                                strokeOpacity={0.8}
+                                                                strokeWidth="2.5"
+                                                                strokeDasharray={`${filled} ${circ}`}
+                                                                strokeLinecap="round"
+                                                            />
+                                                        </svg>
+                                                    );
+                                                })()}
+                                                <span
+                                                    style={{
+                                                        position: 'relative',
+                                                        zIndex: 1,
+                                                        display: 'flex',
+                                                        alignItems: 'center',
+                                                        justifyContent: 'center',
+                                                        width: '100%',
+                                                        height: '100%',
+                                                        fontWeight: 800,
+                                                        fontSize: '0.75em',
+                                                        letterSpacing: 0,
+                                                        textTransform: 'none',
+                                                        lineHeight: 1,
+                                                        fontStyle: 'normal',
+                                                        fontVariantNumeric: 'tabular-nums',
+                                                    }}
+                                                >
+                                                    {uniformFuel}
+                                                </span>
+                                            </span>
+                                            <span>% fuel</span>
+                                        </span>
+                                    </span>
+                                </div>
+                            )}
+                            {uniformTireSets != null && (
+                                <div
+                                    style={{
+                                        fontSize: 'calc(16px * var(--scale))',
+                                        lineHeight: '1.625',
+                                        fontStyle: 'italic',
+                                        color: 'var(--fg-body)',
+                                        marginBottom: '1.44em',
+                                    }}
+                                >
+                                    {`${uniformTireSets} tire set${uniformTireSets !== 1 ? 's' : ''}`}
+                                </div>
+                            )}
+                            {s.race_cadence && (
+                                <div
+                                    className="cadence-highlight"
+                                    style={{
+                                        fontSize: 'calc(16px * var(--scale))',
+                                        lineHeight: '1.625',
+                                        fontStyle: 'italic',
+                                        color: 'var(--fg-body)',
+                                    }}
+                                >
+                                    {highlightCadence(s.race_cadence)}
+                                </div>
+                            )}
+                            {s.qualifying_cadence && (
+                                <div
+                                    className="cadence-highlight"
+                                    style={{
+                                        fontSize: 'calc(16px * var(--scale))',
+                                        lineHeight: '1.625',
+                                        fontStyle: 'italic',
+                                        color: 'var(--fg-body)',
+                                    }}
+                                >
+                                    {highlightCadence(s.qualifying_cadence)}
+                                </div>
+                            )}
+                            {uniformDuration && (
+                                <div
+                                    style={{
+                                        fontSize: 'calc(16px * var(--scale))',
+                                        lineHeight: '1.625',
+                                        fontStyle: 'italic',
+                                        color: 'var(--fg-body)',
+                                    }}
+                                >
+                                    All races are <span style={{ fontWeight: 600 }}>{uniformDuration}</span>
+                                </div>
+                            )}
+                            {uniformSegments && (
+                                <div
+                                    style={{
+                                        fontSize: 'calc(16px * var(--scale))',
+                                        lineHeight: '1.625',
+                                        fontStyle: 'italic',
+                                        color: 'var(--fg-body)',
+                                        display: 'flex',
+                                        flexDirection: 'column',
+                                    }}
+                                >
+                                    {uniformSegments.map((seg, i) => {
+                                        const label =
+                                            seg.type === 'heat'
+                                                ? 'Heat'
+                                                : seg.type === 'consolation'
+                                                ? 'Consolation'
+                                                : seg.type === 'feature'
+                                                ? 'Feature'
+                                                : seg.type.charAt(0).toUpperCase() + seg.type.slice(1);
+                                        return (
+                                            <span key={i} style={{ fontWeight: 600 }}>
+                                                {label}: {seg.laps} laps
+                                            </span>
+                                        );
+                                    })}
+                                </div>
+                            )}
+                            <div
+                                className="entries-info"
+                                style={{
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    fontSize: 'calc(16px * var(--scale))',
+                                    lineHeight: '1.625',
+                                    fontStyle: 'italic',
+                                    color: 'var(--fg-body)',
+                                    marginTop: '1.625em',
+                                }}
+                            >
+                                {s.min_entries != null && (
+                                    <>
+                                        <span>{`Official at ${s.min_entries} entries, splits at ${s.split_at}`}</span>
+                                        <span>{`${s.drops} drop weeks allowed`}</span>
+                                    </>
+                                )}
+                                {s.incident_penalty != null && (
+                                    <span>
+                                        {s.incident_penalty_repeat != null
+                                            ? `Drive-through at ${s.incident_penalty} incidents, then every ${s.incident_penalty_repeat}`
+                                            : `Drive-through every ${s.incident_penalty} incidents`}
+                                    </span>
+                                )}
+                                {s.incident_dq != null && <span>{`Disqualified at ${s.incident_dq} incidents`}</span>}
+                            </div>
+                        </div>
+                    </div>
+
+
                     {/* Race info block */}
                     {(() => {
                         const weeks = s.weeks || [];
@@ -1439,28 +1439,9 @@ export default function SeriesClient({ series }: SeriesClientProps) {
         const pane = detailPaneRef.current;
         if (!pane) return;
 
-        const computeScale = () => {
-            const w = window.innerWidth;
-            // Type is tuned for the split layout (nav + detail). Full-width mobile needs a higher
-            // floor so schedule/meta do not read tiny. Keep formulas in sync with --scale in series-ui.css.
-            const t = Math.min(1, Math.max(0, (w - 375) / 825));
-            const isMobileLayout = w <= MOBILE_LAYOUT_MAX_WIDTH_PX;
-            const minScale = isMobileLayout ? 0.98 : 0.88;
-            const maxScale = 1;
-            // Same 0.12 ramp as split layout so by ~760px (widest mobile) scale caps at 1.0.
-            const ramp = 0.12;
-            const scale = Math.min(maxScale, minScale + t * ramp);
-            pane.style.setProperty('--scale', scale.toFixed(4));
-        };
-        computeScale();
-
         let resizing = false;
         let resizeTimer: ReturnType<typeof setTimeout>;
         const handleResize = () => {
-            // Keep --scale in sync with the window every event; debouncing this made type/layout
-            // lag behind vw-based CSS while the window edge was dragged.
-            computeScale();
-
             resizing = true;
             clearTimeout(resizeTimer);
             resizeTimer = setTimeout(() => {
@@ -1801,7 +1782,7 @@ export default function SeriesClient({ series }: SeriesClientProps) {
             </div>
 
             {/* Content grid */}
-            <div className="page-root grid min-h-0 flex-1 grid-cols-[32ch_minmax(0,2fr)_minmax(0,3fr)] grid-rows-1 gap-x-8">
+            <div className="page-root grid min-h-0 min-w-0 flex-1 grid-cols-[32ch_minmax(0,2fr)_minmax(0,3fr)] grid-rows-1 gap-x-8">
                 {/* Modal backdrop (mobile only) */}
                 {navOpen && <div className="nav-backdrop" onClick={() => setNavOpen(false)} />}
 

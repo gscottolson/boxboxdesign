@@ -19,6 +19,8 @@
     --license-c-chip-color: var(--bg);
     --shadow-nav: 0 8px 32px rgba(66, 63, 60, 0.12), 0 2px 8px rgba(66, 63, 60, 0.08);
     --backdrop-bg: rgba(230, 227, 225, 0.9);
+    /* Detail pane: `calc(Npx * var(--scale))` — 1 on split/desktop; mobile uses var below. */
+    --series-detail-scale-mobile: 0.9;
 }
 
 [data-theme='dark'] {
@@ -88,8 +90,8 @@
 
 .series-detail {
     grid-column: 2 / 4;
-    /* Split layout (nav + detail): must match computeScale() when width > 760px. */
-    --scale: clamp(0.88, calc(0.88 + (100vw - 375px) / 825px * 0.12), 1);
+    min-width: 0; /* allow fr column to shrink below nowrap schedule content */
+    --scale: 1; /* canonical type/spacing; mobile overrides below */
     transition: opacity 0.2s ease;
 }
 
@@ -98,6 +100,8 @@
     padding-bottom: 2rem;
     /* Skewed C-license chips paint past their box; overflow-y-auto also clips X — inset so corners aren’t cut. */
     padding-left: 0.375rem;
+    /* No horizontal scroll: schedule row uses nowrap + overflow visible; clip X, keep Y. */
+    overflow-x: hidden;
 }
 
 @media (min-width: 761px) {
@@ -240,18 +244,20 @@
 
     .series-detail {
         grid-column: 1;
-        /* Full-width detail: higher floor + same ramp as desktop so scale reaches 1 by ~760px. */
-        --scale: clamp(0.98, calc(0.98 + (100vw - 375px) / 825px * 0.12), 1);
-        max-width: none;
+        --scale: var(--series-detail-scale-mobile);
+        /* Cap width on mobile; center in the page column — pane stays inset-0 inside this. */
+        max-width: 500px;
         width: 100%;
-        margin: 0;
+        margin-inline: auto;
+        margin-block: 0;
+        box-sizing: border-box;
         /* Horizontal inset only on .series-detail-pane (no page-root padding to avoid double gutters) */
         padding: 1.5rem 0;
     }
 
     .series-detail .series-detail-pane {
-        /* Inset tracks window width; small rem anchor + vw body + caps for very narrow/wide */
-        --pane-pad-inline: clamp(0.5rem, 0.35rem + 12vw, 5.5rem);
+        /* Min 16px gutters; ramp with vw; cap for very wide narrow-layout viewports */
+        --pane-pad-inline: clamp(16px, 0.35rem + 12vw, 5.5rem);
         padding-inline: var(--pane-pad-inline);
     }
 }
@@ -270,10 +276,17 @@
     text-wrap: balance;
 }
 
-/* “Cars start with … % fuel”: right-aligned in split layout; left on mobile (matches 760px layout). */
+/* “Cars start with … % fuel”: right-aligned when meta is in split grid (container ≥70ch); left in single column. */
 .series-uniform-fuel {
     display: flex;
     justify-content: flex-end;
+}
+
+/* Narrow detail pane / stacked meta: same breakpoint as single-column .series-body (below 70ch container). */
+@container detail (max-width: 69.99ch) {
+    .series-uniform-fuel {
+        justify-content: flex-start;
+    }
 }
 
 @media (max-width: 760px) {
@@ -309,8 +322,26 @@
     .series-body {
         display: grid;
         grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+        grid-template-rows: auto auto auto;
         gap: 32px;
-        align-items: flex-start;
+        align-items: start;
+    }
+
+    /* DOM order narrow: lead → schedule → tail → race. Grid: lead+tail col1, schedule spans rows 1–2. */
+    .series-meta-lead {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .series-meta-tail {
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+    .series-schedule {
+        grid-column: 2;
+        grid-row: 1 / span 2;
+        align-self: start;
     }
 
     .series-meta {
@@ -325,10 +356,6 @@
         justify-content: flex-end;
         align-self: flex-end;
         margin-inline-start: auto;
-    }
-
-    .series-schedule {
-        flex: 1;
     }
 
     .car-item {
@@ -348,6 +375,7 @@
 
     .race-info {
         grid-column: 1 / -1;
+        grid-row: 3;
         display: flex;
         justify-content: center;
     }
