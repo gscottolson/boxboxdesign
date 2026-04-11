@@ -42,3 +42,289 @@
     --shadow-nav: 0 8px 32px rgba(0, 0, 0, 0.4), 0 2px 8px rgba(0, 0, 0, 0.3);
     --backdrop-bg: rgba(20, 18, 16, 0.9);
 }
+
+/* SeriesClient layout and schedule UI (was inline <style> in SeriesClient.tsx) */
+.series-nav-wrap {
+    display: flex;
+    flex-direction: column;
+}
+
+.series-nav {
+    background: var(--bg);
+    flex: 1;
+    min-height: 0;
+}
+
+.series-detail {
+    grid-column: 2 / 4;
+    --scale: clamp(0.7, calc(0.7 + (100vw - 375px) / 825px * 0.3), 1);
+    transition: opacity 0.2s ease;
+}
+
+.series-nav-scroll > ul,
+.series-nav-scroll ul {
+    width: 32ch;
+    box-sizing: border-box;
+}
+
+.series-nav .nav-label {
+    white-space: nowrap;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.series-nav-scroll {
+    scrollbar-width: none;
+}
+
+.series-nav-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+.series-nav:hover .series-nav-scroll {
+    scrollbar-width: thin;
+}
+
+.series-nav:hover .series-nav-scroll::-webkit-scrollbar {
+    display: block;
+}
+
+.series-nav-item .nav-inner {
+    position: relative;
+}
+
+.series-nav-item:not(.series-nav-item--active):hover .nav-label {
+    text-decoration: underline;
+}
+
+.series-nav::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3rem;
+    background: linear-gradient(to bottom, transparent, var(--bg));
+    pointer-events: none;
+    z-index: 3;
+}
+
+.series-nav-toggle {
+    display: none;
+}
+
+.nav-backdrop {
+    display: none;
+}
+
+@media (max-width: 760px) {
+    .page-root {
+        grid-template-columns: 1fr !important;
+        column-gap: 0 !important;
+        padding: 0 32px !important;
+    }
+
+    .col-overlay {
+        grid-template-columns: 1fr !important;
+        column-gap: 0 !important;
+        padding: 0 32px !important;
+    }
+
+    .nav-backdrop {
+        display: block;
+        position: fixed;
+        inset: 0;
+        background: var(--backdrop-bg);
+        backdrop-filter: blur(4px);
+        z-index: 9;
+    }
+
+    .series-nav-wrap {
+        width: 32ch !important;
+        position: fixed !important;
+        top: calc(4.5rem + 5vh) !important;
+        bottom: 5vh !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        visibility: hidden !important;
+        z-index: 10;
+        border-radius: 8px;
+        box-shadow: var(--shadow-nav);
+        background: var(--bg);
+    }
+
+    .series-nav-wrap--open {
+        visibility: visible !important;
+        padding: 2rem;
+    }
+
+    .series-nav {
+        flex: 1 !important;
+        min-height: 0 !important;
+        overflow: hidden;
+        border-radius: 8px;
+    }
+
+    .series-nav-scroll {
+        visibility: hidden;
+    }
+
+    .series-nav--open .series-nav-scroll {
+        visibility: visible;
+    }
+
+    .page-header {
+        padding-left: 0.75rem !important;
+    }
+
+    .series-nav-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        flex-shrink: 0;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        color: var(--fg-body);
+    }
+
+    .series-detail {
+        grid-column: 1;
+        padding: 2rem 1rem;
+        max-width: 440px;
+        margin: 0 auto;
+        width: 100%;
+    }
+}
+
+.entries-info {
+    text-wrap: pretty;
+}
+
+.series-body {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.car-item {
+    display: flex;
+    align-items: stretch;
+}
+
+.car-item span {
+    line-height: 20px;
+    align-self: center;
+    text-wrap: pretty;
+}
+
+.car-decoration {
+    display: none;
+}
+
+@container detail (min-width: 70ch) {
+    .series-body {
+        display: grid;
+        grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+        gap: 32px;
+        align-items: flex-start;
+    }
+
+    .series-meta {
+        text-align: right;
+    }
+
+    .series-meta h2 {
+        text-wrap: pretty;
+    }
+
+    .series-meta .cadence-highlight {
+        justify-content: flex-end;
+    }
+
+    .series-meta .disc-row {
+        justify-content: flex-end;
+        align-self: flex-end;
+    }
+
+    .series-schedule {
+        flex: 1;
+    }
+
+    .car-item {
+        justify-content: flex-end;
+    }
+
+    .car-decoration {
+        display: block;
+        width: 2px;
+        border-radius: 0.5px;
+        background: var(--accent);
+        margin-top: 1px;
+        margin-bottom: 1px;
+        margin-left: 6px;
+        flex-shrink: 0;
+    }
+
+    .race-info {
+        grid-column: 1 / -1;
+        display: flex;
+        justify-content: center;
+    }
+
+    .race-info-inner {
+        max-width: 40ch;
+        width: 100%;
+        text-align: center;
+    }
+
+    .race-info-prose {
+        text-wrap: balance;
+    }
+}
+
+.loading-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg);
+    transition: opacity 200ms ease-out;
+    contain: strict;
+}
+
+.loading-spinner-wrap {
+    width: 64px;
+    height: 64px;
+    flex-shrink: 0;
+    will-change: transform;
+    transform: translateZ(0);
+    isolation: isolate;
+    animation: steer 1s ease-in-out infinite alternate;
+}
+
+.loading-spinner {
+    width: 64px;
+    height: 64px;
+    display: block;
+    color: var(--fg-dim);
+    opacity: 0.4;
+}
+
+@keyframes steer {
+    0%,
+    20% {
+        transform: rotate(20deg);
+    }
+
+    80%,
+    100% {
+        transform: rotate(-20deg);
+    }
+}

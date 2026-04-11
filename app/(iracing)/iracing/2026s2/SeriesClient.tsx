@@ -1,4 +1,5 @@
 'use client';
+import clsx from 'clsx';
 import { useEffect, useLayoutEffect, useMemo, useRef, useState, memo, forwardRef, useCallback } from 'react';
 import ModeToggle from './mode-toggle';
 
@@ -373,45 +374,20 @@ const NavItem = memo(
     forwardRef<HTMLDivElement, NavItemProps>(function NavItem({ s, flatIdx, active, navInnerRefs, onNavClick }, ref) {
         return (
             <div
-                className={`series-nav-item${active ? ' series-nav-item--active' : ''}`}
+                className={clsx(
+                    'series-nav-item flex min-w-0 cursor-pointer p-0 text-[0.88em] font-normal text-[var(--fg)] transition-colors duration-150',
+                    active && 'series-nav-item--active',
+                )}
                 ref={ref}
                 onClick={() => onNavClick(flatIdx)}
-                style={{
-                    padding: 0,
-                    cursor: 'pointer',
-                    fontSize: '0.88em',
-                    color: 'var(--fg)',
-                    fontWeight: 400,
-                    display: 'flex',
-                    minWidth: 0,
-                    transition: 'color 0.15s',
-                }}
             >
                 <span
-                    className="nav-inner"
+                    className="nav-inner flex min-w-0 flex-[0_1_auto] items-start gap-[0.4rem] overflow-hidden py-[0.45rem] px-2"
                     ref={(el) => {
                         navInnerRefs.current[flatIdx] = el;
                     }}
-                    style={{
-                        display: 'flex',
-                        alignItems: 'flex-start',
-                        gap: '0.4rem',
-                        padding: '0.45rem 0.5rem',
-                        minWidth: 0,
-                        flex: '0 1 auto',
-                        overflow: 'hidden',
-                    }}
                 >
-                    <span
-                        style={{
-                            flexShrink: 0,
-                            display: 'flex',
-                            alignItems: 'center',
-                            height: '1lh',
-                            color: 'var(--fg-dim)',
-                            transition: 'color 0.15s',
-                        }}
-                    >
+                    <span className="flex h-[1lh] shrink-0 items-center text-[var(--fg-dim)] transition-colors duration-150">
                         <svg width="10" height="10" viewBox="0 0 10 10">
                             {s.setup === 'Fixed' ? (
                                 <circle cx="5" cy="5" r="3.5" fill="currentColor" />
@@ -425,28 +401,16 @@ const NavItem = memo(
                             const idx = s.series.indexOf(' - ');
                             if (idx >= 0) {
                                 return (
-                                    <span
-                                        className="nav-label"
-                                        style={{
-                                            display: 'flex',
-                                            flexDirection: 'column',
-                                            minWidth: 0,
-                                            overflow: 'hidden',
-                                        }}
-                                    >
+                                    <span className="nav-label flex min-w-0 flex-col overflow-hidden">
                                         <span>{s.series.slice(0, idx)}</span>
-                                        <span style={{ fontWeight: 300 }}>
-                                            {s.series.slice(idx + 3).replace(/ - /g, ' ')}
-                                        </span>
+                                        <span className="font-light">{s.series.slice(idx + 3).replace(/ - /g, ' ')}</span>
                                     </span>
                                 );
                             }
                             return <span className="nav-label">{s.series}</span>;
                         })()
                     ) : (
-                        <span className="nav-label" style={{ color: 'var(--fg-dim)' }}>
-                            (Unnamed)
-                        </span>
+                        <span className="nav-label text-[var(--fg-dim)]">(Unnamed)</span>
                     )}
                 </span>
             </div>
@@ -1702,27 +1666,13 @@ export default function SeriesClient({ series }: SeriesClientProps) {
     }, []);
 
     return (
-        <div style={{ position: 'fixed', inset: 0, display: 'flex', flexDirection: 'column', background: 'var(--bg)' }}>
+        <div className="fixed inset-0 flex flex-col bg-[var(--bg)]">
             <ModeToggle darkMode={darkMode} onToggle={toggleTheme} />
             {/* Page header */}
-            <div
-                className="page-header"
-                style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '0.5rem',
-                    padding: '0.75rem 1rem',
-                    background: 'var(--bg)',
-                    zIndex: 20,
-                    flexShrink: 0,
-                    height: '4.5rem',
-                    boxSizing: 'border-box',
-                }}
-            >
+            <div className="page-header box-border flex h-[4.5rem] shrink-0 items-center gap-2 bg-[var(--bg)] px-4 py-3 z-20">
                 <button
-                    className="series-nav-toggle"
+                    className="series-nav-toggle pointer-events-auto shrink-0"
                     ref={navToggleRef}
-                    style={{ pointerEvents: 'auto', flexShrink: 0 }}
                     onClick={() => setNavOpen((v) => !v)}
                     aria-label={navOpen ? 'Close navigation' : 'Open navigation'}
                 >
@@ -1779,38 +1729,24 @@ export default function SeriesClient({ series }: SeriesClientProps) {
                         </svg>
                     )}
                 </button>
-                <div style={{ flex: 1, fontWeight: 700, fontSize: '1.1em', color: 'var(--fg)', lineHeight: 1.2 }}>
+                <div className="min-w-0 flex-1 text-[1.1em] font-bold leading-tight text-[var(--fg)]">
                     iRacing Official Schedule
                     <br />
-                    <span style={{ fontWeight: 400, fontSize: '0.8em', color: 'var(--fg-muted)' }}>2026 Season 2</span>
+                    <span className="text-[0.8em] font-normal text-[var(--fg-muted)]">2026 Season 2</span>
                 </div>
             </div>
 
             {/* Content grid */}
-            <div
-                className="page-root"
-                style={{
-                    display: 'grid',
-                    gridTemplateColumns: '32ch minmax(0, 2fr) minmax(0, 3fr)',
-                    gridTemplateRows: '1fr',
-                    columnGap: '32px',
-                    flex: 1,
-                    minHeight: 0,
-                }}
-            >
+            <div className="page-root grid min-h-0 flex-1 grid-cols-[32ch_minmax(0,2fr)_minmax(0,3fr)] grid-rows-1 gap-x-8">
                 {/* Modal backdrop (mobile only) */}
                 {navOpen && <div className="nav-backdrop" onClick={() => setNavOpen(false)} />}
 
                 {/* Sidebar */}
                 <div className={`series-nav-wrap${navOpen ? ' series-nav-wrap--open' : ''}`} ref={navRef}>
-                    <div
-                        className={`series-nav${navOpen ? ' series-nav--open' : ''}`}
-                        style={{ minWidth: 0, position: 'relative' }}
-                    >
+                    <div className={clsx('series-nav relative min-w-0', navOpen && 'series-nav--open')}>
                         <div
-                            className="series-nav-scroll"
+                            className="series-nav-scroll absolute inset-0 overflow-y-auto pl-2"
                             ref={navScrollRef}
-                            style={{ position: 'absolute', inset: 0, overflowY: 'auto', paddingLeft: '8px' }}
                         >
                             {pillGeometry && (
                                 <div
@@ -1833,26 +1769,14 @@ export default function SeriesClient({ series }: SeriesClientProps) {
                                     }}
                                 />
                             )}
-                            <ul style={{ listStyle: 'none', padding: '0 0 3rem 0', margin: 0 }}>
+                            <ul className="m-0 list-none pb-12">
                                 {Object.entries(hierarchy).map(([discipline, licenses]) => (
                                     <li key={discipline}>
                                         {Object.entries(licenses).map(([license, seriesArr]) => (
                                             <div key={license}>
                                                 <div
-                                                    style={{
-                                                        padding: '1rem 0.5rem 0.2rem 0.5rem',
-                                                        marginLeft: '-8px',
-                                                        paddingLeft: 'calc(0.5rem + 8px)',
-                                                        fontSize: '0.85em',
-                                                        fontWeight: 600,
-                                                        color: licenseColors(license).text,
-                                                        letterSpacing: '0.08em',
-                                                        textTransform: 'uppercase',
-                                                        position: 'sticky',
-                                                        top: 0,
-                                                        background: 'var(--bg)',
-                                                        zIndex: 2,
-                                                    }}
+                                                    className="sticky top-0 z-[2] -ml-2 bg-[var(--bg)] pt-4 pr-2 pb-[0.2rem] pl-[calc(0.5rem+8px)] text-[0.85em] font-semibold uppercase tracking-[0.08em]"
+                                                    style={{ color: licenseColors(license).text }}
                                                 >
                                                     <span
                                                         style={{
@@ -1894,88 +1818,8 @@ export default function SeriesClient({ series }: SeriesClientProps) {
                     </div>
                 </div>
 
-                <style suppressHydrationWarning>{`
-        .series-nav-wrap { display: flex; flex-direction: column; }
-        .series-nav { background: var(--bg); flex: 1; min-height: 0; }
-        .series-detail { grid-column: 2 / 4; }
-        .series-detail { --scale: clamp(0.70, calc(0.70 + (100vw - 375px) / 825px * 0.30), 1.00); transition: opacity 0.2s ease; }
-        .series-nav-scroll > ul, .series-nav-scroll ul { width: 32ch; box-sizing: border-box; }
-        .series-nav .nav-label { white-space: nowrap; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
-        .series-nav-scroll { scrollbar-width: none; }
-        .series-nav-scroll::-webkit-scrollbar { display: none; }
-        .series-nav:hover .series-nav-scroll { scrollbar-width: thin; }
-        .series-nav:hover .series-nav-scroll::-webkit-scrollbar { display: block; }
-        .series-nav-item .nav-inner { position: relative; }
-        .series-nav-item:not(.series-nav-item--active):hover .nav-label { text-decoration: underline; }
-        .series-nav::after { content: ""; position: absolute; bottom: 0; left: 0; right: 0; height: 3rem; background: linear-gradient(to bottom, transparent, var(--bg)); pointer-events: none; z-index: 3; }
-        .series-nav-toggle { display: none; }
-        .nav-backdrop { display: none; }
-        @media (max-width: 760px) {
-          .page-root { grid-template-columns: 1fr !important; column-gap: 0 !important; padding: 0 32px !important; }
-          .col-overlay { grid-template-columns: 1fr !important; column-gap: 0 !important; padding: 0 32px !important; }
-          .nav-backdrop { display: block; position: fixed; inset: 0; background: var(--backdrop-bg); backdrop-filter: blur(4px); z-index: 9; }
-          .series-nav-wrap { width: 32ch !important; position: fixed !important; top: calc(4.5rem + 5vh) !important; bottom: 5vh !important; left: 50% !important; transform: translateX(-50%) !important; visibility: hidden !important; z-index: 10; border-radius: 8px; box-shadow: var(--shadow-nav); background: var(--bg); }
-          .series-nav-wrap--open { visibility: visible !important; padding: 2rem; }
-          .series-nav { flex: 1 !important; min-height: 0 !important; overflow: hidden; border-radius: 8px; }
-          .series-nav-scroll { visibility: hidden; }
-          .series-nav--open .series-nav-scroll { visibility: visible; }
-          .page-header { padding-left: 0.75rem !important; }
-          .series-nav-toggle { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; flex-shrink: 0; background: none; border: none; cursor: pointer; padding: 0; color: var(--fg-body); }
-          .series-detail { grid-column: 1; padding: 2rem 1rem; max-width: 440px; margin: 0 auto; width: 100%; }
-        }
-        .entries-info { text-wrap: pretty; }
-        .series-body { display: flex; flex-direction: column; gap: 1.5rem; }
-        .car-item { display: flex; align-items: stretch; }
-        .car-item span { line-height: 20px; align-self: center; text-wrap: pretty; }
-        .car-decoration { display: none; }
-        @container detail (min-width: 70ch) {
-          .series-body { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); gap: 32px; align-items: flex-start; }
-          .series-meta { text-align: right; }
-          .series-meta h2 { text-wrap: pretty; }
-          .series-meta .cadence-highlight { justify-content: flex-end; }
-          .series-meta .disc-row { justify-content: flex-end; align-self: flex-end; }
-          .series-schedule { flex: 1; }
-          .car-item { justify-content: flex-end; }
-          .car-decoration { display: block; width: 2px; border-radius: 0.5px; background: var(--accent); margin-top: 1px; margin-bottom: 1px; margin-left: 6px; flex-shrink: 0; }
-          .race-info { grid-column: 1 / -1; display: flex; justify-content: center; }
-          .race-info-inner { max-width: 40ch; width: 100%; text-align: center; }
-          .race-info-prose { text-wrap: balance; }
-        }
-        .loading-overlay {
-          position: absolute;
-          inset: 0;
-          z-index: 10;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          background: var(--bg);
-          transition: opacity 200ms ease-out;
-          contain: strict;
-        }
-        .loading-spinner-wrap {
-          width: 64px;
-          height: 64px;
-          flex-shrink: 0;
-          will-change: transform;
-          transform: translateZ(0);
-          isolation: isolate;
-          animation: steer 1s ease-in-out infinite alternate;
-        }
-        .loading-spinner {
-          width: 64px;
-          height: 64px;
-          display: block;
-          color: var(--fg-dim);
-          opacity: 0.4;
-        }
-        @keyframes steer {
-          0%, 20%   { transform: rotate(20deg); }
-          80%, 100% { transform: rotate(-20deg); }
-        }
-      `}</style>
-
                 {/* Detail pane — full list */}
-                <div className="series-detail" style={{ position: 'relative', overflow: 'hidden' }}>
+                <div className="series-detail relative overflow-hidden">
                     {overlayMounted && (
                         <div
                             role="status"
@@ -2009,38 +1853,14 @@ export default function SeriesClient({ series }: SeriesClientProps) {
                     )}
                     <div
                         ref={detailPaneRef}
-                        style={{
-                            position: 'absolute',
-                            inset: 0,
-                            overflowY: 'auto',
-                            padding: '0 32px 2rem 0',
-                            scrollSnapType: 'y mandatory',
-                            containerType: 'inline-size',
-                            containerName: 'detail',
-                        }}
+                        className="absolute inset-0 overflow-y-auto pb-8 pr-8 [container-name:detail] [container-type:inline-size] snap-y snap-mandatory"
                     >
                         {showColumns && (
-                            <div
-                                className="col-overlay"
-                                style={{
-                                    position: 'fixed',
-                                    inset: 0,
-                                    pointerEvents: 'none',
-                                    zIndex: 100,
-                                    display: 'grid',
-                                    gridTemplateColumns: '32ch minmax(0, 2fr) minmax(0, 3fr)',
-                                    columnGap: '32px',
-                                    paddingRight: '32px',
-                                }}
-                            >
+                            <div className="col-overlay pointer-events-none fixed inset-0 z-[100] grid grid-cols-[32ch_minmax(0,2fr)_minmax(0,3fr)] gap-x-8 pr-8">
                                 {[0, 1, 2].map((i) => (
                                     <div
                                         key={i}
-                                        style={{
-                                            background: 'rgba(255,0,128,0.08)',
-                                            borderLeft: '1px solid rgba(255,0,128,0.25)',
-                                            borderRight: '1px solid rgba(255,0,128,0.25)',
-                                        }}
+                                        className="border-x border-[rgba(255,0,128,0.25)] bg-[rgba(255,0,128,0.08)]"
                                     />
                                 ))}
                             </div>
