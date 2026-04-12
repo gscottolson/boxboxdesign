@@ -57,9 +57,9 @@ def test_build_series_weeks_ordered():
     assert s.weeks[1].week == 2
 
 
-def test_build_series_discipline_none_license_from_header_when_present():
+def test_build_series_derives_discipline_when_pdf_section_missing():
     s = build_series(BASIC_BLOCK)
-    assert s.discipline is None
+    assert s.discipline == "Oval"
     assert s.license_class is None  # no class line in this fixture
 
 
@@ -80,6 +80,20 @@ def test_build_series_pdf_section_discipline_and_license_fallback():
     s = build_series(block)
     assert s.discipline == "Oval"
     assert s.license_class == "D"
+
+
+def test_build_series_pdf_road_not_inferred_from_series_title():
+    """PDF ``(ROAD)`` stays ``Road``; we do not promote to Sports Car from the title."""
+    block = {
+        "section_discipline": "Road",
+        "section_license": "B",
+        "header": "GT4 Challenge by Simucube - 2026 Season 2\n",
+        "tables": METADATA_BLOCK["tables"],
+    }
+    s = build_series(block)
+    assert s is not None
+    assert s.discipline == "Road"
+    assert s.license_class == "B"
 
 
 def test_build_series_schedule_class_line_overrides_section_license():
@@ -183,13 +197,18 @@ def test_license_class_from_pdf_header_only():
         ),
         "tables": [
             [
-                ["Week 1 (2026-03-17)", "Daytona\n2026-04-01 14:00", "28°C, Rain chance 0%", "50 laps"],
+                [
+                    "Week 1 (2026-03-17)",
+                    "Daytona International Speedway - Oval\n2026-04-01 14:00",
+                    "28°C, Rain chance 0%",
+                    "50 laps",
+                ],
             ]
         ],
     }
     s = build_series(block)
     assert s is not None
-    assert s.discipline is None
+    assert s.discipline == "Oval"
     assert s.license_class == "A"
 
 
@@ -239,7 +258,7 @@ def test_parse_incidents_penalty_at_with_repeat_no_dq():
 def test_build_series_metadata_fields():
     s = build_series(METADATA_BLOCK)
     assert s is not None
-    assert s.discipline is None
+    assert s.discipline == "Road"
     assert s.license_class == "D"
     assert s.cars == ["Ford Mustang GT4", "Mercedes-AMG GT4", "BMW M4 GT4"]
     assert s.race_cadence == "Races every 2 hours at :30 past"

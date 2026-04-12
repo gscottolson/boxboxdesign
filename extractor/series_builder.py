@@ -5,6 +5,7 @@ import logging
 import json
 import os
 from .models import SeriesData, WeekData
+from .discipline_derive import derive_discipline
 from .week_parser import derive_car_group_label, parse_week_row
 
 # PDF header line before cadence/min entries, e.g. "Class C 4.0 --> Pro/WC 4.0" or "Rookie 4.0 --> ...".
@@ -216,7 +217,7 @@ def build_series(block: dict) -> SeriesData | None:
     setup = "Fixed" if re.search(r"\bFixed\b", series_name_raw, re.IGNORECASE) else "Open"
     series_name = _clean_series_name(series_name_raw)
 
-    discipline = block.get("section_discipline")
+    discipline: str | None = block.get("section_discipline")
     section_license = block.get("section_license")
     license_from_header_line = license_class_from_schedule_header(header_lines)
     license_class = license_from_header_line if license_from_header_line is not None else section_license
@@ -294,6 +295,9 @@ def build_series(block: dict) -> SeriesData | None:
     elif _consecutive_weeks_same_track(weeks):
         schedule_mode = "cars"
         _backfill_car_group_labels_for_same_track_series(weeks, cars)
+
+    if discipline is None:
+        discipline = derive_discipline(weeks)
 
     return SeriesData(
         series=series_name,

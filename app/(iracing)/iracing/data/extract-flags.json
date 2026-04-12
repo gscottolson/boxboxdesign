@@ -1,0 +1,44 @@
+{
+  "sources": {
+    "schedules/2026s2.pdf": {
+      "extracted_at": "2026-04-12T17:43:56.238327+00:00",
+      "schedule_json": "app/(iracing)/iracing/data/2026s2.json",
+      "flagged_series_count": 1,
+      "entries": [
+        {
+          "series": "eNASCAR Coca Cola iRacing Qualifying Series",
+          "flags": [
+            {
+              "week": 5,
+              "field": "week_start_gmt",
+              "reason": "Non-consecutive week or unexpected gap"
+            }
+          ]
+        }
+      ]
+    },
+    "schedules/2025s3.pdf": {
+      "extracted_at": "2026-04-12T17:11:09.888716+00:00",
+      "schedule_json": "app/(iracing)/iracing/data/2025s3.json",
+      "flagged_series_count": 0,
+      "entries": []
+    },
+    "schedules/2026s1.pdf": {
+      "extracted_at": "2026-04-12T17:50:46.407224+00:00",
+      "schedule_json": "app/(iracing)/iracing/data/2026s1.json",
+      "flagged_series_count": 1,
+      "entries": [
+        {
+          "series": "eNASCAR Coca Cola iRacing Qualifying Series",
+          "flags": [
+            {
+              "week": 5,
+              "field": "week_start_gmt",
+              "reason": "Non-consecutive week or unexpected gap"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
