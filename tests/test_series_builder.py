@@ -1,5 +1,11 @@
 from unittest.mock import patch
-from extractor.series_builder import build_series, _parse_cars, _parse_min_entries, _parse_incidents
+from extractor.series_builder import (
+    build_series,
+    license_class_from_schedule_header,
+    _parse_cars,
+    _parse_min_entries,
+    _parse_incidents,
+)
 
 BASIC_BLOCK = {
     "header": "Mini Stock Rookie Series - 2026 Season 1\nSome other text",
@@ -23,7 +29,7 @@ BASIC_BLOCK = {
 }
 
 FIXED_BLOCK = {
-    "header": "NASCAR Fixed Series - 2026 Season 1",
+    "header": "NASCAR Fixed Series - 2026 Season 1\nClass B 4.0 -->\n",
     "tables": [
         [
             ["Week", "Track", "Weather", "Laps"],
@@ -37,39 +43,59 @@ FIXED_BLOCK = {
     ],
 }
 
-TOC_INDEX = {
-    "mini stock rookie series": ("Oval Racing", "D"),
-    "nascar series": ("Oval Racing", "A"),
-}
-
 
 def test_build_series_basic():
-    s = build_series(BASIC_BLOCK, TOC_INDEX)
+    s = build_series(BASIC_BLOCK)
     assert s is not None
     assert s.series == "Mini Stock Rookie Series"
     assert len(s.weeks) == 2
 
 
 def test_build_series_weeks_ordered():
-    s = build_series(BASIC_BLOCK, TOC_INDEX)
+    s = build_series(BASIC_BLOCK)
     assert s.weeks[0].week == 1
     assert s.weeks[1].week == 2
 
 
-def test_build_series_toc_lookup():
-    s = build_series(BASIC_BLOCK, TOC_INDEX)
-    assert s.discipline == "Oval Racing"
-    assert s.license_class == "D"
+def test_build_series_discipline_none_license_from_header_when_present():
+    s = build_series(BASIC_BLOCK)
+    assert s.discipline is None
+    assert s.license_class is None  # no class line in this fixture
 
 
 def test_build_series_fixed_setup():
-    s = build_series(FIXED_BLOCK, TOC_INDEX)
+    s = build_series(FIXED_BLOCK)
     assert s is not None
     assert s.setup == "Fixed"
+    assert s.license_class == "A"
+
+
+def test_build_series_pdf_section_discipline_and_license_fallback():
+    block = {
+        "section_discipline": "Oval",
+        "section_license": "D",
+        "header": "Street Stock Series - 2026 Season 1\n",
+        "tables": BASIC_BLOCK["tables"],
+    }
+    s = build_series(block)
+    assert s.discipline == "Oval"
+    assert s.license_class == "D"
+
+
+def test_build_series_schedule_class_line_overrides_section_license():
+    block = {
+        "section_discipline": "Oval",
+        "section_license": "D",
+        "header": "NASCAR Fixed Series - 2026 Season 1\nClass B 4.0 -->\n",
+        "tables": FIXED_BLOCK["tables"],
+    }
+    s = build_series(block)
+    assert s.discipline == "Oval"
+    assert s.license_class == "A"
 
 
 def test_build_series_open_setup():
-    s = build_series(BASIC_BLOCK, TOC_INDEX)
+    s = build_series(BASIC_BLOCK)
     assert s.setup == "Open"
 
 
@@ -89,7 +115,7 @@ def test_build_series_malformed_row_skipped():
             ]
         ],
     }
-    s = build_series(block, TOC_INDEX)
+    s = build_series(block)
     assert s is not None
     assert len(s.weeks) == 1
 
@@ -99,16 +125,16 @@ def test_build_series_no_valid_weeks_returns_none():
         "header": "Mini Stock Rookie Series - 2026 Season 1",
         "tables": [[["Week", "Track", "Weather", "Laps"], ["bad", "row"]]],
     }
-    assert build_series(block, TOC_INDEX) is None
+    assert build_series(block) is None
 
 
 def test_build_series_no_header_returns_none():
     block = {"header": "Some random text without season marker", "tables": []}
-    assert build_series(block, TOC_INDEX) is None
+    assert build_series(block) is None
 
 
 def test_build_series_strips_year_from_name():
-    s = build_series(BASIC_BLOCK, TOC_INDEX)
+    s = build_series(BASIC_BLOCK)
     assert "2026" not in s.series
     assert "Season" not in s.series
 
@@ -135,7 +161,36 @@ METADATA_BLOCK = {
     ],
 }
 
-TOC_INDEX_META = {"gt4 series": ("Road", "D")}
+
+def test_license_class_from_schedule_header_rookie():
+    assert license_class_from_schedule_header(["Rookie 4.0 --> Pro/WC 4.0"]) == "D"
+    assert license_class_from_schedule_header(["Rookie 1.0 -->"]) == "Rookie"
+
+
+def test_license_class_from_schedule_header_class_steps():
+    assert license_class_from_schedule_header(["Class D 4.0 -->"]) == "C"
+    assert license_class_from_schedule_header(["Class C 4.0 -->"]) == "B"
+    assert license_class_from_schedule_header(["Class B 4.0 -->"]) == "A"
+    assert license_class_from_schedule_header(["Class A 4.0 -->"]) == "A"
+
+
+def test_license_class_from_pdf_header_only():
+    block = {
+        "header": (
+            "Test Oval Series - 2026 Season 1\n"
+            "Class B 4.0 --> Pro/WC 4.0\n"
+            "Races weekly\n"
+        ),
+        "tables": [
+            [
+                ["Week 1 (2026-03-17)", "Daytona\n2026-04-01 14:00", "28°C, Rain chance 0%", "50 laps"],
+            ]
+        ],
+    }
+    s = build_series(block)
+    assert s is not None
+    assert s.discipline is None
+    assert s.license_class == "A"
 
 
 def test_parse_cars_single():
@@ -144,7 +199,9 @@ def test_parse_cars_single():
 
 def test_parse_cars_multi_on_one_line():
     assert _parse_cars(["Ford Mustang GT4, Mercedes-AMG GT4, BMW M4 GT4"]) == [
-        "Ford Mustang GT4", "Mercedes-AMG GT4", "BMW M4 GT4"
+        "Ford Mustang GT4",
+        "Mercedes-AMG GT4",
+        "BMW M4 GT4",
     ]
 
 
@@ -180,8 +237,10 @@ def test_parse_incidents_penalty_at_with_repeat_no_dq():
 
 
 def test_build_series_metadata_fields():
-    s = build_series(METADATA_BLOCK, TOC_INDEX_META)
+    s = build_series(METADATA_BLOCK)
     assert s is not None
+    assert s.discipline is None
+    assert s.license_class == "D"
     assert s.cars == ["Ford Mustang GT4", "Mercedes-AMG GT4", "BMW M4 GT4"]
     assert s.race_cadence == "Races every 2 hours at :30 past"
     assert s.min_entries == 6
@@ -243,24 +302,84 @@ DRAFT_MASTER_BLOCK = {
     ],
 }
 
-DRAFT_MASTER_TOC = {"draft master challenge": ("Oval", "D")}
+# Two weeks, identical venue, no per-week car list in the PDF (like NEC).
+# Preamble matches split PDF rows: title in block header / row0, car comma-list on the next row.
+SAME_TRACK_BLOCK = {
+    "header": "Nurburgring Endurance Championship - 2026 Season 2",
+    "tables": [
+        [
+            ["Nurburgring Endurance Championship - 2026 Season 2", None, None, None],
+            [
+                "Mercedes-AMG GT3 2020, Ferrari 296 GT3, Hyundai Elantra N TCR",
+                None,
+                None,
+                None,
+            ],
+            ["Rookie 4.0 -->", None, None, None],
+            ["Min entries for official: 8 | Split at: 60 | Drops: 2", None, None, None],
+            [
+                "Week 1 (2026-03-21)",
+                "Nürburgring Combined - Gesamtstrecke VLN\n2026-04-01 12:00",
+                "20°C, Rain chance None, Rolling start, Cautions disabled",
+                "240 min",
+            ],
+            [
+                "Week 2 (2026-04-04)",
+                "Nürburgring Combined - Gesamtstrecke VLN\n2026-04-04 09:00",
+                "19°C, Rain chance None, Rolling start, Cautions disabled",
+                "240 min",
+            ],
+        ]
+    ],
+}
 
 
 def test_schedule_mode_auto_detected_as_cars():
-    s = build_series(DRAFT_MASTER_BLOCK, DRAFT_MASTER_TOC)
+    s = build_series(DRAFT_MASTER_BLOCK)
     assert s is not None
     assert s.schedule_mode == "cars"
 
 
 def test_schedule_mode_not_set_for_regular_series():
-    s = build_series(BASIC_BLOCK, TOC_INDEX)
+    s = build_series(BASIC_BLOCK)
     assert s.schedule_mode is None
+
+
+def test_schedule_mode_same_track_all_weeks():
+    s = build_series(SAME_TRACK_BLOCK)
+    assert s is not None
+    assert s.schedule_mode == "cars"
+    assert len(s.weeks) == 2
+    assert s.cars == [
+        "Mercedes-AMG GT3 2020",
+        "Ferrari 296 GT3",
+        "Hyundai Elantra N TCR",
+    ]
+    assert all(w.car_group_label == "Multi-class" for w in s.weeks)
+
+
+def test_schedule_mode_single_week_not_same_track_rule():
+    s = build_series(FIXED_BLOCK)
+    assert s is not None
+    assert len(s.weeks) == 1
+    assert s.schedule_mode is None
+
+
+def test_schedule_mode_same_track_respects_tracks_override():
+    overrides = {
+        "car_group_labels": {},
+        "schedule_modes": {"Nurburgring Endurance Championship": "tracks"},
+    }
+    with patch("extractor.series_builder._load_overrides", return_value=overrides):
+        s = build_series(SAME_TRACK_BLOCK)
+    assert s is not None
+    assert s.schedule_mode == "tracks"
 
 
 def test_schedule_mode_override_from_file():
     overrides = {"car_group_labels": {}, "schedule_modes": {"Mini Stock Rookie Series": "tracks"}}
     with patch("extractor.series_builder._load_overrides", return_value=overrides):
-        s = build_series(BASIC_BLOCK, TOC_INDEX)
+        s = build_series(BASIC_BLOCK)
     assert s.schedule_mode == "tracks"
 
 
@@ -270,6 +389,6 @@ def test_car_group_label_override_from_file():
         "schedule_modes": {},
     }
     with patch("extractor.series_builder._load_overrides", return_value=overrides):
-        s = build_series(DRAFT_MASTER_BLOCK, DRAFT_MASTER_TOC)
+        s = build_series(DRAFT_MASTER_BLOCK)
     assert s is not None
     assert s.weeks[0].car_group_label == "Cup Next Gen"

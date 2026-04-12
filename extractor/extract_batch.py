@@ -5,40 +5,98 @@ import dataclasses
 import json
 import logging
 import re
-
 import pdfplumber
 from tqdm import tqdm
 
-from .config import TOC_PATH, PDF_PATH, OUTPUT_PATH
-from .toc_parser import build_index
+from .config import PDF_PATH, OUTPUT_PATH
 from .series_builder import build_series
 from .validation import validate_series
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 logger = logging.getLogger(__name__)
 
+# e.g. "D Class Series (OVAL)", "Rookie Class Series (OVAL)" — applies to following series until the next heading.
+SECTION_HEADING_RE = re.compile(
+    r"^(Rookie|[A-Z])\s+Class\s+Series\s*\(\s*([^)]+?)\s*\)\s*$",
+    re.IGNORECASE | re.MULTILINE,
+)
+
+_PDF_DISCIPLINE_ALIASES: dict[str, str] = {
+    "OVAL": "Oval",
+    "ROAD": "Road",
+    "DIRT OVAL": "Dirt Oval",
+    "DIRT ROAD": "Dirt Road",
+    "SPORTS CAR": "Sports Car",
+    "FORMULA CAR": "Formula Car",
+}
+
+
+def normalize_pdf_discipline_label(raw: str) -> str:
+    key = " ".join(raw.upper().split())
+    return _PDF_DISCIPLINE_ALIASES.get(key, raw.strip().title())
+
+
+def parse_section_heading_cell(text: str) -> tuple[str | None, str | None]:
+    """If ``text`` is a PDF section heading, return (license_class, discipline). Else (None, None)."""
+    first_line = text.strip().split("\n")[0].strip()
+    m = SECTION_HEADING_RE.match(first_line)
+    if not m:
+        return None, None
+    lic = m.group(1)
+    raw_disc = m.group(2).strip()
+    license_class = "Rookie" if lic.lower() == "rookie" else lic.upper()
+    return license_class, normalize_pdf_discipline_label(raw_disc)
+
 
 def detect_blocks(pdf) -> list[dict]:
-    """Scan PDF tables and group into per-series blocks.
+    """Scan PDF tables in order: section headings set discipline/license for following series blocks."""
+    blocks: list[dict] = []
+    current_block: dict | None = None
+    section_discipline: str | None = None
+    section_license: str | None = None
 
-    Creates a new block whenever a table's first row contains 'Season'
-    (the series header cell). This naturally handles multiple series per page
-    and series whose season number wraps to a new line.
-    """
-    blocks = []
-    current_block = None
     for page in pdf.pages:
         for t in page.find_tables():
             rows = t.extract()
             if not rows:
                 continue
             first_cell = str(rows[0][0] or "")
-            if re.search(r"\bSeason\b", first_cell):
-                if current_block is not None:
-                    blocks.append(current_block)
-                current_block = {"header": first_cell, "tables": [rows]}
-            elif re.search(r"\bWeek\s+\d+\b", first_cell) and current_block is not None:
+            # Continuation table: week grid only (separate from series header table).
+            if re.search(r"\bWeek\s+\d+\b", first_cell) and current_block is not None:
                 current_block["tables"].append(rows)
+                continue
+
+            i = 0
+            while i < len(rows):
+                cell = str(rows[i][0] or "")
+                sl, sd = parse_section_heading_cell(cell)
+                if sl is not None and sd is not None:
+                    section_license, section_discipline = sl, sd
+                    logger.debug("PDF section: %s — %s", section_discipline, section_license)
+                    i += 1
+                    continue
+                if re.search(r"\bSeason\b", cell):
+                    if current_block is not None:
+                        blocks.append(current_block)
+                    chunk = [rows[i]]
+                    i += 1
+                    while i < len(rows):
+                        c2 = str(rows[i][0] or "")
+                        if parse_section_heading_cell(c2)[0] is not None:
+                            break
+                        if re.search(r"\bSeason\b", c2):
+                            break
+                        chunk.append(rows[i])
+                        i += 1
+                    current_block = {
+                        "header": str(chunk[0][0] or ""),
+                        "tables": [chunk],
+                        "section_discipline": section_discipline,
+                        "section_license": section_license,
+                    }
+                    continue
+                i += 1
+
     if current_block is not None:
         blocks.append(current_block)
     return blocks
@@ -57,13 +115,9 @@ def _build_output(results) -> list[dict]:
 def main() -> None:
     parser = argparse.ArgumentParser(description="Extract series schedule from PDF")
     parser.add_argument("--pdf", default=PDF_PATH, help="Path to input PDF")
-    parser.add_argument("--toc", default=TOC_PATH, help="Path to TOC text file")
     parser.add_argument("--output", default=OUTPUT_PATH, help="Path to output JSON")
     parser.add_argument("--dry-run", action="store_true", help="Print summary, skip writing output")
     args = parser.parse_args()
-
-    toc_index = build_index(args.toc)
-    logger.info("TOC index built: %d entries", len(toc_index))
 
     try:
         pdf_file = pdfplumber.open(args.pdf)
@@ -78,7 +132,7 @@ def main() -> None:
     results = []
     skipped = 0
     for block in tqdm(blocks, desc="Processing series"):
-        series = build_series(block, toc_index)
+        series = build_series(block)
         if series is not None:
             results.append(series)
         else:

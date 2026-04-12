@@ -1,6 +1,6 @@
 {
   "_comment": "Keys are 'Series Name/week_N'. Values override the derived car_group_label.",
-  "_schedule_mode_comment": "Keys are 'Series Name' with value 'cars' or 'tracks' to override auto-detection.",
+  "_schedule_mode_comment": "Keys are 'Series Name' with value 'cars' or 'tracks' to override auto-detection. Otherwise: 'cars' if any week lists cars in the PDF, or if every consecutive week uses the same track (e.g. Nürburgring Endurance).",
   "car_group_labels": {
     "Draft Master Challenge/week_2": "Gen 4",
     "Draft Master Challenge/week_4": "Impala COT 2009",

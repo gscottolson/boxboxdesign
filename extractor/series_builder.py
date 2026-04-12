@@ -4,9 +4,23 @@ import re
 import logging
 import json
 import os
-from .models import SeriesData
-from .toc_parser import lookup_series
-from .week_parser import parse_week_row
+from .models import SeriesData, WeekData
+from .week_parser import derive_car_group_label, parse_week_row
+
+# PDF header line before cadence/min entries, e.g. "Class C 4.0 --> Pro/WC 4.0" or "Rookie 4.0 --> ...".
+# ``Rookie 1.0 -->`` is Rookie license; ``Rookie 4.0 -->`` (and other versions) is D. ``Class X n.n -->`` maps
+# X one rung below the series license (C → B, B → A, etc.).
+SERIES_CLASS_LINE_RE = re.compile(
+    r"^(?:(?P<rook>Rookie)\s+(?P<rver>\d+\.\d+)|Class\s+(?P<letter>[A-Z])\s+(?P<cver>\d+\.\d+))\s*-->",
+    re.IGNORECASE,
+)
+
+_PDF_CLASS_TO_SERIES_LICENSE: dict[str, str] = {
+    "D": "C",
+    "C": "B",
+    "B": "A",
+    "A": "A",
+}
 
 logger = logging.getLogger(__name__)
 
@@ -19,6 +33,62 @@ def _load_overrides() -> dict:
             return json.load(f)
     except (FileNotFoundError, json.JSONDecodeError):
         return {"car_group_labels": {}, "schedule_modes": {}}
+
+
+# First column of a row that begins the per-week schedule grid (not preamble).
+_WEEK_ROW_START = re.compile(r"^\s*Week\s+\d+\b", re.IGNORECASE)
+
+# PDF table often has a header row whose first cell is just "Week" (column title).
+_LONE_SCHEDULE_HEADER = frozenset({"week", "track", "weather", "laps"})
+
+
+def _is_lone_schedule_header_cell(cell: str) -> bool:
+    parts = cell.lower().split()
+    return len(parts) == 1 and parts[0] in _LONE_SCHEDULE_HEADER
+
+
+def _series_preamble_text(block: dict) -> str:
+    """Full text above the Week rows used to parse cars, class, cadence, min entries.
+
+    `block['header']` is only the first table cell (series title). The PDF often places
+    the comma-separated car list on the following row(s) of the same table before
+    ``Class X n.n -->`` (e.g. Nürburgring Endurance). Those lines must be merged in
+    so `_parse_cars` and same-track `derive_car_group_label` see the full list.
+    """
+    raw = (block.get("header") or "").strip()
+    tables = block.get("tables") or []
+    if not tables or not tables[0]:
+        return raw
+    parts: list[str] = [raw] if raw else []
+    for row in tables[0][1:]:
+        if not row:
+            continue
+        cell = str(row[0] or "").strip()
+        if not cell:
+            continue
+        if _WEEK_ROW_START.match(cell):
+            break
+        if _is_lone_schedule_header_cell(cell):
+            continue
+        parts.append(cell)
+    return "\n".join(parts)
+
+
+def license_class_from_schedule_header(header_lines: list[str]) -> str | None:
+    """Derive competing `license_class` from the PDF schedule header class line.
+
+    ``Rookie 1.0 -->`` → Rookie license; ``Rookie 4.0 -->`` → D license. For ``Class X n.n -->``, X is one rung
+    below the series license (e.g. ``Class C 4.0 -->`` → B license).
+    """
+    for raw in header_lines:
+        m = SERIES_CLASS_LINE_RE.match(raw.strip())
+        if not m:
+            continue
+        if m.group("rook"):
+            return "Rookie" if m.group("rver") == "1.0" else "D"
+        letter = (m.group("letter") or "").upper()
+        return _PDF_CLASS_TO_SERIES_LICENSE.get(letter)
+    return None
 
 
 def _parse_cars(lines: list[str]) -> list[str]:
@@ -69,6 +139,43 @@ def _parse_incidents(line: str) -> tuple[int | None, int | None, int | None]:
     return penalty, repeat, dq
 
 
+# When every consecutive race week uses the same venue (e.g. Nürburgring Endurance),
+# the schedule is car-differentiated like multi-car draft series — use cars schedule mode.
+SAME_TRACK_SERIES_LABEL_FALLBACK = "Multi-class"
+
+
+def _week_track_key(w: WeekData) -> str:
+    """Stable venue string for comparing weeks (matches JSON `track` when set)."""
+    t = (w.track or "").strip()
+    if t:
+        return t
+    name = (w.track_name or "").strip()
+    layout = (w.track_layout or "").strip()
+    if not name and not layout:
+        return ""
+    return f"{name} - {layout}" if layout else name
+
+
+def _consecutive_weeks_same_track(weeks: list[WeekData]) -> bool:
+    """True when sorted by week number, every adjacent pair uses the same track/layout."""
+    if len(weeks) < 2:
+        return False
+    ordered = sorted(weeks, key=lambda w: w.week)
+    keys = [_week_track_key(w) for w in ordered]
+    if not all(keys):
+        return False
+    return all(keys[i] == keys[i + 1] for i in range(len(keys) - 1))
+
+
+def _backfill_car_group_labels_for_same_track_series(weeks: list[WeekData], series_cars: list[str]) -> None:
+    """UI needs `car_group_label` when schedule_mode is cars; PDF may list no per-week cars."""
+    derived = derive_car_group_label(series_cars).strip()
+    label = derived if derived else SAME_TRACK_SERIES_LABEL_FALLBACK
+    for w in weeks:
+        if not (w.car_group_label or "").strip():
+            w.car_group_label = label
+
+
 def _override_key(series_name: str) -> str:
     """Strips sponsor/fixed markers for stable override dict keys."""
     text = re.sub(r"\bFixed\b[\s\-]*", "", series_name, flags=re.IGNORECASE)
@@ -90,8 +197,8 @@ def _clean_series_name(text: str) -> str:
     return text
 
 
-def build_series(block: dict, toc_index: dict) -> SeriesData | None:
-    header_lines = block.get("header", "").splitlines()
+def build_series(block: dict) -> SeriesData | None:
+    header_lines = _series_preamble_text(block).splitlines()
 
     series_name_raw = None
     for line in header_lines:
@@ -108,7 +215,11 @@ def build_series(block: dict, toc_index: dict) -> SeriesData | None:
 
     setup = "Fixed" if re.search(r"\bFixed\b", series_name_raw, re.IGNORECASE) else "Open"
     series_name = _clean_series_name(series_name_raw)
-    discipline, license_class = lookup_series(series_name_raw, toc_index)
+
+    discipline = block.get("section_discipline")
+    section_license = block.get("section_license")
+    license_from_header_line = license_class_from_schedule_header(header_lines)
+    license_class = license_from_header_line if license_from_header_line is not None else section_license
 
     # Parse metadata from header lines
     cars: list[str] = []
@@ -120,7 +231,7 @@ def build_series(block: dict, toc_index: dict) -> SeriesData | None:
     incident_penalty_repeat: int | None = None
     incident_dq: int | None = None
 
-    class_pattern = re.compile(r"^(Rookie|Class [A-Z])\s+\d+\.\d+\s*-->", re.IGNORECASE)
+    class_pattern = SERIES_CLASS_LINE_RE
     car_lines: list[str] = []
     past_title = False
     past_class = False
@@ -175,10 +286,14 @@ def build_series(block: dict, toc_index: dict) -> SeriesData | None:
 
     # Determine schedule_mode
     schedule_mode: str | None = None
-    if override_series_key in mode_overrides or series_name in mode_overrides:
-        schedule_mode = mode_overrides[series_name]
+    mode_val = mode_overrides.get(override_series_key) or mode_overrides.get(series_name)
+    if mode_val is not None:
+        schedule_mode = mode_val
     elif any(len(w.cars_in_use) > 0 for w in weeks):
         schedule_mode = "cars"
+    elif _consecutive_weeks_same_track(weeks):
+        schedule_mode = "cars"
+        _backfill_car_group_labels_for_same_track_series(weeks, cars)
 
     return SeriesData(
         series=series_name,
