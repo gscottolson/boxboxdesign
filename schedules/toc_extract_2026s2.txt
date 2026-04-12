@@ -1,0 +1,218 @@
+DIRT OVAL
+B Class Series
+AMSOIL USAC Sprint Car
+DIRTcar UMP Modified Series
+World of Outlaws Late Model Series
+World of Outlaws Late Model Series - Fixed
+World of Outlaws Sprint Car Series
+World of Outlaws Sprint Car Series - Fixed
+
+DIRT OVAL
+C Class Series
+Big Block Modified Series
+Big Block Modified Series - Fixed
+Dirt 410 Sprint Car Tour Fixed
+Dirt Midget Cup
+Dirt Midget Cup - Fixed
+Dirt Super Late Model Tour Fixed
+DIRTcar 360 Sprint Car Series
+DIRTcar 360 Sprint Car Series - Fixed
+DIRTcar Class C Dirt Street Stock Series Fixed
+DIRTcar Pro Late Model Series
+DIRTcar Pro Late Model Series - Fixed
+DIRTcar UMP Modified Series - Fixed
+Outlaw Micro Showdown
+USAC 360 Sprint Car Series
+
+DIRT OVAL
+D Class Series
+Dirt Legends Cup
+DIRTcar 305 Sprint Car Series Fixed by Fanatec
+DIRTcar 358 Modified Series
+DIRTcar Limited Late Model Series Fixed
+
+DIRT OVAL
+R Class Series
+Dirt Mini Stock Rookie Series
+DIRTcar Street Stock Rookie by IMB Racewear
+Micro Non Wing Sprint Car Rookie Series
+Micro Winged Sprint Car Rookie by Thrustmaster
+
+DIRT ROAD
+B Class Series
+Rallycross Series by Trak Racer
+
+DIRT ROAD
+C Class Series
+Pro 2 Off-Road Series - Fixed by Trak Racer
+Rallycross Series - Fixed by Trak Racer
+
+DIRT ROAD
+D Class Series
+Advanced Pro2 Lite Off Road Series by Trak Racer
+iRX Volkswagen Beetle Lite Series by Trak Racer
+Pro 4 Off-Road Series - Fixed by Trak Racer
+
+DIRT ROAD
+R Class Series
+FIA Cross Car Championship
+Pro 2 Lite Off-Road Rookie Series by Trak Racer
+VW Lite iRX Rookie Series by Trak Racer
+
+FORMULA CAR
+A Class Series
+Formula A - Cosworth Cup Grand Prix
+Formula A - Cosworth Cup Grand Prix - Fixed
+
+FORMULA CAR
+B Class Series
+Formula B - Super Formula Series - Fixed
+Formula B - Super Formula Series
+INDYCAR Series
+INDYCAR Series - Fixed
+
+FORMULA CAR
+C Class Series
+Dallara Formula iR
+Formula A - Grand Prix Tour - Fixed
+Formula C - Dallara F3 Series
+Formula C - Dallara F3 Series - Fixed
+Formula C - Super Formula Lights - Fixed by RSS
+Formula C - Super Formula Lights by RSS
+Indy NXT iRacing Series
+Indy NXT Road Series - Fixed
+INDYCAR iRacing Series
+iRacing Formula A - Grand Prix Tour
+iRacing Lotus 79 Grand Prix Series
+Lotus 49 Grand Prix Legends
+Vintage Grand Prix Tour
+
+FORMULA CAR
+D Class Series
+FIA F4 Esports Regional Tour - America
+FIA F4 Esports Regional Tour - Asia Pacific
+FIA F4 Esports Regional Tour - Europe
+FIA Formula 4 Challenge - Fixed
+Motorsport UK FF 1600 Trophy by Thrustmaster
+Skip Barber Race Series
+US Open Wheel D - USF Series - Fixed
+
+FORMULA CAR
+R Class Series
+Formula 1600 Rookie Series by Asetek Racing
+Formula Vee Series by trophi.ai
+
+OVAL
+A Class Series
+eNASCAR Coca Cola iRacing Qualifying Series
+NASCAR Class A Series
+NASCAR Class A Series - Fixed
+
+OVAL
+B Class Series
+INDYCAR Series - Oval - Fixed
+NASCAR 1987 Legends Cup Fixed
+NASCAR iRacing Class B Series
+NASCAR O'Reilly Auto Parts Series - Fixed
+Silver Crown Cup
+Sprint Car Cup
+
+OVAL
+C Class Series
+CARS Tour Late Model Stocks
+Indy NXT Oval Series - Fixed
+Legends Cup by Go Motorsports Shop
+NASCAR Class C Series - Fixed
+NASCAR Gen 4 Cup Series Fixed
+NASCAR iRacing Class C Series
+NASCAR iRacing Series Fixed
+NASCAR iRacing Series Open
+NASCAR Modified Tour Fixed
+NASCAR Tour Modified Series
+NASCAR Tour Modified Series - Fixed
+Street Stock Series by Next Level Racing
+Super Late Model Series
+Super Late Model Series - Fixed
+Super Late Model Tour Fixed
+
+OVAL
+D Class Series
+ARCA Menards Series - Fixed
+CARS Tour Late Model Stocks - Fixed
+Draft Master Challenge by Simagic
+Jr Open Wheel Oval Challenge
+SK Modified Series - Fixed
+SK Modified Weekly Series
+SRX Series - Fixed
+
+OVAL
+R Class Series
+Mini Stock Rookie Series by Thrustmaster
+Rookie Legends Cup by Simshop
+Rookie Street Stock Series Fixed by Fanatec
+
+SPORTS CAR
+A Class Series
+IMSA iRacing Series
+IMSA iRacing Series - Fixed
+
+SPORTS CAR
+B Class Series
+Global Endurance Tour
+GT Sprint Series by Simucube
+GT3 Challenge Fixed by Fanatec
+GTE Sprint Series
+IMSA Endurance Series
+iRacing GT3 Regional Tour - Americas
+iRacing GT3 Regional Tour - Asia Pacific
+iRacing GT3 Regional Tour - Europe
+LMP2 Challenge - Fixed
+Proto-GT Challenge
+Prototype Challenge - Fixed
+
+SPORTS CAR
+C Class Series
+Advanced Mazda MX-5 Cup by Heusinkveld
+Ferrari 296 Challenge
+GT Endurance Series by Simucube
+GT4 Falken Tyre Challenge
+IMSA Michelin Pilot Challenge
+IMSA Sportscar Endurance Challenge
+IMSA Vintage Series
+iRacing Porsche Cup - Fixed by CONSPIT
+iRacing Porsche Cup by CONSPIT
+LMP3 Trophy
+Radical Esports Cup
+Ring Meister by LVRY
+Sports Car Challenge by Falken Tyre
+Stock Car Brasil
+Supercars Series
+Supercars Series - Australian Servers
+
+SPORTS CAR
+D Class Series
+BMW M Power Challenge
+Clio Cup
+Ford Mustang Challenge by Skip Barber
+Global Sports Car Challenge by Fanatec
+Legends Road Cup by Go Motorsports Shop
+Mission R Challenge
+Nurburgring Endurance Championship
+Production Car Challenge by Sim-Lab
+Production Endurance Challenge
+Rain Master
+Spec Racer Ford Challenge
+TCR Virtual Challenge
+TCR Virtual Challenge - Fixed
+Toyota GR86 Cup by SIMAGIC
+
+SPORTS CAR
+R Class Series
+BMW M2 Cup by Nitro Concepts
+Global Mazda MX-5 Cup by Fanatec
+
+UNRANKED
+R Class Series
+Dallara DW12 Dash
+NASCAR Carburetor Cup
+NASCAR Pickup Cup
