@@ -5,7 +5,12 @@ import { useRouter, usePathname } from 'next/navigation';
 import { useEffect, useLayoutEffect, useMemo, useRef, useState, memo, forwardRef, useCallback } from 'react';
 import ModeToggle from './mode-toggle';
 import { SCHEDULE_SEASON_OPTIONS } from '../schedule-seasons';
-import { TEMP_UNIT_COOKIE, formatAirTempForDisplay, type TempUnit } from './temp-unit-preference';
+import {
+    TEMP_UNIT_COOKIE,
+    formatAirTempForDisplay,
+    parseTempUnitCookie,
+    type TempUnit,
+} from './temp-unit-preference';
 
 interface WeatherData {
     air_temperature_c: number | null;
@@ -86,9 +91,8 @@ interface SeriesWithIndex extends Series {
 
 export interface SeriesClientProps {
     series: Series[];
-    /** From `schedule_temp_unit` cookie (server). */
+    /** Optional SSR hints; client syncs from cookies / `data-theme` on mount. */
     initialTempUnit?: TempUnit;
-    /** From `theme` cookie (server); must match `<html data-theme>` set in iracing layout. */
     initialDarkMode?: boolean;
 }
 
@@ -288,7 +292,7 @@ function highlightCadence(text: string) {
     return parts.map((part, i) => {
         if (i % 2 === 1)
             return (
-                <span key={i} style={{ fontWeight: 600 }}>
+                <span key={i} style={{ fontWeight: 700 }}>
                     {part}
                 </span>
             );
@@ -429,7 +433,7 @@ const NavItem = memo(
                                 <span className="nav-label col-start-2 row-start-1 min-w-0 overflow-hidden leading-[1.15]">
                                     {s.series.slice(0, splitIdx)}
                                 </span>
-                                <span className="nav-label nav-label--subtitle col-start-2 row-start-2 min-w-0 overflow-hidden font-light leading-[1.15]">
+                                <span className="nav-label nav-label--subtitle col-start-2 row-start-2 min-w-0 overflow-hidden font-normal leading-[1.15]">
                                     {s.series.slice(splitIdx + 3).replace(/ - /g, ' ')}
                                 </span>
                             </>
@@ -550,7 +554,7 @@ const SeriesCard = memo(
                                     return (
                                         <>
                                             {s.series.slice(0, idx)}
-                                            <span style={{ fontWeight: 300 }}>
+                                            <span style={{ fontWeight: 400 }}>
                                                 {' '}
                                                 {s.series.slice(idx + 3).replace(/ - /g, ' ')}
                                             </span>
@@ -907,7 +911,7 @@ const SeriesCard = memo(
                                                 gridColumn: 1,
                                                 gridRow: 1,
                                                 color: 'var(--fg-dim)',
-                                                fontWeight: 300,
+                                                fontWeight: 400,
                                                 fontStyle: 'italic',
                                                 fontSize: 'calc(38px * var(--scale))',
                                                 lineHeight: 'calc(30px * var(--scale))',
@@ -938,7 +942,7 @@ const SeriesCard = memo(
                                             {!carsFeatured && legacyYear && (
                                                 <span
                                                     style={{
-                                                        fontWeight: 300,
+                                                        fontWeight: 400,
                                                         fontStyle: 'italic',
                                                         fontSize: 'calc(38px * var(--scale))',
                                                         lineHeight: 'calc(30px * var(--scale))',
@@ -1488,6 +1492,19 @@ export default function SeriesClient({ series, initialTempUnit, initialDarkMode 
     const [darkMode, setDarkMode] = useState<boolean>(initialDarkMode ?? false);
     const [tempUnit, setTempUnit] = useState<TempUnit>(initialTempUnit ?? 'C');
 
+    useLayoutEffect(() => {
+        const tempMatch = document.cookie.match(
+            new RegExp(`(?:^|; )${TEMP_UNIT_COOKIE.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}=([^;]*)`),
+        );
+        const rawTemp = tempMatch?.[1] ? decodeURIComponent(tempMatch[1]) : undefined;
+        setTempUnit(parseTempUnitCookie(rawTemp));
+
+        const isDark =
+            document.documentElement.dataset.theme === 'dark' ||
+            /(?:^|; )theme=dark(?:;|$)/.test(document.cookie);
+        setDarkMode(isDark);
+    }, []);
+
     const toggleTheme = () => {
         const next = !darkMode;
         document.documentElement.dataset.theme = next ? 'dark' : 'light';
@@ -1802,7 +1819,12 @@ export default function SeriesClient({ series, initialTempUnit, initialDarkMode 
     }, []);
 
     return (
-        <div className={clsx('fixed inset-0 flex flex-col bg-[var(--bg)]', nunitoSans.className)}>
+        <div
+            className={clsx(
+                'fixed inset-0 flex flex-col bg-[var(--bg)] font-normal',
+                nunitoSans.className,
+            )}
+        >
             {/* Page header */}
             <div className="page-header box-border flex h-[4.5rem] shrink-0 items-center gap-2 bg-[var(--bg)] px-4 py-3 z-20">
                 <button

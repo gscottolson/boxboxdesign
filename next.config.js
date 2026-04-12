@@ -15,11 +15,8 @@ module.exports = {
         experimental: {
             webpackBuildWorker: false,
         },
-        webpack: (config, { dev }) => {
+        webpack: (config) => {
             config.resolve.alias.canvas = false;
-            if (dev) {
-                config.cache = false;
-            }
             return config;
         },
     }),

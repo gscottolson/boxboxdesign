@@ -1,14 +1,22 @@
-import { cookies } from 'next/headers';
-import SeriesClient, { type SeriesClientProps } from '../2026s2/SeriesClient';
-import seriesData from '../data/2025s4.json';
-import { TEMP_UNIT_COOKIE, parseTempUnitCookie } from '../2026s2/temp-unit-preference';
+import type { SeriesClientProps } from '../2026s2/SeriesClient';
+import type { ScheduleSeasonKey } from '../2026s2/SeriesClientSeason';
 
-export default function Page() {
-    const jar = cookies();
-    const series = seriesData as unknown as SeriesClientProps['series'];
-    const initialTempUnit = parseTempUnitCookie(jar.get(TEMP_UNIT_COOKIE)?.value);
-    const initialDarkMode = jar.get('theme')?.value === 'dark';
-    return (
-        <SeriesClient series={series} initialTempUnit={initialTempUnit} initialDarkMode={initialDarkMode} />
-    );
+/** `force-static` in dev breaks RSC/chunk loading for this route (console 404 spam). Prod stays static. */
+export const dynamic = process.env.NODE_ENV === 'production' ? 'force-static' : 'force-dynamic';
+
+async function ProdPage() {
+    const [{ default: SeriesClient }, { default: seriesJson }] = await Promise.all([
+        import('../2026s2/SeriesClient'),
+        import('../data/2025s4.json'),
+    ]);
+    return <SeriesClient series={seriesJson as unknown as SeriesClientProps['series']} />;
+}
+
+export default async function Page() {
+    if (process.env.NODE_ENV === 'development') {
+        const { SeriesClientSeason } = await import('../2026s2/SeriesClientSeason');
+        const seasonKey = '2025s4' satisfies ScheduleSeasonKey;
+        return <SeriesClientSeason seasonKey={seasonKey} />;
+    }
+    return ProdPage();
 }
