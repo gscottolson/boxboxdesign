@@ -390,7 +390,7 @@ interface NavItemProps {
 function NavSetupDot({ setup }: { setup: string | null }) {
     return (
         <span className="nav-setup-dot col-start-1 row-start-1 flex shrink-0 items-center justify-center self-center text-[var(--fg-dim)] transition-colors duration-150">
-            <svg width="10" height="10" viewBox="0 0 10 10" className="block shrink-0">
+            <svg width="8" height="8" viewBox="0 0 10 10" className="block shrink-0">
                 {setup === 'Fixed' ? (
                     <circle cx="5" cy="5" r="3.5" fill="currentColor" />
                 ) : (
@@ -409,14 +409,14 @@ const NavItem = memo(
         return (
             <div
                 className={clsx(
-                    'series-nav-item flex min-w-0 cursor-pointer p-0 text-[0.88em] font-normal text-[var(--fg)] transition-colors duration-150',
+                    'series-nav-item flex min-w-0 cursor-pointer p-0 text-[0.82em] font-normal text-[var(--fg)] transition-colors duration-150',
                     active && 'series-nav-item--active',
                 )}
                 ref={ref}
                 onClick={() => onNavClick(flatIdx)}
             >
                 <span
-                    className="nav-inner grid min-w-0 flex-[0_1_auto] grid-cols-[auto_minmax(0,1fr)] gap-x-[0.4rem] gap-y-0 overflow-hidden py-[0.45rem] px-2"
+                    className="nav-inner grid min-w-0 flex-[0_1_auto] grid-cols-[auto_minmax(0,1fr)] gap-x-[0.3rem] gap-y-0 overflow-hidden py-[0.2rem] px-1.5"
                     ref={(el) => {
                         navInnerRefs.current[flatIdx] = el;
                     }}
@@ -425,10 +425,10 @@ const NavItem = memo(
                     {s.series ? (
                         hasSubtitle ? (
                             <>
-                                <span className="nav-label col-start-2 row-start-1 min-w-0 overflow-hidden leading-tight">
+                                <span className="nav-label col-start-2 row-start-1 min-w-0 overflow-hidden leading-[1.15]">
                                     {s.series.slice(0, splitIdx)}
                                 </span>
-                                <span className="nav-label nav-label--subtitle col-start-2 row-start-2 min-w-0 overflow-hidden font-light leading-tight">
+                                <span className="nav-label nav-label--subtitle col-start-2 row-start-2 min-w-0 overflow-hidden font-light leading-[1.15]">
                                     {s.series.slice(splitIdx + 3).replace(/ - /g, ' ')}
                                 </span>
                             </>
@@ -1975,7 +1975,7 @@ export default function SeriesClient({ series, initialTempUnit, initialDarkMode 
                 <div className={`series-nav-wrap${navOpen ? ' series-nav-wrap--open' : ''}`} ref={navRef}>
                     <div className={clsx('series-nav relative min-w-0', navOpen && 'series-nav--open')}>
                         <div
-                            className="series-nav-scroll absolute inset-0 overflow-y-auto pl-3"
+                            className="series-nav-scroll absolute inset-0 overflow-y-auto pl-2.5"
                             ref={navScrollRef}
                         >
                             {pillGeometry && (
@@ -1999,7 +1999,7 @@ export default function SeriesClient({ series, initialTempUnit, initialDarkMode 
                                     }}
                                 />
                             )}
-                            <ul className="m-0 list-none pb-12">
+                            <ul className="m-0 list-none pb-6">
                                 {navSections.map((sec, si) => {
                                     const heading = navSectionHeading(sec.discipline, sec.license);
                                     const lcNav = licenseColors(sec.license);
@@ -2007,7 +2007,7 @@ export default function SeriesClient({ series, initialTempUnit, initialDarkMode 
                                         <li key={`${sec.discipline ?? '—'}-${sec.license}-${si}`}>
                                             <div>
                                                 <div
-                                                    className="sticky top-0 z-[2] -ml-2 bg-[var(--bg)] pt-4 pr-2 pb-[0.2rem] pl-[calc(0.5rem+8px)] text-[0.85em] font-semibold uppercase tracking-[0.08em]"
+                                                    className="sticky top-0 z-[2] -ml-2 bg-[var(--bg)] pt-1.5 pr-2 pb-0.5 pl-[calc(0.5rem+8px)] text-[0.8em] font-semibold uppercase tracking-[0.08em]"
                                                     style={{ color: lcNav.text }}
                                                 >
                                                     {lcNav.chipBg ? (
@@ -2015,7 +2015,7 @@ export default function SeriesClient({ series, initialTempUnit, initialDarkMode 
                                                             className="license-c-chip-shape"
                                                             style={{
                                                                 background: lcNav.chipBg,
-                                                                padding: '1px 7px',
+                                                                padding: '0 6px',
                                                             }}
                                                         >
                                                             <span

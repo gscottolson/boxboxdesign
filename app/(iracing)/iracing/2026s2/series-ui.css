@@ -144,11 +144,15 @@
 
 /* Stacked nav: subtitle tucked under title (grid row 2, col 2) */
 .series-nav .nav-label--subtitle {
-    margin-top: -0.1em;
+    margin-top: -0.18em;
 }
 
+/* Hover preview bar: align with SeriesClient pillGeometry (x: 6, w: 2, top 10%, height 80%). */
 .series-nav-scroll {
     scrollbar-width: none;
+    --nav-pill-x: 6px;
+    /* Must match Tailwind `pl-*` on .series-nav-scroll in SeriesClient.tsx */
+    --nav-scroll-pl: 0.625rem;
 }
 
 .series-nav-scroll::-webkit-scrollbar {
@@ -167,8 +171,28 @@
     position: relative;
 }
 
-.series-nav-item:not(.series-nav-item--active):hover .nav-label {
-    text-decoration: underline;
+.series-nav-item {
+    position: relative;
+}
+
+/* Gray preview bar: same size/placement as the selected license pill (see --nav-pill-x). */
+.series-nav-item:not(.series-nav-item--active)::before {
+    content: '';
+    position: absolute;
+    left: calc(var(--nav-pill-x) - var(--nav-scroll-pl));
+    top: 10%;
+    width: 2px;
+    height: 80%;
+    border-radius: 0.5px;
+    background: var(--fg-muted);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.15s ease;
+    z-index: 1;
+}
+
+.series-nav-item:not(.series-nav-item--active):hover::before {
+    opacity: 0.55;
 }
 
 .series-nav::after {
@@ -177,7 +201,7 @@
     bottom: 0;
     left: 0;
     right: 0;
-    height: 3rem;
+    height: 2rem;
     background: linear-gradient(to bottom, transparent, var(--bg));
     pointer-events: none;
     z-index: 3;
@@ -230,7 +254,7 @@
 
     .series-nav-wrap--open {
         visibility: visible !important;
-        padding: 2rem;
+        padding: 1.25rem 1.5rem;
     }
 
     .series-nav {
