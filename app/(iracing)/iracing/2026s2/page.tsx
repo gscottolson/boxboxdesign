@@ -1,6 +1,6 @@
 import { cookies } from 'next/headers';
 import SeriesClient, { type SeriesClientProps } from './SeriesClient';
-import seriesData from '../../../../public/data/2026s2.json';
+import seriesData from '../data/2026s2.json';
 import { TEMP_UNIT_COOKIE, parseTempUnitCookie } from './temp-unit-preference';
 
 export default function Page() {
