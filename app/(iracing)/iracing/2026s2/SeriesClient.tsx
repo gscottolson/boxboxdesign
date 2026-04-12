@@ -1,7 +1,9 @@
 'use client';
 import clsx from 'clsx';
+import { useRouter, usePathname } from 'next/navigation';
 import { useEffect, useLayoutEffect, useMemo, useRef, useState, memo, forwardRef, useCallback } from 'react';
 import ModeToggle from './mode-toggle';
+import { SCHEDULE_SEASON_OPTIONS } from '../schedule-seasons';
 import { TEMP_UNIT_COOKIE, formatAirTempForDisplay, type TempUnit } from './temp-unit-preference';
 
 interface WeatherData {
@@ -236,6 +238,12 @@ function licenseColors(licenseClass: string | null) {
     return LICENSE_COLORS[licenseClass ?? ''] ?? DEFAULT_COLORS;
 }
 
+/** Sidebar section label: with discipline from legacy data, or license only (PDF order extract). */
+function navSectionHeading(discipline: string | null, license: string): string {
+    if (discipline) return `${discipline} ${license}`;
+    return license;
+}
+
 function CarItem({ car }: { car: string }) {
     return (
         <div className="car-item">
@@ -254,6 +262,20 @@ function CarItem({ car }: { car: string }) {
             <div className="car-decoration" />
         </div>
     );
+}
+
+/** PDF line when eligibility is per week — not a real car name in the header list. */
+const HEADER_CARS_PLACEHOLDER = /^see race week for cars in use/i;
+
+/** Car-featured series usually list cars per week; same-venue series (e.g. NEC) only have header `cars`. */
+function carsForSeriesTail(weeks: Week[] | undefined, headerCars: string[] | undefined): string[] {
+    const seen = new Set<string>();
+    const fromWeeks = (weeks || [])
+        .filter((w) => w.cars_in_use && w.cars_in_use.length > 0)
+        .flatMap((w) => w.cars_in_use)
+        .filter((car) => (seen.has(car) ? false : (seen.add(car), true)));
+    if (fromWeeks.length > 0) return fromWeeks;
+    return (headerCars || []).filter((c) => !HEADER_CARS_PLACEHOLDER.test(c.trim()));
 }
 
 function highlightCadence(text: string) {
@@ -469,6 +491,13 @@ const SeriesCard = memo(
             return unique.size === 1 ? [...unique][0] : null;
         })();
 
+        // Matches extractor fallback label for same-venue car mode — use track-first rows instead of repeating the label.
+        const seriesIsGenericMultiClassVenue =
+            s.schedule_mode === 'cars' &&
+            !TRACK_PRIMARY_SERIES.has(s.series) &&
+            weeks.length > 0 &&
+            weeks.every((w) => (w.car_group_label || '').trim().toLowerCase() === 'multi-class');
+
         return (
             <div
                 ref={ref}
@@ -632,7 +661,8 @@ const SeriesCard = memo(
                                 const carsFeatured =
                                     s.schedule_mode === 'cars' &&
                                     !!w.car_group_label &&
-                                    !TRACK_PRIMARY_SERIES.has(s.series);
+                                    !TRACK_PRIMARY_SERIES.has(s.series) &&
+                                    !seriesIsGenericMultiClassVenue;
                                 return (
                                     <div
                                         key={w.week ?? wi}
@@ -750,20 +780,46 @@ const SeriesCard = memo(
                                                         : displayLayout
                                                         ? `${trackLabel} ${displayLayout}`
                                                         : trackLabel;
-                                                    if (trackWithLayout)
+                                                    if (trackWithLayout) {
+                                                        const hasLayout = !!displayLayout;
+                                                        const trackMainStyle: React.CSSProperties = {
+                                                            fontWeight: 800,
+                                                            color: hasLayout ? lc.text : 'var(--fg)',
+                                                            textTransform: 'uppercase',
+                                                            letterSpacing: '0.02em',
+                                                            whiteSpace: 'nowrap',
+                                                            flexShrink: 0,
+                                                        };
                                                         parts.push(
                                                             <span
                                                                 key="track"
                                                                 style={{
-                                                                    fontWeight: 800,
-                                                                    color: 'var(--fg)',
-                                                                    textTransform: 'uppercase',
-                                                                    letterSpacing: '0.02em',
                                                                     whiteSpace: 'nowrap',
                                                                     flexShrink: 0,
+                                                                    display: 'inline-flex',
+                                                                    alignItems: 'baseline',
                                                                 }}
                                                             >
-                                                                {trackWithLayout}
+                                                                {hasLayout && lc.chipBg ? (
+                                                                    <span
+                                                                        className="license-c-chip-shape"
+                                                                        style={{
+                                                                            background: lc.chipBg,
+                                                                            padding: '0 5px',
+                                                                        }}
+                                                                    >
+                                                                        <span
+                                                                            className="license-c-chip-shape__inner license-c-chip-shape__inner--flex"
+                                                                            style={{ alignItems: 'baseline' }}
+                                                                        >
+                                                                            <span style={trackMainStyle}>
+                                                                                {trackWithLayout}
+                                                                            </span>
+                                                                        </span>
+                                                                    </span>
+                                                                ) : (
+                                                                    <span style={trackMainStyle}>{trackWithLayout}</span>
+                                                                )}
                                                                 {legacyYear && (
                                                                     <span
                                                                         style={{ color: 'var(--fg-dim)', opacity: 0.5 }}
@@ -774,6 +830,7 @@ const SeriesCard = memo(
                                                                 )}
                                                             </span>,
                                                         );
+                                                    }
                                                 } else {
                                                     const trackPrimaryCarLabel =
                                                         s.schedule_mode === 'cars' &&
@@ -783,22 +840,62 @@ const SeriesCard = memo(
                                                             : null;
                                                     const secondaryLabel =
                                                         trackPrimaryCarLabel ?? displayLayout ?? null;
-                                                    if (secondaryLabel)
+                                                    if (secondaryLabel) {
+                                                        const isLayoutSecondary =
+                                                            !trackPrimaryCarLabel && !!displayLayout;
+                                                        const layoutLineStyle: React.CSSProperties = {
+                                                            fontWeight: 800,
+                                                            color: isLayoutSecondary ? lc.text : 'var(--fg)',
+                                                            textTransform: 'uppercase',
+                                                            letterSpacing: '0.02em',
+                                                            whiteSpace: 'nowrap',
+                                                            flexShrink: 0,
+                                                        };
                                                         parts.push(
                                                             <span
                                                                 key="layout"
                                                                 style={{
-                                                                    fontWeight: 800,
-                                                                    color: 'var(--fg)',
-                                                                    textTransform: 'uppercase',
-                                                                    letterSpacing: '0.02em',
                                                                     whiteSpace: 'nowrap',
                                                                     flexShrink: 0,
+                                                                    display: 'inline-flex',
+                                                                    alignItems: 'baseline',
                                                                 }}
                                                             >
-                                                                {secondaryLabel}
+                                                                {isLayoutSecondary && lc.chipBg ? (
+                                                                    <span
+                                                                        className="license-c-chip-shape"
+                                                                        style={{
+                                                                            background: lc.chipBg,
+                                                                            padding: '0 5px',
+                                                                        }}
+                                                                    >
+                                                                        <span
+                                                                            className="license-c-chip-shape__inner license-c-chip-shape__inner--flex"
+                                                                            style={{ alignItems: 'baseline' }}
+                                                                        >
+                                                                            <span style={layoutLineStyle}>
+                                                                                {secondaryLabel}
+                                                                            </span>
+                                                                        </span>
+                                                                    </span>
+                                                                ) : (
+                                                                    <span style={layoutLineStyle}>{secondaryLabel}</span>
+                                                                )}
                                                             </span>,
                                                         );
+                                                    }
+                                                }
+                                                const nowrap = (key: string, content: string) => (
+                                                    <span
+                                                        key={key}
+                                                        style={{ whiteSpace: 'nowrap', flexShrink: 0, fontWeight: 600 }}
+                                                    >
+                                                        {content}
+                                                    </span>
+                                                );
+                                                if (!uniformDuration) {
+                                                    if (w.laps != null) parts.push(nowrap('laps', `${w.laps} laps`));
+                                                    else if (w.race_time) parts.push(nowrap('race_time', w.race_time));
                                                 }
                                                 if (
                                                     w.weather &&
@@ -827,8 +924,8 @@ const SeriesCard = memo(
                                                                 {hasTemp && tempC != null && (
                                                                     <span
                                                                         style={{
-                                                                            color: lc.text,
-                                                                            fontWeight: 800,
+                                                                            color: 'var(--fg)',
+                                                                            fontWeight: 400,
                                                                             fontVariantNumeric: 'tabular-nums',
                                                                         }}
                                                                     >
@@ -842,6 +939,7 @@ const SeriesCard = memo(
                                                                             alignItems: 'center',
                                                                             gap: '2px',
                                                                             color: '#0BA5EC',
+                                                                            fontWeight: 400,
                                                                         }}
                                                                     >
                                                                         <svg
@@ -851,70 +949,34 @@ const SeriesCard = memo(
                                                                             fill="currentColor"
                                                                             style={{
                                                                                 flexShrink: 0,
-                                                                                position: 'relative',
-                                                                                top: '-1px',
+                                                                                display: 'block',
+                                                                                transform: 'translateY(calc(1.5px - 1px * var(--scale)))',
                                                                             }}
                                                                         >
                                                                             <path d="M1.71313 24.2173C-0.96344 20.1073 -0.462191 14.6962 2.9238 11.1478L13.4318 0.135688C13.6479 -0.0907149 14.0247 -0.0242619 14.1503 0.262377L20.2583 14.2043C22.2264 18.6968 20.8467 23.953 16.9259 26.8998C12.0341 30.5761 5.05248 29.3451 1.71313 24.2173Z" />
                                                                         </svg>
-                                                                        <span style={{ fontWeight: 800 }}>{rain}</span>
+                                                                        <span>{rain}</span>
                                                                     </span>
                                                                 )}
                                                             </>
-                                                        );
-                                                        const weatherRow = (
-                                                            <span
-                                                                style={{
-                                                                    display: 'inline-flex',
-                                                                    alignItems: 'center',
-                                                                    gap: weatherGap,
-                                                                }}
-                                                            >
-                                                                {weatherChildren}
-                                                            </span>
                                                         );
                                                         parts.push(
                                                             <span
                                                                 key="weather"
                                                                 style={{ whiteSpace: 'nowrap', flexShrink: 0 }}
                                                             >
-                                                                {lc.chipBg ? (
-                                                                    <span
-                                                                        className="license-c-chip-shape"
-                                                                        style={{
-                                                                            background: lc.chipBg,
-                                                                            padding: '0 5px',
-                                                                        }}
-                                                                    >
-                                                                        <span
-                                                                            className="license-c-chip-shape__inner"
-                                                                            style={{
-                                                                                display: 'inline-flex',
-                                                                                alignItems: 'center',
-                                                                                gap: weatherGap,
-                                                                            }}
-                                                                        >
-                                                                            {weatherChildren}
-                                                                        </span>
-                                                                    </span>
-                                                                ) : (
-                                                                    weatherRow
-                                                                )}
+                                                                <span
+                                                                    style={{
+                                                                        display: 'inline-flex',
+                                                                        alignItems: 'center',
+                                                                        gap: weatherGap,
+                                                                    }}
+                                                                >
+                                                                    {weatherChildren}
+                                                                </span>
                                                             </span>,
                                                         );
                                                     }
-                                                }
-                                                const nowrap = (key: string, content: string) => (
-                                                    <span
-                                                        key={key}
-                                                        style={{ whiteSpace: 'nowrap', flexShrink: 0, fontWeight: 600 }}
-                                                    >
-                                                        {content}
-                                                    </span>
-                                                );
-                                                if (!uniformDuration) {
-                                                    if (w.laps != null) parts.push(nowrap('laps', `${w.laps} laps`));
-                                                    else if (w.race_time) parts.push(nowrap('race_time', w.race_time));
                                                 }
                                                 if (w.event_date)
                                                     parts.push(
@@ -965,44 +1027,28 @@ const SeriesCard = memo(
 
                     <div className="series-meta series-meta-tail">
                         <div style={{ display: 'flex', flexDirection: 'column', marginBottom: '1.75rem' }}>
-                            {s.schedule_mode === 'cars'
-                                ? (() => {
-                                      const weeksWithCars = (s.weeks || []).filter(
-                                          (w) => w.cars_in_use && w.cars_in_use.length > 0,
-                                      );
-                                      const seen = new Set<string>();
-                                      const allCars = weeksWithCars
-                                          .flatMap((w) => w.cars_in_use)
-                                          .filter((car) => (seen.has(car) ? false : (seen.add(car), true)));
-                                      return allCars.length > 0 ? (
-                                          <div
-                                              style={{
-                                                  display: 'flex',
-                                                  flexDirection: 'column',
-                                                  gap: 'calc(8px * var(--scale))',
-                                                  marginBottom: '1.44em',
-                                              }}
-                                          >
-                                              {allCars.map((car, i) => (
-                                                  <CarItem key={`${car}-${i}`} car={car} />
-                                              ))}
-                                          </div>
-                                      ) : null;
-                                  })()
-                                : (s.cars || []).length > 0 && (
-                                      <div
-                                          style={{
-                                              display: 'flex',
-                                              flexDirection: 'column',
-                                              gap: 'calc(8px * var(--scale))',
-                                              marginBottom: '1.44em',
-                                          }}
-                                      >
-                                          {s.cars.map((car) => (
-                                              <CarItem key={car} car={car} />
-                                          ))}
-                                      </div>
-                                  )}
+                            {(() => {
+                                const list =
+                                    s.schedule_mode === 'cars'
+                                        ? carsForSeriesTail(s.weeks, s.cars)
+                                        : (s.cars || []).filter(
+                                              (c) => !HEADER_CARS_PLACEHOLDER.test(c.trim()),
+                                          );
+                                return list.length > 0 ? (
+                                    <div
+                                        style={{
+                                            display: 'flex',
+                                            flexDirection: 'column',
+                                            gap: 'calc(8px * var(--scale))',
+                                            marginBottom: '1.44em',
+                                        }}
+                                    >
+                                        {list.map((car, i) => (
+                                            <CarItem key={`${car}-${i}`} car={car} />
+                                        ))}
+                                    </div>
+                                ) : null;
+                            })()}
                             {uniformFuel != null && (
                                 <div className="series-uniform-fuel" style={{ marginBottom: '1.44em' }}>
                                     <span
@@ -1403,6 +1449,16 @@ const SeriesCard = memo(
 );
 
 export default function SeriesClient({ series, initialTempUnit, initialDarkMode }: SeriesClientProps) {
+    const router = useRouter();
+    const pathname = usePathname() ?? '';
+    const currentSeason = useMemo(
+        () => SCHEDULE_SEASON_OPTIONS.find((o) => o.href === pathname) ?? SCHEDULE_SEASON_OPTIONS[0],
+        [pathname],
+    );
+
+    const [seasonMenuOpen, setSeasonMenuOpen] = useState(false);
+    const seasonMenuRef = useRef<HTMLDivElement | null>(null);
+
     const [selectedIndex, setSelectedIndex] = useState(0);
     const [showGrid, setShowGrid] = useState(false);
     const [navOpen, setNavOpen] = useState(false);
@@ -1448,6 +1504,27 @@ export default function SeriesClient({ series, initialTempUnit, initialDarkMode 
             return next;
         });
     }, []);
+
+    useEffect(() => {
+        if (!seasonMenuOpen) return;
+        const onKey = (e: KeyboardEvent) => {
+            if (e.key === 'Escape') setSeasonMenuOpen(false);
+        };
+        const onPointerDown = (e: PointerEvent) => {
+            const el = seasonMenuRef.current;
+            if (el && !el.contains(e.target as Node)) setSeasonMenuOpen(false);
+        };
+        document.addEventListener('keydown', onKey);
+        document.addEventListener('pointerdown', onPointerDown, true);
+        return () => {
+            document.removeEventListener('keydown', onKey);
+            document.removeEventListener('pointerdown', onPointerDown, true);
+        };
+    }, [seasonMenuOpen]);
+
+    useEffect(() => {
+        setSeasonMenuOpen(false);
+    }, [pathname]);
 
     useEffect(() => {
         const pane = detailPaneRef.current;
@@ -1614,27 +1691,29 @@ export default function SeriesClient({ series, initialTempUnit, initialDarkMode 
         return () => document.removeEventListener('mousedown', handler);
     }, [navOpen]);
 
-    const hierarchy = useMemo(() => {
-        const h: Record<string, Record<string, SeriesWithIndex[]>> = {};
+    const { navSections, flatSeries } = useMemo(() => {
+        const useDiscipline = series.some((s) => s.discipline);
+        const sections: { discipline: string | null; license: string; items: SeriesWithIndex[] }[] = [];
         series.forEach((s, i) => {
-            const d = s.discipline || 'Other';
-            const l = s.license_class || 'Other';
-            if (!h[d]) h[d] = {};
-            if (!h[d][l]) h[d][l] = [];
-            h[d][l].push({ ...s, _originalIndex: i });
+            const item: SeriesWithIndex = { ...s, _originalIndex: i };
+            const license = s.license_class || 'Other';
+            const discipline = useDiscipline ? s.discipline || 'Other' : null;
+            const last = sections[sections.length - 1];
+            const breakSection =
+                !last ||
+                last.license !== license ||
+                (useDiscipline && last.discipline !== discipline);
+            if (breakSection) {
+                sections.push({ discipline, license, items: [item] });
+            } else {
+                last.items.push(item);
+            }
         });
-        return h;
+        return {
+            navSections: sections,
+            flatSeries: sections.flatMap((sec) => sec.items),
+        };
     }, [series]);
-
-    const flatSeries = useMemo(() => {
-        const flat: SeriesWithIndex[] = [];
-        Object.values(hierarchy).forEach((licenses) => {
-            Object.values(licenses).forEach((seriesArr) => {
-                seriesArr.forEach((s) => flat.push(s));
-            });
-        });
-        return flat;
-    }, [hierarchy]);
 
     // Map from _originalIndex → flatSeries position, used by nav item click handler
     const originalIndexToFlatIdx = useMemo(() => {
@@ -1790,7 +1869,65 @@ export default function SeriesClient({ series, initialTempUnit, initialDarkMode 
                 <div className="min-w-0 flex-1 text-[1.1em] font-bold leading-tight text-[var(--fg)]">
                     iRacing Official Schedule
                     <br />
-                    <span className="text-[0.8em] font-normal text-[var(--fg-muted)]">2026 Season 2</span>
+                    <div className="relative inline-flex max-w-full align-top" ref={seasonMenuRef}>
+                        <button
+                            type="button"
+                            id="schedule-season-trigger"
+                            aria-label="Schedule season"
+                            aria-expanded={seasonMenuOpen}
+                            aria-haspopup="listbox"
+                            aria-controls="schedule-season-menu"
+                            className="season-menu-trigger flex max-w-[min(100%,28ch)] cursor-pointer items-center gap-1 border-0 bg-transparent py-0.5 pl-0 pr-0 text-left text-[0.8em] font-normal text-[var(--fg-muted)] underline decoration-transparent outline-none hover:underline hover:decoration-[var(--fg-muted)] focus-visible:ring-2 focus-visible:ring-[var(--fg-muted)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg)]"
+                            onClick={() => setSeasonMenuOpen((o) => !o)}
+                        >
+                            <span className="min-w-0 truncate">{currentSeason?.label ?? 'Season'}</span>
+                            <svg
+                                className="pointer-events-none size-3.5 shrink-0 text-[var(--fg-muted)]"
+                                viewBox="0 0 12 8"
+                                fill="none"
+                                aria-hidden
+                            >
+                                <path
+                                    d="M2 2.5l4 3 4-3"
+                                    stroke="currentColor"
+                                    strokeWidth="1.35"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                />
+                            </svg>
+                        </button>
+                        {seasonMenuOpen && (
+                            <ul
+                                id="schedule-season-menu"
+                                role="listbox"
+                                aria-labelledby="schedule-season-trigger"
+                                className="absolute left-0 top-[calc(100%+4px)] z-[200] m-0 min-w-[12rem] list-none rounded border border-[var(--border)] bg-[var(--bg)] py-1 shadow-[var(--shadow-nav)]"
+                            >
+                                {SCHEDULE_SEASON_OPTIONS.map((opt) => {
+                                    const selected = opt.href === pathname;
+                                    return (
+                                        <li key={opt.href} role="presentation" className="m-0 p-0">
+                                            <button
+                                                type="button"
+                                                role="option"
+                                                aria-selected={selected}
+                                                className={clsx(
+                                                    'w-full border-0 bg-transparent px-3 py-2 text-left text-[0.8em] text-[var(--fg-body)] hover:bg-[var(--border)]',
+                                                    selected && 'font-semibold text-[var(--fg)]',
+                                                )}
+                                                onClick={() => {
+                                                    setSeasonMenuOpen(false);
+                                                    if (opt.href !== pathname) router.push(opt.href);
+                                                }}
+                                            >
+                                                {opt.label}
+                                            </button>
+                                        </li>
+                                    );
+                                })}
+                            </ul>
+                        )}
+                    </div>
                 </div>
                 <div className="flex shrink-0 items-start gap-2">
                     <button
@@ -1851,19 +1988,21 @@ export default function SeriesClient({ series, initialTempUnit, initialDarkMode 
                                 />
                             )}
                             <ul className="m-0 list-none pb-12">
-                                {Object.entries(hierarchy).map(([discipline, licenses]) => (
-                                    <li key={discipline}>
-                                        {Object.entries(licenses).map(([license, seriesArr]) => (
-                                            <div key={license}>
+                                {navSections.map((sec, si) => {
+                                    const heading = navSectionHeading(sec.discipline, sec.license);
+                                    const lcNav = licenseColors(sec.license);
+                                    return (
+                                        <li key={`${sec.discipline ?? '—'}-${sec.license}-${si}`}>
+                                            <div>
                                                 <div
                                                     className="sticky top-0 z-[2] -ml-2 bg-[var(--bg)] pt-4 pr-2 pb-[0.2rem] pl-[calc(0.5rem+8px)] text-[0.85em] font-semibold uppercase tracking-[0.08em]"
-                                                    style={{ color: licenseColors(license).text }}
+                                                    style={{ color: lcNav.text }}
                                                 >
-                                                    {licenseColors(license).chipBg ? (
+                                                    {lcNav.chipBg ? (
                                                         <span
                                                             className="license-c-chip-shape"
                                                             style={{
-                                                                background: licenseColors(license).chipBg,
+                                                                background: lcNav.chipBg,
                                                                 padding: '1px 7px',
                                                             }}
                                                         >
@@ -1871,14 +2010,14 @@ export default function SeriesClient({ series, initialTempUnit, initialDarkMode 
                                                                 className="license-c-chip-shape__inner"
                                                                 style={{ display: 'inline-block' }}
                                                             >
-                                                                {discipline} {license}
+                                                                {heading}
                                                             </span>
                                                         </span>
                                                     ) : (
-                                                        <span>{discipline} {license}</span>
+                                                        <span>{heading}</span>
                                                     )}
                                                 </div>
-                                                {seriesArr.map((s) => {
+                                                {sec.items.map((s) => {
                                                     const flatIdx = originalIndexToFlatIdx.get(s._originalIndex) ?? 0;
                                                     const active = flatIdx === selectedIndex;
                                                     return (
@@ -1896,9 +2035,9 @@ export default function SeriesClient({ series, initialTempUnit, initialDarkMode 
                                                     );
                                                 })}
                                             </div>
-                                        ))}
-                                    </li>
-                                ))}
+                                        </li>
+                                    );
+                                })}
                             </ul>
                         </div>
                     </div>
