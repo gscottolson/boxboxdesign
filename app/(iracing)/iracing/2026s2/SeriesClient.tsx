@@ -1,4 +1,5 @@
 'use client';
+import { nunitoSans } from '@/app/fonts';
 import clsx from 'clsx';
 import { useRouter, usePathname } from 'next/navigation';
 import { useEffect, useLayoutEffect, useMemo, useRef, useState, memo, forwardRef, useCallback } from 'react';
@@ -225,12 +226,12 @@ function formatLegacyTrack(trackName: string | null | undefined, trackLayout: st
 const CADENCE_HIGHLIGHT =
     /(\d{1,2}\s*(?:timeslots?|hours?|minutes?)|\:?\d{1,2}(?::\d{2})?(?:\s*(?:GMT|past|after))?|\bhour(?:ly)?\b|\btop of the hour\b|\bhalf past\b|\bon the hour\b)/gi;
 
-const LICENSE_COLORS: Record<string, { text: string; border: string; bg: string; chipBg?: string }> = {
+const LICENSE_COLORS: Record<string, { text: string; border: string; bg: string }> = {
     Rookie: { text: 'var(--license-rookie)', border: 'var(--license-rookie)', bg: 'var(--bg)' },
     /** PDF ``R Class Series (UNRANKED)`` — section license letter, same lane as rookie. */
     R: { text: 'var(--license-rookie)', border: 'var(--license-rookie)', bg: 'var(--bg)' },
     D: { text: 'var(--license-d)', border: 'var(--license-d)', bg: 'var(--bg)' },
-    C: { text: 'var(--license-c)', border: 'var(--license-c)', bg: 'var(--bg)', chipBg: 'var(--license-c-chip-bg)' },
+    C: { text: 'var(--license-c)', border: 'var(--license-c)', bg: 'var(--bg)' },
     B: { text: 'var(--license-b)', border: 'var(--license-b)', bg: 'var(--bg)' },
     A: { text: 'var(--license-a)', border: 'var(--license-a)', bg: 'var(--bg)' },
 };
@@ -531,6 +532,7 @@ const SeriesCard = memo(
                 }}
             >
                 <div className="series-body">
+                    <div className="series-meta-aside">
                     <div className="series-meta series-meta-lead">
                         <h2
                             style={{
@@ -624,403 +626,26 @@ const SeriesCard = memo(
                                     color: lcRow.text,
                                     flexWrap: 'wrap' as const,
                                 };
-                                const discChipBg = lcRow.chipBg ?? 'var(--fg)';
                                 return (
-                                    <div
-                                        className="disc-row license-c-chip-shape"
-                                        style={{
-                                            marginBottom: '1.44em',
-                                            background: discChipBg,
-                                            padding: '2px 8px',
-                                        }}
-                                    >
+                                    <div className="disc-shape-adjust" style={{ marginBottom: '1.44em' }}>
+                                        <div className="disc-shape-adjust__straight" aria-hidden />
                                         <div
-                                            className="license-c-chip-shape__inner license-c-chip-shape__inner--flex"
-                                            style={rowTypography}
+                                            className="disc-row license-c-chip-shape"
+                                            style={{
+                                                background: 'var(--series-disc-chip-bg)',
+                                            }}
                                         >
-                                            {discItems}
+                                            <div
+                                                className="license-c-chip-shape__inner license-c-chip-shape__inner--flex"
+                                                style={rowTypography}
+                                            >
+                                                {discItems}
+                                            </div>
                                         </div>
                                     </div>
                                 );
                             })()}
                     </div>
-
-                    {/* Schedule */}
-                    <div className="series-schedule">
-                        <div>
-                            {(s.weeks || []).map((w, wi) => {
-                                const isLast = wi === (s.weeks || []).length - 1;
-                                const {
-                                    name: displayName,
-                                    year: legacyYear,
-                                    layout: displayLayout,
-                                } = formatLegacyTrack(w.track_name || w.track, w.track_layout);
-                                const carsFeatured =
-                                    s.schedule_mode === 'cars' &&
-                                    !!w.car_group_label &&
-                                    !TRACK_PRIMARY_SERIES.has(s.series) &&
-                                    !seriesIsGenericMultiClassVenue;
-                                return (
-                                    <div
-                                        key={w.week ?? wi}
-                                        style={{
-                                            display: 'grid',
-                                            gridTemplateColumns: 'calc(42px * var(--scale)) 1fr',
-                                            columnGap: 'calc(8px * var(--scale))',
-                                            gridTemplateRows: `calc(30px * var(--scale)) calc(14px * var(--scale)) calc(8px * var(--scale))`,
-                                            overflow: 'visible',
-                                        }}
-                                    >
-                                        {/* Week number */}
-                                        <div
-                                            style={{
-                                                gridColumn: 1,
-                                                gridRow: 1,
-                                                color: 'var(--fg-dim)',
-                                                fontWeight: 300,
-                                                fontStyle: 'italic',
-                                                fontSize: 'calc(38px * var(--scale))',
-                                                lineHeight: 'calc(30px * var(--scale))',
-                                                letterSpacing: '-0.04em',
-                                                textAlign: 'left',
-                                                fontVariantNumeric: 'tabular-nums',
-                                            }}
-                                        >
-                                            {String(w.week).padStart(2, '0')}
-                                        </div>
-                                        {/* Primary label: car group (car-featured) or track name (default) */}
-                                        <div style={{ gridColumn: 2, gridRow: 1, whiteSpace: 'nowrap' }}>
-                                            <span
-                                                style={{
-                                                    fontWeight: 800,
-                                                    fontStyle: 'italic',
-                                                    fontSize: 'calc(38px * var(--scale))',
-                                                    lineHeight: 'calc(30px * var(--scale))',
-                                                    letterSpacing: '-0.02em',
-                                                    textTransform: 'uppercase',
-                                                    color: 'var(--fg)',
-                                                }}
-                                            >
-                                                {carsFeatured
-                                                    ? CAR_ABBR[w.car_group_label] ?? w.car_group_label
-                                                    : displayName}
-                                            </span>
-                                            {!carsFeatured && legacyYear && (
-                                                <span
-                                                    style={{
-                                                        fontWeight: 300,
-                                                        fontStyle: 'italic',
-                                                        fontSize: 'calc(38px * var(--scale))',
-                                                        lineHeight: 'calc(30px * var(--scale))',
-                                                        color: 'var(--fg-dim)',
-                                                        opacity: 0.5,
-                                                        letterSpacing: '-0.03em',
-                                                    }}
-                                                >
-                                                    {' '}
-                                                    {legacyYear}
-                                                </span>
-                                            )}
-                                        </div>
-                                        {/* Date */}
-                                        <div
-                                            style={{
-                                                gridColumn: 1,
-                                                gridRow: 2,
-                                                fontSize: 'calc(12px * var(--scale))',
-                                                lineHeight: '1.17',
-                                                fontStyle: 'italic',
-                                                fontWeight: 600,
-                                                fontVariantNumeric: 'tabular-nums',
-                                                color: 'var(--fg-dim)',
-                                                opacity: 0.5,
-                                                textAlign: 'left',
-                                                letterSpacing: '0.08em',
-                                            }}
-                                        >
-                                            {w.event_date &&
-                                                (() => {
-                                                    const d = new Date(w.event_date + 'T00:00:00');
-                                                    const mon = d
-                                                        .toLocaleDateString('en-US', { month: 'short' })
-                                                        .toUpperCase();
-                                                    const day = d.toLocaleDateString('en-US', { day: '2-digit' });
-                                                    return `${mon}${day}`;
-                                                })()}
-                                        </div>
-                                        {/* Metadata */}
-                                        <div
-                                            style={{
-                                                gridColumn: 2,
-                                                gridRow: 2,
-                                                fontSize: 'calc(12px * var(--scale))',
-                                                lineHeight: '1.17',
-                                                fontStyle: 'italic',
-                                                color: 'var(--fg)',
-                                                display: 'flex',
-                                                flexWrap: 'nowrap',
-                                                gap: 'calc(4px * var(--scale))',
-                                                alignItems: 'baseline',
-                                                minWidth: 0,
-                                                overflow: 'visible',
-                                            }}
-                                        >
-                                            {(() => {
-                                                const parts: React.ReactNode[] = [];
-                                                if (carsFeatured) {
-                                                    const trackLabel = displayName ?? '';
-                                                    const layoutAbbr = displayLayout
-                                                        ? LAYOUT_ABBR[displayLayout]
-                                                        : undefined;
-                                                    const trackWithLayout = layoutAbbr
-                                                        ? `${trackLabel} ${layoutAbbr}`
-                                                        : displayLayout
-                                                        ? `${trackLabel} ${displayLayout}`
-                                                        : trackLabel;
-                                                    if (trackWithLayout) {
-                                                        const hasLayout = !!displayLayout;
-                                                        const trackMainStyle: React.CSSProperties = {
-                                                            fontWeight: 800,
-                                                            color: hasLayout ? 'var(--bg)' : 'var(--fg)',
-                                                            textTransform: 'uppercase',
-                                                            letterSpacing: '0.02em',
-                                                            whiteSpace: 'nowrap',
-                                                            flexShrink: 0,
-                                                        };
-                                                        parts.push(
-                                                            <span
-                                                                key="track"
-                                                                style={{
-                                                                    whiteSpace: 'nowrap',
-                                                                    flexShrink: 0,
-                                                                    display: 'inline-flex',
-                                                                    alignItems: 'baseline',
-                                                                }}
-                                                            >
-                                                                {hasLayout ? (
-                                                                    <span
-                                                                        className="license-c-chip-shape"
-                                                                        style={{
-                                                                            background: 'var(--fg)',
-                                                                            padding: '0 3px',
-                                                                        }}
-                                                                    >
-                                                                        <span
-                                                                            className="license-c-chip-shape__inner license-c-chip-shape__inner--flex"
-                                                                            style={{ alignItems: 'baseline' }}
-                                                                        >
-                                                                            <span style={trackMainStyle}>
-                                                                                {trackWithLayout}
-                                                                            </span>
-                                                                        </span>
-                                                                    </span>
-                                                                ) : (
-                                                                    <span style={trackMainStyle}>{trackWithLayout}</span>
-                                                                )}
-                                                                {legacyYear && (
-                                                                    <span
-                                                                        style={{ color: 'var(--fg-dim)', opacity: 0.5 }}
-                                                                    >
-                                                                        {' '}
-                                                                        {legacyYear}
-                                                                    </span>
-                                                                )}
-                                                            </span>,
-                                                        );
-                                                    }
-                                                } else {
-                                                    const trackPrimaryCarLabel =
-                                                        s.schedule_mode === 'cars' &&
-                                                        !!w.car_group_label &&
-                                                        TRACK_PRIMARY_SERIES.has(s.series)
-                                                            ? CAR_ABBR[w.car_group_label] ?? w.car_group_label
-                                                            : null;
-                                                    const secondaryLabel =
-                                                        trackPrimaryCarLabel ?? displayLayout ?? null;
-                                                    if (secondaryLabel) {
-                                                        const isLayoutSecondary =
-                                                            !trackPrimaryCarLabel && !!displayLayout;
-                                                        const layoutLineStyle: React.CSSProperties = {
-                                                            fontWeight: 800,
-                                                            color: isLayoutSecondary ? 'var(--bg)' : 'var(--fg)',
-                                                            textTransform: 'uppercase',
-                                                            letterSpacing: '0.02em',
-                                                            whiteSpace: 'nowrap',
-                                                            flexShrink: 0,
-                                                        };
-                                                        parts.push(
-                                                            <span
-                                                                key="layout"
-                                                                style={{
-                                                                    whiteSpace: 'nowrap',
-                                                                    flexShrink: 0,
-                                                                    display: 'inline-flex',
-                                                                    alignItems: 'baseline',
-                                                                }}
-                                                            >
-                                                                {isLayoutSecondary ? (
-                                                                    <span
-                                                                        className="license-c-chip-shape"
-                                                                        style={{
-                                                                            background: 'var(--fg)',
-                                                                            padding: '0 3px',
-                                                                        }}
-                                                                    >
-                                                                        <span
-                                                                            className="license-c-chip-shape__inner license-c-chip-shape__inner--flex"
-                                                                            style={{ alignItems: 'baseline' }}
-                                                                        >
-                                                                            <span style={layoutLineStyle}>
-                                                                                {secondaryLabel}
-                                                                            </span>
-                                                                        </span>
-                                                                    </span>
-                                                                ) : (
-                                                                    <span style={layoutLineStyle}>{secondaryLabel}</span>
-                                                                )}
-                                                            </span>,
-                                                        );
-                                                    }
-                                                }
-                                                const nowrap = (key: string, content: string) => (
-                                                    <span
-                                                        key={key}
-                                                        style={{ whiteSpace: 'nowrap', flexShrink: 0, fontWeight: 600 }}
-                                                    >
-                                                        {content}
-                                                    </span>
-                                                );
-                                                if (!uniformDuration) {
-                                                    if (w.laps != null) parts.push(nowrap('laps', `${w.laps} laps`));
-                                                    else if (w.race_time) parts.push(nowrap('race_time', w.race_time));
-                                                }
-                                                if (
-                                                    w.weather &&
-                                                    (w.weather.air_temperature_c != null || w.weather.chance_of_rain) &&
-                                                    !(
-                                                        (w.weather.air_temperature_c as unknown) ===
-                                                            'Constant weather' &&
-                                                        w.weather.chance_of_rain === 'Dynamic sky'
-                                                    )
-                                                ) {
-                                                    const tempC =
-                                                        typeof w.weather.air_temperature_c === 'number'
-                                                            ? w.weather.air_temperature_c
-                                                            : null;
-                                                    const hasTemp = tempC != null;
-                                                    const rain =
-                                                        w.weather.chance_of_rain && w.weather.chance_of_rain !== 'None'
-                                                            ? w.weather.chance_of_rain
-                                                            : null;
-                                                    if (hasTemp || rain) {
-                                                        const weatherGap = hasTemp && rain
-                                                            ? 'calc(10px * var(--scale))'
-                                                            : '0px';
-                                                        const weatherChildren = (
-                                                            <>
-                                                                {hasTemp && tempC != null && (
-                                                                    <span
-                                                                        style={{
-                                                                            color: 'var(--fg)',
-                                                                            fontWeight: 400,
-                                                                            fontVariantNumeric: 'tabular-nums',
-                                                                        }}
-                                                                    >
-                                                                        {formatAirTempForDisplay(tempC, tempUnit)}
-                                                                    </span>
-                                                                )}
-                                                                {rain && (
-                                                                    <span
-                                                                        style={{
-                                                                            display: 'inline-flex',
-                                                                            alignItems: 'center',
-                                                                            gap: '2px',
-                                                                            color: '#0BA5EC',
-                                                                            fontWeight: 400,
-                                                                        }}
-                                                                    >
-                                                                        <svg
-                                                                            width="6"
-                                                                            height="8"
-                                                                            viewBox="0 0 22 30"
-                                                                            fill="currentColor"
-                                                                            style={{
-                                                                                flexShrink: 0,
-                                                                                display: 'block',
-                                                                                transform: 'translateY(calc(1.5px - 1px * var(--scale)))',
-                                                                            }}
-                                                                        >
-                                                                            <path d="M1.71313 24.2173C-0.96344 20.1073 -0.462191 14.6962 2.9238 11.1478L13.4318 0.135688C13.6479 -0.0907149 14.0247 -0.0242619 14.1503 0.262377L20.2583 14.2043C22.2264 18.6968 20.8467 23.953 16.9259 26.8998C12.0341 30.5761 5.05248 29.3451 1.71313 24.2173Z" />
-                                                                        </svg>
-                                                                        <span>{rain}</span>
-                                                                    </span>
-                                                                )}
-                                                            </>
-                                                        );
-                                                        parts.push(
-                                                            <span
-                                                                key="weather"
-                                                                style={{ whiteSpace: 'nowrap', flexShrink: 0 }}
-                                                            >
-                                                                <span
-                                                                    style={{
-                                                                        display: 'inline-flex',
-                                                                        alignItems: 'center',
-                                                                        gap: weatherGap,
-                                                                    }}
-                                                                >
-                                                                    {weatherChildren}
-                                                                </span>
-                                                            </span>,
-                                                        );
-                                                    }
-                                                }
-                                                if (w.event_date)
-                                                    parts.push(
-                                                        <span
-                                                            key="date"
-                                                            style={{
-                                                                whiteSpace: 'nowrap',
-                                                                flexShrink: 0,
-                                                                opacity: 0.65,
-                                                            }}
-                                                        >{`${w.event_date}${
-                                                            w.event_time ? ` · ${w.event_time}` : ''
-                                                        }`}</span>,
-                                                    );
-                                                return parts.flatMap((p, i) =>
-                                                    i === 0
-                                                        ? [p]
-                                                        : [
-                                                              <span
-                                                                  key={`sep-${i}`}
-                                                                  style={{
-                                                                      opacity: 0.4,
-                                                                      flexShrink: 0,
-                                                                      fontStyle: 'normal',
-                                                                  }}
-                                                              >
-                                                                  {'//'}
-                                                              </span>,
-                                                              p,
-                                                          ],
-                                                );
-                                            })()}
-                                        </div>
-                                        <div
-                                            style={{
-                                                gridColumn: 2,
-                                                gridRow: 3,
-                                                paddingBottom: isLast ? 0 : 'calc(7px * var(--scale))',
-                                            }}
-                                        />
-                                    </div>
-                                );
-                            })}
-                        </div>
-                    </div>
-                    {/* end series-schedule */}
-
 
                     <div className="series-meta series-meta-tail">
                         <div style={{ display: 'flex', flexDirection: 'column', marginBottom: '1.75rem' }}>
@@ -1247,7 +872,383 @@ const SeriesCard = memo(
                             </div>
                         </div>
                     </div>
+                    </div>
+                    {/* end series-meta-aside */}
 
+                    {/* Schedule */}
+                    <div className="series-schedule">
+                        <div>
+                            {(s.weeks || []).map((w, wi) => {
+                                const isLast = wi === (s.weeks || []).length - 1;
+                                const {
+                                    name: displayName,
+                                    year: legacyYear,
+                                    layout: displayLayout,
+                                } = formatLegacyTrack(w.track_name || w.track, w.track_layout);
+                                const carsFeatured =
+                                    s.schedule_mode === 'cars' &&
+                                    !!w.car_group_label &&
+                                    !TRACK_PRIMARY_SERIES.has(s.series) &&
+                                    !seriesIsGenericMultiClassVenue;
+                                return (
+                                    <div
+                                        key={w.week ?? wi}
+                                        style={{
+                                            display: 'grid',
+                                            gridTemplateColumns: 'calc(42px * var(--scale)) 1fr',
+                                            columnGap: 'calc(8px * var(--scale))',
+                                            gridTemplateRows: `calc(30px * var(--scale)) calc(14px * var(--scale)) calc(8px * var(--scale))`,
+                                            overflow: 'visible',
+                                        }}
+                                    >
+                                        {/* Week number */}
+                                        <div
+                                            style={{
+                                                gridColumn: 1,
+                                                gridRow: 1,
+                                                color: 'var(--fg-dim)',
+                                                fontWeight: 300,
+                                                fontStyle: 'italic',
+                                                fontSize: 'calc(38px * var(--scale))',
+                                                lineHeight: 'calc(30px * var(--scale))',
+                                                letterSpacing: '-0.04em',
+                                                textAlign: 'left',
+                                                fontVariantNumeric: 'tabular-nums',
+                                            }}
+                                        >
+                                            {String(w.week).padStart(2, '0')}
+                                        </div>
+                                        {/* Primary label: car group (car-featured) or track name (default) */}
+                                        <div style={{ gridColumn: 2, gridRow: 1, whiteSpace: 'nowrap' }}>
+                                            <span
+                                                style={{
+                                                    fontWeight: 800,
+                                                    fontStyle: 'italic',
+                                                    fontSize: 'calc(38px * var(--scale))',
+                                                    lineHeight: 'calc(30px * var(--scale))',
+                                                    letterSpacing: '-0.02em',
+                                                    textTransform: 'uppercase',
+                                                    color: 'var(--fg)',
+                                                }}
+                                            >
+                                                {carsFeatured
+                                                    ? CAR_ABBR[w.car_group_label] ?? w.car_group_label
+                                                    : displayName}
+                                            </span>
+                                            {!carsFeatured && legacyYear && (
+                                                <span
+                                                    style={{
+                                                        fontWeight: 300,
+                                                        fontStyle: 'italic',
+                                                        fontSize: 'calc(38px * var(--scale))',
+                                                        lineHeight: 'calc(30px * var(--scale))',
+                                                        color: 'var(--fg-dim)',
+                                                        opacity: 0.5,
+                                                        letterSpacing: '-0.03em',
+                                                    }}
+                                                >
+                                                    {' '}
+                                                    {legacyYear}
+                                                </span>
+                                            )}
+                                        </div>
+                                        {/* Date */}
+                                        <div
+                                            style={{
+                                                gridColumn: 1,
+                                                gridRow: 2,
+                                                fontSize: 'calc(12px * var(--scale))',
+                                                lineHeight: '1.17',
+                                                fontStyle: 'italic',
+                                                fontWeight: 600,
+                                                fontVariantNumeric: 'tabular-nums',
+                                                color: 'var(--fg-dim)',
+                                                opacity: 0.5,
+                                                textAlign: 'left',
+                                                letterSpacing: '0.08em',
+                                            }}
+                                        >
+                                            {w.event_date &&
+                                                (() => {
+                                                    const d = new Date(w.event_date + 'T00:00:00');
+                                                    const mon = d
+                                                        .toLocaleDateString('en-US', { month: 'short' })
+                                                        .toUpperCase();
+                                                    const day = d.toLocaleDateString('en-US', { day: '2-digit' });
+                                                    return `${mon}${day}`;
+                                                })()}
+                                        </div>
+                                        {/* Metadata */}
+                                        <div
+                                            style={{
+                                                gridColumn: 2,
+                                                gridRow: 2,
+                                                fontSize: 'calc(12px * var(--scale))',
+                                                lineHeight: '1.17',
+                                                fontStyle: 'italic',
+                                                color: 'var(--fg)',
+                                                display: 'flex',
+                                                flexWrap: 'nowrap',
+                                                gap: 'calc(4px * var(--scale))',
+                                                alignItems: 'baseline',
+                                                minWidth: 0,
+                                                overflow: 'visible',
+                                            }}
+                                        >
+                                            {(() => {
+                                                const parts: React.ReactNode[] = [];
+                                                if (carsFeatured) {
+                                                    const trackLabel = displayName ?? '';
+                                                    const layoutAbbr = displayLayout
+                                                        ? LAYOUT_ABBR[displayLayout]
+                                                        : undefined;
+                                                    const trackWithLayout = layoutAbbr
+                                                        ? `${trackLabel} ${layoutAbbr}`
+                                                        : displayLayout
+                                                        ? `${trackLabel} ${displayLayout}`
+                                                        : trackLabel;
+                                                    if (trackWithLayout) {
+                                                        const hasLayout = !!displayLayout;
+                                                        const trackMainStyle: React.CSSProperties = {
+                                                            fontWeight: 800,
+                                                            color: 'var(--bg)',
+                                                            textTransform: 'uppercase',
+                                                            letterSpacing: '0.02em',
+                                                            whiteSpace: 'nowrap',
+                                                            flexShrink: 0,
+                                                        };
+                                                        const trackChipClass = hasLayout
+                                                            ? 'schedule-chip schedule-chip--parallelogram'
+                                                            : 'schedule-chip schedule-chip--skew-right';
+                                                        parts.push(
+                                                            <span
+                                                                key="track"
+                                                                style={{
+                                                                    whiteSpace: 'nowrap',
+                                                                    flexShrink: 0,
+                                                                    display: 'inline-flex',
+                                                                    alignItems: 'baseline',
+                                                                }}
+                                                            >
+                                                                <span
+                                                                    className={trackChipClass}
+                                                                    style={{
+                                                                        background: 'var(--fg)',
+                                                                        padding: '0 3px 0 1px',
+                                                                    }}
+                                                                >
+                                                                    <span
+                                                                        className="schedule-chip__inner schedule-chip__inner--flex"
+                                                                        style={{ alignItems: 'baseline' }}
+                                                                    >
+                                                                        <span style={trackMainStyle}>
+                                                                            {trackWithLayout}
+                                                                        </span>
+                                                                    </span>
+                                                                </span>
+                                                                {legacyYear && (
+                                                                    <span
+                                                                        style={{ color: 'var(--fg-dim)', opacity: 0.5 }}
+                                                                    >
+                                                                        {' '}
+                                                                        {legacyYear}
+                                                                    </span>
+                                                                )}
+                                                            </span>,
+                                                        );
+                                                    }
+                                                } else {
+                                                    const trackPrimaryCarLabel =
+                                                        s.schedule_mode === 'cars' &&
+                                                        !!w.car_group_label &&
+                                                        TRACK_PRIMARY_SERIES.has(s.series)
+                                                            ? CAR_ABBR[w.car_group_label] ?? w.car_group_label
+                                                            : null;
+                                                    const secondaryLabel =
+                                                        trackPrimaryCarLabel ?? displayLayout ?? null;
+                                                    if (secondaryLabel) {
+                                                        const isLayoutSecondary =
+                                                            !trackPrimaryCarLabel && !!displayLayout;
+                                                        const layoutLineStyle: React.CSSProperties = {
+                                                            fontWeight: 800,
+                                                            color: isLayoutSecondary ? 'var(--bg)' : 'var(--fg)',
+                                                            textTransform: 'uppercase',
+                                                            letterSpacing: '0.02em',
+                                                            whiteSpace: 'nowrap',
+                                                            flexShrink: 0,
+                                                        };
+                                                        parts.push(
+                                                            <span
+                                                                key="layout"
+                                                                style={{
+                                                                    whiteSpace: 'nowrap',
+                                                                    flexShrink: 0,
+                                                                    display: 'inline-flex',
+                                                                    alignItems: 'baseline',
+                                                                }}
+                                                            >
+                                                                {isLayoutSecondary ? (
+                                                                    <span
+                                                                        className="schedule-chip schedule-chip--parallelogram"
+                                                                        style={{
+                                                                            background: 'var(--fg)',
+                                                                            padding: '0 3px 0 1px',
+                                                                        }}
+                                                                    >
+                                                                        <span
+                                                                            className="schedule-chip__inner schedule-chip__inner--flex"
+                                                                            style={{ alignItems: 'baseline' }}
+                                                                        >
+                                                                            <span style={layoutLineStyle}>
+                                                                                {secondaryLabel}
+                                                                            </span>
+                                                                        </span>
+                                                                    </span>
+                                                                ) : (
+                                                                    <span style={layoutLineStyle}>{secondaryLabel}</span>
+                                                                )}
+                                                            </span>,
+                                                        );
+                                                    }
+                                                }
+                                                const nowrap = (key: string, content: string) => (
+                                                    <span
+                                                        key={key}
+                                                        style={{ whiteSpace: 'nowrap', flexShrink: 0, fontWeight: 600 }}
+                                                    >
+                                                        {content}
+                                                    </span>
+                                                );
+                                                if (!uniformDuration) {
+                                                    if (w.laps != null) parts.push(nowrap('laps', `${w.laps} laps`));
+                                                    else if (w.race_time) parts.push(nowrap('race_time', w.race_time));
+                                                }
+                                                if (
+                                                    w.weather &&
+                                                    (w.weather.air_temperature_c != null || w.weather.chance_of_rain) &&
+                                                    !(
+                                                        (w.weather.air_temperature_c as unknown) ===
+                                                            'Constant weather' &&
+                                                        w.weather.chance_of_rain === 'Dynamic sky'
+                                                    )
+                                                ) {
+                                                    const tempC =
+                                                        typeof w.weather.air_temperature_c === 'number'
+                                                            ? w.weather.air_temperature_c
+                                                            : null;
+                                                    const hasTemp = tempC != null;
+                                                    const rain =
+                                                        w.weather.chance_of_rain && w.weather.chance_of_rain !== 'None'
+                                                            ? w.weather.chance_of_rain
+                                                            : null;
+                                                    if (hasTemp || rain) {
+                                                        const weatherGap = hasTemp && rain
+                                                            ? 'calc(10px * var(--scale))'
+                                                            : '0px';
+                                                        const weatherChildren = (
+                                                            <>
+                                                                {hasTemp && tempC != null && (
+                                                                    <span
+                                                                        style={{
+                                                                            color: 'var(--fg)',
+                                                                            fontWeight: 400,
+                                                                            fontVariantNumeric: 'tabular-nums',
+                                                                        }}
+                                                                    >
+                                                                        {formatAirTempForDisplay(tempC, tempUnit)}
+                                                                    </span>
+                                                                )}
+                                                                {rain && (
+                                                                    <span
+                                                                        style={{
+                                                                            display: 'inline-flex',
+                                                                            alignItems: 'center',
+                                                                            gap: '2px',
+                                                                            color: '#0BA5EC',
+                                                                            fontWeight: 400,
+                                                                        }}
+                                                                    >
+                                                                        <svg
+                                                                            width="6"
+                                                                            height="8"
+                                                                            viewBox="0 0 22 30"
+                                                                            fill="currentColor"
+                                                                            style={{
+                                                                                flexShrink: 0,
+                                                                                display: 'block',
+                                                                                transform: 'translateY(calc(1.5px - 1px * var(--scale)))',
+                                                                            }}
+                                                                        >
+                                                                            <path d="M1.71313 24.2173C-0.96344 20.1073 -0.462191 14.6962 2.9238 11.1478L13.4318 0.135688C13.6479 -0.0907149 14.0247 -0.0242619 14.1503 0.262377L20.2583 14.2043C22.2264 18.6968 20.8467 23.953 16.9259 26.8998C12.0341 30.5761 5.05248 29.3451 1.71313 24.2173Z" />
+                                                                        </svg>
+                                                                        <span>{rain}</span>
+                                                                    </span>
+                                                                )}
+                                                            </>
+                                                        );
+                                                        parts.push(
+                                                            <span
+                                                                key="weather"
+                                                                style={{ whiteSpace: 'nowrap', flexShrink: 0 }}
+                                                            >
+                                                                <span
+                                                                    style={{
+                                                                        display: 'inline-flex',
+                                                                        alignItems: 'center',
+                                                                        gap: weatherGap,
+                                                                    }}
+                                                                >
+                                                                    {weatherChildren}
+                                                                </span>
+                                                            </span>,
+                                                        );
+                                                    }
+                                                }
+                                                if (w.event_date)
+                                                    parts.push(
+                                                        <span
+                                                            key="date"
+                                                            style={{
+                                                                whiteSpace: 'nowrap',
+                                                                flexShrink: 0,
+                                                                opacity: 0.65,
+                                                            }}
+                                                        >{`${w.event_date}${
+                                                            w.event_time ? ` · ${w.event_time}` : ''
+                                                        }`}</span>,
+                                                    );
+                                                return parts.flatMap((p, i) =>
+                                                    i === 0
+                                                        ? [p]
+                                                        : [
+                                                              <span
+                                                                  key={`sep-${i}`}
+                                                                  style={{
+                                                                      opacity: 0.4,
+                                                                      flexShrink: 0,
+                                                                      fontStyle: 'normal',
+                                                                  }}
+                                                              >
+                                                                  {'//'}
+                                                              </span>,
+                                                              p,
+                                                          ],
+                                                );
+                                            })()}
+                                        </div>
+                                        <div
+                                            style={{
+                                                gridColumn: 2,
+                                                gridRow: 3,
+                                                paddingBottom: isLast ? 0 : 'calc(7px * var(--scale))',
+                                            }}
+                                        />
+                                    </div>
+                                );
+                            })}
+                        </div>
+                    </div>
+                    {/* end series-schedule */}
 
                     {/* Race info block */}
                     {(() => {
@@ -1801,7 +1802,7 @@ export default function SeriesClient({ series, initialTempUnit, initialDarkMode 
     }, []);
 
     return (
-        <div className="fixed inset-0 flex flex-col bg-[var(--bg)]">
+        <div className={clsx('fixed inset-0 flex flex-col bg-[var(--bg)]', nunitoSans.className)}>
             {/* Page header */}
             <div className="page-header box-border flex h-[4.5rem] shrink-0 items-center gap-2 bg-[var(--bg)] px-4 py-3 z-20">
                 <button
@@ -1991,12 +1992,11 @@ export default function SeriesClient({ series, initialTempUnit, initialDarkMode 
                                     return (
                                         <li key={`${sec.discipline ?? '—'}-${sec.license}-${si}`}>
                                             <div>
-                                                <div className="sticky top-0 z-[2] -ml-2 bg-[var(--bg)] pt-1.5 pr-2 pb-0.5 pl-[calc(0.5rem+8px)] text-[0.8em] font-semibold uppercase tracking-[0.08em]">
+                                                <div className="sticky top-0 z-[2] -ml-[30px] bg-[var(--bg)] pt-1.5 pr-2 pb-0.5 pl-2 text-[0.8em] font-semibold uppercase tracking-[0.08em]">
                                                     <span
                                                         className="license-c-chip-shape"
                                                         style={{
-                                                            background: lcNav.chipBg ?? 'var(--fg)',
-                                                            padding: '0 6px',
+                                                            background: 'var(--series-disc-chip-bg)',
                                                         }}
                                                     >
                                                         <span

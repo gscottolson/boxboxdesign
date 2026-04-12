@@ -14,9 +14,9 @@
     --license-b: #19c76a;
     --license-a: #4f85f1;
     --license-c-text-shadow: none;
-    --license-c-chip-bg: var(--fg);
     --license-c-sep-color: #f0edeb;
-    --license-c-chip-color: var(--bg);
+    /* Discipline / license / setup row + nav section heading chips. */
+    --series-disc-chip-bg: var(--fg);
     --shadow-nav: 0 8px 32px rgba(66, 63, 60, 0.12), 0 2px 8px rgba(66, 63, 60, 0.08);
     --backdrop-bg: rgba(230, 227, 225, 0.9);
     /* Theme switch: a bit brighter than --border/--bg so it reads, not harsh. */
@@ -27,6 +27,10 @@
     --series-detail-scale-mobile: 0.9;
     /* “Cars start with … % fuel” and similar BOP/support lines */
     --series-bop-meta: var(--fg-muted);
+    /* Trapezoid chips: horizontal inset on the slanted side (~ former skew). */
+    --license-chip-slash: 0.28em;
+    /* Shared skew angle: nav (light), discipline row, schedule track/layout chips. */
+    --chip-skew: -17.9deg;
 }
 
 [data-theme='dark'] {
@@ -44,9 +48,8 @@
     --license-b: #06e858;
     --license-a: #29aaff;
     --license-c-text-shadow: none;
-    --license-c-chip-bg: transparent;
     --license-c-sep-color: var(--fg);
-    --license-c-chip-color: var(--license-c);
+    --series-disc-chip-bg: #292726;
     --shadow-nav: 0 8px 32px rgba(0, 0, 0, 0.4), 0 2px 8px rgba(0, 0, 0, 0.3);
     --backdrop-bg: rgba(20, 18, 16, 0.9);
     --mode-toggle-track: #3f3a36;
@@ -65,34 +68,95 @@
 }
 
 /*
- * Skewed chip shell (discipline row, nav sections, C license, track layouts). Light: skew
- * outer + counter-skew inner. Dark: transforms off; C uses transparent chip bg per theme.
- * Padding on wrappers is set inline in SeriesClient.
+ * license-c-chip-shape: license / discipline / nav section labels (clip-path or skew).
+ * schedule-chip: week-row labels — .parallelogram = track+layout; .skew-right / .skew-left = one straight edge.
+ * Same skew in light and dark (no dark-only transform reset).
  */
-:root .license-c-chip-shape {
+.license-c-chip-shape {
     display: inline-block;
     vertical-align: baseline;
-    border-radius: 2px;
-    transform: skewX(-17.9deg);
 }
 
-:root .license-c-chip-shape__inner {
-    transform: skewX(17.9deg);
-}
-
-:root .license-c-chip-shape__inner--flex {
+.license-c-chip-shape__inner--flex {
     display: flex;
     align-items: baseline;
     flex-wrap: wrap;
 }
 
-[data-theme='dark'] .license-c-chip-shape,
-[data-theme='dark'] .license-c-chip-shape__inner {
+/* Nav section headings: skew + 2px radius (light and dark); sticky row uses `-ml-[30px]` in SeriesClient. */
+.series-nav .license-c-chip-shape {
+    padding: 0 32px 0 41px;
+    clip-path: none;
+    border-radius: 2px;
+    transform-origin: left center;
+    transform: skewX(var(--chip-skew));
+}
+
+.series-nav .license-c-chip-shape .license-c-chip-shape__inner {
+    transform: skewX(calc(-1 * var(--chip-skew)));
+}
+
+/* Explicit orientation (wins over .series-nav when both classes are set). */
+.license-c-chip-shape.license-c-chip-shape--straight-left {
+    clip-path: polygon(0 0, 100% 0, calc(100% - var(--license-chip-slash)) 100%, 0 100%);
+}
+
+.license-c-chip-shape.license-c-chip-shape--straight-right {
+    clip-path: polygon(var(--license-chip-slash) 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.license-c-chip-shape__inner {
     transform: none;
 }
 
-[data-theme='dark'] .license-c-chip-shape {
+/* Week row track / layout label (any series, any license). */
+.schedule-chip {
+    display: inline-block;
+    vertical-align: baseline;
+}
+
+.schedule-chip__inner {
+    transform: none;
+}
+
+.schedule-chip__inner--flex {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+}
+
+.schedule-chip.schedule-chip--parallelogram {
+    clip-path: none;
     border-radius: 2px;
+    transform: skewX(var(--chip-skew));
+}
+
+.schedule-chip.schedule-chip--parallelogram .schedule-chip__inner {
+    transform: skewX(calc(-1 * var(--chip-skew)));
+}
+
+/* Left-aligned row: straight left, slant on right (“skewed right”). */
+.schedule-chip.schedule-chip--skew-right {
+    clip-path: none;
+    border-radius: 2px;
+    transform-origin: left center;
+    transform: skewX(var(--chip-skew));
+}
+
+.schedule-chip.schedule-chip--skew-right .schedule-chip__inner {
+    transform: skewX(calc(-1 * var(--chip-skew)));
+}
+
+/* Right-aligned row: straight right, slant on left (“skewed left”). */
+.schedule-chip.schedule-chip--skew-left {
+    clip-path: none;
+    border-radius: 2px;
+    transform-origin: right center;
+    transform: skewX(var(--chip-skew));
+}
+
+.schedule-chip.schedule-chip--skew-left .schedule-chip__inner {
+    transform: skewX(calc(-1 * var(--chip-skew)));
 }
 
 /* SeriesClient layout and schedule UI (was inline <style> in SeriesClient.tsx) */
@@ -117,7 +181,7 @@
 /* Detail scrollport: bottom padding + desktop right gutter (see mobile overrides below). */
 .series-detail .series-detail-pane {
     padding-bottom: 2rem;
-    /* Skewed C-license chips paint past their box; overflow-y-auto also clips X — inset so corners aren’t cut. */
+    /* Chips can paint past their box; overflow-y-auto also clips X — inset so corners aren’t cut. */
     padding-left: 0.375rem;
     /* No horizontal scroll: schedule row uses nowrap + overflow visible; clip X, keep Y. */
     overflow-x: hidden;
@@ -334,6 +398,51 @@
     .series-uniform-fuel {
         justify-content: flex-start;
     }
+
+    /* DOM order is aside(lead+tail) then schedule; flatten aside so flex order can be lead → schedule → tail. */
+    .series-meta-aside {
+        display: contents;
+    }
+
+    .series-meta-lead {
+        order: 1;
+    }
+
+    .series-schedule {
+        order: 2;
+    }
+
+    .series-meta-tail {
+        order: 3;
+    }
+
+    .race-info {
+        order: 4;
+    }
+
+    /* Meta is left-aligned in the stack; match nav/schedule (straight left edge). */
+    .series-meta .license-c-chip-shape {
+        clip-path: polygon(0 0, 100% 0, calc(100% - var(--license-chip-slash)) 100%, 0 100%);
+    }
+
+    /*
+     * Discipline chip: skew + border-radius (visible rounding in Edge; polygon() round is unreliable there).
+     * transform-origin left → straight left edge, slant on the right.
+     */
+    .series-meta .disc-row.license-c-chip-shape {
+        clip-path: none;
+        border-radius: 4px;
+        transform-origin: left center;
+        transform: skewX(var(--chip-skew));
+    }
+
+    .series-meta .disc-row.license-c-chip-shape .license-c-chip-shape__inner {
+        transform: skewX(calc(-1 * var(--chip-skew)));
+    }
+
+    .series-meta .disc-shape-adjust {
+        padding-left: 5px;
+    }
 }
 
 @media (max-width: 760px) {
@@ -368,52 +477,108 @@
     order: -1;
 }
 
-/* Disc / license / setup row: parent is a flex column with default stretch — hug content, not full width. */
-.series-meta .disc-row {
-    align-self: flex-start;
+/*
+ * Discipline chip wrapper: positioning context for straight-edge overlay.
+ * inline-flex (not inline-block + baseline) avoids extra line-box descent so the box height
+ * matches .disc-row; otherwise __straight { top:0; bottom:0 } stretches ~1px past the skewed chip.
+ */
+.series-meta .disc-shape-adjust {
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
     width: fit-content;
     max-width: 100%;
     box-sizing: border-box;
+    align-self: flex-start;
+    vertical-align: top;
+    padding-right: 5px;
+}
+
+/* Solid strip on the straight side (skew cleanup); default = left (narrow); wide @container flips to right. */
+.series-meta .disc-shape-adjust__straight {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: auto;
+    z-index: 0;
+    width: 20px;
+    background: var(--series-disc-chip-bg);
+    border-radius: 4px 0 0 4px;
+    pointer-events: none;
+}
+
+/* Disc / license / setup row (inner chip). Left-aligned meta: extra space on slanted (right) side. */
+.series-meta .disc-row.license-c-chip-shape {
+    position: relative;
+    z-index: 1;
+    clip-path: none;
+    border-radius: 4px;
+    padding: 2px 16px 2px 8px;
 }
 
 @container detail (min-width: 70ch) {
     .series-body {
         display: grid;
         grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
-        grid-template-rows: auto auto auto;
+        /* One row for aside | schedule (row height = max of the two), then full-width race notes. */
+        grid-template-rows: auto auto;
         gap: 32px;
         align-items: start;
     }
 
-    /* DOM order narrow: lead → schedule → tail → race. Grid: lead+tail col1, schedule spans rows 1–2. */
-    .series-meta-lead {
+    .series-meta-aside {
         grid-column: 1;
         grid-row: 1;
-    }
-
-    .series-meta-tail {
-        grid-column: 1;
-        grid-row: 2;
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        align-self: start;
+        min-width: 0;
     }
 
     .series-schedule {
         grid-column: 2;
-        grid-row: 1 / span 2;
+        grid-row: 1;
         align-self: start;
+        min-width: 0;
     }
 
     .series-meta {
         text-align: right;
     }
 
-    .series-meta .cadence-highlight {
-        justify-content: flex-end;
+    /* Straight right edge (vertical) on discipline/license chip when meta is flush right. */
+    .series-meta .license-c-chip-shape {
+        clip-path: polygon(var(--license-chip-slash) 0, 100% 0, 100% 100%, 0 100%);
     }
 
-    .series-meta .disc-row {
-        justify-content: flex-end;
+    /* Discipline chip: origin right → straight right edge; extra space on slanted (left) side. */
+    .series-meta .disc-row.license-c-chip-shape {
+        clip-path: none;
+        transform-origin: right center;
+        transform: skewX(var(--chip-skew));
+        padding: 2px 8px 2px 16px;
+    }
+
+    .series-meta .disc-row.license-c-chip-shape .license-c-chip-shape__inner {
+        transform: skewX(calc(-1 * var(--chip-skew)));
+    }
+
+    .series-meta .disc-shape-adjust__straight {
+        right: 0;
+        left: auto;
+        border-radius: 0 4px 4px 0;
+    }
+
+    .series-meta .disc-shape-adjust {
         align-self: flex-end;
         margin-inline-start: auto;
+    }
+
+    .series-meta .cadence-highlight {
+        justify-content: flex-end;
     }
 
     .car-item {
@@ -428,7 +593,7 @@
 
     .race-info {
         grid-column: 1 / -1;
-        grid-row: 3;
+        grid-row: 2;
         display: flex;
         justify-content: center;
     }
