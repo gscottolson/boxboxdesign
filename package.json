@@ -4,6 +4,7 @@
         "build": "next build",
         "postbuild": "next-sitemap",
         "dev": "next dev -p 4200",
+        "extract-schedule": "python3 scripts/extract-schedule.py",
         "prettier": "prettier --write --ignore-unknown .",
         "prettier:check": "prettier --check --ignore-unknown .",
         "start": "next start -p 4200"
