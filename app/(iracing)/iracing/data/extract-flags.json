@@ -24,7 +24,7 @@
       "entries": []
     },
     "schedules/2026s1.pdf": {
-      "extracted_at": "2026-04-12T17:50:46.407224+00:00",
+      "extracted_at": "2026-04-12T18:17:26.548670+00:00",
       "schedule_json": "app/(iracing)/iracing/data/2026s1.json",
       "flagged_series_count": 1,
       "entries": [
@@ -39,6 +39,12 @@
           ]
         }
       ]
+    },
+    "schedules/2025s4.pdf": {
+      "extracted_at": "2026-04-12T18:20:04.788659+00:00",
+      "schedule_json": "app/(iracing)/iracing/data/2025s4.json",
+      "flagged_series_count": 0,
+      "entries": []
     }
   }
 }
