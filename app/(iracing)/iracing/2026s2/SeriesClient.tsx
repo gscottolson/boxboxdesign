@@ -2,6 +2,7 @@
 import clsx from 'clsx';
 import { useEffect, useLayoutEffect, useMemo, useRef, useState, memo, forwardRef, useCallback } from 'react';
 import ModeToggle from './mode-toggle';
+import { TEMP_UNIT_COOKIE, formatAirTempForDisplay, type TempUnit } from './temp-unit-preference';
 
 interface WeatherData {
     air_temperature_c: number | null;
@@ -82,6 +83,8 @@ interface SeriesWithIndex extends Series {
 
 export interface SeriesClientProps {
     series: Series[];
+    /** From `schedule_temp_unit` cookie (server). */
+    initialTempUnit?: TempUnit;
 }
 
 interface TrackInfo {
@@ -409,10 +412,11 @@ interface SeriesCardProps {
     s: SeriesWithIndex;
     idx: number;
     showGrid: boolean;
+    tempUnit: TempUnit;
 }
 
 const SeriesCard = memo(
-    forwardRef<HTMLDivElement, SeriesCardProps>(function SeriesCard({ s, idx, showGrid }, ref) {
+    forwardRef<HTMLDivElement, SeriesCardProps>(function SeriesCard({ s, idx, showGrid, tempUnit }, ref) {
         const lc = licenseColors(s.license_class);
         const weeks = s.weeks || [];
         const durations = weeks.map((w) => (w.laps != null ? `${w.laps} laps` : w.race_time ?? null));
@@ -803,7 +807,11 @@ const SeriesCard = memo(
                                                         w.weather.chance_of_rain === 'Dynamic sky'
                                                     )
                                                 ) {
-                                                    const hasTemp = w.weather.air_temperature_c != null;
+                                                    const tempC =
+                                                        typeof w.weather.air_temperature_c === 'number'
+                                                            ? w.weather.air_temperature_c
+                                                            : null;
+                                                    const hasTemp = tempC != null;
                                                     const rain =
                                                         w.weather.chance_of_rain && w.weather.chance_of_rain !== 'None'
                                                             ? w.weather.chance_of_rain
@@ -814,7 +822,7 @@ const SeriesCard = memo(
                                                             : '0px';
                                                         const weatherChildren = (
                                                             <>
-                                                                {hasTemp && (
+                                                                {hasTemp && tempC != null && (
                                                                     <span
                                                                         style={{
                                                                             color: lc.text,
@@ -822,7 +830,7 @@ const SeriesCard = memo(
                                                                             fontVariantNumeric: 'tabular-nums',
                                                                         }}
                                                                     >
-                                                                        {w.weather.air_temperature_c}°C
+                                                                        {formatAirTempForDisplay(tempC, tempUnit)}
                                                                     </span>
                                                                 )}
                                                                 {rain && (
@@ -1392,7 +1400,7 @@ const SeriesCard = memo(
     }),
 );
 
-export default function SeriesClient({ series }: SeriesClientProps) {
+export default function SeriesClient({ series, initialTempUnit }: SeriesClientProps) {
     const [selectedIndex, setSelectedIndex] = useState(0);
     const [showGrid, setShowGrid] = useState(false);
     const [navOpen, setNavOpen] = useState(false);
@@ -1422,6 +1430,7 @@ export default function SeriesClient({ series }: SeriesClientProps) {
     } | null>(null);
     const [pillAnimated, setPillAnimated] = useState(false);
     const [darkMode, setDarkMode] = useState(false);
+    const [tempUnit, setTempUnit] = useState<TempUnit>(initialTempUnit ?? 'C');
 
     useEffect(() => {
         const isDark = document.documentElement.dataset.theme === 'dark';
@@ -1434,6 +1443,14 @@ export default function SeriesClient({ series }: SeriesClientProps) {
         document.documentElement.dataset.theme = next ? 'dark' : 'light';
         document.cookie = `theme=${next ? 'dark' : 'light'};path=/;max-age=31536000`;
     };
+
+    const toggleTempUnit = useCallback(() => {
+        setTempUnit((u) => {
+            const next: TempUnit = u === 'C' ? 'F' : 'C';
+            document.cookie = `${TEMP_UNIT_COOKIE}=${next};path=/;max-age=31536000;SameSite=Lax`;
+            return next;
+        });
+    }, []);
 
     useEffect(() => {
         const pane = detailPaneRef.current;
@@ -1712,7 +1729,6 @@ export default function SeriesClient({ series }: SeriesClientProps) {
 
     return (
         <div className="fixed inset-0 flex flex-col bg-[var(--bg)]">
-            <ModeToggle darkMode={darkMode} onToggle={toggleTheme} />
             {/* Page header */}
             <div className="page-header box-border flex h-[4.5rem] shrink-0 items-center gap-2 bg-[var(--bg)] px-4 py-3 z-20">
                 <button
@@ -1778,6 +1794,17 @@ export default function SeriesClient({ series }: SeriesClientProps) {
                     iRacing Official Schedule
                     <br />
                     <span className="text-[0.8em] font-normal text-[var(--fg-muted)]">2026 Season 2</span>
+                </div>
+                <div className="flex shrink-0 items-start gap-2">
+                    <button
+                        type="button"
+                        onClick={toggleTempUnit}
+                        className="flex h-8 w-[68px] shrink-0 items-center justify-center rounded-full border-none bg-[var(--mode-toggle-track)] p-0 text-[0.8em] font-bold tabular-nums leading-none tracking-tight text-[var(--mode-toggle-icon)] transition-colors hover:text-[var(--fg-body)]"
+                        aria-label={tempUnit === 'F' ? 'Show temperatures in Celsius' : 'Show temperatures in Fahrenheit'}
+                    >
+                        °{tempUnit}
+                    </button>
+                    <ModeToggle darkMode={darkMode} onToggle={toggleTheme} />
                 </div>
             </div>
 
@@ -1924,6 +1951,7 @@ export default function SeriesClient({ series }: SeriesClientProps) {
                                 s={s}
                                 idx={idx}
                                 showGrid={showGrid}
+                                tempUnit={tempUnit}
                             />
                         ))}
                     </div>

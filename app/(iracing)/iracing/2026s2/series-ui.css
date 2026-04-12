@@ -19,6 +19,10 @@
     --license-c-chip-color: var(--bg);
     --shadow-nav: 0 8px 32px rgba(66, 63, 60, 0.12), 0 2px 8px rgba(66, 63, 60, 0.08);
     --backdrop-bg: rgba(230, 227, 225, 0.9);
+    /* Theme switch: a bit brighter than --border/--bg so it reads, not harsh. */
+    --mode-toggle-track: #ebe6e0;
+    --mode-toggle-thumb: #faf8f6;
+    --mode-toggle-icon: var(--fg-muted);
     /* Detail pane: `calc(Npx * var(--scale))` — 1 on split/desktop; mobile uses var below. */
     --series-detail-scale-mobile: 0.9;
 }
@@ -43,6 +47,9 @@
     --license-c-chip-color: var(--license-c);
     --shadow-nav: 0 8px 32px rgba(0, 0, 0, 0.4), 0 2px 8px rgba(0, 0, 0, 0.3);
     --backdrop-bg: rgba(20, 18, 16, 0.9);
+    --mode-toggle-track: #3f3a36;
+    --mode-toggle-thumb: #524c46;
+    --mode-toggle-icon: var(--fg-secondary);
 }
 
 /*
@@ -256,9 +263,8 @@
     }
 
     .series-detail .series-detail-pane {
-        /* Min 16px gutters; ramp with vw; cap for very wide narrow-layout viewports */
-        --pane-pad-inline: clamp(16px, 0.35rem + 12vw, 5.5rem);
-        padding-inline: var(--pane-pad-inline);
+        /* Fixed gutters: column is already capped (max-width) and centered — no vw ramp needed. */
+        padding-inline: 16px;
     }
 }
 
@@ -298,6 +304,7 @@
 .car-item {
     display: flex;
     align-items: stretch;
+    justify-content: flex-start;
 }
 
 .car-item span {
@@ -306,8 +313,18 @@
     text-wrap: pretty;
 }
 
+/* License-colored bar: left when meta is left-aligned; @container below moves it to the right. */
 .car-decoration {
-    display: none;
+    display: block;
+    width: 2px;
+    border-radius: 0.5px;
+    background: var(--accent);
+    margin-top: 1px;
+    margin-bottom: 1px;
+    margin-right: 6px;
+    margin-left: 0;
+    flex-shrink: 0;
+    order: -1;
 }
 
 /* Disc / license / setup row: parent is a flex column with default stretch — hug content, not full width. */
@@ -363,14 +380,9 @@
     }
 
     .car-decoration {
-        display: block;
-        width: 2px;
-        border-radius: 0.5px;
-        background: var(--accent);
-        margin-top: 1px;
-        margin-bottom: 1px;
         margin-left: 6px;
-        flex-shrink: 0;
+        margin-right: 0;
+        order: 0;
     }
 
     .race-info {
