@@ -227,6 +227,8 @@ const CADENCE_HIGHLIGHT =
 
 const LICENSE_COLORS: Record<string, { text: string; border: string; bg: string; chipBg?: string }> = {
     Rookie: { text: 'var(--license-rookie)', border: 'var(--license-rookie)', bg: 'var(--bg)' },
+    /** PDF ``R Class Series (UNRANKED)`` — section license letter, same lane as rookie. */
+    R: { text: 'var(--license-rookie)', border: 'var(--license-rookie)', bg: 'var(--bg)' },
     D: { text: 'var(--license-d)', border: 'var(--license-d)', bg: 'var(--bg)' },
     C: { text: 'var(--license-c)', border: 'var(--license-c)', bg: 'var(--bg)', chipBg: 'var(--license-c-chip-bg)' },
     B: { text: 'var(--license-b)', border: 'var(--license-b)', bg: 'var(--bg)' },
@@ -240,6 +242,7 @@ function licenseColors(licenseClass: string | null) {
 
 /** Sidebar section label: with discipline from legacy data, or license only (PDF order extract). */
 function navSectionHeading(discipline: string | null, license: string): string {
+    if (discipline === 'Unranked') return 'Unranked';
     if (discipline) return `${discipline} ${license}`;
     return license;
 }
@@ -384,8 +387,25 @@ interface NavItemProps {
     onNavClick: (flatIdx: number) => void;
 }
 
+function NavSetupDot({ setup }: { setup: string | null }) {
+    return (
+        <span className="nav-setup-dot col-start-1 row-start-1 flex shrink-0 items-center justify-center self-center text-[var(--fg-dim)] transition-colors duration-150">
+            <svg width="10" height="10" viewBox="0 0 10 10" className="block shrink-0">
+                {setup === 'Fixed' ? (
+                    <circle cx="5" cy="5" r="3.5" fill="currentColor" />
+                ) : (
+                    <circle cx="5" cy="5" r="3.5" fill="none" stroke="currentColor" strokeWidth="1.5" />
+                )}
+            </svg>
+        </span>
+    );
+}
+
 const NavItem = memo(
     forwardRef<HTMLDivElement, NavItemProps>(function NavItem({ s, flatIdx, active, navInnerRefs, onNavClick }, ref) {
+        const splitIdx = s.series ? s.series.indexOf(' - ') : -1;
+        const hasSubtitle = splitIdx >= 0;
+
         return (
             <div
                 className={clsx(
@@ -396,35 +416,27 @@ const NavItem = memo(
                 onClick={() => onNavClick(flatIdx)}
             >
                 <span
-                    className="nav-inner flex min-w-0 flex-[0_1_auto] items-start gap-[0.4rem] overflow-hidden py-[0.45rem] px-2"
+                    className="nav-inner grid min-w-0 flex-[0_1_auto] grid-cols-[auto_minmax(0,1fr)] gap-x-[0.4rem] gap-y-0 overflow-hidden py-[0.45rem] px-2"
                     ref={(el) => {
                         navInnerRefs.current[flatIdx] = el;
                     }}
                 >
-                    <span className="flex h-[1lh] shrink-0 items-center text-[var(--fg-dim)] transition-colors duration-150">
-                        <svg width="10" height="10" viewBox="0 0 10 10">
-                            {s.setup === 'Fixed' ? (
-                                <circle cx="5" cy="5" r="3.5" fill="currentColor" />
-                            ) : (
-                                <circle cx="5" cy="5" r="3.5" fill="none" stroke="currentColor" strokeWidth="1.5" />
-                            )}
-                        </svg>
-                    </span>
+                    <NavSetupDot setup={s.setup} />
                     {s.series ? (
-                        (() => {
-                            const idx = s.series.indexOf(' - ');
-                            if (idx >= 0) {
-                                return (
-                                    <span className="nav-label flex min-w-0 flex-col overflow-hidden">
-                                        <span>{s.series.slice(0, idx)}</span>
-                                        <span className="font-light">{s.series.slice(idx + 3).replace(/ - /g, ' ')}</span>
-                                    </span>
-                                );
-                            }
-                            return <span className="nav-label">{s.series}</span>;
-                        })()
+                        hasSubtitle ? (
+                            <>
+                                <span className="nav-label col-start-2 row-start-1 min-w-0 overflow-hidden leading-tight">
+                                    {s.series.slice(0, splitIdx)}
+                                </span>
+                                <span className="nav-label nav-label--subtitle col-start-2 row-start-2 min-w-0 overflow-hidden font-light leading-tight">
+                                    {s.series.slice(splitIdx + 3).replace(/ - /g, ' ')}
+                                </span>
+                            </>
+                        ) : (
+                            <span className="nav-label col-start-2 row-start-1 min-w-0">{s.series}</span>
+                        )
                     ) : (
-                        <span className="nav-label text-[var(--fg-dim)]">(Unnamed)</span>
+                        <span className="nav-label col-start-2 row-start-1 min-w-0 text-[var(--fg-dim)]">(Unnamed)</span>
                     )}
                 </span>
             </div>

@@ -142,6 +142,11 @@
     text-overflow: ellipsis;
 }
 
+/* Stacked nav: subtitle tucked under title (grid row 2, col 2) */
+.series-nav .nav-label--subtitle {
+    margin-top: -0.1em;
+}
+
 .series-nav-scroll {
     scrollbar-width: none;
 }
