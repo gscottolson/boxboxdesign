@@ -25,6 +25,8 @@
     --mode-toggle-icon: var(--fg-muted);
     /* Detail pane: `calc(Npx * var(--scale))` — 1 on split/desktop; mobile uses var below. */
     --series-detail-scale-mobile: 0.9;
+    /* “Cars start with … % fuel” and similar BOP/support lines */
+    --series-bop-meta: var(--fg-muted);
 }
 
 [data-theme='dark'] {
@@ -50,6 +52,16 @@
     --mode-toggle-track: #3f3a36;
     --mode-toggle-thumb: #524c46;
     --mode-toggle-icon: var(--fg-secondary);
+    --series-bop-meta: var(--fg-secondary);
+}
+
+/*
+ * °F/°C control uses the same CSS variables as the rest of the page (via [data-theme]).
+ * No color transition so it flips with everything else; React `darkMode` is updated after
+ * `data-theme` and would paint one beat late if this button depended on it for colors.
+ */
+.temp-unit-toggle {
+    transition: none;
 }
 
 /*

@@ -85,6 +85,8 @@ export interface SeriesClientProps {
     series: Series[];
     /** From `schedule_temp_unit` cookie (server). */
     initialTempUnit?: TempUnit;
+    /** From `theme` cookie (server); must match `<html data-theme>` set in iracing layout. */
+    initialDarkMode?: boolean;
 }
 
 interface TrackInfo {
@@ -1008,7 +1010,7 @@ const SeriesCard = memo(
                                             fontSize: 'calc(16px * var(--scale))',
                                             fontStyle: 'italic',
                                             fontWeight: 600,
-                                            color: 'var(--fg-subtle)',
+                                            color: 'var(--series-bop-meta)',
                                             letterSpacing: '0.04em',
                                             textTransform: 'uppercase',
                                             display: 'flex',
@@ -1400,7 +1402,7 @@ const SeriesCard = memo(
     }),
 );
 
-export default function SeriesClient({ series, initialTempUnit }: SeriesClientProps) {
+export default function SeriesClient({ series, initialTempUnit, initialDarkMode }: SeriesClientProps) {
     const [selectedIndex, setSelectedIndex] = useState(0);
     const [showGrid, setShowGrid] = useState(false);
     const [navOpen, setNavOpen] = useState(false);
@@ -1429,19 +1431,14 @@ export default function SeriesClient({ series, initialTempUnit }: SeriesClientPr
         color: string;
     } | null>(null);
     const [pillAnimated, setPillAnimated] = useState(false);
-    const [darkMode, setDarkMode] = useState(false);
+    const [darkMode, setDarkMode] = useState<boolean>(initialDarkMode ?? false);
     const [tempUnit, setTempUnit] = useState<TempUnit>(initialTempUnit ?? 'C');
-
-    useEffect(() => {
-        const isDark = document.documentElement.dataset.theme === 'dark';
-        setDarkMode(isDark);
-    }, []);
 
     const toggleTheme = () => {
         const next = !darkMode;
-        setDarkMode(next);
         document.documentElement.dataset.theme = next ? 'dark' : 'light';
         document.cookie = `theme=${next ? 'dark' : 'light'};path=/;max-age=31536000`;
+        setDarkMode(next);
     };
 
     const toggleTempUnit = useCallback(() => {
@@ -1799,10 +1796,22 @@ export default function SeriesClient({ series, initialTempUnit }: SeriesClientPr
                     <button
                         type="button"
                         onClick={toggleTempUnit}
-                        className="flex h-8 w-[68px] shrink-0 items-center justify-center rounded-full border-none bg-[var(--mode-toggle-track)] p-0 text-[0.8em] font-bold tabular-nums leading-none tracking-tight text-[var(--mode-toggle-icon)] transition-colors hover:text-[var(--fg-body)]"
+                        className="temp-unit-toggle relative block size-8 shrink-0 overflow-hidden rounded-[4px] border-none bg-[var(--mode-toggle-track)] p-0 text-[0.8em] font-bold tabular-nums leading-none tracking-tight text-[var(--mode-toggle-icon)] hover:text-[var(--fg-body)]"
                         aria-label={tempUnit === 'F' ? 'Show temperatures in Celsius' : 'Show temperatures in Fahrenheit'}
                     >
-                        °{tempUnit}
+                        <span
+                            className={clsx(
+                                'flex w-full flex-col transition-transform duration-300 ease-out motion-reduce:transition-none',
+                                tempUnit === 'C' ? 'translate-y-0' : '-translate-y-8',
+                            )}
+                        >
+                            <span className="flex h-8 w-full shrink-0 items-center justify-center" aria-hidden={tempUnit !== 'C'}>
+                                °C
+                            </span>
+                            <span className="flex h-8 w-full shrink-0 items-center justify-center" aria-hidden={tempUnit !== 'F'}>
+                                °F
+                            </span>
+                        </span>
                     </button>
                     <ModeToggle darkMode={darkMode} onToggle={toggleTheme} />
                 </div>
