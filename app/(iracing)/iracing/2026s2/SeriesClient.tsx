@@ -624,37 +624,22 @@ const SeriesCard = memo(
                                     color: lcRow.text,
                                     flexWrap: 'wrap' as const,
                                 };
-                                if (s.license_class === 'C') {
-                                    return (
-                                        <div
-                                            className="disc-row license-c-chip-shape"
-                                            style={{
-                                                marginBottom: '1.44em',
-                                                background: lcRow.chipBg,
-                                                padding: lcRow.chipBg ? '2px 8px' : undefined,
-                                            }}
-                                        >
-                                            <div
-                                                className="license-c-chip-shape__inner license-c-chip-shape__inner--flex"
-                                                style={rowTypography}
-                                            >
-                                                {discItems}
-                                            </div>
-                                        </div>
-                                    );
-                                }
+                                const discChipBg = lcRow.chipBg ?? 'var(--fg)';
                                 return (
                                     <div
-                                        className="disc-row"
+                                        className="disc-row license-c-chip-shape"
                                         style={{
-                                            ...rowTypography,
                                             marginBottom: '1.44em',
-                                            background: lcRow.chipBg,
-                                            borderRadius: lcRow.chipBg ? '4px' : undefined,
-                                            padding: lcRow.chipBg ? '2px 8px' : undefined,
+                                            background: discChipBg,
+                                            padding: '2px 8px',
                                         }}
                                     >
-                                        {discItems}
+                                        <div
+                                            className="license-c-chip-shape__inner license-c-chip-shape__inner--flex"
+                                            style={rowTypography}
+                                        >
+                                            {discItems}
+                                        </div>
                                     </div>
                                 );
                             })()}
@@ -796,7 +781,7 @@ const SeriesCard = memo(
                                                         const hasLayout = !!displayLayout;
                                                         const trackMainStyle: React.CSSProperties = {
                                                             fontWeight: 800,
-                                                            color: hasLayout ? lc.text : 'var(--fg)',
+                                                            color: hasLayout ? 'var(--bg)' : 'var(--fg)',
                                                             textTransform: 'uppercase',
                                                             letterSpacing: '0.02em',
                                                             whiteSpace: 'nowrap',
@@ -812,12 +797,12 @@ const SeriesCard = memo(
                                                                     alignItems: 'baseline',
                                                                 }}
                                                             >
-                                                                {hasLayout && lc.chipBg ? (
+                                                                {hasLayout ? (
                                                                     <span
                                                                         className="license-c-chip-shape"
                                                                         style={{
-                                                                            background: lc.chipBg,
-                                                                            padding: '0 5px',
+                                                                            background: 'var(--fg)',
+                                                                            padding: '0 3px',
                                                                         }}
                                                                     >
                                                                         <span
@@ -857,7 +842,7 @@ const SeriesCard = memo(
                                                             !trackPrimaryCarLabel && !!displayLayout;
                                                         const layoutLineStyle: React.CSSProperties = {
                                                             fontWeight: 800,
-                                                            color: isLayoutSecondary ? lc.text : 'var(--fg)',
+                                                            color: isLayoutSecondary ? 'var(--bg)' : 'var(--fg)',
                                                             textTransform: 'uppercase',
                                                             letterSpacing: '0.02em',
                                                             whiteSpace: 'nowrap',
@@ -873,12 +858,12 @@ const SeriesCard = memo(
                                                                     alignItems: 'baseline',
                                                                 }}
                                                             >
-                                                                {isLayoutSecondary && lc.chipBg ? (
+                                                                {isLayoutSecondary ? (
                                                                     <span
                                                                         className="license-c-chip-shape"
                                                                         style={{
-                                                                            background: lc.chipBg,
-                                                                            padding: '0 5px',
+                                                                            background: 'var(--fg)',
+                                                                            padding: '0 3px',
                                                                         }}
                                                                     >
                                                                         <span
@@ -2006,28 +1991,21 @@ export default function SeriesClient({ series, initialTempUnit, initialDarkMode 
                                     return (
                                         <li key={`${sec.discipline ?? '—'}-${sec.license}-${si}`}>
                                             <div>
-                                                <div
-                                                    className="sticky top-0 z-[2] -ml-2 bg-[var(--bg)] pt-1.5 pr-2 pb-0.5 pl-[calc(0.5rem+8px)] text-[0.8em] font-semibold uppercase tracking-[0.08em]"
-                                                    style={{ color: lcNav.text }}
-                                                >
-                                                    {lcNav.chipBg ? (
+                                                <div className="sticky top-0 z-[2] -ml-2 bg-[var(--bg)] pt-1.5 pr-2 pb-0.5 pl-[calc(0.5rem+8px)] text-[0.8em] font-semibold uppercase tracking-[0.08em]">
+                                                    <span
+                                                        className="license-c-chip-shape"
+                                                        style={{
+                                                            background: lcNav.chipBg ?? 'var(--fg)',
+                                                            padding: '0 6px',
+                                                        }}
+                                                    >
                                                         <span
-                                                            className="license-c-chip-shape"
-                                                            style={{
-                                                                background: lcNav.chipBg,
-                                                                padding: '0 6px',
-                                                            }}
+                                                            className="license-c-chip-shape__inner"
+                                                            style={{ display: 'inline-block', color: lcNav.text }}
                                                         >
-                                                            <span
-                                                                className="license-c-chip-shape__inner"
-                                                                style={{ display: 'inline-block' }}
-                                                            >
-                                                                {heading}
-                                                            </span>
+                                                            {heading}
                                                         </span>
-                                                    ) : (
-                                                        <span>{heading}</span>
-                                                    )}
+                                                    </span>
                                                 </div>
                                                 {sec.items.map((s) => {
                                                     const flatIdx = originalIndexToFlatIdx.get(s._originalIndex) ?? 0;

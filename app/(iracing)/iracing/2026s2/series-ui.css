@@ -11,8 +11,8 @@
     --license-rookie: #e3274c;
     --license-d: #f27f1b;
     --license-c: #ebb523;
-    --license-b: #219657;
-    --license-a: #3868c8;
+    --license-b: #19c76a;
+    --license-a: #4f85f1;
     --license-c-text-shadow: none;
     --license-c-chip-bg: var(--fg);
     --license-c-sep-color: #f0edeb;
@@ -65,10 +65,10 @@
 }
 
 /*
- * C license chip (light: dark --fg slab behind yellow type). Skew only the panel;
- * inner counter-skews so text stays upright. Dark theme chip bg is transparent — no skew.
+ * Skewed chip shell (discipline row, nav sections, C license, track layouts). Light: skew
+ * outer + counter-skew inner. Dark: transforms off; C uses transparent chip bg per theme.
+ * Padding on wrappers is set inline in SeriesClient.
  */
-/* Chip wrappers use +2px/side horizontal padding in SeriesClient for skewed panel vs text. */
 :root .license-c-chip-shape {
     display: inline-block;
     vertical-align: baseline;
