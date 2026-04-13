@@ -6,7 +6,8 @@ import { ModeToggleSwitch } from '../mode-toggle-switch';
 
 export default function ModeToggle() {
     const { theme, setTheme } = useTheme();
-    const darkMode = theme === 'dark';
+    /** `theme` is undefined during SSR; default matches `ThemeProvider defaultTheme="dark"`. */
+    const darkMode = theme !== 'light';
     const onToggle = useCallback(() => {
         setTheme(darkMode ? 'light' : 'dark');
     }, [darkMode, setTheme]);

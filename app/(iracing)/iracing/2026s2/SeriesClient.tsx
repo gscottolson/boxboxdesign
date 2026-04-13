@@ -1490,7 +1490,8 @@ export default function SeriesClient({ series, initialTempUnit, initialDarkMode 
         color: string;
     } | null>(null);
     const [pillAnimated, setPillAnimated] = useState(false);
-    const [darkMode, setDarkMode] = useState<boolean>(initialDarkMode ?? false);
+    /** Default true when unset: matches site default dark theme + `theme-cookie-sync` / cookie. */
+    const [darkMode, setDarkMode] = useState<boolean>(initialDarkMode ?? true);
     const [tempUnit, setTempUnit] = useState<TempUnit>(initialTempUnit ?? 'C');
 
     useLayoutEffect(() => {
