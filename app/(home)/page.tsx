@@ -5,7 +5,6 @@ import { Metadata } from 'next';
 import './page.css';
 
 import { getSiteTitle as getiRacingSiteTitle } from '../site';
-import { getDisciplineURL as getPostersURL } from '../(iracing)/iracing/data/series-util';
 import LogoIcon from './logo-icon';
 import LogoText from './logo-text';
 
@@ -44,12 +43,7 @@ export default function Page() {
                     <p className="pb-2 pl-8 pt-0 font-semibold uppercase tracking-[0.15em] lg:pt-48">Projects</p>
                     <ul className="flex flex-col justify-center gap-4 px-8 font-medium sm:flex-row">
                         <li className="w-auto">
-                            <Link
-                                href={getPostersURL('Formula', '2024s3')}
-                                className="inline-block"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
+                            <Link href="/iracing" className="inline-block">
                                 <div className="image-container relative inline-block opacity-75 mix-blend-multiply transition-opacity duration-500 ease-in-out hover:opacity-85">
                                     <Image
                                         src="/home/posters-hover.png"
