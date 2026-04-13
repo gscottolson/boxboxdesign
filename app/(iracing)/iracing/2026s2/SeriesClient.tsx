@@ -1216,6 +1216,7 @@ const SeriesCard = memo(
                                                                 whiteSpace: 'nowrap',
                                                                 flexShrink: 0,
                                                                 opacity: 0.65,
+                                                                paddingRight: 2,
                                                             }}
                                                         >{`${w.event_date}${
                                                             w.event_time ? ` · ${w.event_time}` : ''
