@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import Balancer from 'react-wrap-balancer';
 import Link from 'next/link';
 import { License, OfficialSeries } from '@/app/(iracing)/iracing/types';
 import { getSeriesURL } from '@/app/(iracing)/iracing/data/series-util';
@@ -49,7 +48,7 @@ export function SeriesCard({ series, priority }: SeriesCardProps) {
 
                 <div className="flex gap-3 px-2">
                     <h2 className="basis-full pt-2 leading-5">
-                        <Balancer>{series.name}</Balancer>
+                        <span className="text-balance">{series.name}</span>
                     </h2>
                     <div className="w-[20px] pt-2 opacity-50" title={iconTitle}>
                         {series.setup === 'fixed' ? <Fixed /> : <Open />}

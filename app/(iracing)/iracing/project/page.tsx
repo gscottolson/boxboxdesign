@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import Balancer from 'react-wrap-balancer';
 import { getSiteTitle } from '../../../site';
 import { BuyMeACoffee, Next } from '@/app/(iracing)/ir-archive/2024s1/icons';
 import { getDisciplineURL } from '../data/series-util';
@@ -27,9 +26,9 @@ export default function Page() {
 
                     <div className="m-auto flex flex-col lg:basis-1/2 ">
                         <h1 className="pb-[7px] pt-[11px] text-3xl font-light leading-10 lg:text-4xl lg:leading-[56px]">
-                            <Balancer>
+                            <span className="text-balance">
                                 About the <span className="font-normal">{getSiteTitle()}</span> Project
-                            </Balancer>
+                            </span>
                         </h1>
                         <div>
                             <p className="pb-[28px] pt-[6px]">

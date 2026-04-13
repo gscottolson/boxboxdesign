@@ -1,6 +1,5 @@
 import { getSiteTitle, getSiteTitleTemplate } from '@/app/site';
 import { Metadata } from 'next';
-import Balancer from 'react-wrap-balancer';
 import ModeToggle from './mode-toggle';
 
 export const metadata: Metadata = {
@@ -17,7 +16,7 @@ export default function Layout(props: { children: React.ReactNode; modal: React.
                 <ModeToggle />
                 <header className="text-center tracking-tighter text-gray700 dark:text-gray-200">
                     <h1 className=" px-10 pt-12 text-4xl font-light leading-none antialiased">
-                        <Balancer>{getSiteTitle()}</Balancer>
+                        <span className="text-balance">{getSiteTitle()}</span>
                     </h1>
                     <h2 className="p-4 pt-0 text-2xl font-light tracking-wide">2024 Season 3</h2>
                 </header>

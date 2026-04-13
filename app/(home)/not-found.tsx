@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import Balancer from 'react-wrap-balancer';
 import { outfit } from '../fonts';
 
 export default function NotFound() {
@@ -9,7 +8,7 @@ export default function NotFound() {
         >
             <Logo404 />
             <p className="mt-16 px-8 text-center text-2xl/8 font-light">
-                <Balancer>The thing you were looking for isn’t here. Apologies.</Balancer>
+                <span className="text-balance">The thing you were looking for isn’t here. Apologies.</span>
             </p>
             <Link href="/" className="text-xl text-gray700">
                 Head back to <span className="underline">BoxBoxDesign</span>

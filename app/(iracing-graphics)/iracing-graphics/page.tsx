@@ -1,6 +1,5 @@
 'use client';
 
-import Balancer from 'react-wrap-balancer';
 import { Options, findOptionsIndex } from './graphics-options';
 import { GraphicsUI } from './graphics-ui';
 import { useState, useCallback, useEffect } from 'react';
@@ -66,7 +65,7 @@ export default function Page() {
         // <div className="flex w-full flex-col items-start lg:items-center lg:justify-center">
         <div className="flex min-h-dvh w-full flex-col gap-2 pt-2 lg:justify-center lg:gap-8 lg:pt-0">
             <h1 className="pb-4 pt-8 text-center text-3xl/10 drop-shadow-graphics-header lg:pb-8 lg:text-5xl">
-                <Balancer>iRacing Graphics, Explained</Balancer>
+                <span className="text-balance">iRacing Graphics, Explained</span>
             </h1>
 
             <div className="mx-auto flex w-full max-w-[1280px] grow basis-5/6 flex-col items-center justify-start md:w-[80%] lg:w-full lg:grow-0 lg:basis-auto lg:flex-row lg:items-start">
