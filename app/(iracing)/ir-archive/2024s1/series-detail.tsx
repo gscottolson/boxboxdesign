@@ -3,7 +3,6 @@
 import { Document, Thumbnail } from 'react-pdf';
 import { pdfjs } from 'react-pdf';
 import React from 'react';
-import Balancer from 'react-wrap-balancer';
 import { useBarcode } from 'next-barcode';
 import { Download } from './icons';
 import { OfficialSeries } from '@/app/(iracing)/iracing/types';
@@ -57,7 +56,7 @@ export function SeriesDetail({ series }: { series: OfficialSeries }) {
             <div className="flex w-full shrink-0 flex-col justify-between px-6 text-teal800 antialiased md:w-[320px]">
                 <header className="pt-4 text-center text-xl leading-tight tracking-wide md:pt-8 md:text-left">
                     <h3 className="mb-2 pr-2 text-3xl leading-9 tracking-tight">
-                        <Balancer>{series.name}</Balancer>
+                        <span className="text-balance">{series.name}</span>
                     </h3>
                     <h4 className="text-gray700">Official Series Schedule</h4>
                     <h4 className="text-gray700">iRacing 2024 Season 1</h4>

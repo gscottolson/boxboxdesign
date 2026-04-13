@@ -3,7 +3,6 @@
 import { Document, Thumbnail } from 'react-pdf';
 import { pdfjs } from 'react-pdf';
 import React, { useState } from 'react';
-import Balancer from 'react-wrap-balancer';
 import { useBarcode } from 'next-barcode';
 import { Download } from './icons';
 import { OfficialSeries } from '@/app/(iracing)/iracing/types';
@@ -51,7 +50,7 @@ export function SeriesDetail({ series }: { series: OfficialSeries }) {
         <div className="font-semilight box-content flex w-full flex-col overflow-hidden md:flex-row md:border-[.5px] md:border-[rgba(90,90,90,0.15)] md:pt-0">
             <header className="text-lg mx-auto max-w-[320px] pb-4 pt-8 text-center leading-none tracking-wide text-teal800 antialiased md:hidden dark:text-gray-100">
                 <h3 className="mb-1 pr-2 text-xl tracking-tight">
-                    <Balancer>{series.name}</Balancer>
+                    <span className="text-balance">{series.name}</span>
                 </h3>
                 <h4 className="text-gray700 dark:text-gray-300">Official Series Schedule</h4>
                 <h4 className="text-gray700 dark:text-gray-300">iRacing 2024 Season 2</h4>
@@ -79,7 +78,7 @@ export function SeriesDetail({ series }: { series: OfficialSeries }) {
             <div className="flex w-full shrink-0 flex-col justify-between px-6 text-teal800 antialiased md:w-[320px] dark:text-gray-100">
                 <header className="hidden pt-8 text-xl leading-tight tracking-wide md:block">
                     <h3 className="mb-2 pr-2 text-3xl leading-9 tracking-tight">
-                        <Balancer>{series.name}</Balancer>
+                        <span className="text-balance">{series.name}</span>
                     </h3>
                     <h4 className="text-gray700 dark:text-gray-300">Official Series Schedule</h4>
                     <h4 className="text-gray700 dark:text-gray-300">iRacing 2024 Season 2</h4>
