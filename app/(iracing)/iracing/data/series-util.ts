@@ -33,23 +33,26 @@ export function getSeriesURL(seriesId?: string) {
     return seriesId ? `/iracing/series/${seriesId}` : '/iracing/series/notfound';
 }
 
+const ARCHIVE_SEASONS: Season[] = ['2024s1', '2024s2', '2024s3'];
+
 export function getDisciplineURL(discipline: Discipline | UpdatedDiscipline, season?: Season) {
     const seasonSlug: Season = season || '2024s1';
+    const base = ARCHIVE_SEASONS.includes(seasonSlug) ? '/ir-archive' : '/iracing';
     switch (discipline) {
         case 'Formula':
-            return `/iracing/${seasonSlug}/formula`;
+            return `${base}/${seasonSlug}/formula`;
         case 'Sports Car':
-            return `/iracing/${seasonSlug}/sportscar`;
+            return `${base}/${seasonSlug}/sportscar`;
         case 'Road':
-            return `/iracing/${seasonSlug}/road`;
+            return `${base}/${seasonSlug}/road`;
         case 'Oval':
-            return `/iracing/${seasonSlug}/oval`;
+            return `${base}/${seasonSlug}/oval`;
         case 'Dirt Road':
-            return `/iracing/${seasonSlug}/dirtroad`;
+            return `${base}/${seasonSlug}/dirtroad`;
         case 'Dirt Oval':
-            return `/iracing/${seasonSlug}/dirtoval`;
+            return `${base}/${seasonSlug}/dirtoval`;
         case 'Unranked':
-            return `/iracing/${seasonSlug}/unranked`;
+            return `${base}/${seasonSlug}/unranked`;
         default:
             return '/';
     }

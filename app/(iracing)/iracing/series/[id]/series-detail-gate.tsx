@@ -4,12 +4,12 @@ import dynamic from 'next/dynamic';
 import type { OfficialSeries } from '../../types';
 
 const SeriesDetailMono = dynamic(
-    () => import('../../2024s2/series-detail').then((m) => ({ default: m.SeriesDetail })),
+    () => import('@/app/(iracing)/ir-archive/2024s2/series-detail').then((m) => ({ default: m.SeriesDetail })),
     { ssr: false },
 );
 
 const SeriesDetailLightDark = dynamic(
-    () => import('../../2024s3/series-detail').then((m) => ({ default: m.SeriesDetail })),
+    () => import('@/app/(iracing)/ir-archive/2024s3/series-detail').then((m) => ({ default: m.SeriesDetail })),
     { ssr: false },
 );
 

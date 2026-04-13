@@ -6,6 +6,12 @@ const nextConfig = {
         return [
             { source: '/iracing', destination: '/iracing/2026s2', permanent: true },
             { source: '/iracing/', destination: '/iracing/2026s2', permanent: true },
+            { source: '/iracing/2024s1', destination: '/ir-archive/2024s1', permanent: true },
+            { source: '/iracing/2024s1/:path*', destination: '/ir-archive/2024s1/:path*', permanent: true },
+            { source: '/iracing/2024s2', destination: '/ir-archive/2024s2', permanent: true },
+            { source: '/iracing/2024s2/:path*', destination: '/ir-archive/2024s2/:path*', permanent: true },
+            { source: '/iracing/2024s3', destination: '/ir-archive/2024s3', permanent: true },
+            { source: '/iracing/2024s3/:path*', destination: '/ir-archive/2024s3/:path*', permanent: true },
         ];
     },
     turbopack: {

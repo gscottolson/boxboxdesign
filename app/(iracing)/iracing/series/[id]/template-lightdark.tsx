@@ -1,9 +1,9 @@
 import Link from 'next/link';
 import { getSiteTitle } from '@/app/site';
-import { Back } from '../../2024s3/icons';
+import { Back } from '@/app/(iracing)/ir-archive/2024s3/icons';
 import { BoxBoxDesign } from '@/app/logos';
 import { OfficialSeries } from '../../types';
-import ModeToggle from '../../2024s3/mode-toggle';
+import ModeToggle from '@/app/(iracing)/ir-archive/2024s3/mode-toggle';
 import { SeriesDetailGate } from './series-detail-gate';
 
 export function TemplateLightDark({ series, href }: { series: OfficialSeries; href: string }) {

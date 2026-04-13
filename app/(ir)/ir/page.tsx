@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import ModeToggle from '@/app/(iracing)/iracing/2024s3/mode-toggle';
+import ModeToggle from '@/app/(iracing)/ir-archive/2024s3/mode-toggle';
 import { SeasonFilter } from './season-filter';
 
 export const metadata: Metadata = {

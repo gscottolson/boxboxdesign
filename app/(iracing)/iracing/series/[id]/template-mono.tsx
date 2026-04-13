@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Back } from '../../2024s1/icons';
+import { Back } from '@/app/(iracing)/ir-archive/2024s1/icons';
 import { BoxBoxDesign } from '@/app/logos';
 import { OfficialSeries } from '../../types';
 import { getSiteTitle } from '@/app/site';

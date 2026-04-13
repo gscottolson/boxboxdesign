@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Balancer from 'react-wrap-balancer';
 import { getSiteTitle } from '../../../site';
-import { BuyMeACoffee, Next } from '../2024s1/icons';
+import { BuyMeACoffee, Next } from '@/app/(iracing)/ir-archive/2024s1/icons';
 import { getDisciplineURL } from '../data/series-util';
 import { BoxBoxDesign } from '@/app/logos';
 

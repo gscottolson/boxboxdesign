@@ -45,7 +45,7 @@ export function ModeToggleSwitch({
         >
             <span
                 className={`relative isolate inline-flex h-8 w-[68px] shrink-0 items-stretch overflow-hidden rounded-full ${track}`}
-                style={{ padding: TRACK_PAD }}
+                style={{ padding: `${TRACK_PAD}px` }}
             >
                 {/* Icons sit under the thumb; only the uncovered half is visible. */}
                 <span className="pointer-events-none absolute inset-0 z-0 flex">
@@ -59,10 +59,10 @@ export function ModeToggleSwitch({
                 <span
                     className={`pointer-events-none absolute z-10 rounded-full ${thumb}`}
                     style={{
-                        left: TRACK_PAD,
+                        left: `${TRACK_PAD}px`,
                         top: '50%',
-                        width: THUMB_PX,
-                        height: THUMB_PX,
+                        width: `${THUMB_PX}px`,
+                        height: `${THUMB_PX}px`,
                         transform: `translateY(-50%) translateX(${darkMode ? 0 : THUMB_TRAVEL}px)`,
                         transition: 'transform 200ms ease-in-out',
                     }}
