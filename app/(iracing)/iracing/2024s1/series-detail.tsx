@@ -1,6 +1,6 @@
 'use client';
 
-import { Document, Page as PDFPage, Thumbnail } from 'react-pdf';
+import { Document, Thumbnail } from 'react-pdf';
 import { pdfjs } from 'react-pdf';
 import React from 'react';
 import Balancer from 'react-wrap-balancer';
@@ -10,7 +10,10 @@ import { OfficialSeries } from '../types';
 
 const pdfHeight = 640;
 
-pdfjs.GlobalWorkerOptions.workerSrc = new URL('pdfjs-dist/build/pdf.worker.min.js', import.meta.url).toString();
+pdfjs.GlobalWorkerOptions.workerSrc = new URL(
+    'pdfjs-dist/build/pdf.worker.min.mjs',
+    import.meta.url,
+).toString();
 
 export function SeriesDetail({ series }: { series: OfficialSeries }) {
     const { inputRef } = useBarcode<HTMLImageElement>({

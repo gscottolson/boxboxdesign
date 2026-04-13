@@ -1,8 +1,10 @@
-const styleguide = require('@vercel/style-guide/prettier');
-
+/** Prettier config (previously extended @vercel/style-guide/prettier; dropped for ESLint 9 + Next 16 compatibility). */
 module.exports = {
-  ...styleguide,
-  printWidth: 120,
-  tabWidth: 4,
-  plugins: [...styleguide.plugins, 'prettier-plugin-tailwindcss'],
+    printWidth: 120,
+    tabWidth: 4,
+    singleQuote: true,
+    trailingComma: 'all',
+    semi: true,
+    arrowParens: 'always',
+    plugins: ['prettier-plugin-tailwindcss'],
 };

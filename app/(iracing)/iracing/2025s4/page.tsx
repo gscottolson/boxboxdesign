@@ -1,8 +1,8 @@
 import type { SeriesClientProps } from '../2026s2/SeriesClient';
 import type { ScheduleSeasonKey } from '../2026s2/SeriesClientSeason';
 
-/** `force-static` in dev breaks RSC/chunk loading for this route (console 404 spam). Prod stays static. */
-export const dynamic = process.env.NODE_ENV === 'production' ? 'force-static' : 'force-dynamic';
+/** Next.js 16 requires a string literal here (no `NODE_ENV` branching). */
+export const dynamic = 'force-static';
 
 async function ProdPage() {
     const [{ default: SeriesClient }, { default: seriesJson }] = await Promise.all([

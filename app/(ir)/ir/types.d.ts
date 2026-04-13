@@ -1,14 +1,19 @@
-import React from 'react';
+import type { DetailedHTMLProps, HTMLAttributes } from 'react';
 
-declare global {
+declare module 'react' {
     namespace JSX {
         interface IntrinsicElements {
-            ['swiper-container']: React.DetailedHTMLProps<
-                React.HTMLAttributes<HTMLElement>,
-                HTMLElement,
-                'slide-per-view'
-            >;
-            ['swiper-slide']: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement, 'role'>;
+            'swiper-container': DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement> & {
+                init?: string;
+                /** Swiper custom element uses DOM `class`, not only React `className`. */
+                class?: string;
+            };
+            'swiper-slide': DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement> & {
+                'data-hash'?: string;
+                class?: string;
+            };
         }
     }
 }
+
+export {};

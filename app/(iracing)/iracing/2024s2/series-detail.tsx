@@ -1,6 +1,6 @@
 'use client';
 
-import { Document, Page as PDFPage, Thumbnail } from 'react-pdf';
+import { Document, Thumbnail } from 'react-pdf';
 import { pdfjs } from 'react-pdf';
 import React, { useState } from 'react';
 import Balancer from 'react-wrap-balancer';
@@ -11,7 +11,10 @@ import { useTheme } from 'next-themes';
 
 const pdfHeight = 640;
 
-pdfjs.GlobalWorkerOptions.workerSrc = new URL('pdfjs-dist/build/pdf.worker.min.js', import.meta.url).toString();
+pdfjs.GlobalWorkerOptions.workerSrc = new URL(
+    'pdfjs-dist/build/pdf.worker.min.mjs',
+    import.meta.url,
+).toString();
 
 type LoadingState = 'initial' | 'loading' | 'success';
 

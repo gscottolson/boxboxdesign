@@ -5,8 +5,13 @@ import { notFound } from 'next/navigation';
 import { TemplateMono } from './template-mono';
 import { TemplateLightDark } from './template-lightdark';
 
-export function generateMetadata({ params }: { params: { id: string } }): Metadata {
-    const [series] = getSeriesById(params.id);
+export async function generateMetadata({
+    params,
+}: {
+    params: Promise<{ id: string }>;
+}): Promise<Metadata> {
+    const { id } = await params;
+    const [series] = getSeriesById(id);
     const description = `https://boxbox.design/${series.srcDark}`;
     const title = getDetailTitle(series.name);
     return {
@@ -55,8 +60,9 @@ export function generateStaticParams() {
     });
 }
 
-export default function Page({ params }: { params: { id: string } }) {
-    const result = getSeriesById(params.id);
+export default async function Page({ params }: { params: Promise<{ id: string }> }) {
+    const { id } = await params;
+    const result = getSeriesById(id);
     const series = result[0];
     const { season } = series;
     const href = getDisciplineURL(series.discipline, season);

@@ -1,10 +1,10 @@
-import { SeriesDetail } from '../../2024s3/series-detail';
 import Link from 'next/link';
 import { getSiteTitle } from '@/app/site';
 import { Back } from '../../2024s3/icons';
 import { BoxBoxDesign } from '@/app/logos';
 import { OfficialSeries } from '../../types';
 import ModeToggle from '../../2024s3/mode-toggle';
+import { SeriesDetailGate } from './series-detail-gate';
 
 export function TemplateLightDark({ series, href }: { series: OfficialSeries; href: string }) {
     return (
@@ -12,7 +12,7 @@ export function TemplateLightDark({ series, href }: { series: OfficialSeries; hr
             <ModeToggle />
 
             <div className="mt-20 md:max-h-[640px] md:bg-white400/50 md:shadow-2xl dark:md:bg-neutral-700">
-                <SeriesDetail series={series} />
+                <SeriesDetailGate series={series} variant="lightdark" />
             </div>
 
             <div className="m-auto flex flex-col items-center gap-8 px-4 py-6 subpixel-antialiased md:m-0 md:flex-row md:justify-between md:gap-0 dark:text-gray-100">
