@@ -35,7 +35,7 @@ function Item({
     const classes = active
         ? 'text-gray-100 bg-teal800/50 dark:bg-gray-900/50 inner-shadow cursor-default drop-shadow-sm'
         : 'hover:bg-teal800/10 cursor-pointer';
-    const itemURL = label === 'About the project' ? '/iracing' : url || getDisciplineURL(label, '2024s2'); // otherwise set it to the provided URL or the mapped discipline URL
+    const itemURL = label === 'About the project' ? '/iracing/project' : url || getDisciplineURL(label, '2024s2'); // otherwise set it to the provided URL or the mapped discipline URL
     return (
         <li>
             <Link className={`${classes} whitespace-nowrap rounded-md px-4 py-1 transition-all`} href={itemURL}>
