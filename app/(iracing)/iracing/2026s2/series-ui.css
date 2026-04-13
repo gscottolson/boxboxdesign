@@ -279,6 +279,16 @@
     display: none;
 }
 
+/* Match .series-nav-toggle + temp-unit-toggle track: subtle fill on hover/focus. */
+.season-menu-trigger {
+    border-radius: 4px;
+}
+
+.season-menu-trigger:hover,
+.season-menu-trigger:focus-visible {
+    background: var(--mode-toggle-track);
+}
+
 @media (max-width: 760px) {
     /* No horizontal padding here — it stacked with .series-detail-pane padding-inline. */
     .page-root {
@@ -336,10 +346,6 @@
         visibility: visible;
     }
 
-    .page-header {
-        padding-left: 0.75rem !important;
-    }
-
     .series-nav-toggle {
         display: flex;
         align-items: center;
@@ -349,9 +355,15 @@
         flex-shrink: 0;
         background: none;
         border: none;
+        border-radius: 4px;
         cursor: pointer;
         padding: 0;
         color: var(--fg-body);
+    }
+
+    .series-nav-toggle:hover,
+    .series-nav-toggle:focus-visible {
+        background: var(--mode-toggle-track);
     }
 
     .series-detail {

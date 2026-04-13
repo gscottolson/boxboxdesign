@@ -1827,7 +1827,7 @@ export default function SeriesClient({ series, initialTempUnit, initialDarkMode 
             )}
         >
             {/* Page header */}
-            <div className="page-header box-border flex h-[4.5rem] shrink-0 items-center gap-2 bg-[var(--bg)] px-4 py-3 z-20">
+            <div className="page-header box-border flex h-[4.5rem] shrink-0 items-center gap-2 bg-[var(--bg)] px-[28px] py-3 z-20">
                 <button
                     className="series-nav-toggle pointer-events-auto shrink-0"
                     ref={navToggleRef}
@@ -1887,8 +1887,10 @@ export default function SeriesClient({ series, initialTempUnit, initialDarkMode 
                         </svg>
                     )}
                 </button>
-                <div className="min-w-0 flex-1 text-[1.1em] font-bold leading-tight text-[var(--fg)]">
-                    iRacing Official Schedule
+                <div className="min-w-0 flex-1 leading-tight text-[var(--fg)]">
+                    <span className="text-[22px] font-extrabold uppercase tracking-[0.01rem]">
+                        <span className="normal-case">i</span>{'Racing Official Schedule'}
+                    </span>
                     <br />
                     <div className="relative inline-flex max-w-full align-top" ref={seasonMenuRef}>
                         <button
@@ -1898,12 +1900,12 @@ export default function SeriesClient({ series, initialTempUnit, initialDarkMode 
                             aria-expanded={seasonMenuOpen}
                             aria-haspopup="listbox"
                             aria-controls="schedule-season-menu"
-                            className="season-menu-trigger flex max-w-[min(100%,28ch)] cursor-pointer items-center gap-1 border-0 bg-transparent py-0.5 pl-0 pr-0 text-left text-[0.8em] font-normal text-[var(--fg-muted)] underline decoration-transparent outline-none hover:underline hover:decoration-[var(--fg-muted)] focus-visible:ring-2 focus-visible:ring-[var(--fg-muted)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg)]"
+                            className="season-menu-trigger -mx-2.5 flex cursor-pointer items-center gap-2.5 border-0 bg-transparent px-2.5 py-0.5 text-left text-[18px] font-bold tracking-[0.01rem] text-[var(--fg)] outline-none focus-visible:ring-2 focus-visible:ring-[var(--fg)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg)]"
                             onClick={() => setSeasonMenuOpen((o) => !o)}
                         >
-                            <span className="min-w-0 truncate">{currentSeason?.label ?? 'Season'}</span>
+                            <span className="min-w-0">{currentSeason?.label ?? 'Season'}</span>
                             <svg
-                                className="pointer-events-none size-3.5 shrink-0 text-[var(--fg-muted)]"
+                                className="pointer-events-none size-3.5 shrink-0 text-[var(--fg)]"
                                 viewBox="0 0 12 8"
                                 fill="none"
                                 aria-hidden
