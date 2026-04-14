@@ -322,6 +322,17 @@ function getNavInnerGeometry(
     return { x, y, w, h };
 }
 
+/** Vertical offset from scrollEl’s content origin to el’s border box (handles wrapper divs / transform layers). */
+function offsetTopWithinScrollAncestor(el: HTMLElement, scrollEl: HTMLElement): number {
+    let y = 0;
+    let current: HTMLElement | null = el;
+    while (current && current !== scrollEl) {
+        y += current.offsetTop;
+        current = current.offsetParent as HTMLElement | null;
+    }
+    return y;
+}
+
 const FILLER = new Set(['series', 'iracing', 'racing', 'official', 'the', 'championship', 'season']);
 
 function toSlug(name: string): string {
@@ -1756,7 +1767,7 @@ export default function SeriesClient({ series, initialTempUnit, initialDarkMode 
             pane.style.scrollSnapType = 'y mandatory';
         }
         if (delta <= 3 && pane) {
-            const targetScrollTop = targetEl.offsetTop;
+            const targetScrollTop = offsetTopWithinScrollAncestor(targetEl, pane);
             const startScrollTop = pane.scrollTop;
             const duration = 280;
             const ease = (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
@@ -2094,7 +2105,7 @@ export default function SeriesClient({ series, initialTempUnit, initialDarkMode 
                     )}
                     <div
                         ref={detailPaneRef}
-                        className="series-detail-pane absolute inset-0 overflow-y-auto [container-name:detail] [container-type:inline-size] snap-y snap-mandatory"
+                        className="series-detail-pane absolute inset-0 overflow-y-auto snap-y snap-mandatory"
                     >
                         {showColumns && (
                             <div className="col-overlay pointer-events-none fixed inset-0 z-[100] grid grid-cols-[32ch_minmax(0,2fr)_minmax(0,3fr)] gap-x-8 pr-8">
@@ -2106,18 +2117,25 @@ export default function SeriesClient({ series, initialTempUnit, initialDarkMode 
                                 ))}
                             </div>
                         )}
-                        {flatSeries.map((s, idx) => (
-                            <SeriesCard
-                                key={s.series || idx}
-                                ref={(el) => {
-                                    seriesRefs.current[idx] = el;
-                                }}
-                                s={s}
-                                idx={idx}
-                                showGrid={showGrid}
-                                tempUnit={tempUnit}
-                            />
-                        ))}
+                        {/*
+                          Container query lives on this inner wrapper, not the scrollport: WebKit often
+                          fails to paint snap children during scroll momentum when container-type and
+                          overflow scroll share the same element.
+                        */}
+                        <div className="series-detail-pane-list w-full [container-name:detail] [container-type:inline-size]">
+                            {flatSeries.map((s, idx) => (
+                                <SeriesCard
+                                    key={s.series || idx}
+                                    ref={(el) => {
+                                        seriesRefs.current[idx] = el;
+                                    }}
+                                    s={s}
+                                    idx={idx}
+                                    showGrid={showGrid}
+                                    tempUnit={tempUnit}
+                                />
+                            ))}
+                        </div>
                     </div>
                 </div>
             </div>

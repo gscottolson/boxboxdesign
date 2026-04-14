@@ -185,6 +185,17 @@
     padding-left: 0.375rem;
     /* No horizontal scroll: schedule row uses nowrap + overflow visible; clip X, keep Y. */
     overflow-x: hidden;
+    /* Where supported, clip paints more predictably than hidden with scroll-snap (Safari). */
+    overflow-x: clip;
+}
+
+/*
+ * WebKit: during scroll-snap momentum, descendants sometimes stay uncomposited until scroll end.
+ * One layer per snap section (SeriesCard root) forces repaints while scrolling.
+ */
+.series-detail-pane-list > div {
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
 }
 
 @media (min-width: 761px) {
