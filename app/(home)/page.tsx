@@ -41,18 +41,21 @@ export default function Page() {
 
                 <nav className="text-l flex w-auto flex-col justify-start pb-6">
                     <p className="pb-2 pl-8 pt-0 font-semibold uppercase tracking-[0.15em] lg:pt-48">Projects</p>
-                    <ul className="flex flex-col justify-center gap-4 px-8 font-medium sm:flex-row">
+                    <ul className="m-0 flex list-none flex-col justify-center gap-4 px-8 font-medium sm:flex-row sm:items-start">
                         <li className="w-auto">
-                            <Link href="/iracing" className="inline-block">
-                                <div className="image-container relative inline-block opacity-75 mix-blend-multiply transition-opacity duration-500 ease-in-out hover:opacity-85">
+                            <Link
+                                href="/iracing"
+                                className="inline-block text-inherit no-underline visited:text-inherit"
+                            >
+                                <div className="image-container">
                                     <Image
                                         src="/home/posters-hover.png"
-                                        width="280"
-                                        height="136"
-                                        alt="{getiRacingSiteTitle()}"
-                                        className="gb-image relative h-auto opacity-50 brightness-[300%] contrast-[120%] saturate-0"
+                                        width={280}
+                                        height={136}
+                                        alt={getiRacingSiteTitle()}
+                                        className="gb-image block h-full w-full object-cover opacity-50 brightness-[300%] contrast-[120%] saturate-0"
                                     />
-                                    <div className="image-overlay absolute left-0 top-0 h-full w-full bg-[#1a575a] opacity-100 mix-blend-soft-light" />
+                                    <div className="image-overlay" aria-hidden="true" />
                                 </div>
                                 <p className="project-link-text pt-2 text-left font-light uppercase leading-[1.1] hover:border-b hover:border-b-[0.5px] hover:border-[#9bb0a4]">
                                     {getiRacingSiteTitle()}
@@ -60,16 +63,21 @@ export default function Page() {
                             </Link>
                         </li>
                         <li className="w-auto">
-                            <Link href="/ioverlay" className="inline-block" target="_blank" rel="noopener noreferrer">
-                                <div className="image-container relative inline-block opacity-75 mix-blend-multiply transition-opacity duration-500 ease-in-out hover:opacity-85">
+                            <Link
+                                href="/ioverlay"
+                                className="inline-block text-inherit no-underline visited:text-inherit"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <div className="image-container">
                                     <Image
-                                        width="280"
-                                        height="136"
+                                        width={280}
+                                        height={136}
                                         alt="iOverlay composition"
                                         src="/home/ioverlay-hover.png"
-                                        className="ioverlay-image relative h-auto opacity-50 brightness-[120%] contrast-[90%] saturate-0"
+                                        className="ioverlay-image block h-full w-full object-cover opacity-50 brightness-[120%] contrast-[90%] saturate-0"
                                     />
-                                    <div className="image-overlay absolute left-0 top-0 h-full w-full bg-[#1a575a] opacity-100 mix-blend-soft-light" />
+                                    <div className="image-overlay" aria-hidden="true" />
                                 </div>
                                 <p className="project-link-text pt-2 text-left font-light uppercase leading-[1.1] hover:border-b-[0.5px] hover:border-[#9bb0a4]">
                                     iOverlay Identity Refresh

@@ -28,3 +28,39 @@ header::after {
     white-space: pre-line;
     display: block;
 }
+
+nav ul {
+    list-style: none;
+}
+
+nav a {
+    color: inherit;
+    text-decoration: none;
+}
+
+nav a:visited {
+    color: inherit;
+}
+
+.image-container {
+    position: relative;
+    display: inline-block;
+    width: 280px;
+    height: 136px;
+    overflow: hidden;
+    opacity: 0.75;
+    mix-blend-mode: multiply;
+    transition: opacity 500ms ease-in-out;
+}
+
+.image-container:hover {
+    opacity: 0.85;
+}
+
+.image-overlay {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-color: #1a575a;
+    mix-blend-mode: soft-light;
+}
