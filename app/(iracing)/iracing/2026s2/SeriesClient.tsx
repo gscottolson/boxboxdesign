@@ -540,7 +540,6 @@ const SeriesCard = memo(
                     justifyContent: 'flex-start',
                     paddingTop: '4rem',
                     paddingBottom: '4rem',
-                    scrollSnapAlign: 'start',
                     backgroundImage: showGrid
                         ? 'repeating-linear-gradient(to bottom, rgba(0,0,0,0.2) 0px, rgba(0,0,0,0.2) 1px, transparent 1px, transparent 26px)'
                         : 'none',
@@ -1764,7 +1763,6 @@ export default function SeriesClient({ series, initialTempUnit, initialDarkMode 
         if (navRafRef.current && pane) {
             cancelAnimationFrame(navRafRef.current.id);
             navRafRef.current = null;
-            pane.style.scrollSnapType = 'y mandatory';
         }
         if (delta <= 3 && pane) {
             const targetScrollTop = offsetTopWithinScrollAncestor(targetEl, pane);
@@ -1774,7 +1772,6 @@ export default function SeriesClient({ series, initialTempUnit, initialDarkMode 
             const raf = { id: 0 };
             navRafRef.current = raf;
             let startTime = -1;
-            pane.style.scrollSnapType = 'none';
             const step = (now: number) => {
                 if (startTime < 0) startTime = now;
                 const t = Math.min(1, (now - startTime) / duration);
@@ -1783,7 +1780,6 @@ export default function SeriesClient({ series, initialTempUnit, initialDarkMode 
                     raf.id = requestAnimationFrame(step);
                 } else {
                     navRafRef.current = null;
-                    pane.style.scrollSnapType = 'y mandatory';
                     suppressScroll.current = false;
                 }
             };
@@ -2105,7 +2101,7 @@ export default function SeriesClient({ series, initialTempUnit, initialDarkMode 
                     )}
                     <div
                         ref={detailPaneRef}
-                        className="series-detail-pane absolute inset-0 overflow-y-auto snap-y snap-mandatory"
+                        className="series-detail-pane absolute inset-0 overflow-y-auto"
                     >
                         {showColumns && (
                             <div className="col-overlay pointer-events-none fixed inset-0 z-[100] grid grid-cols-[32ch_minmax(0,2fr)_minmax(0,3fr)] gap-x-8 pr-8">
@@ -2119,8 +2115,8 @@ export default function SeriesClient({ series, initialTempUnit, initialDarkMode 
                         )}
                         {/*
                           Container query lives on this inner wrapper, not the scrollport: WebKit often
-                          fails to paint snap children during scroll momentum when container-type and
-                          overflow scroll share the same element.
+                          fails to paint children during scroll momentum when container-type and overflow
+                          scroll share the same element.
                         */}
                         <div className="series-detail-pane-list w-full [container-name:detail] [container-type:inline-size]">
                             {flatSeries.map((s, idx) => (
